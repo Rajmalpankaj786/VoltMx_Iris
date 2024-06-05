@@ -1,0 +1,111 @@
+#if($focusSkin)
+	#set($s = $skin)
+#else
+	#set($s = "." + $skin)
+#end
+$s{    
+    #if($forking)
+        #parse("tpxadviecssborderspecific.vm")
+    #else
+        #parse("tpxadviecssborder.vm")
+    #end
+    #parse("tppalmmojocssfonts.vm")
+     #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end
+    #if($background-color)
+        #if($rgba == "true")
+            background-color : $background-color;
+        #else
+             #set($bc = "#" + $background-color)
+             background-color: $bc;
+        #end
+    #elseif($bg-grad-split-ms)
+        #parse("tpxspaiecssbggradient.vm")
+    #elseif($background-image)
+        #parse("tpspagenericbgimage.vm")
+    #else
+        background: inherit;
+    #end
+#if($forking)
+    #parse("tpxadvieshadowcss.vm")
+#end    
+}
+#if($focusSkin)
+$s a:active{
+   #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+   #end
+   #if($font-style=="underline")
+        text-decoration:underline;
+   #elseif($font-style=="overline")
+        text-decoration:overline;
+   #elseif($font-style=="line-through")
+        text-decoration:line-through;
+   #elseif($font-style=="italic")
+        font-style: italic;
+        text-decoration:none;
+   #else
+        text-decoration:none;
+   #end
+}
+#else
+$s a:link{
+   #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+   #end
+   #if($font-style=="underline")
+        text-decoration:underline;
+   #elseif($font-style=="overline")
+        text-decoration:overline;
+   #elseif($font-style=="line-through")
+        text-decoration:line-through;
+   #elseif($font-style=="italic")
+        font-style: italic;
+        text-decoration:none;
+   #else
+        text-decoration:none;
+   #end
+}
+#end
+#if($pimgexists=="true")
+input[selected="progress"][kprogressskin="$skin"]
+{
+    #if($background-color)
+         #if($rgba == "true")
+         filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$background-color', endColorstr='$background-color');
+         #else
+         filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$background-color', endColorstr='$background-color');
+         #end
+    #elseif($background-gradient)
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$topcolor', endColorstr='$bottomcolor');
+    #elseif($background-split)
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$topcolor', endColorstr='$bottomcolor');
+     #elseif($transparent)
+        background-image : url(./images/$pimgname) !important;
+        background-repeat: no-repeat;
+     #else
+        background: url(./images/$pimgname) no-repeat, url(./images/$background-image);
+    #end
+
+    #if($pimgloc=="left")
+    background-position: left center;
+    #elseif($pimgloc=="right")
+    background-position: right center;
+    #elseif($pimgloc=="center")
+    background-position: center center;
+    #end
+}
+#end

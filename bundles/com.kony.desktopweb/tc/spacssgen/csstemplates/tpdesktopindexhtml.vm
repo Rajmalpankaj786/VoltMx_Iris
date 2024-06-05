@@ -1,0 +1,19 @@
+#parse("tpdesktopindexheaderjsp.vm")
+
+
+<!DOCTYPE html>
+<html $htmlAttrs>
+    <head>
+        #if($jspgeneration=="true")
+        <% String userAgent = request.getHeader("user-agent");
+        if(userAgent != null && userAgent.toLowerCase().contains("trident")){%>
+            $ieMetaTag
+        <%}%>
+        #end
+        #parse("tpdesktopindexheadercontent.vm")
+    </head>
+    <body $bodyAttrs>
+        #parse("tpdesktopindexbodyjsp.vm")
+        #parse("tpdesktopindexbodycontent.vm")
+    </body>
+</html>

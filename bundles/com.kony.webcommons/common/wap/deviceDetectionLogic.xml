@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<devicedetection>
+
+    <genericdevicefamilies names = "bot,opera,nokia,blackberry,playbook,iphone,ipad,android,windows,webos,generic,bb10"/>
+
+    <!-- Opera browser Device -->
+    <subdevicefamily name="opera">
+        <individualdevicefamily name="operamini" familyregex="^.*opera.*mini.*$" familyuniqueidentifier="opera" excludelastchar="true" defaultwidth="320" markup="xhtml"/>
+        <individualdevicefamily name="operamobi11" familyregex="^.*opera.*mobi.*/11\.[0-9].*$" familyuniqueidentifier="opera" excludelastchar="true" defaultwidth="320" markup="nth"/>
+        <individualdevicefamily name="operamobi" familyregex="^.*opera.*mobi.*$" familyuniqueidentifier="opera" excludelastchar="true" defaultwidth="320" markup="bjs"/>
+        <individualdevicefamily name="operageneric" familyregex="^.*opera.*$" familyuniqueidentifier="opera" excludelastchar="true" defaultwidth="320" markup="bjs"/>
+    </subdevicefamily>
+    
+    <subdevicefamily name="nokia">
+    	<individualdevicefamily name="win10Lumia" familyregex="^.*windows\sphone\s10.*edge.*$" familyuniqueidentifier="^.*windows\sphone\s10.*" excludelastchar="true" defaultwidth="320" markup="nth" spamarkup="spawinphone8"/>
+    	<individualdevicefamily name="winphone8generic" familyregex="^.*msie\s([1][0-9]).*windows\sphone\s.*$" familyuniqueidentifier="microsoft;.*\)$" excludelastchar="true" defaultwidth="320" markup="nth" spamarkup="spawinphone8"/>
+		<individualdevicefamily name="win8tab" familyregex="^.*msie\s([1][0-9]).*$" familyuniqueidentifier="microsoft;.*\)$" excludelastchar="true" defaultwidth="320" markup="nth" spamarkup="spawindowstablet"/>
+		<individualdevicefamily name="winphone81generic" familyregex="^.*phone.*trident.*rv:([1][0-9]).*$" familyuniqueidentifier="microsoft;.*\)$" excludelastchar="true" defaultwidth="320" markup="nth" spamarkup="spawinphone8"/>
+		<individualdevicefamily name="winphone81rvnokia" familyregex="^.*phone.*rv:([1][0-9]).*$" familyuniqueidentifier="nokia;.*\)$" excludelastchar="true" defaultwidth="320" markup="nth" spamarkup="spawinphone8"/>
+		<individualdevicefamily name="win81tab" familyregex="^.*trident.*rv:([1][0-9]).*$" familyuniqueidentifier="microsoft;.*\)$" excludelastchar="true" defaultwidth="320" markup="nth" spamarkup="spawindowstablet"/>
+		<individualdevicefamily name="nokiae72" familyregex="^.*nokia.*/.*e72.*$" excludelastchar="true" familyuniqueidentifier="nokia.+?/" defaultwidth="240" markup="bjs"/>
+		<individualdevicefamily name="nokia909" familyregex="^.*nokia.*/.*909.*$" excludelastchar="true" familyuniqueidentifier="nokia.+?/" defaultwidth="240" markup="bjs"/>
+        <individualdevicefamily name="nokiaapple525" familyregex="^.*nokia.*/.*applewebkit/5((2[5-9])|([3-9][0-9])).*$" excludelastchar="true" familyuniqueidentifier="nokia.+?/" defaultwidth="240" markup="palm"/>
+        <individualdevicefamily name="nokiaapple413" familyregex="^.*nokia.*/.*applewebkit/413.*$" excludelastchar="true" familyuniqueidentifier="nokia.+?/" defaultwidth="240" markup="bjs"/>
+        <individualdevicefamily name="nokiageneric" familyregex="^.*^[Windows\sPhone].*nokia.*$" familyuniqueidentifier="nokia.+?/" excludelastchar="true" defaultwidth="240" markup="xhtml"/>
+		<individualdevicefamily name="win9generic" familyregex="^.*msie\s[9].*$" familyuniqueidentifier="microsoft;.*\)$" excludelastchar="true" defaultwidth="320" markup="nth" spamarkup="spawinphone8"/>
+		<individualdevicefamily name="win10Lumia" familyregex="^.*windows\sphone\s10.*edge.*$" familyuniqueidentifier="^.*windows\sphone\s10.*" excludelastchar="true" defaultwidth="320" markup="nth" spamarkup="spawinphone8"/>
+        <individualdevicefamily name="androidmobilegeneric" familyregex="^.*android.*mobile.*$" familyuniqueidentifier="andorid" excludelastchar="true" defaultwidth="320" markup="android" spamarkup="spaandroid" />
+        <individualdevicefamily name="androidtabletgeneric" familyregex="^.*android.*$" familyuniqueidentifier="andorid" excludelastchar="true" defaultwidth="320" markup="android" spamarkup="spaandroidtablet" />
+    </subdevicefamily>
+    <subdevicefamily name="bb10">
+        <individualdevicefamily name="blackberry60" familyregex="^.*bb10.*applewebkit.*$" familyuniqueidentifier="bb10;touch.*\)$" excludelastchar="true" defaultwidth="320" markup="bb"  spamarkup="spablackberry"/>
+    </subdevicefamily>
+    <subdevicefamily name="blackberry">
+
+		<individualdevicefamily name="blackberry9380" familyregex="^.*blackberry\s(9380|9790).*applewebkit.*$" familyuniqueidentifier="blackberry\s[0-9]+;" excludelastchar="true" defaultwidth="320" markup="bb"  spamarkup="spablackberry"/>
+		<individualdevicefamily name="blackberrynth" familyregex="^.*blackberry\s[8-9][0-7][0-9][0-9].*applewebkit.*$" familyuniqueidentifier="blackberry\s[0-9]+;" excludelastchar="true" defaultwidth="320" markup="nth" spamarkup="spablackberry"/>		
+
+
+        <individualdevicefamily name="blackberry46" familyregex="^.*blackberry.*/4\.6\.[0-9].*$" familyuniqueidentifier="blackberry.*/4\.6\.?" excludelastchar="true" defaultwidth="320" markup="bjs"/>
+        <individualdevicefamily name="blackberry47" familyregex="^.*blackberry.*/4\.7\.[0-9].*$" familyuniqueidentifier="blackberry.*/4\.7\.?" excludelastchar="true" defaultwidth="320" markup="bjs"/>
+        <individualdevicefamily name="blackberry48" familyregex="^.*blackberry.*/4\.8\.[0-9].*$" familyuniqueidentifier="blackberry.*/4\.8\.?" excludelastchar="true" defaultwidth="320" markup="bjs"/>
+        <individualdevicefamily name="blackberry50" familyregex="^.*blackberry.*/5\.0\.[0-9].*$" familyuniqueidentifier="blackberry.*/5\.0\.?" excludelastchar="true" defaultwidth="320" markup="bjs"/>
+        <!-- Advanced BlackBerry devices with applewebkit support-->
+	<individualdevicefamily name="blackberry60" familyregex="^.*blackberry.*applewebkit.*$" familyuniqueidentifier="blackberry\s[0-9]+;" excludelastchar="true" defaultwidth="320" markup="bb"  spamarkup="spablackberry"/>
+
+        <!-- For blackberry versions below 4.6 we are creating family regex at the 4.5, 4.4, 4.3, 4.2 levels with out going into thier minor version nos.
+             Anything below 4.2 will not be supported.-->
+        <individualdevicefamily name="blackberry45" familyregex="^.*blackberry.*/4\.5\.[0-9].*$" familyuniqueidentifier="blackberry.*/4\.5\.?" excludelastchar="true" defaultwidth="320" markup="xhtml"/>
+        <individualdevicefamily name="blackberry44" familyregex="^.*blackberry.*/4\.4\.[0-9].*$" familyuniqueidentifier="blackberry.*/4\.4\.?" excludelastchar="true" defaultwidth="320" markup="xhtml"/>
+        <individualdevicefamily name="blackberry43" familyregex="^.*blackberry.*/4\.3\.[0-9].*$" familyuniqueidentifier="blackberry.*/4\.3\.?" excludelastchar="true" defaultwidth="320" markup="xhtml"/>
+        <individualdevicefamily name="blackberry42" familyregex="^.*blackberry.*/4\.2\.[0-9].*$" familyuniqueidentifier="blackberry.*/4\.2\.?" excludelastchar="true" defaultwidth="320" markup="xhtml"/>
+
+        <individualdevicefamily name="blackberrygeneric" familyregex="^.*blackberry.*$" familyuniqueidentifier="blackberry.*/" excludelastchar="true" defaultwidth="320" markup="xhtml"/>
+    </subdevicefamily>
+
+    <subdevicefamily name="playbook">
+        	<individualdevicefamily name="playbook" familyregex="^.*playbook.*applewebkit.*$" familyuniqueidentifier="playbook" excludelastchar="false" defaultwidth="320" markup="playbook" spamarkup="spaplaybook"/>
+    </subdevicefamily>
+    
+    <!-- This will handle iphone/ipod and ipad devices -->
+    <subdevicefamily name="iphone">
+		<individualdevicefamily name="winphone81generic" familyregex="^.*phone.*trident.*rv:([1][0-9]).*$" familyuniqueidentifier="microsoft;.*\)$" excludelastchar="true" defaultwidth="320" markup="nth" spamarkup="spawinphone8"/>
+    	<individualdevicefamily name="iphone40" familyregex="^.*iphone.os.(([4-9]_[0-9])|([1][0-9])).*applewebkit.*$" familyuniqueidentifier="iphone40" excludelastchar="false" defaultwidth="320" markup="iphone"  spamarkup="spaiphone" />
+        <individualdevicefamily name="iphone" familyregex="^.*iphone.*applewebkit.*$" familyuniqueidentifier="iphone" excludelastchar="false" defaultwidth="320" markup="iphone"/>        
+    </subdevicefamily>
+
+    <subdevicefamily name="ipad">
+        <individualdevicefamily name="ipad" familyregex="^.*ipad.*applewebkit.*$" familyuniqueidentifier="iphone" excludelastchar="false" defaultwidth="320" markup="iphone" spamarkup="spaipad" />
+    </subdevicefamily>
+
+     <!-- Windows Device -->
+    <subdevicefamily name="windows">
+    <individualdevicefamily name="win6palm" familyregex="^.*palm.*msie\s6.0.*windows.*$" familyuniqueidentifier="palm.+?\s" excludelastchar="true" defaultwidth="320" markup="xhtml"/>
+    <individualdevicefamily name="win6htc" familyregex="^.*htc.*msie\s6.0.*windows.*$" familyuniqueidentifier="htc.+?\s" excludelastchar="true" defaultwidth="320" markup="xhtml"/>
+    <individualdevicefamily name="win6htcrev" familyregex="^.*msie\s6.0.*windows.*htc.*$" familyuniqueidentifier="htc.+?\s" excludelastchar="true" defaultwidth="320" markup="xhtml"/>
+    <individualdevicefamily name="win7htc" familyregex="^.*msie\s7.*windows\sphone\sos\s7.*htc.*$" familyuniqueidentifier="htc;.*\)$" excludelastchar="true" defaultwidth="320" markup="bjs"/>
+    <individualdevicefamily name="win7lg" familyregex="^.*msie\s7.*windows\sphone\sos\s7.*lg.*$" familyuniqueidentifier="lg;.*\)$" excludelastchar="true" defaultwidth="320" markup="bjs"/>
+    <individualdevicefamily name="win7ss" familyregex="^.*msie\s7.*windows\sphone\sos\s7.*samsung.*$" familyuniqueidentifier="samsung;.*\)$" excludelastchar="true" defaultwidth="320" markup="bjs"/>
+    <individualdevicefamily name="win7ms" familyregex="^.*msie\s7.*windows\sphone\sos\s7.*microsoft.*$" familyuniqueidentifier="microsoft;.*\)$" excludelastchar="true" defaultwidth="320" markup="bjs"/>
+    <individualdevicefamily name="win7generic" familyregex="^.*msie\s[7-8].*$" familyuniqueidentifier="microsoft;.*\)$" excludelastchar="true" defaultwidth="320" markup="bjs"/>
+    <individualdevicefamily name="win9generic" familyregex="^.*msie\s([9]).*$" familyuniqueidentifier="microsoft;.*\)$" excludelastchar="true" defaultwidth="320" markup="nth" spamarkup="spawinphone8"/>
+    <individualdevicefamily name="winphone8generic" familyregex="^.*msie\s([1][0-9]).*windows\sphone\s.*$" familyuniqueidentifier="microsoft;.*\)$" excludelastchar="true" defaultwidth="320" markup="nth" spamarkup="spawinphone8"/>	
+    <individualdevicefamily name="win8tab" familyregex="^.*msie\s([1][0-9]).*$" familyuniqueidentifier="microsoft;.*\)$" excludelastchar="true" defaultwidth="320" markup="nth" spamarkup="spawindowstablet"/>		
+    <individualdevicefamily name="winphone81generic" familyregex="^.*phone.*trident.*rv:([1][0-9]).*$" familyuniqueidentifier="microsoft;.*\)$" excludelastchar="true" defaultwidth="320" markup="nth" spamarkup="spawinphone8"/>
+	<individualdevicefamily name="win81tab" familyregex="^.*trident.*rv:([1][0-9]).*$" familyuniqueidentifier="microsoft;.*\)$" excludelastchar="true" defaultwidth="320" markup="nth" spamarkup="spawindowstablet"/>
+	<individualdevicefamily name="win10tab" familyregex="^.*chrome.*edge.*$" familyuniqueidentifier="microsoft;.*\)$" excludelastchar="true" defaultwidth="320" markup="nth" spamarkup="spawindowstablet"/>
+    </subdevicefamily>
+
+
+    <!-- Palm Pre Device -->    
+    <subdevicefamily name="webos">        
+        <individualdevicefamily name="palmgeneric" familyregex="^.*webos.*pre.*$" familyuniqueidentifier="palm" excludelastchar="true" defaultwidth="320" markup="palm"/>
+        <individualdevicefamily name="palmapple" familyregex="^.*webos.*applewebkit.*$" familyuniqueidentifier="palm" excludelastchar="true" defaultwidth="320" markup="palm"/>
+        <individualdevicefamily name="webosgeneric" familyregex="^.*webos.*$" familyuniqueidentifier="palm" excludelastchar="true" defaultwidth="320" markup="palm"/>
+    </subdevicefamily>
+
+    <!-- Android Devices -->    
+    <subdevicefamily name="android">
+    	<individualdevicefamily name="win10Lumia" familyregex="^.*windows\sphone\s10.*edge.*$" familyuniqueidentifier="^.*windows\sphone\s10.*" excludelastchar="true" defaultwidth="320" markup="nth" spamarkup="spawinphone8"/>
+		<individualdevicefamily name="winphone81generic" familyregex="^.*phone.*trident.*rv:([1][0-9]).*$" familyuniqueidentifier="microsoft;.*\)$" excludelastchar="true" defaultwidth="320" markup="nth" spamarkup="spawinphone8"/>
+    	<individualdevicefamily name="androidmobile" familyregex="^.*android\s2\.[2-9].*$" familyuniqueidentifier="android\s2\.[2-9]\.?" excludelastchar="true" defaultwidth="320" markup="android" spamarkup="spaandroid"/>
+    	<!-- Added Checks for 4.0 Android Mobile and also updated for Android 3.0 Tablet -->
+        <individualdevicefamily name="androidtablet" familyregex="^.*android\s[3]\.[0-9].*$" familyuniqueidentifier="android\s3\.[0-9]\.?" excludelastchar="true" defaultwidth="320" markup="android" spamarkup="spaandroidtablet"/>
+		<individualdevicefamily name="androidmobile" familyregex="^.*android\s[4-9]\.[0-9].*mobile.*$" familyuniqueidentifier="android\s[4-9]\.[0-9]\.*mobile?" excludelastchar="true" defaultwidth="320" markup="android" spamarkup="spaandroid"/>
+    	<individualdevicefamily name="androidtablet" familyregex="^.*android\s[4-9]\.[0-9].*$" familyuniqueidentifier="android\s[4-9]\.[0-9]\.?" excludelastchar="true" defaultwidth="320" markup="android" spamarkup="spaandroidtablet"/>
+        <!-- <individualdevicefamily name="androidtablet" familyregex="^.*android\s[3-9]\.[0-9].*$" familyuniqueidentifier="android\s3\.[0-9]\.?" excludelastchar="true" defaultwidth="320" markup="android" spamarkup="spaandroidtablet"/> -->
+	    <individualdevicefamily name="androidmobilegeneric" familyregex="^.*android.*mobile.*$" familyuniqueidentifier="andorid" excludelastchar="true" defaultwidth="320" markup="android" spamarkup="spaandroid" />
+	    <individualdevicefamily name="androidtabletgeneric" familyregex="^.*android.*$" familyuniqueidentifier="andorid" excludelastchar="true" defaultwidth="320" markup="android" spamarkup="spaandroidtablet" />
+    </subdevicefamily>
+	
+     <!-- BOT UA Devices : This will be the used for BOT useragent detection-->
+    <subdevicefamily name="bot">
+        <individualdevicefamily name="bot" familyregex="^.*bot.*$" familyuniqueidentifier="bot" excludelastchar="true" defaultwidth="320" spamarkup="spabot" markup="xhtml"/>
+    </subdevicefamily> 
+        <!-- Generic Devices : This will be the last option for device detection-->
+    <subdevicefamily name="generic">
+        <individualdevicefamily name="generic" familyregex="^.*$" familyuniqueidentifier="generic" excludelastchar="true" defaultwidth="320" markup="xhtml"/>
+    </subdevicefamily>
+
+</devicedetection>

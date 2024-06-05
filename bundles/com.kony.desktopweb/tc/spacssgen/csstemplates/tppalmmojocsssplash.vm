@@ -1,0 +1,12 @@
+.fpalmLoadLoc
+{
+    background:black url(../$logo) no-repeat 50% 50%;
+    height: 460px;
+    width: 100%;
+}
+
+.loadingSpinner 
+{
+    position: absolute;
+    top: 65%; left: 145px;
+}

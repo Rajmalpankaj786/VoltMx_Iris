@@ -1,0 +1,30 @@
+{
+  "subType" : "customapp",
+  "description" : "RefGovtCitizenApp",
+  "version" : "1.0",
+  "intSvcs" : [ {
+    "name" : "RefVMXBootcampLocationLookup",
+    "version" : "1.0",
+    "etag" : "4d7d2538-c179-4191-ae75-1dac04239f2f"
+  }, {
+    "name" : "RefVMXBootcampNewsFeed",
+    "version" : "1.0",
+    "etag" : "2160e282-17ff-45fe-b365-fee61a196d56"
+  }, {
+    "name" : "RefVMXBootcampWeatherFeed",
+    "version" : "1.0",
+    "etag" : "4abd0a5b-519d-4859-b9fc-816a730d9e59"
+  } ],
+  "orchSvcs" : [ {
+    "name" : "RefVMXBootcampWeatherByLoc",
+    "version" : "1.0",
+    "etag" : "ac4e1b46-a2ff-4217-8e1a-d2c019275103"
+  } ],
+  "objectSvcs" : [ {
+    "name" : "RefNewsObjService",
+    "version" : "1.0",
+    "etag" : "6c9e3e4b-dc08-41bb-aff3-f3a706820160"
+  } ],
+  "identity" : [ "VMXBootcampIdentity" ],
+  "identitySvcConf" : "{\"session_idle_timeout_mins\":20,\"session_max_duration_mins\":360,\"show_security_attributes\":false,\"is_integrity_enabled\":false,\"auto_extend\":true}"
+}

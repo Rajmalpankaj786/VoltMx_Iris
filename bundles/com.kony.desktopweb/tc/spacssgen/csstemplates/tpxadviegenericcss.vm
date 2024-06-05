@@ -1,0 +1,107 @@
+#if($focusSkin)
+	#set($s = $skin)
+#else
+	#set($s = "." + $skin)
+#end
+$s{
+   #if($forking)
+        #parse("tpxadviecssborderspecific.vm")
+   #else
+        #parse("tpxadviecssborder.vm")
+   #end
+   #parse("tppalmmojocssfonts.vm")
+     #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end
+
+    #if($background-color)
+        #if($rgba == "true")
+            background-color : $background-color;
+        #else
+             #set($bc = "#" + $background-color)
+             background-color: $bc;
+        #end
+    #elseif($bg-grad-split-ms)
+        #parse("tpxspaiecssbggradient.vm")
+    #elseif($background-image)
+        #parse("tpspagenericbgimage.vm")
+    #elseif($transparent)
+        background: inherit;
+    #end
+
+    #if($rounded)
+         border-radius: 10px;
+    #end
+
+#if($forking)
+    #parse("tpxadvieshadowcss.vm")
+#end
+
+
+
+#if($wtype=="RichText" )
+   #if($font-style=="underline")
+        text-decoration:underline;
+   #elseif($font-style=="overline")
+        text-decoration:overline;
+   #elseif($font-style=="line-through")
+        text-decoration:line-through;
+   #elseif($font-style=="italic")
+        font-style: italic;
+        text-decoration:none;
+   #else
+        text-decoration:none;
+   #end
+#end
+}
+
+#if($wtype=="TextBox")
+    #parse("tpxadviphonetextboxskincss.vm")
+#end
+
+#if($wtype=="Grid Calendar Cell Skin")
+   #set($c = $s + "cell")
+
+$c{
+     #if($color)
+        #if($rgba_font == "true")
+            color : $color !important;
+        #else
+            color: #$color !important;
+        #end
+    #end
+    #if($background-color)
+        #if($rgba == "true")
+            background-color : $background-color !important;
+        #else
+             #set($bc = "#" + $background-color)
+             background-color: $bc !important;
+        #end
+    #elseif($bg-grad-split-ms)
+       #parse("tpxspaiecssbggradient.vm")
+    #elseif($background-image)
+        #if($repeat && $verticalrepeat)
+            background: url(./images/$background-image) repeat !important;
+        #elseif($repeat)
+            background: url(./images/$background-image) repeat-x !important;
+        #elseif($verticalrepeat)
+            background: url(./images/$background-image) repeat-y !important;
+        #else
+            background: url(./images/$background-image) no-repeat !important;
+        #end
+        #if($enable_bg_size == "true")
+                  background-size : 100% 100%;
+        #end
+    #elseif($transparent)
+        background: inherit !important;
+    #end
+   }
+#end
+
+#if($wtype == "Image")
+      #parse("tpimagewidgettintcss.vm")
+#end

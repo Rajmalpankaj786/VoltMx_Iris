@@ -1,0 +1,46 @@
+#if($focusSkin)
+	#set($s = $skin)
+#else
+	#set($s = "." + $skin)
+#end
+
+$s
+{
+    #* box-sizing: border-box;
+    -moz-box-sizing: border-box; 
+    padding: 0px; *#
+    #parse("tppalmmojocssfonts.vm")
+    #if($background-color)
+            #if($rgba == "true")
+                background-color : $background-color;
+            #else
+                #set($bc = "#" + $background-color)
+                background-color: $bc;
+            #end
+   #elseif($bg-grad-split-ms)
+        #parse("tpdesktopmozformcssbggradient.vm")
+    #elseif($background-image)
+        #if($repeat && $verticalrepeat)
+            background: url(./images/$background-image) repeat;
+        #elseif($repeat)
+            background: url(./images/$background-image) repeat-x;
+        #elseif($verticalrepeat)
+            background: url(./images/$background-image) repeat-y;
+        #else
+            background: url(./images/$background-image) no-repeat;
+        #end
+        #if($enable_bg_size == "true")
+             background-size : 100% 100%;
+        #end
+    #elseif($transparent)
+        background: inherit;
+    #end
+   #if($forking)
+        #parse("tpdesktopmozcssborderspecific.vm")
+   #else
+        #parse("tpdesktopmozcssborder.vm")
+   #end
+#if($forking)
+   #parse("tpxadvmozshadowcss.vm")
+#end
+}

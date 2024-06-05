@@ -1,0 +1,58 @@
+{
+    "@class": "com.kony.gen.viz.model.component.KVizUserWidget",
+    "DNDConfig": null,
+    "_children_": [],
+    "_height_": {
+        "type": "string",
+        "value": "90%"
+    },
+    "_left_": {
+        "type": "string",
+        "value": "0dp"
+    },
+    "_margin_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_orientation_": 1,
+    "_padding_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_percent_": true,
+    "_skin_": "s1df16dcc35045068a70a4aee877385a",
+    "_top_": {
+        "type": "string",
+        "value": "10%"
+    },
+    "_width_": {
+        "type": "string",
+        "value": "100%"
+    },
+    "canUpdateUI": true,
+    "containerweight": 0,
+    "data": {
+        "complaintOrRequestObject": "{\n  \"CategoryID\":\"\",\n  \"Name\":\"\",\n  \"Phone\":\"\",\n  \"Location\":\"\",\n  \"Description\":\"\",\n  \"Photo\":\"\",\n  \"Status\":\"Submitted\"\n}",
+        "createComplaintOrRequest": "Request",
+        "lblCapturePhotoText": "Tap here to capture photo of request"
+    },
+    "id": "createRequest",
+    "info": null,
+    "iscustomlayout": false,
+    "isvisible": true,
+    "kuid": "icab7882376a4f72bc175404096668b2",
+    "masterType": 1,
+    "name": "kony.ui.UserWidgetInstance",
+    "parent": "frmERequestsCreate",
+    "pf": "frmERequestsCreate",
+    "retaincontentalignment": false,
+    "retainflexpositionproperties": false,
+    "retainflowhorizontalalignment": false,
+    "sourceUserWidget": "fbbfb53027744f0991b8f1d70ee7a460",
+    "wType": "UserWidgetInstance",
+    "zindex": 1
+}

@@ -1,0 +1,97 @@
+#if($layout == "vertical")
+    #if($default == "true")
+    $skin {
+        font-family: $font-family;
+    font-size : $font-size;
+    font-weight : $font-weight;
+    font-style : $font-style;
+    color : #$color;
+    round : false;
+    #set($bw = $border-width + "px")
+    border-width : $bw;
+    border-style : $border-style;
+    border-color : #$border-color;
+    background-color : white;
+    padding : 1px;
+     
+        
+    }
+    #else
+     $skin {
+       font-family: $font-family;
+    font-size : $font-size;
+    font-weight : $font-weight;
+    font-style : $font-style;
+    color : #$color;
+    round : false;
+    #set($bw = $border-width + "px")
+    border-width : $bw;
+    border-style : $border-style;
+    border-color : #$border-color;
+    background-color : white;
+    padding : 1px;
+        text-decoration: none;
+  
+            }
+     #end
+#elseif($layout == "horizontal")
+#if($default == "true")
+$skin {
+    #if($width)
+        width: $width%;
+    #else
+        width: auto;
+    #end
+    padding: 1px;
+    font-family: $font-family;
+    font-size : $font-size;
+    font-weight : $font-weight;
+    font-style : $font-style;
+    color : #$color;
+    text-decoration: none;
+    #set($bw = $border-width + "px")
+    border-width : $bw;
+    border-style : $border-style;
+    border-color : #$border-color;
+    #if(!$segment)
+        float:left;
+    #end
+     #if($align)
+        text-align: $align;
+    #end
+    #parse("tpxhtmlcssmargins.vm")
+
+}
+#else
+ $skin {
+     text-decoration: none;
+    #if($width)
+        width: $width%;
+    #else
+        width: auto;
+    #end
+    #if($bottom-padding)
+        padding: 1px 1px $bottom-padding 1px;
+    #else
+        padding: 1px;
+    #end
+    font-family: $font-family;
+    font-size : $font-size;
+    font-weight : $font-weight;
+    font-style : $font-style;
+    color : #$color;
+    #set($bw = $border-width + "px")
+    border-width : $bw;
+    border-style : $border-style;
+    border-color : #$border-color;
+    #if(!$segment)
+        float:left;
+    #end
+
+    #if($align)
+        text-align: $align;
+    #end
+        }
+        #parse("tpxhtmlcssmargins.vm")
+    #end
+#end

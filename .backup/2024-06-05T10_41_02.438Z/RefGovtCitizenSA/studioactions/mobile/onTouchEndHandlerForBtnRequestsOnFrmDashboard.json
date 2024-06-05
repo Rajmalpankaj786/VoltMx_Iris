@@ -1,0 +1,36 @@
+{
+    "AS_UWI_c2fed2cd6c984aae99c753ad65f25b02": {
+        "id": "AS_UWI_c2fed2cd6c984aae99c753ad65f25b02",
+        "type": "ACTION_SEQUENCE",
+        "name": "onTouchEndHandlerForBtnRequestsOnFrmDashboard",
+        "params": [{
+            "datatype": "collection",
+            "name": "eventobject"
+        }, {
+            "datatype": "string",
+            "name": "x"
+        }, {
+            "datatype": "string",
+            "name": "y"
+        }],
+        "contextObj": {
+            "name": "frmDashboard",
+            "type": "forms",
+            "platform": "",
+            "KUID": "fcbc1ed742fd42bfba1f4b347c731809"
+        },
+        "language": "js",
+        "actions": [{
+            "id": "NAVIGATE_TO_FORM__i58b95a3fa144e13afbb14c21a9500a1",
+            "type": "NAVIGATE_TO_FORM",
+            "formId": "frmERequestsDashboard",
+            "formKUID": "f4b558b9954c4827a0c787dd5ca87fbf",
+            "projectName": "RefERequestsMA",
+            "mappings": {},
+            "mappingsOrder": [],
+            "enableMappingEditor": true,
+            "package": "",
+            "isCustomInput": false
+        }]
+    }
+}

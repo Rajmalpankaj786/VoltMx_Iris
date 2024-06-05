@@ -1,0 +1,121 @@
+
+        function initappcache () {
+            isIE =  window.navigator.appVersion.match(/MSIE (\d+)/) != null;
+
+            isIE10 = navigator.userAgent.match(/MSIE (\d+)/) != null && RegExp.$1 == "10";
+            if (document.documentElement.getAttribute("manifest") && !! window.applicationCache) {
+                    var a = ["checking", "downloading", "progress", "cached", "noupdate", "updateready", "obsolete", "error"];
+                    for (var d = 0; d < a.length; d++) {
+                            window.applicationCache.addEventListener(a[d],appcacheeventhndlr, false)
+                    }
+            } else {
+                    //voltmx.appinit.loadlibrarysync();
+
+            }
+            loadVoltmxframework();
+
+        }
+
+        function appcacheeventhndlr(event) {
+            if(!event)
+                event = window.event;
+            switch (event.type) {
+                case "checking":
+                    console.log("Checking for Manifest Version");
+                break;
+
+                case "downloading":
+                    console.log("Downloading of Manifest Resources");
+                break;
+
+                case "progress":
+                break;
+
+                case "cached":
+                    console.log("Manifest Resources loading done");
+                    //loadVoltmxframework();
+                break;
+
+                case "noupdate":
+                    console.log("No Change in Manifest File");
+                   // loadVoltmxframework();
+                break;
+
+                case "updateready":
+                    console.log("New manifest resources downloaded,swap the cache");
+                    try{
+                        window.applicationCache.swapCache();
+                        //loadVoltmxframework();
+                        window.location.reload();
+                    }catch (e) {
+                        console.log("invalid state: swapping the cache");
+                    }
+                break;
+
+                case "obsolete":
+                    console.log("Cache Manifest file not found. So deleting app cache");
+                break;
+
+                case "error":
+                    console.log("Error while loading app cache");
+                        //loadVoltmxframework();
+                break;
+
+                default:
+                    console.log("Appcache Event not supported");
+            }
+        }
+
+        function initializeframework() {
+            voltmx.appinit.prepareHttpHeaders();
+            $KG["skipproxy"] = true;
+            voltmx.appinit.verifyhref(true);
+        }
+
+        function loadVoltmxframework() {
+            appStartTime = new Date().getTime();
+            addScript("jslib/voltmxframework.js");
+        }
+
+        function loadappjs() {
+
+            $KG["platformver"] = "desktopweb/";
+            $KG["rcid"] = "spadesktopweb";
+            $KG["version"] = "$version";
+            $KG["staticContentPath"] =  "";
+            $KG["imagecat"] =  "";
+            $KG["retina"] = "";
+
+            addScript("appjs/app.js");
+        }
+
+        function addScript (src) {
+            var head =  document.getElementsByTagName('head')[0];
+            var script = document.createElement('script');
+            script.src = "$category" + src;
+            script.type = "text/javascript";
+
+           if(src ==="appjs/app.js" || src ==="appjs/appie.js"){
+                if(!script.addEventListener) {
+                    script.onreadystatechange = function(){
+                            (this.readyState == 'complete' || this.readyState == 'loaded') && initializeframework();
+                    };
+                }
+                else {
+                    script.onload = initializeframework;
+                }
+            }
+            else{
+                if(!script.addEventListener) {
+                    script.onreadystatechange = function(){
+                            (this.readyState == 'complete' || this.readyState == 'loaded') && loadappjs();
+                    };
+                }
+                else {
+                    script.onload = loadappjs;
+                }
+            }
+
+              head.appendChild(script);
+        }
+

@@ -1,0 +1,990 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--====================================================-->
+<!-- Common build file for thinclient, SPA & Desktop web  -->
+<!-- build.xml, 23/Mar/2013 -->
+<!-- Author: Narayna Murty T -->
+<!--====================================================-->
+<project name="CommonBuild" basedir=".">
+    <target name="loadTaskDefs">
+        <taskdef resource="net/sf/antcontrib/antcontrib.properties">
+            <classpath>
+                <pathelement location="${plugin.loc}/lib/ant-contrib-0.6.jar" />
+            </classpath>
+        </taskdef>
+        <taskdef name="unset" classname="ise.antelope.tasks.Unset">
+            <classpath>
+                <pathelement location="${plugin.loc}\lib\AntelopeTasks_3.4.0.jar" />
+            </classpath>
+        </taskdef>
+        <condition property="outputdir" value="jsoutput" else="output">
+            <equals arg1="js" arg2="${dev.language}" casesensitive="false" trim="true" />
+        </condition>
+                
+        <property file="common-build.properties" />
+    </target>
+    <macrodef name="replaceTokensInWebXml">
+        <attribute name="build.option" />
+        <attribute name="sessionmgr" />
+        <attribute name="buildweb" />
+        <attribute name="http.port" />
+        <attribute name="https.port" />
+        <attribute name="locales" />
+        <attribute name="jspbase" />
+        <attribute name="spatargetplatforms" />
+        <attribute name="tctargetplatforms" default=""/>
+        <attribute name="devlanguage" default="lua" />
+        <attribute name="appid" default="appid" />
+        <attribute name="cacheid" />
+        <attribute name="metaJsonfileName" default="${buildweb}/temp/meta.json" />
+        <sequential>
+            <echo message="Build web folder: @{buildweb}">
+            </echo>
+            <if>
+                <equals arg1="@{build.option}" arg2="debug" />
+                <then>
+                    <replace file="@{buildweb}/WEB-INF/web.xml" token="&lt;!-- Error Handler --&gt;" value="&lt;!-- Error Handler --&gt;&lt;!--" />
+                    <replace file="@{buildweb}/WEB-INF/web.xml" token="&lt;!-- Error Handler end --&gt;" value="--&gt;&lt;!-- Error Handler end --&gt;" />
+                </then>
+            </if>
+            <if>
+                <equals arg1="@{tctargetplatforms}" arg2="" />
+                <then>
+                    <replace file="@{buildweb}/WEB-INF/web.xml" token="&lt;!-- Start of Image Filter --&gt;" value="&lt;!-- Start of Image Filter --&gt;&lt;!--" />
+                    <replace file="@{buildweb}/WEB-INF/web.xml" token="&lt;!-- End of Image Filter --&gt;" value="--&gt;&lt;!-- End of Image Filter --&gt;" />
+                </then>
+                <else>
+                    <if>
+                        <equals arg1="@{sessionmgr}" arg2="0" />
+                        <then>
+                            <!-- For Memcache filter we need to add one more thinclient Filter before it.-->
+                            <replace file="@{buildweb}/WEB-INF/web.xml" token="&lt;!-- KonyHistoryFilter start --&gt;&lt;!--" value="&lt;!-- KonyHistoryFilter start --&gt;" />
+                            <replace file="@{buildweb}/WEB-INF/web.xml" token="--&gt;&lt;!-- KonyHistoryFilter end --&gt;" value="&lt;!-- KonyHistoryFilter end --&gt;" />
+                        </then>
+                    </if>
+                </else>
+            </if>
+            <!--  <replaceregexp file="${buildweb}/WEB-INF/web.xml" match="(^.+)([{]appid[}])(.+$)" replace="\1@{appid}\3" byline="true" /> -->
+            <replace file="@{buildweb}/WEB-INF/web.xml" token="{appid}" value="@{appid}"/>
+            <replace file="@{buildweb}/WEB-INF/web.xml" token="{httpport}" value="@{http.port}" />
+            <replace file="@{buildweb}/WEB-INF/web.xml" token="{httpsport}" value="@{https.port}" />
+            <replace file="@{buildweb}/WEB-INF/web.xml" token="{session_type}" value="@{sessionmgr}" />
+            <replace file="@{buildweb}/WEB-INF/web.xml" token="{locales}" value="@{locales}" />
+            <!-- Move JSPs to web-inf based on flag -->
+            <replace file="@{buildweb}/WEB-INF/web.xml" token="{jsp_base}" value="@{jspbase}" />
+            <!-- SPA build items -->
+			<echo message="Checking for bot..."/>
+			<echo>webapps location: ${webapps.loc}</echo>
+			<if>
+				<equals arg1="${enableseo}" arg2="true" />
+				<then>
+					<echo>spabot is available going with bot processs..</echo>
+					<replace file="@{buildweb}/WEB-INF/web.xml" token="{spa.categories}" value="@{spatargetplatforms},spabot" />
+					<if>
+						<available file="${webfiles}/spabot" />
+						<then>
+							 <mkdir dir="@{buildweb}/WEB-INF/spabot" />
+							<copy todir="@{buildweb}/WEB-INF/spabot" >
+					 			<fileset dir="${webfiles}/spabot"/>
+					 		</copy>
+						</then>
+					</if>
+					<copy file="${webapps.loc}/@{appid}/temp/sitemap.xml" todir="@{buildweb}/" failonerror="false" />
+				</then>
+				<else>
+					<echo>spabot is not available...</echo>
+					<replace file="@{buildweb}/WEB-INF/web.xml" token="{spa.categories}" value="@{spatargetplatforms}" />
+				</else>
+			</if>
+			<!-- START:: Zip format support :: Edit meta.json and include appconfig properties
+				KonyUtils.jar contains com.kony.web.util.JsonEditor Class to append appconfig to existing JSON
+							and also create a properties file with cache id (timestamp generation).
+			-->
+			<if>
+				<and>
+					<equals arg1="${buildtype}" arg2="zip"/>
+					<not>
+						<equals arg1="@{metaJsonfileName}" arg2=""/>
+					</not>
+				  </and>
+				<then>
+					<condition property="finalspatargetplatforms" value="@{spatargetplatforms},spabot" else="@{spatargetplatforms}">
+						<equals arg1="${enableseo}" arg2="true" />
+					</condition>
+					<property name="appconfigjson" value="{'buildoption':'@{build.option}','applocales':'@{locales}', 'spa':'${finalspatargetplatforms}',
+									 'appid':'@{appid}', 'devicedblookup':'false', 'smsecure':'',
+									 'cacheId':'@{cacheid}', 'cacheUrl': '@{appid}/@{cacheid}'}" />
+					<konyutilsjavaexec classToExecute="com.kony.web.util.JsonEditor" arg1="@{metaJsonfileName}" arg2="${appconfigjson}" />
+				</then>
+			</if>
+			<!-- END:: Zip format support -->
+             <if>
+                <equals arg1="@{tctargetplatforms}" arg2="" />
+                <then>
+                    <replace file="@{buildweb}/WEB-INF/web.xml" token="KonyWebWAPController" value="KonyWebCommon" />
+                </then>
+            </if>
+
+           <if>
+                <equals arg1="js" arg2="@{devlanguage}" casesensitive="false" trim="true" />
+                <then>
+                    <!-- FOR JS projects replace web.controller.KonyWebWAPController with rhino.KonyRhinoController -->
+                    <replace file="@{buildweb}/WEB-INF/web.xml" token="web.controller.KonyWebWAPController" value="rhino.KonyRhinoController" />
+                </then>
+            </if>
+
+        </sequential>
+    </macrodef>
+
+	<macrodef name="konyutilsjavaexec">
+		<attribute name="classToExecute" />
+		<attribute name="arg1" default="" />
+		<attribute name="arg2" default="" />
+		<sequential>
+			<property name="buildwaplocation" location="${appfolder}/build/wap" />
+			<var name="javaexe" value="java"/>
+			<if>
+				<isset property="installer.javahome" />
+				<then>
+					<var name="javaexe" value="${installer.javahome}/bin/java"/>
+				</then>
+			</if>
+			<exec executable="${javaexe}">
+				<arg line=" -cp"/>
+				<arg path="${buildwaplocation}/gson-2.8.9.jar;${buildwaplocation}/KonyUtils.jar" />
+				<arg value="@{classToExecute}" />
+				<arg value="@{arg1}" />
+				<arg value="@{arg2}" />
+			</exec>
+		</sequential>
+	</macrodef>
+
+    <!-- prepare scripts and dlls for lua compile -->
+    <target name="pre-compilelua">
+        <mkdir dir="luascripts" />
+        <copy todir="luascripts" failonerror="false">
+            <fileset dir="${lua.modules}" includes="**/*.lua" />
+            <filterchain>
+                <concatfilter prepend="../server/m4concate.txt" />
+            </filterchain>
+        </copy>
+        <!-- To ensure that the luac compilation does not break if no .lua file is found -->
+        <touch file="luascripts/_test.lua" />
+        <copy file="../m4routine.bat" todir="${basedir}" />
+        <copy file="../formatterroutine.bat" todir="${basedir}" />
+        <copy file="../regex2.dll" todir="${basedir}" />
+        <copy file="../m4.exe" todir="${basedir}" />
+        <copy file="../formatter.exe" todir="${basedir}" />
+        <delete failonerror="false">
+            <fileset dir="${buildweb}/WEB-INF/scripts">
+                <include name="*.o" />
+            </fileset>
+        </delete>
+    </target>
+    <!-- delete scripts after compile -->
+    <target name="post-compilelua">
+        <delete dir="luascripts" />
+        <!-- June 22, 2011: Sumanth Divvela: Remove lua-->
+        <if>
+            <equals arg1="${build.option}" arg2="release" />
+            <then>
+                <!-- <delete quiet="true">
+                        <fileset dir="${buildweb}/WEB-INF/scripts" >
+                            <include name="**/*.lua" />
+                            <exclude name="*.o" />
+                        </fileset>
+                    </delete>
+                    -->
+                <echo message="Removing lua ..." />
+            </then>
+        </if>
+    </target>
+    <macrodef name="createDirWithSubDir">
+        <attribute name="basepath" default="" />
+        <attribute name="subdirs" default="" />
+        <sequential>
+            <for list="@{subdirs}" param="dirname">
+                <sequential>
+                    <mkdir dir="@{basepath}/@{dirname}" />
+                </sequential>
+            </for>
+        </sequential>
+    </macrodef>
+    <macrodef name="copyDirWithSubDir">
+        <attribute name="fromdir" default="" />
+        <attribute name="todir" default="" />
+        <attribute name="subdirs" default="" />
+        <attribute name="includes" default="**/*.*" />
+        <attribute name="excludes" default="" />
+        <sequential>
+            <for list="@{subdirs}" param="dirname">
+                <sequential>
+                    <copy todir="@{todir}/@{dirname}" overwrite="true" >
+                        <fileset dir="@{fromdir}" includes="@{includes}" excludes="@{excludes}" />
+                    </copy>
+                </sequential>
+            </for>
+        </sequential>
+    </macrodef>
+    <macrodef name="copyDirWithMapper">
+        <attribute name="fromdir" />
+        <attribute name="todir" />
+        <attribute name="mapperfrom" />
+        <attribute name="mapperto" />
+        <attribute name="includes" default="**/*.*" />
+        <attribute name="excludes" default="" />
+        <sequential>
+            <copy todir="@{todir}" overwrite="true" >
+                <fileset dir="@{fromdir}" includes="@{includes}" excludes="@{excludes}" />
+                <regexpmapper from="@{mapperfrom}" to="@{mapperto}" />
+            </copy>
+        </sequential>
+    </macrodef>
+
+    <macrodef name="prepareappjs">
+            <attribute name="category" />
+            <attribute name="idecat" default="@{category}" />
+            <attribute name="devlang" default="js" />
+            <sequential>
+            	<var name="studio.excludes" value=""/>
+            	<if>
+            		<equals arg1="${includembass}" arg2="true" />
+            		<then>
+            			<var name="studio.excludes" value="${excludedfilesname}"/>
+        			</then>
+            	</if>
+            	<echo message="Exclude file details from IDE: includembass: ${includembass}, excludedfilesname: ${excludedfilesname}, studio.excludes: ${studio.excludes}" />
+                <if>
+                    <equals arg1="js" arg2="@{devlang}" casesensitive="false" trim="true" />
+                    <then>
+						<if>
+							<available file="${project.loc}/jssrc/@{idecat}/require" />
+							<then>
+							     <delete failonerror="false">
+								    <fileset dir="${buildweb}/@{category}/appjs/" includes="**/*.js"  />
+							     </delete>
+								<!--copy todir="${appfolder}/${outputdir}/@{idecat}/appjs">
+								 <fileset dir="${project.loc}/jssrc/@{idecat}/require" includes="**/*.js" />
+								</copy-->
+								<if>
+									<available file="${project.loc}/jssrc/@{idecat}/default" />
+									<then>
+										 <replace dir="${project.loc}/jssrc/@{idecat}/default">
+											<include  name="sparequirefileslist.js"/>
+											<replacefilter token="getSPARequireModulesList" value="spaRequireModulesList" />
+											<replacefilter token="return " value="require(" />
+											<replacefilter token="]; " value="],function(){});" />
+										</replace>
+										<copy todir="${project.loc}/jssrc/@{idecat}/require">
+											<fileset dir="${project.loc}/jssrc/@{idecat}/default" includes="sparequirefileslist.js" />
+										</copy>
+									</then>
+								</if>
+                                <!--
+                                    Concatenation code is being written in a single line inorder to prevent extra spaces in app.js file
+                                 -->
+								<concat fixlastline="yes" append="yes" destfile="${project.loc}/jssrc/@{idecat}/startup/startup.js">function getSPARequireModulesList(){ return ['kvmodules']; }</concat>
+								<property name="rjs" location="${appfolder}/build/wap" />
+								<var name="javaexe" value="java"/>
+								<if>
+									<isset property="installer.javahome" />
+									<then>
+										<var name="javaexe" value="${installer.javahome}/bin/java"/>
+									</then>
+								</if>
+								<exec executable="${javaexe}">
+									<arg line=" -cp"/>
+									<arg path="${rjs}/js.jar;${rjs}/compile.jar" />
+									<arg value="org.mozilla.javascript.tools.shell.Main" />
+									<arg line=" -opt -1 " />
+									<arg value="${rjs}/r.js" />
+									<arg line=" -o " />
+									<arg value="baseUrl=${project.loc}/jssrc/@{idecat}/require" />
+									<arg value="name=sparequirefileslist" />
+									<arg value="out=${appfolder}/${outputdir}/@{idecat}/appjs/kvmodules.js" />
+									<arg value="optimize=none" />
+									<redirector output="${rjs}/rjsoutput.txt"/>
+								</exec>
+								<loadfile srcfile="${rjs}/rjsoutput.txt" property="errorline">
+								  <filterchain>
+									<linecontains>
+									  <contains value="Error:"></contains>
+									</linecontains>
+								  </filterchain>
+								</loadfile>
+								<fail message="Unable to generate kvmodules - Failed to parse require module. ${errorline}">
+									<condition>
+										<contains string="${errorline}" substring="Error:"/>
+									</condition>
+								 </fail>
+							</then>
+						</if>
+						<replace file="${appfolder}/${outputdir}/@{idecat}/appjs/kvmodules.js" token="require([], function(){});" value="" />
+						<if>
+							<equals  arg1="${isMVC}" arg2="true"  />
+							<then>
+									<if>
+									    <equals  arg1="@{category}" arg2="desktopweb"  />
+									    <then>
+									        <if>
+									            <equals  arg1="${enableasyncdesktopweb}" arg2="true"  />
+									            <then>
+									                <copy todir="${appfolder}/${outputdir}/@{idecat}/appjs/reqappjs">
+									                    <fileset dir="${appfolder}/build/wap/inputdata/webfiles/js/async" includes="kspadwasync.js" />
+									                </copy>
+									            </then>
+									            <else>
+									                <copy todir="${appfolder}/${outputdir}/@{idecat}/appjs/reqappjs">
+									                    <fileset dir="${appfolder}/build/wap/inputdata/webfiles/js/sync" includes="kspadw.js" />
+									                </copy>
+									            </else>
+									        </if>
+									    </then>
+									<else>
+									    <if>
+									            <equals  arg1="${enableasyncspa}" arg2="true"  />
+									            <then>
+									                <copy todir="${appfolder}/${outputdir}/@{idecat}/appjs/reqappjs">
+									                    <fileset dir="${appfolder}/build/wap/inputdata/webfiles/js/async" includes="kspadwasync.js" />
+									                </copy>
+									            </then>
+									            <else>
+									                <copy todir="${appfolder}/${outputdir}/@{idecat}/appjs/reqappjs">
+									                    <fileset dir="${appfolder}/build/wap/inputdata/webfiles/js/sync" includes="kspadw.js" />
+									                </copy>
+									            </else>
+									    </if>
+									    </else>
+									</if>
+									<preparemvcappjs idecat="@{idecat}" fromfolder="startup,default" tofile="app.js" excludes="appmodel.js,sparequirefileslist.js,spaindividualfilelist.js"  />
+									<copy todir="${buildweb}/@{category}/appjs/">
+										<fileset dir="${appfolder}/${outputdir}/@{idecat}/appjs" includes="**/*.js" />
+									</copy>
+									<copy todir="${buildweb}/@{category}/appjs/">
+										<fileset dir="${project.loc}/jssrc/@{idecat}/default" includes="voltmxlibrary.js" />
+									</copy>
+									<if>
+										<and>
+											<equals  arg1="${enableasyncdesktopweb}" arg2="true"  />
+											<equals  arg1="@{category}" arg2="desktopweb"  />
+										</and>
+										<then>
+											<loadfile property="filelist.@{category}" srcfile="${project.loc}/jssrc/@{idecat}/require/spaindividualfilelist.js"/>
+											<copy todir="${buildweb}/@{category}/appjs/">
+												<fileset dir="${project.loc}/jssrc/@{idecat}/require" includes="${filelist.@{category}}" />
+											</copy>
+										</then>
+									</if>
+									<if>
+										<and>
+											<equals  arg1="${enableasyncspa}" arg2="true"  />
+											<not>
+												<equals  arg1="@{category}" arg2="desktopweb"  />
+											</not>
+										</and>
+										<then>
+											<loadfile property="filelist.@{category}" srcfile="${project.loc}/jssrc/@{idecat}/require/spaindividualfilelist.js"/>
+											<copy todir="${buildweb}/@{category}/appjs/">
+												<fileset dir="${project.loc}/jssrc/@{idecat}/require" includes="${filelist.@{category}}" />
+											</copy>
+										</then>
+									</if>
+							</then>
+							<else>
+
+                        <!-- Added for SPA appjs split -->
+                        <if>
+                            <and>
+                                <available file="${appfolder}/${outputdir}/voltmxFunctionalModules.properties"/>
+                                <not>
+                                    <contains string="iphone,android,palm,bb,nth,bjs,xhtml" substring="@{category}"/>
+                                </not>
+                            </and>
+                            <then>
+                                <delete>
+                                    <fileset dir="${appfolder}/${outputdir}/@{idecat}/appjs/" includes="**/*.js" excludes="kvmodules.js,sparequirefileslist.js,spaindividualfilelist.js" />
+                                </delete>
+
+                                <!-- Prepare appjs.js for modules specific, which will excluded forms,templates and -->
+                                <copy todir="${appfolder}/${outputdir}/@{idecat}/appjs">
+                                       <fileset dir="${appfolder}/${outputdir}/" includes="voltmxFunctionalModules.js"  />
+                                </copy>
+                                <copy todir="${appfolder}/${outputdir}/@{idecat}/appjs">
+                                    <fileset dir="${project.loc}/jssrc/@{idecat}/startup" includes="*.js" excludes="appmodel.js" />
+                                </copy>
+                                <copy todir="${appfolder}/${outputdir}/@{idecat}/appjs">
+                                    <fileset dir="${project.loc}/jssrc/@{idecat}/generated" includes="application.js,appskins.js,*globalsequences.js,actions_for_*.js,voltmxFunctionalModules.js,MVCTemplatesInitialization.js,userWidgetsInitialization.js" excludes="appmodel.js" />
+                                    <fileset dir="${project.loc}/jssrc/@{idecat}/nongenerated" includes="voltmxlibrary.js,voltmx_sdk.js" />
+                                </copy>
+                                <delete file="${appfolder}/${outputdir}/@{idecat}/appjs/app.js" failonerror="false" />
+                                <concat fixlastline="yes" destfile="${appfolder}/${outputdir}/@{idecat}/appjs/app.js" append="yes">
+                                    <fileset dir="${appfolder}/${outputdir}/@{idecat}/appjs" excludes="appmodel.js,require.js,${studio.excludes}">
+                                        <include name="**/*.js" />
+                                    </fileset>
+                                </concat>
+                                <copy todir="${buildweb}/@{category}/appjs/">
+                                    <fileset dir="${appfolder}/${outputdir}/@{idecat}/appjs" includes="**/*.js" />
+                                </copy>
+
+                                <property file="${appfolder}/${outputdir}/voltmxFunctionalModules.properties" />
+                                <for list="${fm.moduleslist}" param="module">
+                                <sequential>
+                                    <if>
+                                        <equals arg1="@{module}" arg2="VoltmxdefaultModules" />
+                                        <then>
+                                            <!-- Ignoring default module as in SPA and Desktopweb appjs.js is prepared separately.-->
+                                            <echo message="appjs preparation." />
+                                        </then>
+                                        <else>
+                                        <delete file="${buildweb}/@{category}/appjs/@{module}_kfm.js" failonerror="false" />
+                                        <if>
+                                        <isset property="fm.@{module}.modules"/>
+                                        <then>
+                                        <echo message="${fm.@{module}.modules}" />
+                                        <for list="${fm.@{module}.modules}" param="jsmodulemfiles">
+                                        <sequential>
+                                            <if>
+                                                <available file="${project.loc}/jssrc/@{idecat}/nongenerated/@{jsmodulemfiles}.js"/>
+                                                <then>
+                                                    <concat fixlastline="yes" destfile="${buildweb}/@{category}/appjs/@{module}_kfm.js" append="yes">
+                                                        <filelist dir="${project.loc}/jssrc/@{idecat}/nongenerated">
+                                                            <file name="${project.loc}/jssrc/@{idecat}/nongenerated/@{jsmodulemfiles}.js" />
+                                                        </filelist>
+                                                    </concat>
+                                                </then>
+                                                <elseif>
+                                                    <contains string="@{jsmodulemfiles}" substring="*"/>
+                                                    <then>
+                                                        <concat fixlastline="yes" destfile="${buildweb}/@{category}/appjs/@{module}_kfm.js" append="yes">
+                                                            <fileset dir="${project.loc}/jssrc/@{idecat}/nongenerated" excludes="appmodel.js">
+                                                                <include name="@{jsmodulemfiles}" />
+                                                            </fileset>
+                                                        </concat>
+                                                    </then>
+                                                </elseif>
+                                                <elseif>
+                                                    <available file="${project.loc}/jssrc/@{idecat}/nongenerated/@{jsmodulemfiles}"/>
+                                                    <then>
+                                                         <concat fixlastline="yes" destfile="${buildweb}/@{category}/appjs/@{module}_kfm.js" append="yes">
+                                                            <filelist dir="${project.loc}/jssrc/@{idecat}/nongenerated">
+                                                                <file name="${project.loc}/jssrc/@{idecat}/nongenerated/@{jsmodulemfiles}" />
+                                                            </filelist>
+                                                        </concat>
+                                                    </then>
+                                                </elseif>
+                                                <else>
+                                                    <fail message="Invalid jsModule '@{jsmodulemfiles}' is specified in module '@{module}'."/>
+                                                </else>
+                                            </if>
+                                        </sequential>
+                                        </for>
+                                        </then>
+                                        </if>
+                                        <if>
+                                        <isset property="fm.@{module}.views"/>
+                                        <then>
+                                            <for list="${fm.@{module}.views}" param="formmodules">
+                                            <sequential>
+                                                <if>
+                                                <available file="${project.loc}/jssrc/@{idecat}/generated/@{formmodules}.js"/>
+                                                <then>
+                                                    <concat fixlastline="yes" destfile="${buildweb}/@{category}/appjs/@{module}_kfm.js" append="yes">
+                                                        <filelist dir="${project.loc}/jssrc/@{idecat}/generated">
+                                                            <file name="${project.loc}/jssrc/@{idecat}/generated/@{formmodules}.js" />
+                                                        </filelist>
+                                                    </concat>
+                                                </then>
+                                                <else>
+                                                    <echo message="Invalid form '@{formmodules}' is specified in module '@{module}'. This could be platform specific view."/>
+                                                </else>
+                                                </if>
+                                            </sequential>
+                                            </for>
+                                         </then>
+                                        </if>
+                                       </else>
+                                        </if>
+                                    </sequential>
+                                </for>
+
+                         </then>
+                        <else>
+							<if>
+								<available file="${project.loc}/jssrc/@{idecat}/default" />
+								<then>
+									<copy todir="${appfolder}/${outputdir}/@{idecat}/appjstemp">
+										<fileset dir="${project.loc}/jssrc/@{idecat}/default" includes="*.js" excludes="appmodel.js,sparequirefileslist.js,spaindividualfilelist.js" />
+									</copy>
+								</then>
+							</if>
+                            <copy todir="${appfolder}/${outputdir}/@{idecat}/appjstemp">
+                                <fileset dir="${project.loc}/jssrc/@{idecat}/generated" includes="*.js" excludes="appmodel.js,sparequirefileslist.js,spaindividualfilelist.js" />
+                                <fileset dir="${project.loc}/jssrc/@{idecat}/nongenerated" includes="*.js" excludes="appmodel.js,sparequirefileslist.js,spaindividualfilelist.js" />
+                                <fileset dir="${project.loc}/jssrc/@{idecat}/startup" includes="*.js" excludes="appmodel.js,sparequirefileslist.js,spaindividualfilelist.js" />
+                            </copy>
+                            <copy todir="${appfolder}/${outputdir}/@{idecat}/appjs">
+                                <fileset dir="${project.loc}/jssrc/@{idecat}/nongenerated"  includes="voltmxlibrary.js" />
+                            </copy>
+                            <delete file="${appfolder}/${outputdir}/@{idecat}/appjs/app.js" failonerror="false" />
+                            <concat fixlastline="yes" destfile="${appfolder}/${outputdir}/@{idecat}/appjs/app.js" append="yes">
+                                <fileset dir="${appfolder}/${outputdir}/@{idecat}/appjstemp" excludes="appmodel.js,require.js,${studio.excludes}">
+                                    <include name="**/*.js" />
+                                </fileset>
+                            </concat>
+                            <copy todir="${buildweb}/@{category}/appjs/">
+                                <fileset dir="${appfolder}/${outputdir}/@{idecat}/appjs" includes="**/*.js" />
+                            </copy>
+                        </else>
+                       </if>
+					</else>
+					</if>
+                    </then>
+                    <else>
+                        <copy file="${appfolder}/${outputdir}/@{idecat}/appjs/basetemplate.js" tofile="${appfolder}/${outputdir}/@{idecat}/appjs/basetemplate_bak.js" overwrite="true"/>
+                        <concat fixlastline="yes" destfile="${appfolder}/${outputdir}/@{idecat}/appjs/basetemplate.js" append="yes">
+                            <filelist dir="${appfolder}/${outputdir}/@{idecat}/appjs">
+                                <file name="${appfolder}/${outputdir}/@{idecat}/appjs/app.js"/>
+                            </filelist>
+                        </concat>
+                        <move overwrite="true" tofile="${appfolder}/${outputdir}/@{idecat}/appjs/app.js" file="${appfolder}/${outputdir}/@{idecat}/appjs/basetemplate.js" />
+                        <move overwrite="true" tofile="${appfolder}/${outputdir}/@{idecat}/appjs/basetemplate.js" file="${appfolder}/${outputdir}/@{idecat}/appjs/basetemplate_bak.js" />
+
+                        <copy todir="${buildweb}/@{category}/appjs/">
+                            <fileset dir="${appfolder}/${outputdir}/@{idecat}/appjs" includes="**/*.js" />
+                        </copy>
+                    </else>
+                </if>
+            </sequential>
+        </macrodef>
+    <!--=================m acrodef: compilelua attributes: luaout : .o file name category : thinclient catagory=================-->
+    <macrodef name="compilelua">
+        <attribute name="luaout" default="${luaout}" />
+        <attribute name="category" default="" />
+        <attribute name="mode" default="" />
+        <attribute name="m4" default="m4wap" />
+        <sequential>
+            <unset name="targetlua.dir" />
+            <property name="mode1" value="" />
+            <if>
+                <not>
+                    <equals arg1="@{mode}" arg2="" />
+                </not>
+                <then>
+                    <unset name="mode1" />
+                    <property name="mode1" value="@{mode}\" />
+                </then>
+            </if>
+            <condition property="targetlua.dir" value="common" else="@{category}">
+                <equals arg1="@{category}" arg2="" />
+            </condition>
+            <echo message="Current target lua directory is: ${targetlua.dir}" />
+            <mkdir dir="wap" />
+            <mkdir dir="wap/temp" />
+            <mkdir dir="wap/scripts" />
+            <mkdir dir="lua" />
+            <delete dir="${project.loc}\luasrc\${mode1}tc\${targetlua.dir}" />
+            <mkdir dir="${project.loc}\luasrc\${mode1}tc\${targetlua.dir}\generated" />
+            <mkdir dir="${project.loc}\luasrc\${mode1}tc\${targetlua.dir}\nongenerated" />
+            <mkdir dir="${project.loc}\luasrc\${mode1}tc\${targetlua.dir}\startup" />
+            <mkdir dir="${buildweb}/WEB-INF/scripts" />
+            <echo message="Created wap directory for lua files ${gen.lua.files}" />
+            <copy todir="lua">
+                <!--Suma:Nov14,2011 Made changes to copy lua files from lua and luahybrid-->
+                <fileset dir="${gen.lua.files}@{mode}" includes="*.lua" excludes="startup.lua, rcchannel.lua, tcchannel.lua" />
+            </copy>
+            <!--Suma:Nov16,2011 Made changes to copy skin related lua files from luahybrid\dynamic-->
+            <available file="${gen.lua.files}@{mode}\dynamic" type="dir" property="luahybrid.dynamic.present" />
+            <if>
+                <equals arg1="${luahybrid.dynamic.present}" arg2="true" />
+                <then>
+                    <copy todir="lua">
+                        <!--Suma:Nov16,2011 Made changes to copy skin related lua files from luahybrid\dynamic-->
+                        <fileset dir="${gen.lua.files}@{mode}\dynamic" includes="*.lua" />
+                    </copy>
+                </then>
+            </if>
+            <if>
+                <equals arg1="@{category}" arg2="" />
+                <then>
+                    <echo message="Default category lua compile" />
+                </then>
+                <else>
+                    <echo message="@{category} category lua compile - ${gen.lua.files}" />
+                    <if>
+                        <available file="${gen.lua.files}/@{category}" />
+                        <then>
+                            <copy todir="lua" overwrite="true">
+                                <fileset dir="${gen.lua.files}/@{category}" includes="*.lua" excludes="startup.lua, rcchannel.lua, tcchannel.lua" />
+                            </copy>
+                        </then>
+                    </if>
+                </else>
+            </if>
+            <!-- do the pre-processing for generated code -->
+            <exec executable="${basedir}/m4routine.bat" failonerror="true" failifexecutionfails="true">
+                <env key="PATH" path="${env.PATH};${basedir}/m4.exe;${basedir}/regex2.dll;" />
+                <arg value="lua" />
+                <arg value="wap/temp" />
+                <arg value="@{m4}" />
+            </exec>
+            <exec executable="${basedir}/formatterroutine.bat" failonerror="true" failifexecutionfails="true">
+                <env key="PATH" path="${env.PATH};${basedir}/formatter.exe;${basedir}/regex2.dll;" />
+                <arg value="wap/temp" />
+                <arg value="${project.loc}\luasrc\${mode1}tc\${targetlua.dir}\generated" />
+            </exec>
+            <delete dir="wap/temp" />
+            <!-- do the pre-processing for modules code -->
+            <exec executable="${basedir}/m4routine.bat" failonerror="true" failifexecutionfails="true">
+                <env key="PATH" path="${env.PATH};${basedir}/m4.exe;${basedir}/regex2.dll;" />
+                <arg value="luascripts" />
+                <arg value="${project.loc}\luasrc\${mode1}tc\${targetlua.dir}\nongenerated" />
+                <arg value="@{m4}" />
+            </exec>
+            <if>
+                <equals arg1="${removeprintstatements}" arg2="true" />
+                <then>
+                    <replace dir="${project.loc}\luasrc\${mode1}tc\${targetlua.dir}">
+                        <include name="**/*.lua" />
+                        <replacefilter token=";kqt;" value="'" />
+                        <replacefilter token="print(" value="--print(" />
+                    </replace>
+                </then>
+                <else>
+                    <replace dir="${project.loc}\luasrc\${mode1}tc\${targetlua.dir}">
+                        <include name="**/*.lua" />
+                        <replacefilter token=";kqt;" value="'" />
+                    </replace>
+                </else>
+            </if>
+            <copy todir="${project.loc}\luasrc\${mode1}tc\${targetlua.dir}\startup">
+                <!-- SUMA Nov,14,2011 added hybrid mode-->
+                <fileset dir="../../output/lua@{mode}" includes="tcchannel.lua,startup.lua" />
+            </copy>
+            <echo message="Compiling the scripts to: ${buildweb}/WEB-INF/scripts/@{luaout}" />
+            <available file="${project.loc}\luasrc\${mode1}tc\${targetlua.dir}\startup\tcchannel.lua" type="file" property="tcchannelPresent" />
+            <if>
+                <equals arg1="${tcchannelPresent}" arg2="true" />
+                <then>
+                    <if>
+                        <equals arg1="${build.option}" arg2="debug" />
+                        <then>
+                            <exec executable="cmd.exe" failonerror="true" failifexecutionfails="true">
+                                <env key="PATH" path="${env.PATH};${appfolder}/build/luacompiler" />
+                                <arg line='/c "luac -o ${buildweb}/WEB-INF/scripts/@{luaout} ${project.loc}\luasrc\${mode1}tc\${targetlua.dir}\startup\tcchannel.lua ${project.loc}\luasrc\${mode1}tc\${targetlua.dir}\nongenerated\*.lua ${project.loc}\luasrc\${mode1}tc\${targetlua.dir}\generated\*.lua"' />
+                            </exec>
+                        </then>
+                        <else>
+                            <exec executable="cmd.exe" failonerror="true" failifexecutionfails="true">
+                                <env key="PATH" path="${env.PATH};${appfolder}/build/luacompiler" />
+                                <arg line='/c "luac -s -o ${buildweb}/WEB-INF/scripts/@{luaout} ${project.loc}\luasrc\${mode1}tc\${targetlua.dir}\startup\tcchannel.lua ${project.loc}\luasrc\${mode1}tc\${targetlua.dir}\nongenerated\*.lua ${project.loc}\luasrc\${mode1}tc\${targetlua.dir}\generated\*.lua"' />
+                            </exec>
+                        </else>
+                    </if>
+                </then>
+            </if>
+        </sequential>
+    </macrodef>
+
+    <macrodef name="prepareluascript">
+        <attribute name="category" />
+        <attribute name="idecat" default="@{category}" />
+        <attribute name="m4cat" default="@{idecat}" />
+        <sequential>
+            <!-- compilelua -->
+            <echo message="Compiling LUA Scripts from category=@{idecat} m4=m4@{m4cat}"/>
+            <compilelua luaout="@{category}webluascript.o" category="@{idecat}" m4="m4@{m4cat}" />
+            <!-- Shanker: 29th Apr 2014, COMMENTING BELOW CODE to solve form fork for LUA for all channels
+            <if>
+                <equals arg1="${@{idecat}.forked}" arg2="true" />
+                <then>
+                    <compilelua luaout="@{category}webluascript.o" category="@{idecat}" m4="m4@{m4cat}" />
+                </then>
+                <else>
+                    <compilelua luaout="@{category}webluascript.o" category="@{m4cat}" m4="m4@{m4cat}" />
+                </else>
+            </if> -->
+        </sequential>
+    </macrodef>
+
+	<!--================= PREPARE app.js and other modules for MVC projects ================-->
+    <macrodef name="preparemvcappjs">
+        <attribute name="idecat" default="" />
+        <attribute name="fromfolder" default="" />
+        <attribute name="tofile" default="" />
+        <attribute name="excludes" default="appmodel.js" />
+        <sequential>
+            <delete file="${appfolder}/${outputdir}/@{idecat}/appjs/@{tofile}" failonerror="false" />
+            <concat fixlastline="yes" destfile="${appfolder}/${outputdir}/@{idecat}/appjs/@{tofile}" append="yes">
+                 <fileset dir="${appfolder}/${outputdir}/@{idecat}/appjs/reqappjs" excludes="">
+                     <include name="**/*.js" />
+                 </fileset>
+            </concat>
+            <delete dir="${appfolder}/${outputdir}/@{idecat}/appjs/reqappjs"/>
+            <for list="@{fromfolder}" param="dirname">
+                <sequential>
+                    <concat fixlastline="yes" destfile="${appfolder}/${outputdir}/@{idecat}/appjs/@{tofile}" append="yes">
+                        <fileset dir="${project.loc}/jssrc/@{idecat}/@{dirname}" includes="**/*.js" excludes="@{excludes}" />
+                    </concat>
+                </sequential>
+            </for>
+        </sequential>
+    </macrodef>
+
+	<macrodef name="minifydir" description="Minify js files by category including subdirectories">
+        <attribute name="srcdir" default="" />
+        <attribute name="todir" default="" />
+        <attribute name="includes" default="**/*.*" />
+        <attribute name="excludes" default="" />
+        <attribute name="mapperfrom" />
+        <attribute name="mapperto" />
+		<sequential>
+			<property name="uglifyes.location" location="${konywebstudio.loc}/node_modules/uglify-es/bin"/>
+			<if>
+				<not>
+				<available file="@{todir}" type="dir" />
+				</not>
+				<then>
+					<mkdir dir="@{todir}" />
+				</then>
+			</if>
+			<if>
+				<available file="${uglifyes.location}" type="dir" />
+				<then>
+					 <for param="file">
+						<path>
+							<dirset dir="@{srcdir}" includes="*" />
+							<fileset dir="@{srcdir}">
+								<include name="*.js"/>
+							</fileset>
+						</path>
+						<sequential>
+							<local name="filename" />
+							<basename property="filename" file="@{file}"/>
+							<if>
+								<available file="@{file}" type="dir" />
+								<then>
+									<minifydir srcdir="@{srcdir}/${filename}" todir="@{todir}/${filename}" includes="@{includes}"
+									mapperfrom="@{mapperfrom}" mapperto="@{mapperto}" />
+								</then>
+								<else>
+									<exec executable="${node.loc}" failonerror="true">
+										<arg value="${uglifyes.location}/uglifyjs"/>
+										<arg value="@{srcdir}/${filename}"/>
+										<arg line=" -c -m -o " />
+										<arg value="@{todir}/${filename}"/>
+									</exec>
+								</else>
+							</if>
+						</sequential>
+					</for>
+				</then>
+				<else>
+					<echo message="Minification started using YUI" />
+					<var name="javaexe" value="java"/>
+					<if>
+						<isset property="installer.javahome" />
+						<then>
+							<var name="javaexe" value="${installer.javahome}/bin/java"/>
+						</then>
+					</if>
+					<for param="file">
+						<path>
+							<fileset dir="@{srcdir}">
+								<include name="@{includes}"/>
+							</fileset>
+						</path>
+						<sequential>
+							<echo message="srcdir: @{srcdir}  : todir: @{todir}" />
+							<apply executable="${javaexe}" parallel="false" dest="@{todir}" failonerror="true">
+								<fileset file="@{file}"  includes="@{includes}" excludes="@{excludes}" />
+								<arg line="-jar" />
+								<arg path="${thirdparty.loc}/yuicompressor-2.4.6.jar" />
+								<srcfile />
+								<arg line="-o" />
+								<mapper type="glob" from="@{mapperfrom}" to="@{mapperto}" />
+								<targetfile />
+							</apply>
+						</sequential>
+					</for>
+				</else>
+			</if>
+		</sequential>
+    </macrodef>
+
+    <macrodef name="minify" description="Minify css/js files by category">
+        <attribute name="srcdir" default="" />
+        <attribute name="todir" default="" />
+        <attribute name="includes" default="**/*.*" />
+        <attribute name="excludes" default="" />
+        <attribute name="mapperfrom" />
+        <attribute name="mapperto" />
+        <sequential>
+			<echo message="srcdir: @{srcdir}  : todir: @{todir}" />
+			<var name="javaexe" value="java"/>
+			<if>
+				<isset property="installer.javahome" />
+				<then>
+					<var name="javaexe" value="${installer.javahome}/bin/java"/>
+				</then>
+			</if>
+            <apply executable="${javaexe}" parallel="false" dest="@{todir}" failonerror="true">
+                <fileset dir="@{srcdir}" includes="@{includes}" excludes="@{excludes}" />
+                <arg line="-jar" />
+                <arg path="${thirdparty.loc}/yuicompressor-2.4.6.jar" />
+                <srcfile />
+                <arg line="-o" />
+                <mapper type="glob" from="@{mapperfrom}" to="@{mapperto}" />
+                <targetfile />
+            </apply>
+        </sequential>
+    </macrodef>
+    <macrodef name="concatfile" description="Concats the given file to specified file">
+        <attribute name="file" default="" />
+        <attribute name="tofile" default="" />
+        <sequential>
+            <concat fixlastline="yes" destfile="@{tofile}" append="yes">
+                <filelist files="@{file}" />
+            </concat>
+        </sequential>
+    </macrodef>
+    <macrodef name="concatcssfiles" description="concatcssfiles">
+        <attribute name="category" default="" />
+        <attribute name="tocssfile" default="" />
+        <attribute name="fileslist" default="" />
+        <attribute name="size" default="" />
+        <attribute name="theme" default="" />
+        <sequential>
+            <for list="@{fileslist}" param="cssfile">
+                <sequential>
+                    <if>
+                        <available file="${buildweb}/temp/@{category}@{theme}/${@{cssfile}}@{size}.css" />
+                        <then>
+                            <concatfile file="${buildweb}/temp/@{category}@{theme}/${@{cssfile}}@{size}.css" tofile="${buildweb}/temp/@{category}@{theme}/@{tocssfile}@{size}min.css" />
+                        </then>
+                        <else>
+                            <if>
+                                <available file="${buildweb}/temp/@{category}@{theme}/${@{cssfile}}.css" />
+                                <then>
+                                    <concatfile file="${buildweb}/temp/@{category}@{theme}/${@{cssfile}}.css" tofile="${buildweb}/temp/@{category}@{theme}/@{tocssfile}@{size}min.css" />
+                                </then>
+                                <else>
+                                    <concatfile file="${buildweb}/temp/@{category}/${@{cssfile}}.css" tofile="${buildweb}/temp/@{category}@{theme}/@{tocssfile}@{size}min.css" />
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </sequential>
+            </for>
+        </sequential>
+    </macrodef>
+    <macrodef name="minifycssfiles" description="minifies the css files">
+        <attribute name="category" default="" />
+        <attribute name="tocssfile" default="" />
+        <attribute name="rename" default="true" />
+        <attribute name="destdir" default="@{category}" />
+        <attribute name="cssfiles" default="" />
+        <attribute name="formfactors" default="" />
+        <sequential>
+            <echo message="CSS files for minify : @{cssfiles}  : themenames: ${theme.names}" />
+            <echo message="CSS formfactors for minify : ${@{formfactors}}  " />
+
+            <mkdir dir="${buildweb}/temp/@{category}"/>
+
+            <minify srcdir="${buildweb}/@{category}" todir="${buildweb}/temp/@{category}" includes="*.css" mapperfrom="*.css" mapperto="*.css" />
+            <if>
+                <equals arg1="@{formfactors}" arg2="" />
+                <then>
+                    <concatcssfiles category="@{category}" tocssfile="@{tocssfile}" fileslist="@{cssfiles}" />
+                    <movefile file="${buildweb}/temp/@{category}/@{tocssfile}min.css" tofile="${buildweb}/temp/@{destdir}/@{tocssfile}.css" />
+
+                </then>
+                <else>
+                    <for list="${@{formfactors}}" param="size">
+                        <sequential>
+                            <concatcssfiles category="@{category}" tocssfile="@{tocssfile}" fileslist="@{cssfiles}" size="@{size}" />
+                            <movefile file="${buildweb}/temp/@{category}/@{tocssfile}@{size}min.css" tofile="${buildweb}/temp/@{destdir}/@{tocssfile}@{size}.css" />
+                        </sequential>
+                    </for>
+                </else>
+            </if>
+            <for list="${theme.names}" param="themename">
+                <sequential>
+                    <mkdir dir="${buildweb}/temp/@{category}/@{themename}" />
+                    <minify srcdir="${buildweb}/@{category}/@{themename}" todir="${buildweb}/temp/@{category}/@{themename}" includes="*.css" mapperfrom="*.css" mapperto="*.css" />
+
+                    <if>
+                        <equals arg1="@{formfactors}" arg2="" />
+                        <then>
+                            <concatcssfiles category="@{category}" tocssfile="@{tocssfile}" fileslist="@{cssfiles}" theme="/@{themename}" />
+                            <movefile file="${buildweb}/temp/@{category}/@{themename}/@{tocssfile}min.css" tofile="${buildweb}/temp/@{destdir}/@{themename}/@{tocssfile}.css" />
+                        </then>
+                        <else>
+                            <for list="${@{formfactors}}" param="size">
+                                <sequential>
+                                    <concatcssfiles category="@{category}" tocssfile="@{tocssfile}" fileslist="@{cssfiles}" size="@{size}" theme="/@{themename}" />
+                                    <movefile file="${buildweb}/temp/@{category}/@{themename}/@{tocssfile}@{size}min.css" tofile="${buildweb}/temp/@{destdir}/@{themename}/@{tocssfile}@{size}.css" />
+                                </sequential>
+                            </for>
+                        </else>
+                    </if>
+                </sequential>
+            </for>
+            <!-- -->
+        </sequential>
+    </macrodef>
+
+    <macrodef name="minifyjsfiles" description="Minifies the js files">
+        <attribute name="category" default="" />
+        <attribute name="tojsfile" default="" />
+        <attribute name="jsfiles" default="" />
+        <attribute name="srcdir" default="${buildweb}" />
+        <attribute name="rename" default="true" />
+        <sequential>
+            <if>
+                <equals arg1="@{tojsfile}" arg2="" />
+                <then>
+                    <echo message="Ignoring minification for @{category} for type: @{type}" />
+                </then>
+                <else>
+                    <for list="@{jsfiles}" param="jsfile">
+                        <sequential>
+                            <concatfile file="@{srcdir}/${@{jsfile}}" tofile="${buildweb}/temp/@{category}/@{tojsfile}min.js" />
+                        </sequential>
+                    </for>
+                </else>
+            </if>
+        </sequential>
+    </macrodef>
+
+
+    <!--=================m acrodef : movefile attributes: file : source file tofile : destination file=================-->
+    <macrodef name="movefile" description="Moves the minified file from temp to category with specified name">
+        <attribute name="file" default="" />
+        <attribute name="tofile" default="" />
+        <sequential>
+            <if>
+                <available file="@{file}" />
+                <then>
+                    <move overwrite="true" tofile="@{tofile}" file="@{file}" />
+                </then>
+            </if>
+        </sequential>
+    </macrodef>
+
+    <target name="test">
+        <taskdef resource="net/sf/antcontrib/antcontrib.properties">
+            <classpath>
+                <pathelement location="D:\KonyOne\KonyOne_Studio\configuration\org.eclipse.osgi\bundles\347\1\.cp/lib/ant-contrib-0.6.jar" />
+            </classpath>
+        </taskdef>
+        <taskdef name="unset" classname="ise.antelope.tasks.Unset">
+            <classpath>
+                <pathelement location="D:\KonyOne\KonyOne_Studio\configuration\org.eclipse.osgi\bundles\347\1\.cp\lib\AntelopeTasks_3.4.0.jar" />
+            </classpath>
+        </taskdef>
+        <property name="thirdparty.loc" value="D:\Projects\projrepo\com.kony.thirdparty.jars" />
+        <!-- <createDirWithSubDir basepath="D:\kworkspace\temp\TableLua\build\wap\build\web" subdirs="spaandroid,spabb" />
+        <copyDirWithMapper fromdir="D:\kworkspace\TableLua\resources\mobilethinclient/spaandroid" todir="D:\kworkspace\temp\TableLua\build\wap\build\web\spaandroid" mapperfrom="^images(.*)" mapperto="images/\1" includes="**/*.png" />
+        <minify srcdir="D:\kworkspace\temp\TableLua\build\wap\inputdata\webfiles\spa" todir="D:\kworkspace\temp\TableLua\build\wap\build\web\spaandroid" mapperfrom="*.js" mapperto="*.js" includes="*.js" />-->
+        <concatfile file="D:\kworkspace\temp\TableLua\build\wap\build\web\spaandroid\voltmxcore.js,D:\kworkspace\temp\TableLua\build\wap\build\web\spaandroid\voltmxinit.js" tofile="D:\kworkspace\temp\TableLua\build\wap\build\web\spaandroid\voltmxframework.js" />
+    </target>
+</project>

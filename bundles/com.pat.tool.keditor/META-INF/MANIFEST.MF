@@ -1,0 +1,53 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.9.15
+Created-By: 1.8.0_382-b05 (Red Hat, Inc.)
+
+Name: jettydeploy/richclient/kbf/_test
+SHA-256-Digest: 47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=
+
+Name: ant_scripts/buildEar.xml
+SHA-256-Digest: UYHfJwj9cksr/Ydf0G8VX6/H6HhBh+cuXyuHMV6ILYw=
+
+Name: jettydeploy/build.xml
+SHA-256-Digest: Wdnp6CVHHAGAqjxPWsy8J2pzFCECV4mBn66hs2FOVXs=
+
+Name: jettydeploy/richclient/WEB-INF/classes/com/konylabs/middleware/app
+ lication/download/DevKBFDownloadServlet.class
+SHA-256-Digest: RaShJnOBa3nIdbJwDpk1iCcfM12uqdEs6LxsE/JF+eI=
+
+Name: web_xml/cache-web.xml
+SHA-256-Digest: 6wRCAhfnaVuXUf3vn4FxqQ1BZSP5c69o+WrLZgGUSoI=
+
+Name: jettydeploy/richclient/WEB-INF/classes/middleware-log4j.properties
+SHA-256-Digest: 65w4cBi4UT3z6abAwsJWUcDxion1xdQBfihOL7oIWJA=
+
+Name: iosfiles/export.plist
+SHA-256-Digest: 0QpsSl8fvoFs1E8XFW4S3S/tfR8kN5HmeQINquYciIQ=
+
+Name: lib/ant-contrib-0.6.jar
+SHA-256-Digest: xBoc9rEuuchufLAc3MKpkgr7kPA/ikfprAlxAuUOd0w=
+
+Name: jettydeploy/richclient/WEB-INF/web.xml
+SHA-256-Digest: MMksQIpXIJyV7LNjIWZ1zv8dxa386IeSzGm3uud2Qo0=
+
+Name: lib/build.zip
+SHA-256-Digest: UHN5+DaBx2jj4uuGUTRxQnYrdhVCOfBUyf9mSLrhDeU=
+
+Name: iosfiles/waxsim
+SHA-256-Digest: bqzfXP5SoPG1M2/8rpEXRG9rYVg1kP92fPcGZXCInZg=
+
+Name: lib/KonyAntScript.jar
+SHA-256-Digest: pdvzkv3kNVHDq0ZPRMVWXVG4bPE0euZuorH8si9OofI=
+
+Name: web_xml/nocache-web.xml
+SHA-256-Digest: 1H2ET4v+4+SuERgkXYNiEEqb2TQD5/ElhhP0TvRkE0A=
+
+Name: web_xml/cloud-web.xml
+SHA-256-Digest: FG34ryt1X4PQBujXUDaUIiFIhUE0c4TW0VDko2CBxZM=
+
+Name: lib/antlr-3.3-complete.jar
+SHA-256-Digest: T+vyg6Afp6iVzjuR+fLR3R9NIj2O2LeZwTqqeq9QKuw=
+
+Name: lib/AntelopeTasks_3.4.0.jar
+SHA-256-Digest: p5MoUHnZfkqVlgsncJxUdVkyeYHHqPJgmPr59s+/YS8=
+

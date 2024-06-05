@@ -1,0 +1,124 @@
+{
+    "@class": "com.kony.gen.viz.model.component.KVizUserWidget",
+    "DNDConfig": null,
+    "_children_": [],
+    "_height_": {
+        "type": "string",
+        "value": "10%"
+    },
+    "_left_": {
+        "type": "string",
+        "value": "0dp"
+    },
+    "_margin_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_orientation_": 1,
+    "_padding_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_percent_": true,
+    "_skin_": "s1df16dcc35045068a70a4aee877385a",
+    "_top_": {
+        "type": "string",
+        "value": "0dp"
+    },
+    "_width_": {
+        "type": "string",
+        "value": "100%"
+    },
+    "areflexpropsreferenced": false,
+    "autogrowmode": 0,
+    "canUpdateUI": true,
+    "clipbounds": false,
+    "containerweight": 0,
+    "dataDiffs": {
+        "flxProfilePhoto": {
+            "__events__": {},
+            "__info__": {
+                "kuid": "b44383aec49f45509557f652a3a83429",
+                "srcKUID": "db4b003ac9df4358b03a26db12b8f9bc",
+                "wType": "FlexContainer"
+            },
+            "isVisible": false
+        },
+        "formheader": {
+            "__events__": {},
+            "__info__": {
+                "isRoot": true,
+                "kuid": "h224e2223eea412f9fd7c38b317769db",
+                "srcKUID": "a060237436ad46c9934ebbc688e08779",
+                "wType": "FlexContainer"
+            }
+        },
+        "imgBack": {
+            "__events__": {
+                "ide_onTouchEnd": "AS_Image_d7d6917d5d714aaf911cff58cff1583e"
+            },
+            "__info__": {
+                "kuid": "j45b6f2c502f4248a6b285007152a8f0",
+                "srcKUID": "c5da4079da3e4f2b8f7bafefd0e7cefe",
+                "wType": "Image"
+            },
+            "right": {
+                "Default": {
+                    "type": "number",
+                    "value": "5"
+                }
+            }
+        },
+        "imgMenu": {
+            "__events__": {
+                "ide_onTouchEnd": "AS_Image_f50b09db2b1945de8ed31ac35027eb6f"
+            },
+            "__info__": {
+                "kuid": "c4cd95b9e2ed4b5688f39748dfdb58ea",
+                "srcKUID": "e530afaecc344d6db4b2decef0f8adc6",
+                "wType": "Image"
+            }
+        },
+        "imgProfile": {
+            "__events__": {},
+            "__info__": {
+                "kuid": "d419549bc88a4d989eb11069e89d9d4c",
+                "srcKUID": "c60136b77b5243a0974e5b15792dafd6",
+                "wType": "Image"
+            }
+        },
+        "lblCompanyName": {
+            "__events__": {},
+            "__info__": {
+                "kuid": "g09c5d9ea0964920b50cbd52d5e7e498",
+                "srcKUID": "db2ca99d55e046de8ca757aa8476aa23",
+                "wType": "Label"
+            },
+            "text": "Complaints"
+        }
+    },
+    "enablescrolling": true,
+    "id": "formheader",
+    "info": null,
+    "iscustomlayout": false,
+    "isdatareferenced": false,
+    "isvisible": true,
+    "kuid": "h224e2223eea412f9fd7c38b317769db",
+    "layouttype": 2,
+    "masterType": 0,
+    "name": "kony.ui.UserWidgetInstance",
+    "parent": "flxMainContent",
+    "pf": "frmEComplaintsDashboard",
+    "retaincontentalignment": false,
+    "retainflexpositionproperties": false,
+    "retainflowhorizontalalignment": false,
+    "snapgridsize": 10,
+    "snaptogrid": true,
+    "sourceUserWidget": "a060237436ad46c9934ebbc688e08779",
+    "wType": "UserWidgetInstance",
+    "zindex": 1
+}

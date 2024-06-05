@@ -1,0 +1,4 @@
+#if($thumbImage) #$compid .palm-slider-button { background: url(../$thumbImage) center center no-repeat;}
+#end
+#if($focusThumbImage) #$compid .palm-slider-button.selected { background: url(../$focusThumbImage) center center no-repeat;}
+#end

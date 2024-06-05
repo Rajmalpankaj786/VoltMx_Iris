@@ -1,0 +1,36 @@
+{
+    "AS_Image_ab5dc6c87b8546d4b9564a9f63982f8f": {
+        "id": "AS_Image_ab5dc6c87b8546d4b9564a9f63982f8f",
+        "type": "ACTION_SEQUENCE",
+        "params": [{
+            "datatype": "collection",
+            "name": "eventobject"
+        }, {
+            "datatype": "string",
+            "name": "x"
+        }, {
+            "datatype": "string",
+            "name": "y"
+        }],
+        "contextObj": {
+            "name": "frmERequestsDashboard",
+            "type": "forms",
+            "platform": "",
+            "KUID": "f4b558b9954c4827a0c787dd5ca87fbf"
+        },
+        "language": "js",
+        "actions": [{
+            "id": "NAVIGATE_TO_FORM__gf369baf49be447b8c5875be0fb042aa",
+            "type": "NAVIGATE_TO_FORM",
+            "formId": "frmDashboard",
+            "formKUID": "fcbc1ed742fd42bfba1f4b347c731809",
+            "projectName": "RefGovtCitizenSA",
+            "mappings": {},
+            "mappingsOrder": [],
+            "parentId": null,
+            "enableMappingEditor": true,
+            "package": "",
+            "isCustomInput": false
+        }]
+    }
+}

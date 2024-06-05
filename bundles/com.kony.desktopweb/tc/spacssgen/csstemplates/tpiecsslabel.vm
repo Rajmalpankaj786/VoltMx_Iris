@@ -1,0 +1,51 @@
+#if($focusSkin)
+	#set($s = $skin)
+#else
+	#set($s = "." + $skin)
+#end
+$s{   
+    #parse("tppalmmojocssfonts.vm")
+     #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end
+    ##padding: 1px;
+    #if($background-color)
+        #if($rgba == "true")
+                background-color : $background-color;
+            #else
+                #set($bc = "#" + $background-color)
+                background-color: $bc;
+            #end
+    #elseif($bg-grad-split-ms)
+        #parse("tpxspaiecssbggradient.vm")
+    #elseif($background-image)
+       #parse("tpspagenericbgimage.vm")
+    #elseif($transparent)
+        background: transparent;
+    #end
+
+#if($forking)
+   #parse("tpxadvieshadowcss.vm")
+   
+#end
+}
+
+#if($forking)
+  #if ($border-top-width ||$border-bottom-width ||$border-left-width || $border-right-width )
+   div$s 
+        {
+           #parse("tpxadviecssborderspecific.vm")
+        }
+  #end
+#else
+  #if($border-width)
+    div$s 
+    {
+      #parse("tpxadviecssborder.vm")
+    }
+  #end
+#end

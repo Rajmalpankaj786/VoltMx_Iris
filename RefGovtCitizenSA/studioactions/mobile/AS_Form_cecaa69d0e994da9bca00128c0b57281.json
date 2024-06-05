@@ -1,0 +1,168 @@
+{
+    "AS_Form_cecaa69d0e994da9bca00128c0b57281": {
+        "id": "AS_Form_cecaa69d0e994da9bca00128c0b57281",
+        "type": "ACTION_SEQUENCE",
+        "params": [{
+            "datatype": "collection",
+            "name": "eventobject"
+        }],
+        "contextObj": {
+            "name": "frmWeather",
+            "type": "forms",
+            "platform": "",
+            "KUID": "e0e62c55c46744abbf8df19b5749c8ae"
+        },
+        "language": "js",
+        "actions": [{
+            "id": "LOADING_INDICATOR_ce7276fd813541a09aabf68fa4e00664",
+            "selectedOption": "show",
+            "parentId": null,
+            "type": "LOADING_INDICATOR",
+            "callbackType": null,
+            "skin": "none",
+            "position": "constants.LOADING_SCREEN_POSITION_FULL_SCREEN",
+            "isBlocked": "true",
+            "showProgressIndicator": "true",
+            "text": "Fetching weather details ..."
+        }, {
+            "id": "INVOKE_SERVICE_c70a35f3d1c6467fa803f474e516f0b5",
+            "type": "INVOKE_ASYNC_SERVICE",
+            "inputparams": null,
+            "httpheaders": null,
+            "httpconfigs": null,
+            "isasynchronous": true,
+            "mappings": {
+                "ME_Mapping_i9aad14481a94f8ca123fbf568393488": {
+                    "channel": "mobile",
+                    "id": "ME_Mapping_i9aad14481a94f8ca123fbf568393488",
+                    "type": "MAPPING",
+                    "callbackType": null,
+                    "rectified": true,
+                    "source": {
+                        "forkedPlatform": "all"
+                    },
+                    "target": {
+                        "type": "Services",
+                        "propertyName": "lat",
+                        "dataType": "string",
+                        "expression": "\"47.60799140597074\"",
+                        "forkedPlatform": "all",
+                        "serviceconfig": {
+                            "servicename": "VMXBootcampWeatherByLocation",
+                            "serviceid": "1ddf5376-3ab8-4485-8fbf-d0c0269b0cfc",
+                            "type": "orchestration",
+                            "operationname": "getWeatherDetails",
+                            "operationid": "69082"
+                        }
+                    }
+                },
+                "ME_Mapping_bfad44ae95a54694b20c2ca3adcf031b": {
+                    "channel": "mobile",
+                    "id": "ME_Mapping_bfad44ae95a54694b20c2ca3adcf031b",
+                    "type": "MAPPING",
+                    "callbackType": null,
+                    "rectified": true,
+                    "source": {
+                        "forkedPlatform": "all"
+                    },
+                    "target": {
+                        "type": "Services",
+                        "propertyName": "lon",
+                        "dataType": "string",
+                        "expression": "\"-122.3389692401529\"",
+                        "forkedPlatform": "all",
+                        "serviceconfig": {
+                            "servicename": "VMXBootcampWeatherByLocation",
+                            "serviceid": "1ddf5376-3ab8-4485-8fbf-d0c0269b0cfc",
+                            "type": "orchestration",
+                            "operationname": "getWeatherDetails",
+                            "operationid": "69082"
+                        }
+                    }
+                }
+            },
+            "mappingsOrder": ["ME_Mapping_i9aad14481a94f8ca123fbf568393488", "ME_Mapping_bfad44ae95a54694b20c2ca3adcf031b"],
+            "serviceconfig": {
+                "servicename": "VMXBootcampWeatherByLocation",
+                "serviceid": "1ddf5376-3ab8-4485-8fbf-d0c0269b0cfc",
+                "type": "orchestration",
+                "operationname": "getWeatherDetails",
+                "operationid": "69082"
+            },
+            "parentId": null,
+            "callbackType": null,
+            "enableMappingEditor": true
+        }, {
+            "id": "LOADING_INDICATOR_d2ddac3012c5443e93cc064940148cd1",
+            "selectedOption": "dismiss",
+            "parentId": "INVOKE_SERVICE_c70a35f3d1c6467fa803f474e516f0b5",
+            "type": "LOADING_INDICATOR",
+            "callbackType": "Callback",
+            "skin": "none",
+            "position": "constants.LOADING_SCREEN_POSITION_FULL_SCREEN",
+            "isBlocked": "true",
+            "showProgressIndicator": "true"
+        }, {
+            "id": "ADD_LOCAL_VARIABLE_fd4d8efaca92481a99e76979b47c75d9",
+            "type": "ADD_LOCAL_VARIABLE",
+            "name": "locationData",
+            "isGlobal": false,
+            "valuetype": "constant",
+            "datatype": "collection",
+            "value": "[]",
+            "parentId": "INVOKE_SERVICE_c70a35f3d1c6467fa803f474e516f0b5",
+            "callbackType": "Callback"
+        }, {
+            "id": "MODIFY_VARIABLE_ACTION_eb38dcbc57d446589f6e5902fc83e818",
+            "type": "MODIFY_VARIABLE_ACTION",
+            "parentId": "INVOKE_SERVICE_c70a35f3d1c6467fa803f474e516f0b5",
+            "callbackType": "Callback",
+            "variable": "locationData",
+            "valueType": "set",
+            "isGlobal": false,
+            "dataType": "expression",
+            "modifySet": "\t[{\n\tlat: getWeatherDetails.lat,\n\tlon: getWeatherDetails.lon,\n\tname:getWeatherDetails.state,\n\tdesc:getWeatherDetails.description,\n\tcalloutData:{\"lblMinTempValue\":getWeatherDetails.temp_min, \n\t\t\t\t \"lblMaxTempValue\":getWeatherDetails.temp_max, \n\t\t\t\t \"lblDescriptionValue\":getWeatherDetails.description, \n\t\t\t\t \"lblStateValue\":getWeatherDetails.state, \n\t\t\t\t \"lblCountryValue\":getWeatherDetails.country,\n\t\t\t\t \"imgWeather\":\"weatherreport.png\"\n\t\t\t\t}\n}]",
+            "modifySetType": "string"
+        }, {
+            "id": "ADD_SNIPPET_ea309ed176df48988b1312263f74f972",
+            "type": "ADD_SNIPPET",
+            "codeSnippet": "self.view.mapWeather.widgetDataMapForCallout = {\n  \"lblMinTempValue\":\"lblMinTempValue\", \n  \"lblMaxTempValue\":\"lblMaxTempValue\", \n  \"lblDescriptionValue\":\"lblDescriptionValue\", \n  \"lblStateValue\":\"lblStateValue\", \n  \"lblCountryValue\":\"lblCountryValue\",\n  \"imgWeather\":\"imgWeather\",\n};\n",
+            "parentId": "INVOKE_SERVICE_c70a35f3d1c6467fa803f474e516f0b5",
+            "callbackType": "Callback"
+        }, {
+            "id": "ADD_MAPPING_c522b92e2ab6446da0c06dc8260230e8",
+            "type": "ADD_MAPPING",
+            "mappings": {
+                "ME_Mapping_j6dee59003884d89a3c95db7b6c7bdca": {
+                    "channel": "mobile",
+                    "id": "ME_Mapping_j6dee59003884d89a3c95db7b6c7bdca",
+                    "type": "MAPPING",
+                    "callbackType": null,
+                    "rectified": true,
+                    "source": {
+                        "type": "Variables",
+                        "propertyName": "locationData",
+                        "dataType": "collection",
+                        "forkedPlatform": "all"
+                    },
+                    "target": {
+                        "type": "Forms",
+                        "propertyName": "locationData",
+                        "widgetId": "mapWeather",
+                        "widgetPath": "this.view.mapWeather",
+                        "widgetType": "Map",
+                        "dataType": "collection",
+                        "itemId": "frmWeather",
+                        "widgetKUID": "b4c40094b3344da7ae080727c5a93713",
+                        "itemKUID": "e0e62c55c46744abbf8df19b5749c8ae",
+                        "forkedPlatform": "all"
+                    }
+                }
+            },
+            "mappingsOrder": ["ME_Mapping_j6dee59003884d89a3c95db7b6c7bdca"],
+            "parentId": "INVOKE_SERVICE_c70a35f3d1c6467fa803f474e516f0b5",
+            "callbackType": "Callback",
+            "enableMappingEditor": true
+        }]
+    }
+}

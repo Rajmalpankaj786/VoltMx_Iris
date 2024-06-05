@@ -1,0 +1,10 @@
+{
+    "dependencies": [
+        {
+            "name": "RefCommonsMA",
+            "useResources": true,
+            "isHidden": false,
+            "excludeFromBuild": false
+        }
+    ]
+}

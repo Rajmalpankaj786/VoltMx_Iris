@@ -1,0 +1,23 @@
+.menudivsk
+{
+    padding: 1px;
+    border: none;
+    align: left;
+    font-size : $font-size;
+}
+
+.voltmxconfirmalertsk{
+     color : blue;    
+  font-size: small;
+  font-weight : normal;    
+  font-style : normal;
+  border: none;
+      background-color:inherit;
+    text-decoration: none;
+    }
+
+.voltmxdefaultrow{
+     padding: 1px;
+    border: none;
+width: 100%;
+}

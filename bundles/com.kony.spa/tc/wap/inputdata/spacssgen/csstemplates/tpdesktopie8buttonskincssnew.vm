@@ -1,0 +1,118 @@
+#if($focusSkin)
+	#set($s = $skin)
+#else
+	#set($s = "." + $skin)
+#end
+$s
+{
+   #if($forking)
+        #parse("tpxadviecssborderspecific.vm")
+   #else
+        #parse("tpxadviecssborder.vm")
+   #end
+   #parse("tppalmmojocssfonts.vm")
+   #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+   #end
+   #* overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal; 
+*#   
+    #if($background-color)
+        #if($rgba == "true")
+             #parse("tpdesktopie8transparency.vm")
+        #else
+             background : #$background-color;
+        #end
+    #elseif($transparent)
+            background:transparent;            
+    #elseif($bg-grad-split-ms)
+        #parse("tpxspaiecssbggradient.vm")
+    #elseif($background-image)
+        #if($repeat && $verticalrepeat)
+            background: url(./images/$background-image) repeat;
+        #elseif($repeat)
+            background: url(./images/$background-image) repeat-x;
+        #elseif($verticalrepeat)
+            background: url(./images/$background-image) repeat-y;
+        #else
+            background: url(./images/$background-image) no-repeat;
+            #if($width)
+                #set($wd = $width + "px !important;")
+                width: $wd
+            #end
+            #if($height)
+                #set($hd = $height + "px !important;")
+                height: $hd
+            #end
+        #end
+        #if($enable_bg_size == "true")
+                  background-size : 100% 100%;
+        #end
+        background-color:transparent;
+    #end
+
+#if($forking)
+#if($shadowoffsetx=="0px" && $shadowoffsety=="0px" && $shadowblurradius=="0px")
+#else
+    #if($rgba_shadow=="true")
+        text-shadow: $shadowoffsetx $shadowoffsety $shadowblurradius $shadowcolor;
+    #else
+        text-shadow: $shadowoffsetx $shadowoffsety $shadowblurradius #$shadowcolor;
+    #end
+#end
+#end
+}
+
+##input[selected="progress"][korigskin="$skin"]
+#* input[selected="progress"][kprogressskin="$skin"]
+{ 
+    #if($background-color)
+        #set($sk = $skin + ".png")
+         background: url(./images/$pimgname) no-repeat, url(./images/$sk) repeat-x;
+         background-position: right center;
+    #elseif($background-gradient)
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$topcolor', endColorstr='$bottomcolor');
+        background-position: right center;
+    #elseif($background-split)
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$topcolor', endColorstr='$bottomcolor');
+        background-position: right center;
+    #else
+       background: url(./images/loading.gif) no-repeat, url(./images/$background-image);
+       background-position: right center;
+    #end
+}
+*#
+#if($pimgexists=="true")
+input[selected="progress"][kprogressskin="$skin"]
+{
+    #if($background-color)
+         #if($rgba == "true")
+         filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$background-color', endColorstr='$background-color');
+         #else
+         filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$background-color', endColorstr='$background-color');
+         #end
+    #elseif($background-gradient)
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$topcolor', endColorstr='$bottomcolor');
+    #elseif($background-split)
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$topcolor', endColorstr='$bottomcolor');
+     #elseif($transparent)
+        background-image : url(./images/$pimgname) !important;
+        background-repeat: no-repeat;
+     #else
+        background: url(./images/$pimgname) no-repeat, url(./images/$background-image);
+    #end
+
+    #if($pimgloc=="left")
+    background-position: left center;
+    #elseif($pimgloc=="right")
+    background-position: right center;
+    #elseif($pimgloc=="center")
+    background-position: center center;
+    #end
+}
+#end

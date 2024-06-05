@@ -1,0 +1,16 @@
+{
+    "ERequests_RequestCategory": {
+        "servicename": "ERequests",
+        "serviceid": "34d19364-b680-47b0-8c3b-291d517a9243",
+        "type": "objectsvcs",
+        "objectname": "RequestCategory",
+        "objectid": "68968"
+    },
+    "ERequests_Request": {
+        "servicename": "ERequests",
+        "serviceid": "34d19364-b680-47b0-8c3b-291d517a9243",
+        "type": "objectsvcs",
+        "objectname": "Request",
+        "objectid": "68978"
+    }
+}

@@ -1,0 +1,108 @@
+#set($s = "." + $skin)
+$s
+{
+    #parse("tppalmmojocssfonts.vm")
+     #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end
+
+   
+    overflow: hidden;
+    text-shadow: rgba(0, 0, 0, 0.6) 0px -1px 0;
+    text-overflow: ellipsis;
+    text-decoration: none;
+    white-space: normal;
+    
+    #if($background-color)
+        #if($rgba == "true")
+             background-color : $background-color;
+        #else
+             background-color : #$background-color;
+        #end
+
+         #if($rounded=="true")
+         -webkit-border-top-left-radius: 9px;
+         -webkit-border-bottom-right-radius: 9px;
+         -webkit-border-top-right-radius: 9px;
+         -webkit-border-bottom-left-radius: 9px;
+          #else
+          -webkit-border-radius: 0px;
+          border-radius: 0px;
+          #end
+         #set($bgset = "true")
+    #elseif($transparent)
+            background:inherit;
+            border:none;
+    #elseif($background-gradient)
+        background : -webkit-gradient(linear, 0% 0%, 0% 100%, from($topcolor), to($bottomcolor));
+        #if($rounded=="true")
+             -webkit-border-top-left-radius: 9px;
+             -webkit-border-bottom-right-radius: 9px;
+             -webkit-border-top-right-radius: 9px;
+             -webkit-border-bottom-left-radius: 9px;
+         #else
+              -webkit-border-radius: 0px;
+              border-radius: 0px;
+         #end
+    #elseif($background-split)
+        background : -webkit-gradient(linear, 0% 49%, 0% 50%, from($topcolor), to($bottomcolor));
+        #if($rounded=="true")
+             -webkit-border-top-left-radius: 9px;
+             -webkit-border-bottom-right-radius: 9px;
+             -webkit-border-top-right-radius: 9px;
+             -webkit-border-bottom-left-radius: 9px;
+         #else
+              -webkit-border-radius: 0px;
+              border-radius: 0px;
+         #end
+    #else
+        #set($wd = $width + "px;")
+        #set($hd = $height + "px;")
+        width: $wd
+        height: $hd
+        background-image: url(./images/$background-image);        
+        #if($repeatimage=="false")
+            background-repeat:no-repeat;
+        #elseif($repeatimage=="true")
+            background-repeat:repeat-x;
+        #end
+        background-color:transparent;
+        border-color:transparent;
+        border: none;
+        #if($rounded=="true")
+         -webkit-border-top-left-radius: 9px;
+         -webkit-border-bottom-right-radius: 9px;
+         -webkit-border-top-right-radius: 9px;
+         -webkit-border-bottom-left-radius: 9px;
+        #else
+          -webkit-border-radius: 0px;
+          border-radius: 0px;
+        #end
+    #end
+    #if($bgset == "true")
+        border-width: 0;
+    #end
+}
+
+
+input[selected="progress"][korigskin="$skin"]
+{ 
+    #if($background-color)
+        #set($sk = $skin + ".png")
+         background: url(./images/loading.gif) no-repeat, url(./images/$sk) repeat-x;
+         background-position: right center;
+    #elseif($background-gradient)
+        background : url(./images/loading.gif) no-repeat, -webkit-gradient(linear, 0% 0%, 0% 100%, from($topcolor), to($bottomcolor));
+        background-position: right center;
+    #elseif($background-split)
+        background : url(./images/loading.gif) no-repeat, -webkit-gradient(linear, 0% 49%, 0% 50%, from($topcolor), to($bottomcolor));
+        background-position: right center;
+    #else
+       background: url(./images/loading.gif) no-repeat, url(./images/$background-image);
+       background-position: right center;
+    #end
+}

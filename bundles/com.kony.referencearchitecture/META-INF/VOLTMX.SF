@@ -1,0 +1,96 @@
+Signature-Version: 1.0
+Created-By: 11.0.2 (Oracle Corporation)
+SHA-256-Digest-Manifest: Cl7pUiWlaF09N1aZx0lROWcDY4RfTK7tYMuHttjA/eM=
+SHA-256-Digest-Manifest-Main-Attributes: zqUKYxvznKZIdfeTH8cbbOOj2l3ruVk
+ gOo2+Gdkq5/Q=
+
+Name: models/node_modules/mustache/wrappers/yui3/mustache.js.pre
+SHA-256-Digest: LXh/9j7Pn4qjn8Bv3kAkHR1xUbK8ytJ4GUJtR2xm+uM=
+
+Name: voltmxmvc_sdk.js
+SHA-256-Digest: zBmIuyRFQ9KNUJgOA066WJ2lZ4392+Vsh8wcsHWBtnA=
+
+Name: models/node_modules/mustache/wrappers/jquery/mustache.js.post
+SHA-256-Digest: tWZNYUq/rwby6myiMsPM+3wr8S3fch3DMoYZzqPApH0=
+
+Name: models/MDAModelGenerator.js
+SHA-256-Digest: h2l5iolzsCV3H2mTCYdn3r4Kns3gYoLZlr4t7GiuQt0=
+
+Name: models/MDAModelUtils.js
+SHA-256-Digest: p1NRCyyyasQKJVxGQm6AvZyw7KB/C9e9/6BiauB2y+0=
+
+Name: models/node_modules/mustache/mustache.min.js
+SHA-256-Digest: MlB+rRCQ+iry59xLmi7g3JwuESY3s59N8pp6NONG19w=
+
+Name: models/package.json
+SHA-256-Digest: h+JITgU3+PlqoBEJCvTxMGlddCWWVy2tCcC2YpFZnDg=
+
+Name: models/node_modules/mustache/README.md
+SHA-256-Digest: rHmKBcUHWZN1K6Dbh4rUt7AqxI7EAEA/3ERFgb9/MBo=
+
+Name: models/node_modules/mustache/wrappers/jquery/mustache.js.pre
+SHA-256-Digest: Pnx0BNpPY+zIDUZt8ClMIyKtuc9Kib2bPFTl6wZ6nmg=
+
+Name: models/node_modules/mustache/wrappers/yui3/mustache.js.post
+SHA-256-Digest: 30MjJDbvCt8cYVO26pKLtiGvcz/XTFPYeH/DoXyW/78=
+
+Name: models/node_modules/mustache/LICENSE
+SHA-256-Digest: cxFl+prfgvdsAG1yc9eWjL3xMS+M2HBpoeQxRSQ2uno=
+
+Name: models/node_modules/mustache/CHANGELOG.md
+SHA-256-Digest: E4vEugKJgJUZmcsXtiC4uozsICP+GEjywVz3WiuGhGo=
+
+Name: models/node_modules/mustache/mustache.js
+SHA-256-Digest: KFbqrAkpcXC7Px2hoAOQK2N4TDbtG5Ftdh/cHKSJOP0=
+
+Name: models/MDARepoManagerConfig
+SHA-256-Digest: wg9T21R9ZCh43n8KK5VgTf4fwysSSs8AHqGynuoGNWE=
+
+Name: models/node_modules/mustache/wrappers/qooxdoo/mustache.js.post
+SHA-256-Digest: I9HHB8sVDMH3b1MoohYzpMdtDgQwZVWszrFQ6rApTS4=
+
+Name: models/MDARepositoryTemplate
+SHA-256-Digest: C9SUgPBktNONSZYhHmwfnEYnt/68vi0vK58NZNCRVmg=
+
+Name: models/node_modules/mustache/wrappers/qooxdoo/mustache.js.pre
+SHA-256-Digest: rfkJa+AGsT1JI2qvCBrHs4wgD9ovt5G4WeprQYRKBOI=
+
+Name: models/MDAModelTemplate
+SHA-256-Digest: 5HELSmLlRhjcTfQm3/+sH/Q9LI31SJlRofbbpUd6HQM=
+
+Name: models/node_modules/mustache/wrappers/mootools/mustache.js.pre
+SHA-256-Digest: AGHtbDqgLCDzsUQEi5YVgl2E0HWqHRvuqtnU7/ASMy0=
+
+Name: models/MDAModelGenerationDriver.js
+SHA-256-Digest: zCQtkZSrIQYFQO0NgPfs1RTqB1lCHyL+t2PrSeFPivU=
+
+Name: voltmxmvcextns.js
+SHA-256-Digest: LlE67lRS9hf5O1iwgSijyOnJT4FXfBsfgQXjjd/TzhU=
+
+Name: models/node_modules/mustache/wrappers/dojo/mustache.js.pre
+SHA-256-Digest: LkdxQNbvP1zCZfb5dIYRdJePs9YBvkxE4dPVzavkA38=
+
+Name: models/MDACodeGenerationEngine.js
+SHA-256-Digest: XVwDumj5zGluBDXGroAXOJp4wxSb9MKufF5skLv25OI=
+
+Name: models/node_modules/mustache/bin/mustache
+SHA-256-Digest: 6XHTctSFuW1V1XwSVfNO/7KfB9oRPJz8bfWqvk7o/Ak=
+
+Name: models/node_modules/mustache/wrappers/dojo/mustache.js.post
+SHA-256-Digest: y6NwM9ZRIISAqI5NjOkyPMnOj5lBj2Bg8wFEM4OfMr4=
+
+Name: voltmxmodel_sdk.js
+SHA-256-Digest: icdmQimgoDzAdW8xbyo4q1fazN0AYp1YFpt5tSCCsys=
+
+Name: models/READ_ME.txt
+SHA-256-Digest: Q85lE3VzBXWnv82FmunyN/9UBFgkLFqFqVfiuifmdlU=
+
+Name: models/node_modules/mustache/wrappers/mootools/mustache.js.post
+SHA-256-Digest: 4z8Z2qvFvaGOpq1UCyDey/qLms4+jjuJI+Ohjm15YO0=
+
+Name: models/MDAMappingTemplate
+SHA-256-Digest: Xk78j+eGBL1+g0e1rIsYlxndUp/bAq232O6lMqQPda8=
+
+Name: models/node_modules/mustache/package.json
+SHA-256-Digest: 03P/KYfBlnc59prR47UD/R+XsC8X/ZXkB4dwIS954Fs=
+

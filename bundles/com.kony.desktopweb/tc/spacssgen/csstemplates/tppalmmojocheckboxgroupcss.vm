@@ -1,0 +1,73 @@
+#set($k = ".cb" + $skin)
+#if($focusSkin)
+	#if(($background-color || $gradient) && !$border-width) ## cb
+		#set($k = "#" + $widgetId + " div[class*='" + $normalSkin + "']:active")
+	#else
+		#set($s = $skin)
+	#end
+#else
+	#set($s = "." + $skin)
+#end
+
+#set($imageheight = $height+"px")
+#set($imagewidth = $width+"px")
+
+#if($s)
+ $s{
+   
+    #parse("tppalmmojocssfonts.vm")
+	#parse("tppalmmojocssborder.vm")
+	#if($border-width)
+		border-style: solid;	
+	#end
+	#if($rounded)
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+    #end
+    #if($color)
+        #if($rgba == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end
+    padding: 1px;
+    #if($background-color && $border-width)
+       #if($bg_rgba == "true")
+            background-color : $background-color;
+        #else
+            background-color : #$background-color;
+        #end
+    #elseif($background-image)
+        #if($repeat || $gradient)
+            background-image: url(../$background-image);
+        #else
+            background-image: url(../$background-image);
+            background-repeat: no-repeat;
+        #end
+        
+        #if($height)
+        height: $imageheight !important;
+        #end        
+        #if($weight)
+			width: $imagewidth;
+		#end
+    #end
+}
+#end
+
+#if(($background-color || $gradient) && !$border-width)    
+    $k
+    {		
+		   #if($background-color)	
+           #if($bg_rgba == "true")
+                background-color : $background-color;
+            #else
+                background-color : #$background-color;
+           #end
+		   #end
+           #if($background-image && $gradient)
+                background-image: url(../$background-image);
+           #end 
+    }
+#end

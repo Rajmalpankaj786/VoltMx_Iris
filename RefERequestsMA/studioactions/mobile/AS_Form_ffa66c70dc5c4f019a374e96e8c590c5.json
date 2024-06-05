@@ -1,0 +1,109 @@
+{
+    "AS_Form_ffa66c70dc5c4f019a374e96e8c590c5": {
+        "id": "AS_Form_ffa66c70dc5c4f019a374e96e8c590c5",
+        "type": "ACTION_SEQUENCE",
+        "params": [{
+            "datatype": "collection",
+            "name": "eventobject"
+        }],
+        "contextObj": {
+            "name": "frmERequestsCategories",
+            "type": "forms",
+            "platform": "",
+            "KUID": "db5db5ca51da467a839ce5de636adebf"
+        },
+        "language": "js",
+        "actions": [{
+            "id": "LOADING_INDICATOR_f36dabb50b894f758abfd6c770c20053",
+            "selectedOption": "show",
+            "parentId": null,
+            "type": "LOADING_INDICATOR",
+            "callbackType": null,
+            "skin": "none",
+            "position": "constants.LOADING_SCREEN_POSITION_FULL_SCREEN",
+            "isBlocked": "true",
+            "showProgressIndicator": "true",
+            "text": "Fetching request categories ..."
+        }, {
+            "id": "INVOKE_SERVICE_d970044a9c044d70831ce082f7d82f03",
+            "type": "INVOKE_OBJECT_SERVICE",
+            "inputparams": null,
+            "httpheaders": null,
+            "httpconfigs": null,
+            "isasynchronous": null,
+            "isoffline": null,
+            "isobject": true,
+            "mappings": {},
+            "mappingsOrder": [],
+            "serviceconfig": {
+                "servicename": "ERequests",
+                "type": "objectsvcs",
+                "objectname": "RequestCategory",
+                "serviceid": "34d19364-b680-47b0-8c3b-291d517a9243",
+                "methodname": "get"
+            },
+            "parentId": null,
+            "callbackType": null,
+            "enableMappingEditor": true
+        }, {
+            "id": "ADD_SNIPPET_b8e3723e82c7488a88923c8fa9b8f5f4",
+            "type": "ADD_SNIPPET",
+            "codeSnippet": "self.view.categories.segCategories.widgetDataMap = \n  {\"lblCategory\":\"Category\"};",
+            "parentId": "INVOKE_SERVICE_d970044a9c044d70831ce082f7d82f03",
+            "callbackType": "Callback"
+        }, {
+            "id": "ADD_MAPPING_hb11d838368e485f85d0955bc6b0a325",
+            "type": "ADD_MAPPING",
+            "mappings": {
+                "ME_Mapping_ba7ec71465d644faa96d01099a2b253f": {
+                    "channel": "mobile",
+                    "id": "ME_Mapping_ba7ec71465d644faa96d01099a2b253f",
+                    "type": "MAPPING",
+                    "callbackType": null,
+                    "rectified": true,
+                    "source": {
+                        "type": "Services",
+                        "propertyName": "records",
+                        "dataType": "collection",
+                        "forkedPlatform": "all",
+                        "serviceconfig": {
+                            "servicename": "ERequests",
+                            "type": "objectsvcs",
+                            "objectname": "RequestCategory",
+                            "serviceid": "34d19364-b680-47b0-8c3b-291d517a9243",
+                            "methodname": "get"
+                        }
+                    },
+                    "target": {
+                        "type": "Forms",
+                        "propertyName": "rowData",
+                        "widgetId": "segCategories",
+                        "widgetPath": "this.view.categories.segCategories",
+                        "widgetType": "Segment",
+                        "dataType": "collection",
+                        "itemId": "frmERequestsCategories",
+                        "collectionId": "masterdata",
+                        "widgetKUID": "de6bd25bcbef4169b54267f6a4bd054e",
+                        "itemKUID": "db5db5ca51da467a839ce5de636adebf",
+                        "forkedPlatform": "all",
+                        "instanceKUID": "a6dc54c3920745629bdf10502e7184e3"
+                    }
+                }
+            },
+            "mappingsOrder": ["ME_Mapping_ba7ec71465d644faa96d01099a2b253f"],
+            "parentId": "INVOKE_SERVICE_d970044a9c044d70831ce082f7d82f03",
+            "callbackType": "Callback",
+            "enableMappingEditor": true
+        }, {
+            "id": "LOADING_INDICATOR_a9494a88ca1543f6b7eddae504f837d3",
+            "selectedOption": "dismiss",
+            "parentId": "INVOKE_SERVICE_d970044a9c044d70831ce082f7d82f03",
+            "type": "LOADING_INDICATOR",
+            "callbackType": "Callback",
+            "skin": "none",
+            "position": "constants.LOADING_SCREEN_POSITION_FULL_SCREEN",
+            "isBlocked": "true",
+            "showProgressIndicator": "true"
+        }]
+    }
+}

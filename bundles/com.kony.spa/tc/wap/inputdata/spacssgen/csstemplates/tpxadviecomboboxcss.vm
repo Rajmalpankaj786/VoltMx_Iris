@@ -1,0 +1,73 @@
+#if($focusSkin)
+	#set($s = $skin)
+#else
+	#set($s = "." + $skin)
+#end
+$s{   
+   #if($forking)
+        #parse("tpxadviecssborderspecific.vm")
+   #else
+        #parse("tpxadviecssborder.vm")
+   #end
+   #parse("tppalmmojocssfonts.vm")
+   #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end
+    #if($background-color)
+        #if($rgba == "true")
+            background-color : $background-color;
+        #else
+             #set($bc = "#" + $background-color)
+             background-color: $bc;
+        #end
+    #elseif($bg-grad-split-ms)
+        #parse("tpxspaiecssbggradient.vm")
+    #elseif($background-image)
+        #parse("tpspagenericbgimage.vm")
+    #elseif($transparent)
+        background: transparent;
+    #end
+#if($forking)
+    #parse("tpxadvieshadowcss.vm")
+#end
+}
+##below snipet only for desktop css
+
+    #if($desktopcss)
+       $s option{
+            #if($background-color)
+                #if($rgba == "true")
+                    background-color : $background-color;
+                #else
+                     #set($bc = "#" + $background-color)
+                     background-color: $bc;
+                #end
+            #elseif($background-gradient)
+                filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$topcolor', endColorstr='$bottomcolor');
+            #elseif($background-split)
+                filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$topcolor', endColorstr='$bottomcolor');
+            #elseif($background-horizontal-gradient)
+                filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr='$topcolor', endColorstr='$bottomcolor');
+            #elseif($background-horizontal-split)
+                filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr='$topcolor', endColorstr='$bottomcolor');
+            #elseif($background-image)
+                #if($repeat && $verticalrepeat)
+                    background: url(./images/$background-image) repeat;
+                #elseif($repeat)
+                    background: url(./images/$background-image) repeat-x;
+                #elseif($verticalrepeat)
+                    background: url(./images/$background-image) repeat-y;
+                #else
+                    background: url(./images/$background-image) no-repeat;
+                #end
+            #elseif($transparent)
+                background: transparent;
+            #end        
+        }
+    #end
+
+    

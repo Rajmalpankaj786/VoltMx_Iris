@@ -1,0 +1,13 @@
+      background: $bottomcolor url(./images/$background-image) repeat-x;
+
+#if($background-gradient)
+   background : -o-linear-gradient(270deg, $topcolor, $bottomcolor) fixed;
+#elseif($background-split)
+   background : -o-linear-gradient(270deg,$topcolor 50%, $bottomcolor 50%) fixed;
+#elseif($background-horizontal-gradient)
+   background : -o-linear-gradient(0deg, $topcolor, $bottomcolor) fixed;
+#elseif($background-horizontal-split)
+   background : -o-linear-gradient(0deg,$topcolor 50%, $bottomcolor 50%) fixed;
+#elseif($background-ms-gradient)
+    background : -o-linear-gradient($background-ms-color)fixed;
+#end

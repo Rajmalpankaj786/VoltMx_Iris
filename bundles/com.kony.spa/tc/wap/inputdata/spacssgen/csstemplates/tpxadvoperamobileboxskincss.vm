@@ -1,0 +1,93 @@
+#if($focusSkin)
+	#set($s = $skin)
+#else
+	#set($s = "." + $skin)
+#end
+$s{    
+    #if($forking)
+        #parse("tpxadvoperamobilecssborderspecific.vm")
+    #else
+        #parse("tpxadvoperamobilecssborder.vm")
+    #end
+    #parse("tppalmmojocssfonts.vm")
+    #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end    
+    #if($background-color)
+        #if($rgba == "true")
+            background-color : $background-color;
+        #else
+            background-color : #$background-color;
+        #end
+    #elseif($background-gradient)
+            background-image: url(./images/$background-image);
+            background-repeat: repeat-x;
+            background-color: $bottomcolor;
+    #elseif($background-image)
+        #if($repeat && $verticalrepeat)
+            background: url(./images/$background-image) repeat;
+        #elseif($repeat)
+            background: url(./images/$background-image) repeat-x;
+        #elseif($verticalrepeat)
+            background: url(./images/$background-image) repeat-y;
+        #else
+            background: url(./images/$background-image) no-repeat;
+        #end
+    #end
+#if($forking)
+    #parse("tpdesktopoperashadowcss.vm")
+#end
+    #if($rounded)
+        #if($repeat)
+            border-radius: 6px;
+        #else
+            border-radius: 10px;
+         #end
+    #end
+    box-sizing: border-box;
+}
+#if($pimgexists=="true")
+div[progressindctr="true"][kprogressskin="$skin"]
+{
+    #if($background-color)
+         background-image: url("./images/$pimgname") !important;
+         background-repeat: no-repeat;
+    #elseif($background-gradient)
+        background : url(./images/$pimgname) no-repeat, -webkit-gradient(linear, 0% 0%, 0% 100%, from($topcolor), to($bottomcolor));
+    #elseif($background-split)
+        background : url(./images/$pimgname) no-repeat, -webkit-gradient(linear, 0% 49%, 0% 50%, from($topcolor), to($bottomcolor));
+     #elseif($transparent)
+        background-image : url(./images/$pimgname) !important;
+        background-repeat: no-repeat;
+     #else
+        #set($imgbg="true")
+        #if($repeatimage=="false")
+        background: url(./images/$pimgname) no-repeat, url(./images/$background-image) no-repeat;
+        #else
+        background: url(./images/$pimgname) no-repeat, url(./images/$background-image) repeat-x;
+        #end
+
+    #end
+    #if($imgbg=="true")
+        #if($pimgloc=="left")
+        background-position: left center,left;
+        #elseif($pimgloc=="right")
+        background-position: right center,left;
+        #elseif($pimgloc=="center")
+        background-position: center center,left;
+        #end
+    #else
+        #if($pimgloc=="left")
+        background-position: left center;
+        #elseif($pimgloc=="right")
+        background-position: right center;
+        #elseif($pimgloc=="center")
+        background-position: center center;
+        #end
+    #end
+}
+#end

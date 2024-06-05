@@ -1,0 +1,8 @@
+font-family: $right-font-family;
+font-size : $right-font-size;
+font-weight : $right-font-weight;
+#if($right-font-style=="italic" || $right-font-style=="normal" || $styleFlag)
+   font-style : $right-font-style;
+#else
+   text-decoration : $right-font-style;
+#end

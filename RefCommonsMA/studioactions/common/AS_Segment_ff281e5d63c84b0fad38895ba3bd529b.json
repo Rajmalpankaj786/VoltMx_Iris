@@ -1,0 +1,62 @@
+{
+    "AS_Segment_ff281e5d63c84b0fad38895ba3bd529b": {
+        "id": "AS_Segment_ff281e5d63c84b0fad38895ba3bd529b",
+        "type": "ACTION_SEQUENCE",
+        "params": [{
+            "datatype": "collection",
+            "name": "eventobject"
+        }, {
+            "datatype": "number",
+            "name": "sectionNumber"
+        }, {
+            "datatype": "number",
+            "name": "rowNumber"
+        }],
+        "contextObj": {
+            "name": "userwidgetmodel",
+            "type": "userwidgets",
+            "KUID": "u2746a61ff4b452c81900b1df9e335dd"
+        },
+        "language": "js",
+        "actions": [{
+            "id": "INVOKE_FUNCTION__ca68d9def823418d8490194abc0dcbc7",
+            "type": "INVOKE_FUNCTION",
+            "sequenceKUID": "hamburgerMenuCallback",
+            "display": "hamburgerMenuCallback",
+            "inputparams": [],
+            "parentId": "MOVE_ACTION_ce23dc7eb4e24dfc87c7b4f5715f39fb",
+            "callbackType": "Callback",
+            "disabled": null,
+            "source": "controller"
+        }, {
+            "id": "MOVE_ACTION_ce23dc7eb4e24dfc87c7b4f5715f39fb",
+            "type": "MOVE_ACTION",
+            "itemType": "COMPONENT",
+            "itemId": "userwidgetmodel",
+            "widgetId": "hamburgermenu",
+            "itemKUID": "u2746a61ff4b452c81900b1df9e335dd",
+            "widgetKUID": "h252d274516e4e2ab04f2b8968e3e8d1",
+            "wType": "FlexContainer",
+            "animationObject": {
+                "left": "-90%",
+                "anchorPoint": {},
+                "stepConfig": {
+                    "timingFunction": "kony.anim.EASE"
+                }
+            },
+            "config": {
+                "delay": "0",
+                "iterationCount": 1,
+                "fillMode": "voltmx.anim.FILL_MODE_FORWARDS",
+                "duration": "1000"
+            },
+            "start": "Immediately",
+            "animationId": "MOVE_ACTION_ce23dc7eb4e24dfc87c7b4f5715f39fb",
+            "displayAnimationId": "MOVE_ACTION_ce23dc7eb4e24dfc87c7b4f5715f39fb",
+            "forkedPlatform": "all",
+            "parentId": null,
+            "callbackType": null,
+            "widgetPath": "this.view"
+        }]
+    }
+}

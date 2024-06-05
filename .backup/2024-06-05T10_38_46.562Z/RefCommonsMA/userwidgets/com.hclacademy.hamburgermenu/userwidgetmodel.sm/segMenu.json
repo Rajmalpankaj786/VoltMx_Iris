@@ -1,0 +1,182 @@
+{
+    "@class": "com.kony.gen.viz.model.container.KVizSegment2",
+    "DNDConfig": null,
+    "_data_": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+    ],
+    "_height_": {
+        "type": "string",
+        "value": "100%"
+    },
+    "_indicator_": "none",
+    "_left_": {
+        "type": "string",
+        "value": "0%"
+    },
+    "_margin_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_orientation_": 2,
+    "_padding_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_top_": {
+        "type": "string",
+        "value": "150dp"
+    },
+    "_width_": {
+        "type": "string",
+        "value": "100%"
+    },
+    "autogrowmode": 0,
+    "canUpdateUI": true,
+    "containerweight": 100,
+    "counter": "05",
+    "focusedindex": null,
+    "focuseditem": null,
+    "groupcells": false,
+    "hasSections": false,
+    "id": "segMenu",
+    "ide_onRowClick": "AS_Segment_ff281e5d63c84b0fad38895ba3bd529b",
+    "info": null,
+    "ipad": {
+        "psp": {
+            "indicator": "rowselect"
+        }
+    },
+    "iphone": {
+        "psp": {
+            "indicator": "rowselect"
+        }
+    },
+    "iscustomlayout": false,
+    "isvisible": true,
+    "kuid": "ja3ba65c950847c8b0ec2c7009d2e4b3",
+    "masterdata": {},
+    "mobile": {
+        "_data_": [
+            {
+                "imgMenuOption": {
+                    "@class": "com.viz.ide.model.segment.ImageSegmentData",
+                    "src": "overview.png"
+                },
+                "lblMenuOption": {
+                    "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                    "text": "Dashboard"
+                }
+            },
+            {
+                "imgMenuOption": {
+                    "@class": "com.viz.ide.model.segment.ImageSegmentData",
+                    "src": "erequest.png"
+                },
+                "lblMenuOption": {
+                    "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                    "text": "Requests"
+                }
+            },
+            {
+                "imgMenuOption": {
+                    "@class": "com.viz.ide.model.segment.ImageSegmentData",
+                    "src": "ecomplaint.png"
+                },
+                "lblMenuOption": {
+                    "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                    "text": "Complaints"
+                }
+            },
+            {
+                "imgMenuOption": {
+                    "@class": "com.viz.ide.model.segment.ImageSegmentData",
+                    "src": "weatheralert.png"
+                },
+                "lblMenuOption": {
+                    "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                    "text": "Weather Alert"
+                }
+            },
+            {
+                "imgMenuOption": {
+                    "@class": "com.viz.ide.model.segment.ImageSegmentData",
+                    "src": "userprofile.png"
+                },
+                "lblMenuOption": {
+                    "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                    "text": "User Profile"
+                }
+            },
+            {
+                "imgMenuOption": {
+                    "@class": "com.viz.ide.model.segment.ImageSegmentData",
+                    "src": "userpreferences.png"
+                },
+                "lblMenuOption": {
+                    "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                    "text": "User Preferences"
+                }
+            }
+        ],
+        "rowTemplateId": "ff13a7aa3f154293b5303c8feb26742b",
+        "rowtemplate": "flxSegRowWithImageAndLabel",
+        "widgetdatamap": {
+            "flxSegRowWithImageAndLabel": "flxSegRowWithImageAndLabel",
+            "imgMenuOption": "imgMenuOption",
+            "lblMenuOption": "lblMenuOption"
+        }
+    },
+    "name": "kony.ui.SegmentedUI2",
+    "needpageindicator": true,
+    "pageoffdotimage": "pageoffdot.png",
+    "pageondotimage": "pageondot.png",
+    "paginationconfig": {
+        "position": "bottom"
+    },
+    "parent": "hamburgermenu",
+    "pf": "userwidgetmodel",
+    "retaincontentalignment": false,
+    "retainflexpositionproperties": false,
+    "retainselection": false,
+    "rowcounter": 5,
+    "rowfocusskin": "s182cf6d5fbf4101abf09c07f4a3b567",
+    "rowskin": "sa1709d3b92443208a7dcc4f54318cbe",
+    "rowtemplate": null,
+    "screenlevelwidget": false,
+    "seccounter": 0,
+    "sectionheaderskin": "s54ebdf66f9344039476a495a0b7fb1a",
+    "selectedRows": null,
+    "selectedState": false,
+    "selectedindex": null,
+    "selectedindices": null,
+    "selecteditems": null,
+    "selectedsectionindex": 0,
+    "selectionbehavior": "default",
+    "separatorcolor": "aaaaaa00",
+    "separatorrequired": true,
+    "separatorthickness": 1,
+    "showscrollbars": false,
+    "viewtype": "tableview",
+    "vizProps": {},
+    "wType": "Segment",
+    "widgetalignment": 5,
+    "widgetdatamap": {
+        "flxSegRowWithImageAndLabel": "flxSegRowWithImageAndLabel",
+        "imgMenuOption": "imgMenuOption",
+        "lblMenuOption": "lblMenuOption"
+    },
+    "zindex": 1
+}

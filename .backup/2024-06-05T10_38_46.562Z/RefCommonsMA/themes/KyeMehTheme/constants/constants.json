@@ -1,0 +1,123 @@
+{
+    "blackColor": {
+        "color": {
+            "value": "003e75ff"
+        },
+        "colorType": {
+            "value": "one"
+        },
+        "type": "color"
+    },
+    "fourthColorShade1": {
+        "color": {
+            "value": "949294ff"
+        },
+        "colorType": {
+            "value": "one"
+        },
+        "type": "color"
+    },
+    "fourthColorShade2": {
+        "color": {
+            "value": "9492943f"
+        },
+        "colorType": {
+            "value": "one"
+        },
+        "type": "color"
+    },
+    "primaryColorShade1": {
+        "color": {
+            "value": "8360c3ff"
+        },
+        "colorType": {
+            "value": "one"
+        },
+        "type": "color"
+    },
+    "primaryColorShade2": {
+        "color": {
+            "value": "c8f0faff"
+        },
+        "colorType": {
+            "value": "one"
+        },
+        "type": "color"
+    },
+    "primaryColorShade3": {
+        "color": {
+            "value": "529cc7ff"
+        },
+        "colorType": {
+            "value": "one"
+        },
+        "type": "color"
+    },
+    "primaryColorShade4": {
+        "color": {
+            "value": "d1e9f8ff"
+        },
+        "colorType": {
+            "value": "one"
+        },
+        "type": "color"
+    },
+    "primaryColorShade5": {
+        "color": {
+            "value": "cce4ebff"
+        },
+        "colorType": {
+            "value": "one"
+        },
+        "type": "color"
+    },
+    "primarySecondaryColorsGradient1": {
+        "color": {
+            "value": {
+                "bottomColor": "2ebf91ff",
+                "gradientType": "vg",
+                "topColor": "8360c3ff"
+            }
+        },
+        "colorType": {
+            "value": "two"
+        },
+        "type": "color"
+    },
+    "secondaryColorShade1": {
+        "color": {
+            "value": "2ebf91ff"
+        },
+        "colorType": {
+            "value": "one"
+        },
+        "type": "color"
+    },
+    "thirdColorShade1": {
+        "color": {
+            "value": "295963ff"
+        },
+        "colorType": {
+            "value": "one"
+        },
+        "type": "color"
+    },
+    "thirdColorShade2": {
+        "color": {
+            "value": "1c4047ff"
+        },
+        "colorType": {
+            "value": "one"
+        },
+        "type": "color"
+    },
+    "whiteColor": {
+        "color": {
+            "value": "ffffffff"
+        },
+        "colorType": {
+            "value": "one"
+        },
+        "type": "color"
+    }
+}

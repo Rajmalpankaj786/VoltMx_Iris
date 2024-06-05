@@ -1,0 +1,142 @@
+{
+    "@class": "com.kony.gen.viz.model.component.KVizUserWidget",
+    "DNDConfig": null,
+    "_children_": [],
+    "_height_": {
+        "type": "string",
+        "value": "50dp"
+    },
+    "_left_": {
+        "type": "string",
+        "value": "40dp"
+    },
+    "_margin_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_orientation_": 1,
+    "_padding_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_percent_": true,
+    "_skin_": "s9fc386a7cb049628015273474ecc2b5",
+    "_top_": {
+        "type": "string",
+        "value": "20dp"
+    },
+    "_width_": {
+        "type": "string",
+        "value": "80%"
+    },
+    "areflexpropsreferenced": false,
+    "autogrowmode": 0,
+    "canUpdateUI": true,
+    "clipbounds": false,
+    "containerweight": 0,
+    "dataDiffs": {
+        "custombuttonwithimageandtext": {
+            "__events__": {},
+            "__info__": {
+                "isRoot": true,
+                "kuid": "d5505851ca474469bc1719b17bfc440d",
+                "srcKUID": "h7b3459e2cc442c68167d83132794d92",
+                "wType": "FlexContainer"
+            },
+            "autogrowMode": {
+                "Default": 0
+            },
+            "height": {
+                "Default": {
+                    "type": "string",
+                    "value": "50dp"
+                }
+            },
+            "isVisible": false,
+            "left": {
+                "Default": {
+                    "type": "string",
+                    "value": "40dp"
+                }
+            },
+            "top": {
+                "Default": {
+                    "type": "string",
+                    "value": "20dp"
+                }
+            },
+            "width": {
+                "Default": {
+                    "type": "string",
+                    "value": "80%"
+                }
+            }
+        },
+        "imgAction": {
+            "__events__": {},
+            "__info__": {
+                "kuid": "e6b39950e0a1483f8578699b9c90ab34",
+                "srcKUID": "e7a0b2d0f8f54898ac5b3ea6e845851f",
+                "wType": "Image"
+            },
+            "centerY": {
+                "Default": {
+                    "type": "string",
+                    "value": "50%"
+                }
+            },
+            "height": {
+                "Default": {
+                    "type": "string",
+                    "value": "35dp"
+                }
+            },
+            "left": {
+                "Default": {
+                    "type": "string",
+                    "value": "10dp"
+                }
+            },
+            "src": "tax.png",
+            "width": {
+                "Default": {
+                    "type": "string",
+                    "value": "50dp"
+                }
+            }
+        },
+        "lblAction": {
+            "__events__": {},
+            "__info__": {
+                "kuid": "f54df05707314b9d83fa6e6e7c9909f9",
+                "srcKUID": "dd440d5a670f4967bf2f24714606fd3d",
+                "wType": "Label"
+            },
+            "text": "Tax"
+        }
+    },
+    "enablescrolling": true,
+    "id": "btnTaxManagement",
+    "info": null,
+    "iscustomlayout": false,
+    "isdatareferenced": false,
+    "isvisible": false,
+    "kuid": "d5505851ca474469bc1719b17bfc440d",
+    "layouttype": 3,
+    "masterType": 0,
+    "name": "kony.ui.UserWidgetInstance",
+    "parent": "flxMainContent",
+    "pf": "frmDashboard",
+    "retaincontentalignment": false,
+    "retainflexpositionproperties": false,
+    "retainflowhorizontalalignment": false,
+    "snapgridsize": 10,
+    "snaptogrid": true,
+    "sourceUserWidget": "h7b3459e2cc442c68167d83132794d92",
+    "wType": "UserWidgetInstance",
+    "zindex": 1
+}

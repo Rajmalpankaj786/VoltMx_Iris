@@ -1,0 +1,1091 @@
+<?xml version="1.0"?>
+<!-- ====================================================     -->
+<!--      Build file for our first desktop web application    -->
+<!--        build.xml, 11/Jan/2012                            -->
+<!--        Author: Sumanth Divvela                           -->
+<!-- ====================================================     -->
+<project name="Volt MX Desktop web project" default="package" basedir=".">
+    <import file="../wap/common-build.xml" optional="true"/>
+    <target name="init" description="init">
+        <taskdef resource="net/sf/antcontrib/antcontrib.properties">
+            <classpath>
+                <pathelement location="${plugin.loc}/lib/ant-contrib-0.6.jar" />
+            </classpath>
+        </taskdef>
+        <taskdef name="unset" classname="ise.antelope.tasks.Unset">
+            <classpath>
+                <pathelement location="${plugin.loc}/lib/AntelopeTasks_3.4.0.jar"/>
+            </classpath>
+        </taskdef>
+        <taskdef resource="com/kony/ant/antkonyscript.properties">
+            <classpath>
+                <pathelement location="${plugin.loc}/lib/KonyAntScript.jar"/>
+            </classpath>
+        </taskdef>
+        <condition property="outputdir" value="jsoutput" else="output">
+            <equals arg1="js" arg2="${dev.language}" casesensitive="false" trim="true"/>
+        </condition>
+        <property name="build" location="${appfolder}/build/wap/build" />
+        <property name="buildwap" location="${appfolder}/build/wap" />
+        <property name="builddeskweb.base" location="${appfolder}/build/desktopweb" />
+        <property name="builddeskweb.basemixlib" location="${desktopweb.plugin.loc}/tc/webfiles/dwmixlib" />
+        <property name="builddeskweb.basecsslib" location="${desktopweb.plugin.loc}/tc/webfiles/dwcsslib" />
+        <property name="builddeskweb.baselegacylib" location="${desktopweb.plugin.loc}/tc/webfiles/legacy" />
+
+        <property name="buildwebdeskweb" location="${build}/web/desktopweb" />
+        <property name="buildwebdeskweb.img" location="${buildwebdeskweb}/images" />
+        <property name="buildwebdeskweb.raw" location="${buildwebdeskweb}/raw" />
+        <property name="buildwebdeskweb.jslib" location="${buildwebdeskweb}/jslib" />
+        <property name="buildwebdeskweb.appjs" location="${buildwebdeskweb}/appjs" />
+
+        <property name="gdwfiles" location="${appfolder}/${outputdir}/desktopweb" />
+        <property name="customfiles.js" location="${resfolder}/../modules/js" />
+        <property name="jetty.web" location="${webapps.loc}/${projname}" />
+        <property name="desk.web.bg.images" location="bgimages/default/desktopweb" />
+        <property name="res.folder" value="${resfolder}"/>
+        <property name="buildweb" value="${jetty.web}"/>
+
+        <available file="${desk.web.bg.images}" type="dir" property="desk.web.bg.images.present"/>
+
+    </target>
+
+    <target name="package" depends="clean">
+    </target>
+
+    <target name="clean" description="clean up" depends="init">
+    </target>
+
+    <target name="desktopweb" description="clean up" depends="init">
+        <!--
+        <echo message=" Plugin Location ${desktopweb.plugin.loc}" />
+        <echo message=" buildweb ${buildweb}" />
+        <echo message=" buildwebdeskweb ${buildwebdeskweb}" />
+        -->
+        <!-- Desktop web build for moving JS, CSS, image and properties files into thinclient war -->
+
+        <tstamp>
+            <format property="current.time" pattern="dd/MM/yyyy hh:mm:ss"/>
+        </tstamp>
+
+        <echo message="START OF DESKTOP WEB BUILD ${current.time} ${appfolder}"/> 
+
+        <property file="${project.loc}/custombuild/spadw.properties" />
+        <if>
+            <not>
+                <equals arg1="${desktopwebNodeBuild}" arg2="true"/>
+            </not>
+            <then>
+                <mkdir dir="${buildwebdeskweb}" />
+                <mkdir dir="${buildwebdeskweb.appjs}" />
+
+                <!-- Copying fonts from resources folder to web folder -->
+                <if>
+                    <equals arg1="${webLibraryMode}" arg2="css" />
+                    <then>
+                        <copy todir="${buildwebdeskweb}/fonts">
+                            <fileset dir="${resfolder}/fonts" includes="*.eot,*.ttf,*.otf"/>
+                        </copy>
+                        <if>
+                            <equals arg1="${desktopnative.platform}" arg2="nativemac" />
+                            <then>
+                                <copy todir="${buildwebdeskweb}/fonts" overwrite="true">
+                                    <fileset dir="${resfolder}/fonts/${nativemac.fonts.folder}" includes="*.eot,*.ttf,*.otf"/>
+                                </copy>
+                            </then>
+                            <elseif>
+                                <equals arg1="${desktopnative.platform}" arg2="nativewin" />
+                                <then>
+                                    <copy todir="${buildwebdeskweb}/fonts" overwrite="true">
+                                        <fileset dir="${resfolder}/fonts/${nativewin.fonts.folder}" includes="*.eot,*.ttf,*.otf"/>
+                                    </copy>
+                                </then>
+                            </elseif>
+                            <else>
+                                <copy todir="${buildwebdeskweb}/fonts">
+                                    <fileset dir="${resfolder}/fonts/${desktopweb.fonts.folder}" includes="*.eot,*.ttf,*.otf"/>
+                                </copy>
+                            </else>
+                        </if>                        
+                    </then>
+                    <else>
+                        <copy todir="${buildwebdeskweb}">
+                            <fileset dir="${resfolder}/fonts" includes="*.eot,*.ttf,*.otf"/>
+                        </copy>
+
+                        <!-- Copying fonts from resources/fonts/Desktopweb folder to web folder -->
+                        <copy todir="${buildwebdeskweb}">
+                            <fileset dir="${resfolder}/fonts/${desktopweb.fonts.folder}" includes="*.eot,*.ttf,*.otf"/>
+                        </copy>
+                    </else>
+                </if>
+                <prepareappjs category="desktopweb" devlang="js" />
+
+                <copy todir="${buildwebdeskweb.appjs}" overwrite="true">
+                    <fileset dir="${jetty.web}/desktopweb/appjs" />
+                </copy>
+
+                <!-- In vizstudio coy files from modules, there won't be js folder -->
+                <if>
+                    <equals arg1="${isvizintegration}" arg2="true" />
+                    <then>
+                        <copy todir="${buildwebdeskweb}">
+                            <fileset dir="${resfolder}/../modules" includes="*.js" />
+                        </copy>
+                    </then>
+                    <else>
+                        <!-- Copy custom js files to /desktopweb folder -->
+                        <copy todir="${buildwebdeskweb}">
+                            <fileset dir="${customfiles.js}" includes="*.js" />
+                        </copy>
+                    </else>
+                </if>
+
+                <property file="${project.loc}/custombuild/spadw.properties" />
+                <var name="enginecodebase" value="${builddeskweb.baselegacylib}/jslib" />
+                <var name="buildwebdeskwebtodir" value="${buildwebdeskweb.jslib}" />
+                <if>
+                    <equals arg1="${webLibraryMode}" arg2="css" />
+                    <then>
+                        <var name="enginecodebase" value="${builddeskweb.basecsslib}" />
+                        <var name="buildwebdeskwebtodir" value="${buildwebdeskweb}" />
+                    </then>
+                </if>
+
+                <!-- Copy jslib(including tparty) into /desktopweb/jslib folder -->
+                <if>
+                    <or>
+                        <equals arg1="${build.option}" arg2="debug" />
+                        <equals arg1="${enableAutomation}" arg2="true" />
+                    </or>
+                    <then>
+                        <copy todir="${buildwebdeskwebtodir}">
+                            <fileset dir="${enginecodebase}" includes="**/*.*" excludes="**/publish/**" />
+                        </copy>
+                    </then>
+                    <else>
+                        <copy todir="${buildwebdeskwebtodir}">
+                            <fileset dir="${enginecodebase}" includes="**/*.*"  excludes="**/automation/**, **/publish/**" />
+                        </copy>
+                    </else>
+                </if>
+                <!-- Copy ie7 (including jslib & tparty) into /desktopweb/ie7 folder -->
+                <!-- Copy jslib(including tparty) into /desktopweb/jslib folder -->
+
+                <!--  Copy third party widgets from the output folder -->
+                <if>
+                    <available file="${builddeskweb.base}/jslib/tparty" type="dir"/>
+                    <then>
+                        <copy todir="${buildwebdeskweb.jslib}/tparty">
+                            <fileset dir="${builddeskweb.base}/jslib/tparty" includes="**/*.*" />
+                        </copy>
+                    </then>
+                </if>
+
+                <available file="${gdwfiles}/jslib/tparty/libraries" type="dir" property="customlibrariesdirpresentinoutput"/>
+                <available file="${gdwfiles}/jslib/tparty/widgets" type="dir" property="customwidgetsdirpresentinoutput"/>
+
+                <if>
+                    <equals arg1="${customlibrariesdirpresentinoutput}" arg2="true" />
+                    <then>
+                        <echo message="copying third party library Files" />
+                        <copy todir="${buildwebdeskweb}/jslib/tparty/libraries">
+                            <fileset dir="${gdwfiles}/jslib/tparty/libraries"/>
+                        </copy>
+                    </then>
+                </if>
+
+                <if>
+                    <equals arg1="${customwidgetsdirpresentinoutput}" arg2="true" />
+                    <then>
+                        <echo message="copying third party  widget Files" />
+                        <copy todir="${buildwebdeskweb}/jslib/tparty/widgets">
+                            <fileset dir="${gdwfiles}/jslib/tparty/widgets"/>
+                        </copy>
+                    </then>
+                </if>
+
+                <!-- Copy voltmx manifest file -->
+                <copy file="${gdwfiles}/voltmx.manifest" tofile="${buildwebdeskweb}/voltmx.manifest" />
+                <copy file="${gdwfiles}/voltmx.manifest_min" tofile="${buildwebdeskweb}/voltmx.manifest_min" />
+
+
+
+                <if>
+                    <equals arg1="${webLibraryMode}" arg2="css" />
+                    <then>
+                        <!-- Copy generated NEW themes css files -->
+                        <copy todir="${buildwebdeskweb}/themes">
+                            <fileset dir="${gdwfiles}/kwebthemes" includes="**/*.css,*.js" />
+                        </copy>
+                    </then>
+                    <else>
+                        <!-- Copy generated css files -->
+                        <copy todir="${buildwebdeskweb}">
+                            <fileset dir="${gdwfiles}" includes="*.css,*.js" />
+                        </copy>
+                    </else>
+                </if>
+
+                <!-- Copying images to desktopweb build -->
+                <copy todir="${buildwebdeskweb.img}" overwrite="true">
+                    <fileset dir="${buildwap}/inputdata/webfiles/iphone" includes="**/*.png,**/*.gif" />
+                </copy>
+                <copy todir="${buildwebdeskweb.img}" overwrite="true">
+                    <fileset dir="${resfolder}/common" includes="*.*" />
+                </copy>
+
+                <!-- Copying raw folder to desktop build -->
+                <if>
+                    <available file="${resfolder}/desktop/common/raw" type="dir"/>
+                    <then>
+                        <copy todir="${buildwebdeskweb.raw}" overwrite="true">
+                            <fileset dir="${resfolder}/desktop/common/raw" includes="*.*" />
+                        </copy>
+                    </then>
+                </if>
+
+                <!-- Copying native mac and native win folder to desktop build -->
+                <if>
+                    <equals arg1="${desktopnative.platform}" arg2="nativemac" />
+                    <then>
+                        <copy todir="${buildwebdeskweb.img}" overwrite="true">
+                            <fileset dir="${resfolder}/desktop/native/nativemac" includes="*.*" />
+                        </copy>
+                    </then>
+                    <elseif>
+                        <equals arg1="${desktopnative.platform}" arg2="nativewin" />
+                        <then>
+                            <copy todir="${buildwebdeskweb.img}" overwrite="true">
+                                <fileset dir="${resfolder}/desktop/native/nativewin" includes="*.*" />
+                            </copy>
+                        </then>
+                    </elseif>
+                </if>
+
+                <if>
+                    <available file="${resfolder}/common/web/Vector" type="dir"/>
+                    <then>
+                        <copy todir="${buildwebdeskweb.img}" overwrite="true">
+                                    <fileset dir="${resfolder}/common/web/Vector" includes="**/*.svg" />
+                        </copy>
+                    </then>
+                </if>
+
+                <if>
+                <equals arg1="${resources.new.structure}" arg2="true" />
+                <then>
+                    <echo message="New structure ************"/>
+                    <copy todir="${buildwebdeskweb.img}" overwrite="true">
+                        <fileset dir="${resfolder}/desktop/common" includes="*.*" />
+                    </copy>
+                </then>
+                </if>
+
+
+
+                <copy todir="${buildwebdeskweb.img}" failonerror="false" >
+                    <fileset dir="${resfolder}/build" includes="*.*" />
+                </copy>
+                <copy todir="${buildwebdeskweb.img}" overwrite="true">
+                    <fileset dir="${builddeskweb.base}/images" includes="*.*" />
+                </copy>
+                <sleep seconds="1" />
+
+                <if>
+                <equals arg1="${resources.new.structure}" arg2="true" />
+                <then>
+                    <echo message="New structure ************"/>
+                    <copy todir="${buildwebdeskweb.img}" overwrite="true">
+                        <fileset dir="${resfolder}/desktop/web/desktopweb" includes="*.*" />
+                    </copy>
+                </then>
+                <else>
+                    <echo message="Old structure ************"/>
+                    <copy todir="${buildwebdeskweb.img}" overwrite="true">
+                        <fileset dir="${resfolder}/desktop/desktopweb" includes="*.*" />
+                    </copy>
+                </else>
+                </if>
+
+
+
+                <if>
+                    <equals arg1="${desk.web.bg.images.present}" arg2="true" />
+                    <then>
+                        <copy todir="${buildwebdeskweb.img}" overwrite="true">
+                            <fileset dir="bgimages/default/genxhtml" includes="**/*.png,**/*.gif" />
+                        </copy>
+                        <copy todir="${buildwebdeskweb.img}" overwrite="true">
+                            <fileset dir="bgimages/default/desktopweb" includes="**/*.png,**/*.gif" />
+                        </copy>
+
+                    </then>
+                </if>
+
+                <if>
+                    <not><equals arg1="${desktopwebsplash}" arg2="" /> </not>
+                    <then>
+                    <!-- Locale Splash Screen Image copying to desktopweb-->
+                    <for list="${locales}" param="locale">
+                        <sequential>
+                            <mkdir dir="${buildwebdeskweb.img}/@{locale}" />
+                            <copy todir="${buildwebdeskweb.img}/@{locale}" overwrite="true" failonerror="false">
+                                <filelist dir="${buildwebdeskweb.img}" files="${desktopwebsplash}"  />
+                            </copy>
+                            <if>
+                                <available file="${resfolder}/common/@{locale}/${desktopwebsplash}" type="file" />
+                                <then>
+                                    <copy todir="${buildwebdeskweb.img}/@{locale}" overwrite="true" failonerror="false">
+                                        <filelist dir="${resfolder}/common/@{locale}" files="${desktopwebsplash}" />
+                                    </copy>
+                                </then>
+                            </if>
+                            <if>
+                                <available file="${resfolder}/desktop/common/@{locale}/${desktopwebsplash}" type="file" />
+                                <then>
+                                    <copy todir="${buildwebdeskweb.img}/@{locale}" overwrite="true" failonerror="false">
+                                        <filelist dir="${resfolder}/desktop/common/@{locale}" files="${desktopwebsplash}" />
+                                    </copy>
+                                </then>
+                            </if>
+                            <if>
+                                <available file="${resfolder}/desktop/web/desktopweb/@{locale}/${desktopwebsplash}" type="file" />
+                                <then>
+                                    <copy todir="${buildwebdeskweb.img}/@{locale}" overwrite="true" failonerror="false">
+                                        <filelist dir="${resfolder}/desktop/web/desktopweb/@{locale}" files="${desktopwebsplash}"  />
+                                    </copy>
+                                </then>
+                            </if>
+                        </sequential>
+                    </for>
+                    </then>
+                </if>
+
+                <if>
+                    <equals arg1="${webLibraryMode}" arg2="css"/>
+                    <then>
+                        <!-- making temp changes -->
+                        <tempchangescss category="desktopweb"/>
+                    </then>
+                    <else>
+                        <copythemesdir />
+                        <preparethemesresource />
+                    </else>
+                </if>
+
+                <echo message="****************${resfolder}/i18n/spa" />
+
+                <!-- In vizstudio copy i18n files generated from iris, no need to regenerate -->
+                <if>
+                    <equals arg1="${isvizintegration}" arg2="true" />
+                    <then>
+                        <if>
+                            <available file="${resfolder}/i18n/spa" />
+                            <then>
+                                <delete dir="${buildwebdeskweb}/resources/strings" />
+                                <copy todir="${buildwebdeskweb}/resources/strings">
+                                    <fileset dir="${resfolder}/i18n/spa" includes="*.js" />
+                                </copy>
+                            </then>
+                        </if>
+                    </then>
+                    <else>
+                        <i18n-files />
+                    </else>
+                </if>
+
+                <!--
+                <copy todir="${buildweb}/desktopweb/jslib/tparty">
+                    <fileset dir="${gdwfiles}/jslib/tparty" />
+                </copy>
+                -->
+
+                <!-- Copy all files to jetty -->
+                <copy todir="${jetty.web}/desktopweb" overwrite="true">
+                    <fileset dir="${buildwebdeskweb}" />
+                </copy>
+
+                <!-- Copy index.jsp, index_min.jsp file -->
+                <copy file="${gdwfiles}/index.jsp" tofile="${buildweb}/WEB-INF/desktopweb/index.jsp" />
+                <copy file="${gdwfiles}/index_min.jsp" tofile="${buildweb}/WEB-INF/desktopweb/index_min.jsp" />
+
+                <!--Copy index.html, head.html, body.html etc., file-->
+                <copy todir="${buildweb}/desktopweb" overwrite="true">
+                    <fileset dir="${gdwfiles}" includes="*.html" />
+                </copy>
+
+                <!-- Copying fonts from web folder to jetty folder -->
+                <copy todir="${jetty.web}/desktopweb">
+                    <fileset dir="${buildwebdeskweb}" includes="*.eot,*.ttf,*.otf"/>
+                </copy>
+                <if>
+                    <available file="${project.loc}/jssrc/desktopweb/nongenerated/workerthreads" type="dir" />
+                    <then>
+                        <copy todir="${jetty.web}/desktopweb/appjs/worker" overwrite="true">
+                            <fileset dir="${project.loc}/jssrc/desktopweb/nongenerated/workerthreads"  includes="**/*.js"/>
+                        </copy>
+                        <echo message="Copying web workers to desktop for publish mode"  />
+                        <copy todir="${gdwfiles}/workerthreads" overwrite="true">
+                            <fileset dir="${project.loc}/jssrc/desktopweb/nongenerated/workerthreads"  includes="**/*.js"/>
+                        </copy>
+                    </then>
+                </if>
+                <if>
+                    <available file="${project.loc}/jssrc/desktopweb/workerthreads" type="dir" />
+                    <then>
+                        <copy todir="${jetty.web}/desktopweb/appjs/worker" overwrite="true">
+                            <fileset dir="${project.loc}/jssrc/desktopweb/workerthreads"  includes="**/*.js"/>
+                        </copy>
+                        <echo message="Copying web workers to desktop for publish mode"  />
+                        <copy todir="${gdwfiles}/workerthreads" overwrite="true">
+                            <fileset dir="${project.loc}/jssrc/desktopweb/workerthreads"  includes="**/*.js"/>
+                        </copy>
+                    </then>
+                </if>
+
+                <!-- Copying web local files -->
+                <if>
+                    <available file="${project.loc}/web" type="dir" />
+                    <then>
+                        <copy todir="${jetty.web}/desktopweb/web" overwrite="true">
+                        <fileset dir="${project.loc}/web"  includes="**/*.*"/>
+                        </copy>
+                        <copy todir="${gdwfiles}/web" overwrite="true">
+                        <fileset dir="${project.loc}/web/"  includes="**/*.*"/>
+                        </copy>
+                    </then>
+                </if>
+            </then>
+            <else>
+                <echo message="SKIPPING OF ALL TARGET FOR DESKTOP WEB"></echo>
+            </else>
+        </if>
+    </target>
+
+    <target name="createWEBINFFolders" depends="">
+        <mkdir dir="${buildweb}/WEB-INF/desktopweb" />
+    </target>
+
+    <macrodef name="i18n-files">
+        <sequential>
+            <if>
+                <equals arg1="${locales}" arg2="" />
+                <then>
+                </then>
+                <else>
+                    <echo message="i18n for desktopweb" />
+
+                    <delete dir="${buildwebdeskweb}/resources/strings" />
+                    <copy todir="${buildwebdeskweb}/resources/strings">
+                        <fileset dir="${resfolder}/i18n/iphone_properties" includes="*.prop" />
+                        <mapper type="glob" from="*.prop" to="*.js" />
+                    </copy>
+
+                    <replaceregexp match="(.*)" replace="var i18nObject = {\1}" flags="s" byline="false" encoding="UTF-8">
+                        <fileset dir="${buildwebdeskweb}/resources/strings" includes="*.js" />
+                    </replaceregexp>
+
+                    <replace dir="${buildwebdeskweb}/resources/strings" encoding="UTF-8">
+                        <include name="*.js" />
+                        <replacefilter token="&quot;=&quot;" value="&quot;:&quot;" />
+                        <replacefilter token="&quot;;" value="&quot;," />
+                        <replacefilter token=",}" value="}" />
+                    </replace>
+                    <replaceregexp match="\n" replace="" flags="sg" byline="false" encoding="UTF-8">
+                        <fileset dir="${buildwebdeskweb}/resources/strings" includes="*.js"/>
+                    </replaceregexp>
+
+                </else>
+            </if>
+        </sequential>
+    </macrodef>
+
+
+    <macrodef name="preparethemesresource">
+        <sequential>
+            <for list="${theme.names}" param="themenames">
+                <sequential>
+
+                    <copy todir="${buildwebdeskweb}/@{themenames}/images" overwrite="true">
+                        <fileset dir="${buildwebdeskweb.img}" includes="**/*.*" />
+                    </copy>
+
+                    <unset name="bg.theme.general.images.present" />
+                    <available file="bgimages/@{themenames}/desktopweb" type="dir" property="bg.theme.general.images.present" />
+                    <if>
+                        <equals arg1="${bg.theme.general.images.present}" arg2="true" />
+                        <then>
+                            <echo message="copy bgimages/@{themenames}/desktopweb to theme folder" />
+                            <copy todir="${buildwebdeskweb}/@{themenames}/images" overwrite="true">
+                                <fileset dir="bgimages/@{themenames}/desktopweb" includes="**/*.png,**/*.gif" />
+                            </copy>
+                        </then>
+                    </if>
+                    <copy todir="${buildwebdeskweb}/@{themenames}">
+                      <fileset dir="${resfolder}/fonts" includes="*.eot,*.ttf,*.otf"/>
+                     </copy>
+                     <!-- Copying fonts from resources/fonts/Desktopweb folder to web themes folder -->
+                     <copy todir="${buildwebdeskweb}/@{themenames}">
+                        <fileset dir="${resfolder}/fonts/${desktopweb.fonts.folder}" includes="*.eot,*.ttf,*.otf"/>
+                     </copy>
+                </sequential>
+            </for>
+        </sequential>
+    </macrodef>
+
+    <macrodef name="copythemesdir">
+        <sequential>
+            <for list="${theme.names}" param="themenames">
+                <sequential>
+                    <echo>themenames @{themenames}</echo>
+                    <copy todir="${buildwebdeskweb}/@{themenames}" overwrite="true">
+                        <fileset dir="${gdwfiles}/@{themenames}" includes="**/*.css"/>
+                    </copy>
+                </sequential>
+            </for>
+        </sequential>
+    </macrodef>
+
+    <target name="runminify" depends="init">
+        <property file="${project.loc}/custombuild/spadw.properties" />
+        <minifyfiles category="desktopweb" />
+        <if>
+            <equals arg1="${webLibraryMode}" arg2="css"/>
+            <then>
+                <tempchangescss category="desktopweb" publish="true" webappsfolder="${buildweb}/temp/desktopweb"/>
+                <if>
+                    <equals arg1="${es5build}" arg2="true"/>
+                    <then>
+                        <babelConvertMain webappfolder="${buildweb}/temp/desktopweb"/>
+                    </then>
+                </if>
+                <if>
+                    <and>
+                        <equals arg1="${enableAutomation}" arg2="true" />
+                        <equals arg1="${enableCodeCoverage}" arg2="true" />
+                    </and>
+                    <then>
+                        <instrumentAppjsFiles appjsfolder="${buildweb}/temp/desktopweb/appjs" projectloc="${workspace.loc}/${project.name}"/>
+                    </then>
+                </if>
+            </then>
+        </if>
+    </target>
+
+    <macrodef name="minifyfiles" description="Minify css/js files by category">
+        <attribute name="category" default="" />
+        <attribute name="subcats" default="@{category}"/>
+        <attribute name="tocssfile" default="voltmx@{subcats}" />
+        <sequential>
+            <!-- <echo message="Thirdparty location: ${thirdparty.loc}"/> -->
+            <echo message="Build Option : ${build.option}"/>
+            <if>
+                <or>
+                    <available file="${buildweb}/@{category}/appjs/app.js" type="file" />
+                </or>
+                <then>
+                    <mkdir dir="${buildweb}/temp/@{category}/appjs/"/>
+                    <if>
+                        <or>
+                            <equals arg1="${build.option}" arg2="debug" />
+                            <equals arg1="${minify}" arg2="false" />
+                            <equals arg1="${protectedmodeenabled.web}" arg2="true" />
+                        </or>
+                        <then>
+                            <echo message="Copying unminified appjs"/>
+                            <copy todir="${buildweb}/temp/@{category}/appjs">
+                                <!--fileset dir="${buildweb}/@{category}/appjs" includes="app.js,appie.js,*_kfm.js,voltmxworkerinit.js" /-->
+                                <fileset dir="${buildweb}/@{category}/appjs" includes="**/*.js" />
+                            </copy>
+                            <if>
+                                <equals arg1="${webLibraryMode}" arg2="css" />
+                                <then>
+                                    <for list="${theme.names},default" param="themename">
+                                        <sequential>
+                                            <mkdir dir="${buildweb}/temp/@{category}/themes/@{themename}" />
+                                            <copy todir="${buildweb}/temp/@{category}/themes/@{themename}">
+                                                <fileset dir="${buildweb}/@{category}/themes/@{themename}" includes="*.css" />
+                                            </copy>
+                                        </sequential>
+                                    </for>
+                                </then>
+                                <else>
+                                    <copy todir="${buildweb}/temp/@{category}">
+                                        <fileset dir="${buildweb}/@{category}" includes="*.css" />
+                                    </copy>
+                                     <for list="${theme.names}" param="themename">
+                                        <sequential>
+                                            <mkdir dir="${buildweb}/temp/@{category}/@{themename}" />
+                                            <copy todir="${buildweb}/temp/@{category}/@{themename}">
+                                                <fileset dir="${buildweb}/@{category}/@{themename}" includes="*.css" />
+                                            </copy>
+                                        </sequential>
+                                    </for>
+                                </else>
+                            </if>
+                        </then>
+                        <else>
+                            <echo message="************************ Minifying @{category} js files to: ${buildweb}/@{category} ************************" />
+                            <minifydir srcdir="${buildweb}/@{category}/appjs" todir="${buildweb}/temp/@{category}/appjs/"  includes="**/*.js" mapperfrom="*.js" mapperto="*.js" />
+
+                            <if>
+                                <equals arg1="${webLibraryMode}" arg2="css" />
+                                <then>
+                                    <for list="${theme.names},default" param="themename">
+                                        <sequential>
+                                            <mkdir dir="${buildweb}/temp/@{category}/themes/@{themename}" />
+                                            <minify srcdir="${buildweb}/@{category}/themes/@{themename}" todir="${buildweb}/temp/@{category}/themes/@{themename}" includes="*.css" mapperfrom="*.css" mapperto="*.css" />
+                                        </sequential>
+                                    </for>
+                                </then>
+                                <else>
+                                    <minify srcdir="${buildweb}/@{category}/" todir="${buildweb}/temp/@{category}/"  includes="*.css" mapperfrom="*.css" mapperto="*.css" />
+
+                                     <for list="${theme.names}" param="themename">
+                                        <sequential>
+                                            <mkdir dir="${buildweb}/temp/@{category}/@{themename}" />
+                                            <minify srcdir="${buildweb}/@{category}/@{themename}" todir="${buildweb}/temp/@{category}/@{themename}" includes="*.css" mapperfrom="*.css" mapperto="*.css" />
+                                        </sequential>
+                                    </for>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                    <!-- Copying web local files -->
+                    <if>
+                        <available file="${gdwfiles}/web" type="dir" />
+                        <then>
+                            <copy todir="${buildweb}/temp/@{category}/web" overwrite="true">
+                                <fileset dir="${gdwfiles}/web"  includes="**/*"/>
+                            </copy>
+                        </then>
+                    </if>
+
+                    <var name="enginecodebase" value="${builddeskweb.baselegacylib}" />
+                    <if>
+                        <equals arg1="${webLibraryMode}" arg2="css" />
+                        <then>
+                            <var name="enginecodebase" value="${builddeskweb.basecsslib}" />
+                        </then>
+                    </if>
+
+                    <property name="newline" value="no"/>
+
+                    <property file="minifyspafiles.properties" />
+
+                    <if>
+                        <or>
+                            <equals arg1="${build.option}" arg2="debug" />
+                            <equals arg1="${minify}" arg2="false" />
+                            <equals arg1="${protectedmodeenabled.web}" arg2="true" />
+                        </or>
+                        <then>
+                            <if>
+                                <equals arg1="${webLibraryMode}" arg2="css"/>
+                                <then>
+                                    <copy tofile="${buildweb}/temp/@{category}/jslib/voltmxframework.js" file="${enginecodebase}/jslib/voltmxinit.js"/>
+                                    <copy todir="${buildweb}/temp/@{category}/lib" file="${enginecodebase}/publish/fw.js"/>
+                                    <copy todir="${buildweb}/temp/@{category}/lib" file="${enginecodebase}/lib/fw.css"/>
+                                    <copy todir="${buildweb}/temp/@{category}/lib" file="${enginecodebase}/lib/anim.css"/>
+                                    <copy todir="${buildweb}/temp/@{category}/lib" file="${enginecodebase}/lib/voltmxinit.js"/>
+                                    <if>
+                                        <equals arg1="${enableAutomation}" arg2="true" />
+                                        <then>
+                                            <copy todir="${buildweb}/temp/@{category}/lib/automation" overwrite="true">
+                                                <fileset dir="${enginecodebase}/lib/automation" includes="**/*.*"/>
+                                            </copy>
+                                            <copy todir="${buildweb}/temp/@{category}/jslib/tparty/jasmine" overwrite="true">
+                                                <fileset dir="${enginecodebase}/jslib/tparty/jasmine" includes="**/*.*"/>
+                                            </copy>
+                                        </then>
+                                    </if>
+                                    <concat  destfile="${buildweb}/temp/@{category}/lib/fw.js" append="yes" fixlastline="yes">
+                                        <fileset file="${enginecodebase}/lib/voltmxcop.js"/>
+                                    </concat>
+                                </then>
+                                <else>
+                                    <copy todir="${buildweb}/temp/@{category}/jslib" file="${enginecodebase}/publish/voltmxframework.js"/>
+                                    <if>
+                                        <equals arg1="${enableAutomation}" arg2="true" />
+                                        <then>
+                                            <for  delimiter="," param="extrafiles" list="voltmxautomationutils.js,voltmxautomationwidgets.js,voltmxautomationtouchevents.js,voltmxautomationrecorder.js"  trim="true">
+                                                <sequential>
+                                                    <concat fixlastline="yes" destfile="${buildweb}/temp/@{category}/jslib/voltmxframework.js" append="yes">
+                                                        <fileset file="${enginecodebase}/jslib/automation/@{extrafiles}" />
+                                                    </concat>
+                                                </sequential>
+                                            </for>
+                                        </then>
+                                    </if>
+                                    <concat  destfile="${buildweb}/temp/@{category}/jslib/voltmxframework.js" append="yes" fixlastline="yes">
+                                        <fileset file="${enginecodebase}/jslib/voltmxcop.js"/>
+                                    </concat>
+                                </else>
+                            </if>
+                            <copy file="${enginecodebase}/jslib/tparty/googlemaps/infobox.js"
+                                  tofile="${buildweb}/temp/@{category}/jslib/tparty/googlemaps/infobox.js" overwrite="true"/>
+                        </then>
+                        <else>
+                            <if>
+                                <equals arg1="${webLibraryMode}" arg2="css"/>
+                                <then>
+                                    <copy todir="${buildweb}/temp/@{category}/jslib" file="${enginecodebase}/jslib/voltmxframework.js"/>
+                                    <copy tofile="${buildweb}/temp/@{category}/lib/fw.js" file="${enginecodebase}/publish/fw.min.js"/>
+                                    <copy tofile="${buildweb}/temp/@{category}/lib/fw.css" file="${enginecodebase}/lib/fw.min.css"/>
+                                    <copy todir="${buildweb}/temp/@{category}/lib" file="${enginecodebase}/lib/anim.css"/>
+                                    <copy tofile="${buildweb}/temp/@{category}/lib/voltmxinit.js" file="${enginecodebase}/lib/voltmxinit.min.js"/>
+                                </then>
+                                <else>
+                                    <copy tofile="${buildweb}/temp/@{category}/jslib/voltmxframework.js" file="${enginecodebase}/publish/voltmxframeworkmin.js"/>
+                                </else>
+                            </if>
+                            <copy file="${enginecodebase}/jslib/tparty/googlemaps/infobox-min.js"
+                                  tofile="${buildweb}/temp/@{category}/jslib/tparty/googlemaps/infobox.js" overwrite="true"/>
+                        </else>
+                    </if>
+
+                    <if>
+                        <not>
+                            <equals arg1="${webLibraryMode}" arg2="css"/>
+                        </not>
+                        <then>
+                            <setprint fileloc="${buildweb}/temp/@{category}/jslib/voltmxframework.js" />
+                        </then>
+                        <else>
+                            <setprint fileloc="${buildweb}/temp/@{category}/lib/fw.js" />
+                            <if>
+                              <or>
+                                <equals arg1="${enableWindowsRuntimeForWebApp}" arg2="true" />
+                                <equals arg1="${enableWindowsOfflineObjectsForWebApp}" arg2="true" />
+                              </or>
+                              <then>
+                                <copy todir="${buildweb}/temp/@{category}/lib/tparty/uwp">
+                                  <fileset dir="${enginecodebase}/lib/tparty/uwp" />
+                                </copy>
+                              </then>
+                            </if>
+                        </else>
+                    </if>
+
+
+
+                    <if>
+                        <available file="${gdwfiles}/workerthreads" type="dir" />
+                        <then>
+                            <var name="workertemp" value="${buildweb}/temp/@{category}/workertemp" />
+                            <var name="workerfwsrcbase" value="${enginecodebase}/jslib" />
+                            <var name="workerfwdestbase" value="${buildweb}/temp/@{category}/jslib" />
+                            <if>
+                                <equals arg1="${webLibraryMode}" arg2="css"/>
+                                <then>
+                                    <var name="workerfwdestbase" value="${buildweb}/temp/@{category}/lib" />
+                                    <var name="workerfwsrcbase" value="${enginecodebase}/lib" />
+                                </then>
+                            </if>
+
+                            <copy tofile="${workertemp}/voltmxwebworkermin.js" file="${enginecodebase}/publish/voltmxwebworkermin.js" />
+                            <copy tofile="${workertemp}/voltmxworkerinit.js" file="${workerfwsrcbase}/voltmxworkerinit.js" />
+                            <replace file="${workertemp}/voltmxworkerinit.js" token="PUBLISH = false" value="PUBLISH = true"/>
+
+                            <concat fixlastline="yes" destfile="${workertemp}/voltmxwebworkermin.js" append="yes">
+                                <fileset file="${buildweb}/@{category}/appjs/voltmxlibrary.js"/>
+                            </concat>
+                            <if>
+                                <available file="${appfolder}/${outputdir}/voltmxFunctionalModules.properties"/>
+                                <then>
+                                    <echo message="Concating - Functional module to web worker"/>
+                                    <concat fixlastline="yes" destfile="${workertemp}/voltmxwebworkermin.js" append="yes">
+                                        <fileset file="${buildweb}/@{category}/temp/voltmxmodule.js" />
+                                    </concat>
+                                    <concat fixlastline="yes" destfile="${workertemp}/voltmxwebworkermin.js" append="yes">
+                                        <fileset file="${buildweb}/@{category}/appjs/voltmxFunctionalModules.js" />
+                                    </concat>
+                                    <concat fixlastline="yes" destfile="${workertemp}/voltmxwebworkermin.js" append="yes">
+                                        <fileset file="${buildweb}/@{category}/temp/require-min.js" />
+                                    </concat>
+                                </then>
+                            </if>
+
+                            <if>
+                                <or>
+                                    <equals arg1="${build.option}" arg2="debug" />
+                                    <equals arg1="${minify}" arg2="false" />
+                                    <equals arg1="${protectedmodeenabled.web}" arg2="true" />
+                                </or>
+                                <then>
+                                    <copy todir="${workerfwdestbase}">
+                                        <fileset dir="${workertemp}" />
+                                    </copy>
+                                    <echo message="copying workers js to appjs folder" />
+                                    <copy todir="${buildweb}/temp/@{category}/appjs/worker">
+                                        <fileset dir="${gdwfiles}/workerthreads" includes="**/*.js" />
+                                    </copy>
+                                </then>
+                                <else>
+                                    <minifydir srcdir="${workertemp}" todir="${workerfwdestbase}" mapperfrom="*.js" mapperto="*.js" />
+                                    <echo message="minifying workers js and copying to appjs folder" />
+                                    <minifydir  srcdir="${gdwfiles}/workerthreads" todir="${buildweb}/temp/@{category}/appjs/worker/"  includes="**/*.js" mapperfrom="*.js" mapperto="*.js" />
+                                </else>
+                            </if>
+                            <delete dir="${workertemp}" includeemptydirs="true"  />
+                        </then>
+                    </if>
+
+                    <available file="${buildweb}/@{category}/jslib/tparty/libraries" type="dir" property="customlibrariesdirpresent"/>
+                    <available file="${buildweb}/@{category}/jslib/tparty/widgets" type="dir" property="customwidgetsdirpresent"/>
+                    <available file="${buildweb}/@{category}/resources" type="dir" property="resourcesdirpresent"/>
+                    <if>
+                        <equals arg1="${customlibrariesdirpresent}" arg2="true" />
+                        <then>
+                            <echo message="copying third party library Files" />
+                            <copy todir="${buildweb}/temp/@{category}/jslib/tparty/libraries">
+                                <fileset dir="${buildweb}/@{category}/jslib/tparty/libraries"/>
+                            </copy>
+                        </then>
+                    </if>
+
+                    <if>
+                        <equals arg1="${customwidgetsdirpresent}" arg2="true" />
+                        <then>
+                        <if>
+                            <or>
+                                <equals arg1="${build.option}" arg2="debug" />
+                                <equals arg1="${minify}" arg2="false" />
+                                <equals arg1="${protectedmodeenabled.web}" arg2="true" />
+                            </or>
+                            <then>
+                                <echo message="Copying third party widget Files" />
+                                <copy todir="${buildweb}/temp/@{category}/jslib/tparty/widgets">
+                                    <fileset dir="${buildweb}/@{category}/jslib/tparty/widgets"/>
+                                </copy>
+                            </then>
+                            <else>
+                                <echo message="Minifying third party widget wrapper files"/>
+                                <minifydir  srcdir="${buildweb}/@{category}/jslib/tparty/widgets" todir="${buildweb}/temp/@{category}/jslib/tparty/widgets"  includes="*.js" mapperfrom="*.js" mapperto="*.js" />
+                                <copy todir="${buildweb}/temp/@{category}/jslib/tparty/widgets">
+                                    <fileset dir="${buildweb}/@{category}/jslib/tparty/widgets"/>
+                                </copy>
+                            </else>
+                        </if>
+                        </then>
+                    </if>
+
+                    <if>
+                        <equals arg1="${resourcesdirpresent}" arg2="true" />
+                        <then>
+                            <echo message="copying i18n resources Files" />
+                            <copy todir="${buildweb}/temp/@{category}/resources">
+                                <fileset dir="${buildweb}/@{category}/resources"/>
+                            </copy>
+                        </then>
+                    </if>
+
+                    <copy file="${buildweb}/@{category}/voltmx.manifest_min" tofile="${buildweb}/temp/@{category}/voltmx.manifest" overwrite="true"/>
+                    <if>
+                        <equals arg1="${buildtype}" arg2="zip"/>
+                        <then>
+                            <replace file="${buildweb}/temp/@{category}/voltmx.manifest" token="jslib" value="../../${web.cacheid}/@{category}/jslib" />
+                            <replace file="${buildweb}/temp/@{category}/voltmx.manifest" token="appjs" value="../../${web.cacheid}/@{category}/appjs" />
+                            <replace file="${buildweb}/temp/@{category}/voltmx.manifest" token="voltmxdesktop" value="../../${web.cacheid}/@{category}/voltmxdesktop" />
+                        </then>
+                    </if>
+                    <if>
+                        <available file="${gdwfiles}/webmanifest.js"/>
+                        <then>
+                             <move file="${gdwfiles}/webmanifest.js" tofile="${buildweb}/temp/@{category}/webmanifest.js" overwrite="true"/>
+                        </then>
+                    </if>
+                    <available file="${buildweb}/WEB-INF/@{category}/index_min.jsp" type="file" property="index.present"/>
+                    <if>
+                        <equals arg1="${index.present}" arg2="true" />
+                    <then>
+
+                         <move file="${buildweb}/WEB-INF/@{category}/index_min.jsp" tofile="${buildweb}/temp/WEB-INF/@{category}/index.jsp" overwrite="true"/>
+                    </then>
+                    </if>
+
+                    <setenableuwpruntimeapis category="@{category}" flag="${enableWindowsRuntimeForWebApp}" rtoken="-- UWPAPIS --" />
+                    <setenableuwpruntimeapis category="@{category}" flag="${enableWindowsOfflineObjectsForWebApp}" rtoken="-- UWPOFFLINEAPIS --" />
+                    <delete dir="${buildweb}/@{category}/temp"/>
+
+                </then>
+                <else>
+                    <echo message="Ignoring minification for ${buildweb}/@{category}" />
+                </else>
+            </if>
+        </sequential>
+    </macrodef>
+
+    <macrodef name="tempchangescss" description="temporary changes in appjs to accomodate csslib">
+        <attribute name="category" default="" />
+        <attribute name="webappsfolder" default="${buildwebdeskweb}"/>
+        <attribute name="publish" default="" />
+        <sequential>
+            <property name="doublequote" value="&quot;" ></property>
+            <if>
+                <available file="@{webappsfolder}/appjs/app.js" type="file" />
+                <then>
+                    <replace file="@{webappsfolder}/appjs/app.js" token="voltmx.globals[${doublequote}appid${doublequote}]" value="voltmx.$kwebfw$.app.id"  />
+                    <replace file="@{webappsfolder}/appjs/app.js" token="voltmx.globals[${doublequote}build${doublequote}]" value="voltmx.$kwebfw$.app.build"  />
+                    <replace file="@{webappsfolder}/appjs/app.js" token="voltmx.globals[${doublequote}defaultLocale${doublequote}]" value="voltmx.$kwebfw$.app.defaultLocale"  />
+                    <replace file="@{webappsfolder}/appjs/app.js" token="voltmx.globals[${doublequote}locales${doublequote}]" value="voltmx.$kwebfw$.app.supportedLocales"  />
+                    <replace file="@{webappsfolder}/appjs/app.js" token="voltmx.globals[${doublequote}i18nArray${doublequote}] = [];" value=""  />
+                    <replace file="@{webappsfolder}/appjs/app.js" token="voltmx.globals[${doublequote}localization${doublequote}] = ${doublequote}true${doublequote};" value="voltmx.$kwebfw$.app.localization = true;"  />
+                    <replace file="@{webappsfolder}/appjs/app.js" token="voltmx.globals[${doublequote}localization${doublequote}] = ${doublequote}false${doublequote};" value="voltmx.$kwebfw$.app.localization = false;"  />
+                    <replace file="@{webappsfolder}/appjs/app.js" token="voltmx.globals[${doublequote}localization${doublequote}] = true;" value="voltmx.$kwebfw$.app.localization = true;"  />
+                    <replace file="@{webappsfolder}/appjs/app.js" token="voltmx.globals[${doublequote}localization${doublequote}] = false;" value="voltmx.$kwebfw$.app.localization = false;"  />
+                    <replace file="@{webappsfolder}/appjs/app.js" token="voltmx.globals[${doublequote}i18nVersion${doublequote}]" value="voltmx.$kwebfw$.app.i18nVersion" />
+                </then>
+            </if>
+            <replace file="@{webappsfolder}/lib/voltmxinit.js" token="BUILD = 'debug'" value="BUILD = '${build.option}'"/>
+            <replace file="@{webappsfolder}/lib/voltmxinit.js" token="PLATFORMBUILT = '-- platform --'" value="PLATFORMBUILT = '@{category}'"/>
+            <touch file="@{webappsfolder}/voltmxdesktop.css"/>
+            <if>
+                <equals arg1="@{publish}" arg2="true"/>
+                <then>
+                    <replace file="@{webappsfolder}/lib/voltmxinit.js" token="PUBLISH = false" value="PUBLISH = true"/>
+                    <if>
+                        <available file="${gdwfiles}/workerthreads" type="dir" />
+                        <then>
+                            <replace file="@{webappsfolder}/lib/voltmxworkerinit.js" token="PUBLISH = false" value="PUBLISH = true"/>
+                        </then>
+                    </if>
+                </then>
+            </if>
+        </sequential>
+    </macrodef>
+
+    <macrodef name="setprint" description="Handle voltmx.print if stub enabled">
+        <attribute name="fileloc" default="" />
+        <sequential>
+            <if>
+                <equals arg1="${setprintlevel}" arg2="false" />
+                <then>
+                    <replace file="@{fileloc}" token="@printlevel" value="true"  />
+                </then>
+            </if>
+        </sequential>
+    </macrodef>
+
+    <macrodef name="setenableuwpruntimeapis" description="Enable Writable APIs for UWP applications">
+        <attribute name="category" default="desktopweb" />
+        <attribute name="flag" default="false" />
+        <attribute name="rtoken" default="-- UWPAPIS --" />
+        <sequential>
+            <if>
+                <equals arg1="${webLibraryMode}" arg2="css"/>
+                <then>
+                    <replace file="${buildweb}/temp/@{category}/lib/voltmxinit.js" token="@{rtoken}" value="@{flag}"  />
+                    <if>
+                        <available file="${buildweb}/temp/@{category}/lib/voltmxworkerinit.js"/>
+                        <then>
+                            <replace file="${buildweb}/temp/@{category}/lib/voltmxworkerinit.js" token="@{rtoken}" value="@{flag}"  />
+                        </then>
+                    </if>
+                </then>
+            </if>
+        </sequential>
+    </macrodef>
+
+    <macrodef name = "babelConvertMain" description = "convert the selected files to support IE11">
+        <attribute name="webappfolder" default="" />
+        <sequential>
+            <echo>-------------Start of babel conversion----------- </echo>
+            <property name="doublequote" value="&quot;" ></property>
+            <property name="singlequote" value="&apos;" ></property>
+            <babelConversion dest = "@{webappfolder}/es5appjs" dir = "${buildweb}/temp/desktopweb/appjs" />
+
+            <babelConversion dest = "@{webappfolder}/es5lib" dir = "@{webappfolder}/lib" />
+
+            <if>
+                <available file="@{webappfolder}/jslib/tparty/widgets"/>
+                <then>
+                    <babelConversion dest = "@{webappfolder}/jslib/tparty/widgets" dir = "@{webappfolder}/jslib/tparty/widgets" />
+                </then>
+            </if>
+
+            <replace file="@{webappfolder}/lib/voltmxinit.js" token="${singlequote}@ECMAENABLE${singlequote}" value="true" />
+            <if>
+                <available file="@{webappfolder}/lib/voltmxworkerinit.js"/>
+                <then>
+                    <replace file="@{webappfolder}/es5lib/voltmxworkerinit.js" token="${singlequote}@ECMAENABLE${singlequote}" value="true" />
+                    <replace file="@{webappfolder}/es5lib/voltmxwebworkermin.js" token="${singlequote}@ECMAENABLE${singlequote}" value="true" />
+                </then>
+            </if>
+            <echo> ------------END of babel conversion------------- </echo>
+        </sequential>
+    </macrodef>
+
+    <macrodef name = "babelConversion" description = "esc6 to es5 conversion">
+        <attribute name="dir" default="" />
+        <attribute name="backupdir" default="" />
+        <attribute name="dest" default="" />
+        <sequential>
+
+            <copy file="${builddeskweb.base}/babel.config.json" tofile="${basedir}/babel.config.json" overwrite = "true"/>
+            <replace file="${basedir}/babel.config.json" token="--workspace--" value="${desktopweb.plugin.loc}/tc/spacssgen/node_modules"/>
+            <condition property="isWindows" else="false">
+				<os family="windows"/>
+			</condition>
+			<if>
+			<equals arg1="${isWindows}" arg2="true" />
+			<then>
+				<exec executable="${desktopweb.plugin.loc}/tc/spacssgen/node_modules/.bin/babel.cmd" failonerror="true">
+					<arg value="${desktopweb.plugin.loc}/tc/spacssgen/node_modules/.bin/babel"/>
+					<arg value="@{dir}"/>
+					<arg line=" --out-dir " />
+					<arg value="@{dest}"/>
+				 </exec>
+			</then>
+			<else>
+				<chmod file="${desktopweb.plugin.loc}/tc/spacssgen/node_modules/.bin/babel" perm="+x"/>
+				<exec executable="${desktopweb.plugin.loc}/tc/spacssgen/node_modules/.bin/babel" failonerror="true">
+					<arg value="${desktopweb.plugin.loc}/tc/spacssgen/node_modules/.bin/babel"/>
+					<arg value="@{dir}"/>
+					<arg line=" --out-dir " />
+					<arg value="@{dest}"/>
+				 </exec>
+			</else>
+			</if>
+        </sequential>
+    </macrodef>
+    <macrodef name="instrumentAppjsFiles" description="instrumentation of appjs files for code coverage in test mode">
+        <attribute name="appjsfolder" default="" />
+        <attribute name="projectloc" default="" />
+        <sequential>
+            <mkdir dir="@{projectloc}/testresources/Jasmine/UninstrumentedFiles/desktopweb/appjs"/>
+            <copy todir="@{projectloc}/testresources/Jasmine/UninstrumentedFiles/desktopweb/appjs" overwrite="true">
+                <fileset dir="@{appjsfolder}" includes="**/*.js" />
+            </copy>
+            <condition property="isWindows" else="false">
+                <os family="windows"/>
+            </condition>
+            <if>
+                <equals arg1="${isWindows}" arg2="true" />
+                <then>
+                    <exec executable="${desktopweb.plugin.loc}/tc/spacssgen/node_modules/.bin/nyc.cmd" failonerror="true">
+                        <arg value="${desktopweb.plugin.loc}/tc/spacssgen/node_modules/.bin/nyc"/>
+                        <arg value="instrument"/>
+                        <arg value="--cwd"/>
+                        <arg value="@{appjsfolder}"/>
+                        <arg value="--in-place"/>
+                        <arg value="@{appjsfolder}"/>
+                    </exec>
+                </then>
+                <else>
+                    <chmod file="${desktopweb.plugin.loc}/tc/spacssgen/node_modules/.bin/nyc" perm="+x"/>
+                    <exec executable="${desktopweb.plugin.loc}/tc/spacssgen/node_modules/.bin/nyc" failonerror="true">
+                        <arg value="${desktopweb.plugin.loc}/tc/spacssgen/node_modules/.bin/nyc"/>
+                        <arg value="instrument"/>
+                        <arg value="--cwd"/>
+                        <arg value="@{appjsfolder}"/>
+                        <arg value="--in-place"/>
+                        <arg value="@{appjsfolder}"/>
+                    </exec>
+                </else>
+            </if>
+        </sequential>
+    </macrodef>
+    <target name="all" depends="init,desktopweb" />
+
+</project>

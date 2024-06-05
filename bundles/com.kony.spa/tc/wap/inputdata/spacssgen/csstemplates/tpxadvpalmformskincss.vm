@@ -1,0 +1,49 @@
+#set($s = "." + $skin)
+$s
+{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding: 0px;
+    #parse("tppalmmojocssfonts.vm")
+    #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end
+    #if($background-color)
+        #if($repeat)
+            background: url(./images/$background-image) repeat;
+            #if($enable_bg_size == "true")
+                background-size : 100% 100%;
+            #end
+        #else
+            #if($rgba == "true")
+                background-color : $background-color;
+            #else
+                #set($bc = "#" + $background-color)
+                background-color: $bc;
+            #end
+        #end
+    #elseif($background-gradient)
+            background-image: url(./images/$background-image);
+            background-repeat: repeat-x;
+            background-color: $bottomcolor;
+    #else
+        #if($repeat && $verticalrepeat)
+            background: url(./images/$background-image) repeat;
+        #elseif($repeat)
+            background: url(./images/$background-image) repeat-x;
+        #elseif($verticalrepeat)
+            background: url(./images/$background-image) repeat-y;
+        #else
+            background: url(./images/$background-image) no-repeat;
+        #end
+    #end
+    #if($forking)
+        #parse("tpxadviphonecssborderspecific.vm")
+    #else
+        #parse("tpxadviphonecssborder.vm")
+    #end
+}

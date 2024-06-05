@@ -1,0 +1,7 @@
+$skin {
+    margin: 1px;
+    padding: 1px;
+    align: center;
+    vertical-align: middle;
+    float:left, clear;
+}

@@ -1,0 +1,184 @@
+#if($focusSkin)
+
+#else
+    #set($li = "." + $skin + "li")
+    #set($lia = "." + $skin + "lia")
+#end
+
+$lia{
+            text-decoration: none;
+            padding: 3px 7px;
+            margin-right: 3px;
+            border: 1px solid gray;
+            
+            #if($background-color)
+                #if($rgba == "true")
+                    background-color : $background-color;
+                #else
+                    #set($bc = "#" + $background-color)
+                    background-color: $bc;
+                #end
+            #elseif($bg-grad-split-ms)
+                #parse("tpdesktopcommoncssbggradient.vm")
+            #elseif($background-image)
+                #parse("tpspagenericbgimage.vm")
+            #end
+
+          #if($color)
+                #if($rgba_font == "true")
+                    color : $color;
+                #else
+                    color: #$color;
+                #end
+          #end
+	#if($is_border_constant == "true")
+        #parse("tpdesktopcommoncssborderconstant.vm")
+	#elseif($forking)
+                #parse("tpdesktopcommoncssborderspecific.vm")
+                #if ($border-top-left-style)
+                     border-top-left-radius: ${border-top-left-radius}px;
+                     -webkit-border-top-left-radius: ${border-top-left-radius}px;
+                     -moz-border-top-left-radius: ${border-top-left-radius}px;
+                #end
+                #if ($border-top-right-style)
+                    border-top-right-radius: ${border-top-right-radius}px;
+                    -webkit-border-top-right-radius: ${border-top-right-radius}px;
+                    -moz-border-top-right-radius: ${border-top-right-radius}px;
+                     
+                #end
+                #if ($border-bottom-left-style)
+                   border-bottom-left-radius: ${border-bottom-left-radius}px;
+                   -webkit-border-bottom-left-radius: ${border-bottom-left-radius}px;
+                   -moz-border-bottom-left-radius: ${border-bottom-left-radius}px;
+                #end
+                #if ($border-bottom-right-style)
+                    -webkit-border-bottom-right-radius: ${border-bottom-right-radius}px;
+                     border-bottom-right-radius: ${border-bottom-right-radius}px;
+                    -moz-border-bottom-right-radius: ${border-bottom-right-radius}px;
+                #end 
+         #else
+                #parse("tpdesktopcommoncssborder.vm")
+         #end	 
+        border-bottom: none;
+    }
+	
+ $li{
+        margin-left: 0;
+        #parse("tppalmmojocssfonts.vm")
+        border-bottom: 1px solid gray;
+        list-style-type: none;
+        text-align: left; /*set to left, center, or right to align the menu as desired*/
+        #if($is_border_constant == "true")
+            #if($border_constant)
+                border: $border_constant;
+            #end
+            #if($border_radius)
+                -moz-border-radius: $border_radius;
+                -webkit-border-radius: $border_radius;
+                border-radius: $border_radius;
+            #end
+            #if($border_bottom)
+                border-bottom: $border_bottom;
+            #end
+		#elseif($forking)
+			 #if ($border-bottom-width)
+                            #set($bw = $border-bottom-width + "px")
+                            border-bottom-width: $bw;
+                            border-bottom-style: solid;
+                            #if ($border-bottom-color)
+                                 #if($rgba_bottom_border == "true")
+                                    border-bottom-color : $border-bottom-color;
+                                #else
+                                    border-bottom-color : #$border-bottom-color;
+                                #end
+                            #else
+                                border-bottom-color : none;
+                            #end
+                        #end
+		#else
+                    #if ($border-width)
+                            #set($bw = $border-width + "px")
+                            #if ($border-color)
+                                #if($rgba_border == "true")
+                                    #set($bc = $border-color)
+                                #else
+                                    #set($bc = "#"+$border-color)
+                                #end
+                           #else
+                                #set($bc = "#000000")
+                           #end
+
+                            border-bottom: $bw solid $bc;
+                    #end
+            #end
+
+    #if($forking)
+        #parse("tpdesktopcommonshadowcss.vm")
+    #end
+    }
+
+#if($focusSkin)
+$skin
+#else
+.$skin
+#end
+    {
+        #parse("tppalmmojocssfonts.vm")
+        margin: 0px;
+        padding: 4px;
+
+        #if($background-color)
+            #if($rgba == "true")
+                background-color : $background-color;
+            #else
+                 #set($bc = "#" + $background-color)
+                background-color: $bc;
+            #end
+       #elseif($bg-grad-split-ms)
+           #parse("tpdesktopcommoncssbggradient.vm")
+       #elseif($background-image)
+            #parse("tpspagenericbgimage.vm")
+      #end
+        #if($is_border_constant == "true")
+            #if($border_constant)
+                border: $border_constant;
+            #end
+            #if($border_radius)
+                -moz-border-radius: $border_radius;
+                -webkit-border-radius: $border_radius;
+                border-radius: $border_radius;
+            #end
+            #if($border_bottom)
+                border-bottom: $border_bottom;
+            #end
+        #elseif($forking)
+			 #if ($border-bottom-width)
+                            #set($bw = $border-bottom-width + "px")
+                            border-bottom-width: $bw;
+                            border-bottom-style: solid;
+                            #if ($border-bottom-color)
+                                #if($rgba_bottom_border == "true")
+                                    border-bottom-color : $border-bottom-color;
+                                #else
+                                    border-bottom-color : #$border-bottom-color;
+                                #end
+                            #else
+                                border-bottom-color : none;
+                            #end
+                        #end
+		#else
+			 #parse("tpdesktopcommoncssborder.vm")
+		#end
+
+      #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+      #end
+
+    #if($forking)
+        #parse("tpdesktopcommonshadowcss.vm")
+    #end
+    }

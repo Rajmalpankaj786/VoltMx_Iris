@@ -1,0 +1,2108 @@
+{
+    "controllerTemplateInfoMapping": {
+        "android": {
+            "flxMapWeatherCalloutController_mobile": [
+                "flxMapWeatherCalloutController"
+            ],
+            "flxSampleRowTemplateController_mobile": [
+                "flxSampleRowTemplateController"
+            ],
+            "flxSectionHeaderTemplateController_mobile": [
+                "flxSectionHeaderTemplateController"
+            ],
+            "flxSegCategoriesController_mobile": [
+                "flxSegCategoriesController"
+            ],
+            "flxSegRowRecordController_mobile": [
+                "flxSegRowRecordController"
+            ],
+            "flxSegRowWithImageAndLabelController_mobile": [
+                "flxSegRowWithImageAndLabelController"
+            ],
+            "flxSegWithImageAndLabelController_mobile": [
+                "flxSegWithImageAndLabelController"
+            ]
+        },
+        "iphone": {
+            "flxMapWeatherCalloutController_mobile": [
+                "flxMapWeatherCalloutController"
+            ],
+            "flxSampleRowTemplateController_mobile": [
+                "flxSampleRowTemplateController"
+            ],
+            "flxSectionHeaderTemplateController_mobile": [
+                "flxSectionHeaderTemplateController"
+            ],
+            "flxSegCategoriesController_mobile": [
+                "flxSegCategoriesController"
+            ],
+            "flxSegRowRecordController_mobile": [
+                "flxSegRowRecordController"
+            ],
+            "flxSegRowWithImageAndLabelController_mobile": [
+                "flxSegRowWithImageAndLabelController"
+            ],
+            "flxSegWithImageAndLabelController_mobile": [
+                "flxSegWithImageAndLabelController"
+            ]
+        },
+        "spaan": {
+            "flxMapWeatherCalloutController_mobile": [
+                "flxMapWeatherCalloutController"
+            ],
+            "flxSampleRowTemplateController_mobile": [
+                "flxSampleRowTemplateController"
+            ],
+            "flxSectionHeaderTemplateController_mobile": [
+                "flxSectionHeaderTemplateController"
+            ],
+            "flxSegCategoriesController_mobile": [
+                "flxSegCategoriesController"
+            ],
+            "flxSegRowRecordController_mobile": [
+                "flxSegRowRecordController"
+            ],
+            "flxSegRowWithImageAndLabelController_mobile": [
+                "flxSegRowWithImageAndLabelController"
+            ],
+            "flxSegWithImageAndLabelController_mobile": [
+                "flxSegWithImageAndLabelController"
+            ]
+        },
+        "spaip": {
+            "flxMapWeatherCalloutController_mobile": [
+                "flxMapWeatherCalloutController"
+            ],
+            "flxSampleRowTemplateController_mobile": [
+                "flxSampleRowTemplateController"
+            ],
+            "flxSectionHeaderTemplateController_mobile": [
+                "flxSectionHeaderTemplateController"
+            ],
+            "flxSegCategoriesController_mobile": [
+                "flxSegCategoriesController"
+            ],
+            "flxSegRowRecordController_mobile": [
+                "flxSegRowRecordController"
+            ],
+            "flxSegRowWithImageAndLabelController_mobile": [
+                "flxSegRowWithImageAndLabelController"
+            ],
+            "flxSegWithImageAndLabelController_mobile": [
+                "flxSegWithImageAndLabelController"
+            ]
+        }
+    },
+    "controllerformInfoMapping": {
+        "android": {
+            "Form1Controller_mobile": [
+                "Form1Controller"
+            ],
+            "frmDashboardController_mobile": [
+                "frmDashboardController"
+            ],
+            "frmEComplaintCategoriesController_mobile": [
+                "frmEComplaintCategoriesController"
+            ],
+            "frmEComplaintsCreateController_mobile": [
+                "frmEComplaintsCreateController"
+            ],
+            "frmEComplaintsDashboardController_mobile": [
+                "frmEComplaintsDashboardController"
+            ],
+            "frmEComplaintsFetchController_mobile": [
+                "frmEComplaintsFetchController"
+            ],
+            "frmERequestsCategoriesController_mobile": [
+                "frmERequestsCategoriesController"
+            ],
+            "frmERequestsCreateController_mobile": [
+                "frmERequestsCreateController"
+            ],
+            "frmERequestsDashboardController_mobile": [
+                "frmERequestsDashboardController"
+            ],
+            "frmERequestsFetchController_mobile": [
+                "frmERequestsFetchController"
+            ],
+            "frmInterstitialController_mobile": [
+                "frmInterstitialController"
+            ],
+            "frmLoginController_mobile": [
+                "frmLoginController"
+            ],
+            "frmUserPreferencesController_mobile": [
+                "frmUserPreferencesController"
+            ],
+            "frmUserProfileController_mobile": [
+                "frmUserProfileController"
+            ],
+            "frmWeatherController_mobile": [
+                "frmWeatherController"
+            ]
+        },
+        "iphone": {
+            "Form1Controller_mobile": [
+                "Form1Controller"
+            ],
+            "frmDashboardController_mobile": [
+                "frmDashboardController"
+            ],
+            "frmEComplaintCategoriesController_mobile": [
+                "frmEComplaintCategoriesController"
+            ],
+            "frmEComplaintsCreateController_mobile": [
+                "frmEComplaintsCreateController"
+            ],
+            "frmEComplaintsDashboardController_mobile": [
+                "frmEComplaintsDashboardController"
+            ],
+            "frmEComplaintsFetchController_mobile": [
+                "frmEComplaintsFetchController"
+            ],
+            "frmERequestsCategoriesController_mobile": [
+                "frmERequestsCategoriesController"
+            ],
+            "frmERequestsCreateController_mobile": [
+                "frmERequestsCreateController"
+            ],
+            "frmERequestsDashboardController_mobile": [
+                "frmERequestsDashboardController"
+            ],
+            "frmERequestsFetchController_mobile": [
+                "frmERequestsFetchController"
+            ],
+            "frmInterstitialController_mobile": [
+                "frmInterstitialController"
+            ],
+            "frmLoginController_mobile": [
+                "frmLoginController"
+            ],
+            "frmUserPreferencesController_mobile": [
+                "frmUserPreferencesController"
+            ],
+            "frmUserProfileController_mobile": [
+                "frmUserProfileController"
+            ],
+            "frmWeatherController_mobile": [
+                "frmWeatherController"
+            ]
+        },
+        "spaan": {
+            "Form1Controller_mobile": [
+                "Form1Controller"
+            ],
+            "frmDashboardController_mobile": [
+                "frmDashboardController"
+            ],
+            "frmEComplaintCategoriesController_mobile": [
+                "frmEComplaintCategoriesController"
+            ],
+            "frmEComplaintsCreateController_mobile": [
+                "frmEComplaintsCreateController"
+            ],
+            "frmEComplaintsDashboardController_mobile": [
+                "frmEComplaintsDashboardController"
+            ],
+            "frmEComplaintsFetchController_mobile": [
+                "frmEComplaintsFetchController"
+            ],
+            "frmERequestsCategoriesController_mobile": [
+                "frmERequestsCategoriesController"
+            ],
+            "frmERequestsCreateController_mobile": [
+                "frmERequestsCreateController"
+            ],
+            "frmERequestsDashboardController_mobile": [
+                "frmERequestsDashboardController"
+            ],
+            "frmERequestsFetchController_mobile": [
+                "frmERequestsFetchController"
+            ],
+            "frmInterstitialController_mobile": [
+                "frmInterstitialController"
+            ],
+            "frmLoginController_mobile": [
+                "frmLoginController"
+            ],
+            "frmUserPreferencesController_mobile": [
+                "frmUserPreferencesController"
+            ],
+            "frmUserProfileController_mobile": [
+                "frmUserProfileController"
+            ],
+            "frmWeatherController_mobile": [
+                "frmWeatherController"
+            ]
+        },
+        "spaip": {
+            "Form1Controller_mobile": [
+                "Form1Controller"
+            ],
+            "frmDashboardController_mobile": [
+                "frmDashboardController"
+            ],
+            "frmEComplaintCategoriesController_mobile": [
+                "frmEComplaintCategoriesController"
+            ],
+            "frmEComplaintsCreateController_mobile": [
+                "frmEComplaintsCreateController"
+            ],
+            "frmEComplaintsDashboardController_mobile": [
+                "frmEComplaintsDashboardController"
+            ],
+            "frmEComplaintsFetchController_mobile": [
+                "frmEComplaintsFetchController"
+            ],
+            "frmERequestsCategoriesController_mobile": [
+                "frmERequestsCategoriesController"
+            ],
+            "frmERequestsCreateController_mobile": [
+                "frmERequestsCreateController"
+            ],
+            "frmERequestsDashboardController_mobile": [
+                "frmERequestsDashboardController"
+            ],
+            "frmERequestsFetchController_mobile": [
+                "frmERequestsFetchController"
+            ],
+            "frmInterstitialController_mobile": [
+                "frmInterstitialController"
+            ],
+            "frmLoginController_mobile": [
+                "frmLoginController"
+            ],
+            "frmUserPreferencesController_mobile": [
+                "frmUserPreferencesController"
+            ],
+            "frmUserProfileController_mobile": [
+                "frmUserProfileController"
+            ],
+            "frmWeatherController_mobile": [
+                "frmWeatherController"
+            ]
+        }
+    },
+    "formControllerInfoMapping": {
+        "android": {
+            "Form1": {
+                "controllerActionDir": "Form1Controller",
+                "controllerChannel": "mobile",
+                "controllerName": "Form1Controller"
+            },
+            "frmDashboard": {
+                "controllerActionDir": "frmDashboardController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmDashboardController"
+            },
+            "frmEComplaintCategories": {
+                "controllerActionDir": "frmEComplaintCategoriesController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmEComplaintCategoriesController"
+            },
+            "frmEComplaintsCreate": {
+                "controllerActionDir": "frmEComplaintsCreateController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmEComplaintsCreateController"
+            },
+            "frmEComplaintsDashboard": {
+                "controllerActionDir": "frmEComplaintsDashboardController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmEComplaintsDashboardController"
+            },
+            "frmEComplaintsFetch": {
+                "controllerActionDir": "frmEComplaintsFetchController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmEComplaintsFetchController"
+            },
+            "frmERequestsCategories": {
+                "controllerActionDir": "frmERequestsCategoriesController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmERequestsCategoriesController"
+            },
+            "frmERequestsCreate": {
+                "controllerActionDir": "frmERequestsCreateController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmERequestsCreateController"
+            },
+            "frmERequestsDashboard": {
+                "controllerActionDir": "frmERequestsDashboardController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmERequestsDashboardController"
+            },
+            "frmERequestsFetch": {
+                "controllerActionDir": "frmERequestsFetchController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmERequestsFetchController"
+            },
+            "frmInterstitial": {
+                "controllerActionDir": "frmInterstitialController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmInterstitialController"
+            },
+            "frmLogin": {
+                "controllerActionDir": "frmLoginController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmLoginController"
+            },
+            "frmUserPreferences": {
+                "controllerActionDir": "frmUserPreferencesController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmUserPreferencesController"
+            },
+            "frmUserProfile": {
+                "controllerActionDir": "frmUserProfileController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmUserProfileController"
+            },
+            "frmWeather": {
+                "controllerActionDir": "frmWeatherController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmWeatherController"
+            }
+        },
+        "iphone": {
+            "Form1": {
+                "controllerActionDir": "Form1Controller",
+                "controllerChannel": "mobile",
+                "controllerName": "Form1Controller"
+            },
+            "frmDashboard": {
+                "controllerActionDir": "frmDashboardController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmDashboardController"
+            },
+            "frmEComplaintCategories": {
+                "controllerActionDir": "frmEComplaintCategoriesController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmEComplaintCategoriesController"
+            },
+            "frmEComplaintsCreate": {
+                "controllerActionDir": "frmEComplaintsCreateController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmEComplaintsCreateController"
+            },
+            "frmEComplaintsDashboard": {
+                "controllerActionDir": "frmEComplaintsDashboardController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmEComplaintsDashboardController"
+            },
+            "frmEComplaintsFetch": {
+                "controllerActionDir": "frmEComplaintsFetchController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmEComplaintsFetchController"
+            },
+            "frmERequestsCategories": {
+                "controllerActionDir": "frmERequestsCategoriesController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmERequestsCategoriesController"
+            },
+            "frmERequestsCreate": {
+                "controllerActionDir": "frmERequestsCreateController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmERequestsCreateController"
+            },
+            "frmERequestsDashboard": {
+                "controllerActionDir": "frmERequestsDashboardController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmERequestsDashboardController"
+            },
+            "frmERequestsFetch": {
+                "controllerActionDir": "frmERequestsFetchController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmERequestsFetchController"
+            },
+            "frmInterstitial": {
+                "controllerActionDir": "frmInterstitialController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmInterstitialController"
+            },
+            "frmLogin": {
+                "controllerActionDir": "frmLoginController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmLoginController"
+            },
+            "frmUserPreferences": {
+                "controllerActionDir": "frmUserPreferencesController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmUserPreferencesController"
+            },
+            "frmUserProfile": {
+                "controllerActionDir": "frmUserProfileController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmUserProfileController"
+            },
+            "frmWeather": {
+                "controllerActionDir": "frmWeatherController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmWeatherController"
+            }
+        },
+        "spaan": {
+            "Form1": {
+                "controllerActionDir": "Form1Controller",
+                "controllerChannel": "mobile",
+                "controllerName": "Form1Controller"
+            },
+            "frmDashboard": {
+                "controllerActionDir": "frmDashboardController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmDashboardController"
+            },
+            "frmEComplaintCategories": {
+                "controllerActionDir": "frmEComplaintCategoriesController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmEComplaintCategoriesController"
+            },
+            "frmEComplaintsCreate": {
+                "controllerActionDir": "frmEComplaintsCreateController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmEComplaintsCreateController"
+            },
+            "frmEComplaintsDashboard": {
+                "controllerActionDir": "frmEComplaintsDashboardController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmEComplaintsDashboardController"
+            },
+            "frmEComplaintsFetch": {
+                "controllerActionDir": "frmEComplaintsFetchController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmEComplaintsFetchController"
+            },
+            "frmERequestsCategories": {
+                "controllerActionDir": "frmERequestsCategoriesController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmERequestsCategoriesController"
+            },
+            "frmERequestsCreate": {
+                "controllerActionDir": "frmERequestsCreateController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmERequestsCreateController"
+            },
+            "frmERequestsDashboard": {
+                "controllerActionDir": "frmERequestsDashboardController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmERequestsDashboardController"
+            },
+            "frmERequestsFetch": {
+                "controllerActionDir": "frmERequestsFetchController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmERequestsFetchController"
+            },
+            "frmInterstitial": {
+                "controllerActionDir": "frmInterstitialController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmInterstitialController"
+            },
+            "frmLogin": {
+                "controllerActionDir": "frmLoginController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmLoginController"
+            },
+            "frmUserPreferences": {
+                "controllerActionDir": "frmUserPreferencesController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmUserPreferencesController"
+            },
+            "frmUserProfile": {
+                "controllerActionDir": "frmUserProfileController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmUserProfileController"
+            },
+            "frmWeather": {
+                "controllerActionDir": "frmWeatherController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmWeatherController"
+            }
+        },
+        "spaip": {
+            "Form1": {
+                "controllerActionDir": "Form1Controller",
+                "controllerChannel": "mobile",
+                "controllerName": "Form1Controller"
+            },
+            "frmDashboard": {
+                "controllerActionDir": "frmDashboardController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmDashboardController"
+            },
+            "frmEComplaintCategories": {
+                "controllerActionDir": "frmEComplaintCategoriesController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmEComplaintCategoriesController"
+            },
+            "frmEComplaintsCreate": {
+                "controllerActionDir": "frmEComplaintsCreateController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmEComplaintsCreateController"
+            },
+            "frmEComplaintsDashboard": {
+                "controllerActionDir": "frmEComplaintsDashboardController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmEComplaintsDashboardController"
+            },
+            "frmEComplaintsFetch": {
+                "controllerActionDir": "frmEComplaintsFetchController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmEComplaintsFetchController"
+            },
+            "frmERequestsCategories": {
+                "controllerActionDir": "frmERequestsCategoriesController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmERequestsCategoriesController"
+            },
+            "frmERequestsCreate": {
+                "controllerActionDir": "frmERequestsCreateController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmERequestsCreateController"
+            },
+            "frmERequestsDashboard": {
+                "controllerActionDir": "frmERequestsDashboardController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmERequestsDashboardController"
+            },
+            "frmERequestsFetch": {
+                "controllerActionDir": "frmERequestsFetchController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmERequestsFetchController"
+            },
+            "frmInterstitial": {
+                "controllerActionDir": "frmInterstitialController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmInterstitialController"
+            },
+            "frmLogin": {
+                "controllerActionDir": "frmLoginController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmLoginController"
+            },
+            "frmUserPreferences": {
+                "controllerActionDir": "frmUserPreferencesController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmUserPreferencesController"
+            },
+            "frmUserProfile": {
+                "controllerActionDir": "frmUserProfileController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmUserProfileController"
+            },
+            "frmWeather": {
+                "controllerActionDir": "frmWeatherController",
+                "controllerChannel": "mobile",
+                "controllerName": "frmWeatherController"
+            }
+        }
+    },
+    "formsifcMapping": {
+        "android": {
+            "RefCommonsMA.Form1": {
+                "ControllerExtensions": [],
+                "appName": "RefCommonsMA",
+                "controllerInfo": {
+                    "controllerActionName": "Form1Controller",
+                    "controllerChannel": "mobile",
+                    "controllerName": "Form1Controller"
+                },
+                "enableModelDriven": false,
+                "formPath": "Form1",
+                "friendlyName": "Form1",
+                "isMDAForm": false
+            },
+            "RefEComplaintsMA.frmEComplaintCategories": {
+                "ControllerExtensions": [],
+                "appName": "RefEComplaintsMA",
+                "controllerInfo": {
+                    "controllerActionName": "frmEComplaintCategoriesController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmEComplaintCategoriesController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmEComplaintCategories",
+                "friendlyName": "frmEComplaintCategories",
+                "isMDAForm": false
+            },
+            "RefEComplaintsMA.frmEComplaintsCreate": {
+                "ControllerExtensions": [],
+                "appName": "RefEComplaintsMA",
+                "controllerInfo": {
+                    "controllerActionName": "frmEComplaintsCreateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmEComplaintsCreateController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmEComplaintsCreate",
+                "friendlyName": "frmEComplaintsCreate",
+                "isMDAForm": false
+            },
+            "RefEComplaintsMA.frmEComplaintsDashboard": {
+                "ControllerExtensions": [],
+                "appName": "RefEComplaintsMA",
+                "controllerInfo": {
+                    "controllerActionName": "frmEComplaintsDashboardController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmEComplaintsDashboardController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmEComplaintsDashboard",
+                "friendlyName": "frmEComplaintsDashboard",
+                "isMDAForm": false
+            },
+            "RefEComplaintsMA.frmEComplaintsFetch": {
+                "ControllerExtensions": [],
+                "appName": "RefEComplaintsMA",
+                "controllerInfo": {
+                    "controllerActionName": "frmEComplaintsFetchController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmEComplaintsFetchController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmEComplaintsFetch",
+                "friendlyName": "frmEComplaintsFetch",
+                "isMDAForm": false
+            },
+            "RefERequestsMA.frmERequestsCategories": {
+                "ControllerExtensions": [],
+                "appName": "RefERequestsMA",
+                "controllerInfo": {
+                    "controllerActionName": "frmERequestsCategoriesController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmERequestsCategoriesController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmERequestsCategories",
+                "friendlyName": "frmERequestsCategories",
+                "isMDAForm": false
+            },
+            "RefERequestsMA.frmERequestsCreate": {
+                "ControllerExtensions": [],
+                "appName": "RefERequestsMA",
+                "controllerInfo": {
+                    "controllerActionName": "frmERequestsCreateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmERequestsCreateController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmERequestsCreate",
+                "friendlyName": "frmERequestsCreate",
+                "isMDAForm": false
+            },
+            "RefERequestsMA.frmERequestsDashboard": {
+                "ControllerExtensions": [],
+                "appName": "RefERequestsMA",
+                "controllerInfo": {
+                    "controllerActionName": "frmERequestsDashboardController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmERequestsDashboardController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmERequestsDashboard",
+                "friendlyName": "frmERequestsDashboard",
+                "isMDAForm": false
+            },
+            "RefERequestsMA.frmERequestsFetch": {
+                "ControllerExtensions": [],
+                "appName": "RefERequestsMA",
+                "controllerInfo": {
+                    "controllerActionName": "frmERequestsFetchController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmERequestsFetchController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmERequestsFetch",
+                "friendlyName": "frmERequestsFetch",
+                "isMDAForm": false
+            },
+            "RefGovtCitizenSA.frmDashboard": {
+                "ControllerExtensions": [],
+                "appName": "RefGovtCitizenSA",
+                "controllerInfo": {
+                    "controllerActionName": "frmDashboardController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmDashboardController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmDashboard",
+                "friendlyName": "frmDashboard",
+                "isMDAForm": false
+            },
+            "RefGovtCitizenSA.frmInterstitial": {
+                "ControllerExtensions": [],
+                "appName": "RefGovtCitizenSA",
+                "controllerInfo": {
+                    "controllerActionName": "frmInterstitialController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmInterstitialController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmInterstitial",
+                "friendlyName": "frmInterstitial",
+                "isMDAForm": false
+            },
+            "RefGovtCitizenSA.frmLogin": {
+                "ControllerExtensions": [],
+                "appName": "RefGovtCitizenSA",
+                "controllerInfo": {
+                    "controllerActionName": "frmLoginController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmLoginController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmLogin",
+                "friendlyName": "frmLogin",
+                "isMDAForm": false
+            },
+            "RefGovtCitizenSA.frmUserPreferences": {
+                "ControllerExtensions": [],
+                "appName": "RefGovtCitizenSA",
+                "controllerInfo": {
+                    "controllerActionName": "frmUserPreferencesController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmUserPreferencesController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmUserPreferences",
+                "friendlyName": "frmUserPreferences",
+                "isMDAForm": false
+            },
+            "RefGovtCitizenSA.frmUserProfile": {
+                "ControllerExtensions": [],
+                "appName": "RefGovtCitizenSA",
+                "controllerInfo": {
+                    "controllerActionName": "frmUserProfileController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmUserProfileController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmUserProfile",
+                "friendlyName": "frmUserProfile",
+                "isMDAForm": false
+            },
+            "RefGovtCitizenSA.frmWeather": {
+                "ControllerExtensions": [],
+                "appName": "RefGovtCitizenSA",
+                "controllerInfo": {
+                    "controllerActionName": "frmWeatherController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmWeatherController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmWeather",
+                "friendlyName": "frmWeather",
+                "isMDAForm": false
+            }
+        },
+        "iphone": {
+            "RefCommonsMA.Form1": {
+                "ControllerExtensions": [],
+                "appName": "RefCommonsMA",
+                "controllerInfo": {
+                    "controllerActionName": "Form1Controller",
+                    "controllerChannel": "mobile",
+                    "controllerName": "Form1Controller"
+                },
+                "enableModelDriven": false,
+                "formPath": "Form1",
+                "friendlyName": "Form1",
+                "isMDAForm": false
+            },
+            "RefEComplaintsMA.frmEComplaintCategories": {
+                "ControllerExtensions": [],
+                "appName": "RefEComplaintsMA",
+                "controllerInfo": {
+                    "controllerActionName": "frmEComplaintCategoriesController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmEComplaintCategoriesController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmEComplaintCategories",
+                "friendlyName": "frmEComplaintCategories",
+                "isMDAForm": false
+            },
+            "RefEComplaintsMA.frmEComplaintsCreate": {
+                "ControllerExtensions": [],
+                "appName": "RefEComplaintsMA",
+                "controllerInfo": {
+                    "controllerActionName": "frmEComplaintsCreateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmEComplaintsCreateController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmEComplaintsCreate",
+                "friendlyName": "frmEComplaintsCreate",
+                "isMDAForm": false
+            },
+            "RefEComplaintsMA.frmEComplaintsDashboard": {
+                "ControllerExtensions": [],
+                "appName": "RefEComplaintsMA",
+                "controllerInfo": {
+                    "controllerActionName": "frmEComplaintsDashboardController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmEComplaintsDashboardController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmEComplaintsDashboard",
+                "friendlyName": "frmEComplaintsDashboard",
+                "isMDAForm": false
+            },
+            "RefEComplaintsMA.frmEComplaintsFetch": {
+                "ControllerExtensions": [],
+                "appName": "RefEComplaintsMA",
+                "controllerInfo": {
+                    "controllerActionName": "frmEComplaintsFetchController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmEComplaintsFetchController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmEComplaintsFetch",
+                "friendlyName": "frmEComplaintsFetch",
+                "isMDAForm": false
+            },
+            "RefERequestsMA.frmERequestsCategories": {
+                "ControllerExtensions": [],
+                "appName": "RefERequestsMA",
+                "controllerInfo": {
+                    "controllerActionName": "frmERequestsCategoriesController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmERequestsCategoriesController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmERequestsCategories",
+                "friendlyName": "frmERequestsCategories",
+                "isMDAForm": false
+            },
+            "RefERequestsMA.frmERequestsCreate": {
+                "ControllerExtensions": [],
+                "appName": "RefERequestsMA",
+                "controllerInfo": {
+                    "controllerActionName": "frmERequestsCreateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmERequestsCreateController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmERequestsCreate",
+                "friendlyName": "frmERequestsCreate",
+                "isMDAForm": false
+            },
+            "RefERequestsMA.frmERequestsDashboard": {
+                "ControllerExtensions": [],
+                "appName": "RefERequestsMA",
+                "controllerInfo": {
+                    "controllerActionName": "frmERequestsDashboardController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmERequestsDashboardController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmERequestsDashboard",
+                "friendlyName": "frmERequestsDashboard",
+                "isMDAForm": false
+            },
+            "RefERequestsMA.frmERequestsFetch": {
+                "ControllerExtensions": [],
+                "appName": "RefERequestsMA",
+                "controllerInfo": {
+                    "controllerActionName": "frmERequestsFetchController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmERequestsFetchController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmERequestsFetch",
+                "friendlyName": "frmERequestsFetch",
+                "isMDAForm": false
+            },
+            "RefGovtCitizenSA.frmDashboard": {
+                "ControllerExtensions": [],
+                "appName": "RefGovtCitizenSA",
+                "controllerInfo": {
+                    "controllerActionName": "frmDashboardController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmDashboardController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmDashboard",
+                "friendlyName": "frmDashboard",
+                "isMDAForm": false
+            },
+            "RefGovtCitizenSA.frmInterstitial": {
+                "ControllerExtensions": [],
+                "appName": "RefGovtCitizenSA",
+                "controllerInfo": {
+                    "controllerActionName": "frmInterstitialController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmInterstitialController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmInterstitial",
+                "friendlyName": "frmInterstitial",
+                "isMDAForm": false
+            },
+            "RefGovtCitizenSA.frmLogin": {
+                "ControllerExtensions": [],
+                "appName": "RefGovtCitizenSA",
+                "controllerInfo": {
+                    "controllerActionName": "frmLoginController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmLoginController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmLogin",
+                "friendlyName": "frmLogin",
+                "isMDAForm": false
+            },
+            "RefGovtCitizenSA.frmUserPreferences": {
+                "ControllerExtensions": [],
+                "appName": "RefGovtCitizenSA",
+                "controllerInfo": {
+                    "controllerActionName": "frmUserPreferencesController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmUserPreferencesController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmUserPreferences",
+                "friendlyName": "frmUserPreferences",
+                "isMDAForm": false
+            },
+            "RefGovtCitizenSA.frmUserProfile": {
+                "ControllerExtensions": [],
+                "appName": "RefGovtCitizenSA",
+                "controllerInfo": {
+                    "controllerActionName": "frmUserProfileController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmUserProfileController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmUserProfile",
+                "friendlyName": "frmUserProfile",
+                "isMDAForm": false
+            },
+            "RefGovtCitizenSA.frmWeather": {
+                "ControllerExtensions": [],
+                "appName": "RefGovtCitizenSA",
+                "controllerInfo": {
+                    "controllerActionName": "frmWeatherController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmWeatherController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmWeather",
+                "friendlyName": "frmWeather",
+                "isMDAForm": false
+            }
+        },
+        "spaan": {
+            "RefCommonsMA.Form1": {
+                "ControllerExtensions": [],
+                "appName": "RefCommonsMA",
+                "controllerInfo": {
+                    "controllerActionName": "Form1Controller",
+                    "controllerChannel": "mobile",
+                    "controllerName": "Form1Controller"
+                },
+                "enableModelDriven": false,
+                "formPath": "Form1",
+                "friendlyName": "Form1",
+                "isMDAForm": false
+            },
+            "RefEComplaintsMA.frmEComplaintCategories": {
+                "ControllerExtensions": [],
+                "appName": "RefEComplaintsMA",
+                "controllerInfo": {
+                    "controllerActionName": "frmEComplaintCategoriesController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmEComplaintCategoriesController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmEComplaintCategories",
+                "friendlyName": "frmEComplaintCategories",
+                "isMDAForm": false
+            },
+            "RefEComplaintsMA.frmEComplaintsCreate": {
+                "ControllerExtensions": [],
+                "appName": "RefEComplaintsMA",
+                "controllerInfo": {
+                    "controllerActionName": "frmEComplaintsCreateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmEComplaintsCreateController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmEComplaintsCreate",
+                "friendlyName": "frmEComplaintsCreate",
+                "isMDAForm": false
+            },
+            "RefEComplaintsMA.frmEComplaintsDashboard": {
+                "ControllerExtensions": [],
+                "appName": "RefEComplaintsMA",
+                "controllerInfo": {
+                    "controllerActionName": "frmEComplaintsDashboardController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmEComplaintsDashboardController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmEComplaintsDashboard",
+                "friendlyName": "frmEComplaintsDashboard",
+                "isMDAForm": false
+            },
+            "RefEComplaintsMA.frmEComplaintsFetch": {
+                "ControllerExtensions": [],
+                "appName": "RefEComplaintsMA",
+                "controllerInfo": {
+                    "controllerActionName": "frmEComplaintsFetchController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmEComplaintsFetchController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmEComplaintsFetch",
+                "friendlyName": "frmEComplaintsFetch",
+                "isMDAForm": false
+            },
+            "RefERequestsMA.frmERequestsCategories": {
+                "ControllerExtensions": [],
+                "appName": "RefERequestsMA",
+                "controllerInfo": {
+                    "controllerActionName": "frmERequestsCategoriesController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmERequestsCategoriesController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmERequestsCategories",
+                "friendlyName": "frmERequestsCategories",
+                "isMDAForm": false
+            },
+            "RefERequestsMA.frmERequestsCreate": {
+                "ControllerExtensions": [],
+                "appName": "RefERequestsMA",
+                "controllerInfo": {
+                    "controllerActionName": "frmERequestsCreateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmERequestsCreateController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmERequestsCreate",
+                "friendlyName": "frmERequestsCreate",
+                "isMDAForm": false
+            },
+            "RefERequestsMA.frmERequestsDashboard": {
+                "ControllerExtensions": [],
+                "appName": "RefERequestsMA",
+                "controllerInfo": {
+                    "controllerActionName": "frmERequestsDashboardController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmERequestsDashboardController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmERequestsDashboard",
+                "friendlyName": "frmERequestsDashboard",
+                "isMDAForm": false
+            },
+            "RefERequestsMA.frmERequestsFetch": {
+                "ControllerExtensions": [],
+                "appName": "RefERequestsMA",
+                "controllerInfo": {
+                    "controllerActionName": "frmERequestsFetchController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmERequestsFetchController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmERequestsFetch",
+                "friendlyName": "frmERequestsFetch",
+                "isMDAForm": false
+            },
+            "RefGovtCitizenSA.frmDashboard": {
+                "ControllerExtensions": [],
+                "appName": "RefGovtCitizenSA",
+                "controllerInfo": {
+                    "controllerActionName": "frmDashboardController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmDashboardController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmDashboard",
+                "friendlyName": "frmDashboard",
+                "isMDAForm": false
+            },
+            "RefGovtCitizenSA.frmInterstitial": {
+                "ControllerExtensions": [],
+                "appName": "RefGovtCitizenSA",
+                "controllerInfo": {
+                    "controllerActionName": "frmInterstitialController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmInterstitialController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmInterstitial",
+                "friendlyName": "frmInterstitial",
+                "isMDAForm": false
+            },
+            "RefGovtCitizenSA.frmLogin": {
+                "ControllerExtensions": [],
+                "appName": "RefGovtCitizenSA",
+                "controllerInfo": {
+                    "controllerActionName": "frmLoginController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmLoginController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmLogin",
+                "friendlyName": "frmLogin",
+                "isMDAForm": false
+            },
+            "RefGovtCitizenSA.frmUserPreferences": {
+                "ControllerExtensions": [],
+                "appName": "RefGovtCitizenSA",
+                "controllerInfo": {
+                    "controllerActionName": "frmUserPreferencesController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmUserPreferencesController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmUserPreferences",
+                "friendlyName": "frmUserPreferences",
+                "isMDAForm": false
+            },
+            "RefGovtCitizenSA.frmUserProfile": {
+                "ControllerExtensions": [],
+                "appName": "RefGovtCitizenSA",
+                "controllerInfo": {
+                    "controllerActionName": "frmUserProfileController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmUserProfileController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmUserProfile",
+                "friendlyName": "frmUserProfile",
+                "isMDAForm": false
+            },
+            "RefGovtCitizenSA.frmWeather": {
+                "ControllerExtensions": [],
+                "appName": "RefGovtCitizenSA",
+                "controllerInfo": {
+                    "controllerActionName": "frmWeatherController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmWeatherController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmWeather",
+                "friendlyName": "frmWeather",
+                "isMDAForm": false
+            }
+        },
+        "spaip": {
+            "RefCommonsMA.Form1": {
+                "ControllerExtensions": [],
+                "appName": "RefCommonsMA",
+                "controllerInfo": {
+                    "controllerActionName": "Form1Controller",
+                    "controllerChannel": "mobile",
+                    "controllerName": "Form1Controller"
+                },
+                "enableModelDriven": false,
+                "formPath": "Form1",
+                "friendlyName": "Form1",
+                "isMDAForm": false
+            },
+            "RefEComplaintsMA.frmEComplaintCategories": {
+                "ControllerExtensions": [],
+                "appName": "RefEComplaintsMA",
+                "controllerInfo": {
+                    "controllerActionName": "frmEComplaintCategoriesController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmEComplaintCategoriesController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmEComplaintCategories",
+                "friendlyName": "frmEComplaintCategories",
+                "isMDAForm": false
+            },
+            "RefEComplaintsMA.frmEComplaintsCreate": {
+                "ControllerExtensions": [],
+                "appName": "RefEComplaintsMA",
+                "controllerInfo": {
+                    "controllerActionName": "frmEComplaintsCreateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmEComplaintsCreateController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmEComplaintsCreate",
+                "friendlyName": "frmEComplaintsCreate",
+                "isMDAForm": false
+            },
+            "RefEComplaintsMA.frmEComplaintsDashboard": {
+                "ControllerExtensions": [],
+                "appName": "RefEComplaintsMA",
+                "controllerInfo": {
+                    "controllerActionName": "frmEComplaintsDashboardController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmEComplaintsDashboardController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmEComplaintsDashboard",
+                "friendlyName": "frmEComplaintsDashboard",
+                "isMDAForm": false
+            },
+            "RefEComplaintsMA.frmEComplaintsFetch": {
+                "ControllerExtensions": [],
+                "appName": "RefEComplaintsMA",
+                "controllerInfo": {
+                    "controllerActionName": "frmEComplaintsFetchController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmEComplaintsFetchController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmEComplaintsFetch",
+                "friendlyName": "frmEComplaintsFetch",
+                "isMDAForm": false
+            },
+            "RefERequestsMA.frmERequestsCategories": {
+                "ControllerExtensions": [],
+                "appName": "RefERequestsMA",
+                "controllerInfo": {
+                    "controllerActionName": "frmERequestsCategoriesController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmERequestsCategoriesController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmERequestsCategories",
+                "friendlyName": "frmERequestsCategories",
+                "isMDAForm": false
+            },
+            "RefERequestsMA.frmERequestsCreate": {
+                "ControllerExtensions": [],
+                "appName": "RefERequestsMA",
+                "controllerInfo": {
+                    "controllerActionName": "frmERequestsCreateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmERequestsCreateController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmERequestsCreate",
+                "friendlyName": "frmERequestsCreate",
+                "isMDAForm": false
+            },
+            "RefERequestsMA.frmERequestsDashboard": {
+                "ControllerExtensions": [],
+                "appName": "RefERequestsMA",
+                "controllerInfo": {
+                    "controllerActionName": "frmERequestsDashboardController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmERequestsDashboardController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmERequestsDashboard",
+                "friendlyName": "frmERequestsDashboard",
+                "isMDAForm": false
+            },
+            "RefERequestsMA.frmERequestsFetch": {
+                "ControllerExtensions": [],
+                "appName": "RefERequestsMA",
+                "controllerInfo": {
+                    "controllerActionName": "frmERequestsFetchController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmERequestsFetchController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmERequestsFetch",
+                "friendlyName": "frmERequestsFetch",
+                "isMDAForm": false
+            },
+            "RefGovtCitizenSA.frmDashboard": {
+                "ControllerExtensions": [],
+                "appName": "RefGovtCitizenSA",
+                "controllerInfo": {
+                    "controllerActionName": "frmDashboardController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmDashboardController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmDashboard",
+                "friendlyName": "frmDashboard",
+                "isMDAForm": false
+            },
+            "RefGovtCitizenSA.frmInterstitial": {
+                "ControllerExtensions": [],
+                "appName": "RefGovtCitizenSA",
+                "controllerInfo": {
+                    "controllerActionName": "frmInterstitialController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmInterstitialController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmInterstitial",
+                "friendlyName": "frmInterstitial",
+                "isMDAForm": false
+            },
+            "RefGovtCitizenSA.frmLogin": {
+                "ControllerExtensions": [],
+                "appName": "RefGovtCitizenSA",
+                "controllerInfo": {
+                    "controllerActionName": "frmLoginController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmLoginController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmLogin",
+                "friendlyName": "frmLogin",
+                "isMDAForm": false
+            },
+            "RefGovtCitizenSA.frmUserPreferences": {
+                "ControllerExtensions": [],
+                "appName": "RefGovtCitizenSA",
+                "controllerInfo": {
+                    "controllerActionName": "frmUserPreferencesController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmUserPreferencesController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmUserPreferences",
+                "friendlyName": "frmUserPreferences",
+                "isMDAForm": false
+            },
+            "RefGovtCitizenSA.frmUserProfile": {
+                "ControllerExtensions": [],
+                "appName": "RefGovtCitizenSA",
+                "controllerInfo": {
+                    "controllerActionName": "frmUserProfileController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmUserProfileController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmUserProfile",
+                "friendlyName": "frmUserProfile",
+                "isMDAForm": false
+            },
+            "RefGovtCitizenSA.frmWeather": {
+                "ControllerExtensions": [],
+                "appName": "RefGovtCitizenSA",
+                "controllerInfo": {
+                    "controllerActionName": "frmWeatherController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "frmWeatherController"
+                },
+                "enableModelDriven": false,
+                "formPath": "frmWeather",
+                "friendlyName": "frmWeather",
+                "isMDAForm": false
+            }
+        }
+    },
+    "templateControllerInfoMapping": {
+        "android": {
+            "SampleRowTemplate": {
+                "controllerActionDir": "flxSampleRowTemplateController",
+                "controllerChannel": "mobile",
+                "controllerName": "flxSampleRowTemplateController"
+            },
+            "SampleSectionHeaderTemplate": {
+                "controllerActionDir": "flxSectionHeaderTemplateController",
+                "controllerChannel": "mobile",
+                "controllerName": "flxSectionHeaderTemplateController"
+            },
+            "tplMapWeatherCallout": {
+                "controllerActionDir": "flxMapWeatherCalloutController",
+                "controllerChannel": "mobile",
+                "controllerName": "flxMapWeatherCalloutController"
+            },
+            "tplSegCategories": {
+                "controllerActionDir": "flxSegCategoriesController",
+                "controllerChannel": "mobile",
+                "controllerName": "flxSegCategoriesController"
+            },
+            "tplSegRowRecord": {
+                "controllerActionDir": "flxSegRowRecordController",
+                "controllerChannel": "mobile",
+                "controllerName": "flxSegRowRecordController"
+            },
+            "tplSegRowWithImageAndLabel": {
+                "controllerActionDir": "flxSegRowWithImageAndLabelController",
+                "controllerChannel": "mobile",
+                "controllerName": "flxSegRowWithImageAndLabelController"
+            },
+            "tplSegWithImageAndLabel": {
+                "controllerActionDir": "flxSegWithImageAndLabelController",
+                "controllerChannel": "mobile",
+                "controllerName": "flxSegWithImageAndLabelController"
+            }
+        },
+        "iphone": {
+            "SampleRowTemplate": {
+                "controllerActionDir": "flxSampleRowTemplateController",
+                "controllerChannel": "mobile",
+                "controllerName": "flxSampleRowTemplateController"
+            },
+            "SampleSectionHeaderTemplate": {
+                "controllerActionDir": "flxSectionHeaderTemplateController",
+                "controllerChannel": "mobile",
+                "controllerName": "flxSectionHeaderTemplateController"
+            },
+            "tplMapWeatherCallout": {
+                "controllerActionDir": "flxMapWeatherCalloutController",
+                "controllerChannel": "mobile",
+                "controllerName": "flxMapWeatherCalloutController"
+            },
+            "tplSegCategories": {
+                "controllerActionDir": "flxSegCategoriesController",
+                "controllerChannel": "mobile",
+                "controllerName": "flxSegCategoriesController"
+            },
+            "tplSegRowRecord": {
+                "controllerActionDir": "flxSegRowRecordController",
+                "controllerChannel": "mobile",
+                "controllerName": "flxSegRowRecordController"
+            },
+            "tplSegRowWithImageAndLabel": {
+                "controllerActionDir": "flxSegRowWithImageAndLabelController",
+                "controllerChannel": "mobile",
+                "controllerName": "flxSegRowWithImageAndLabelController"
+            },
+            "tplSegWithImageAndLabel": {
+                "controllerActionDir": "flxSegWithImageAndLabelController",
+                "controllerChannel": "mobile",
+                "controllerName": "flxSegWithImageAndLabelController"
+            }
+        },
+        "spaan": {
+            "SampleRowTemplate": {
+                "controllerActionDir": "flxSampleRowTemplateController",
+                "controllerChannel": "mobile",
+                "controllerName": "flxSampleRowTemplateController"
+            },
+            "SampleSectionHeaderTemplate": {
+                "controllerActionDir": "flxSectionHeaderTemplateController",
+                "controllerChannel": "mobile",
+                "controllerName": "flxSectionHeaderTemplateController"
+            },
+            "tplMapWeatherCallout": {
+                "controllerActionDir": "flxMapWeatherCalloutController",
+                "controllerChannel": "mobile",
+                "controllerName": "flxMapWeatherCalloutController"
+            },
+            "tplSegCategories": {
+                "controllerActionDir": "flxSegCategoriesController",
+                "controllerChannel": "mobile",
+                "controllerName": "flxSegCategoriesController"
+            },
+            "tplSegRowRecord": {
+                "controllerActionDir": "flxSegRowRecordController",
+                "controllerChannel": "mobile",
+                "controllerName": "flxSegRowRecordController"
+            },
+            "tplSegRowWithImageAndLabel": {
+                "controllerActionDir": "flxSegRowWithImageAndLabelController",
+                "controllerChannel": "mobile",
+                "controllerName": "flxSegRowWithImageAndLabelController"
+            },
+            "tplSegWithImageAndLabel": {
+                "controllerActionDir": "flxSegWithImageAndLabelController",
+                "controllerChannel": "mobile",
+                "controllerName": "flxSegWithImageAndLabelController"
+            }
+        },
+        "spaip": {
+            "SampleRowTemplate": {
+                "controllerActionDir": "flxSampleRowTemplateController",
+                "controllerChannel": "mobile",
+                "controllerName": "flxSampleRowTemplateController"
+            },
+            "SampleSectionHeaderTemplate": {
+                "controllerActionDir": "flxSectionHeaderTemplateController",
+                "controllerChannel": "mobile",
+                "controllerName": "flxSectionHeaderTemplateController"
+            },
+            "tplMapWeatherCallout": {
+                "controllerActionDir": "flxMapWeatherCalloutController",
+                "controllerChannel": "mobile",
+                "controllerName": "flxMapWeatherCalloutController"
+            },
+            "tplSegCategories": {
+                "controllerActionDir": "flxSegCategoriesController",
+                "controllerChannel": "mobile",
+                "controllerName": "flxSegCategoriesController"
+            },
+            "tplSegRowRecord": {
+                "controllerActionDir": "flxSegRowRecordController",
+                "controllerChannel": "mobile",
+                "controllerName": "flxSegRowRecordController"
+            },
+            "tplSegRowWithImageAndLabel": {
+                "controllerActionDir": "flxSegRowWithImageAndLabelController",
+                "controllerChannel": "mobile",
+                "controllerName": "flxSegRowWithImageAndLabelController"
+            },
+            "tplSegWithImageAndLabel": {
+                "controllerActionDir": "flxSegWithImageAndLabelController",
+                "controllerChannel": "mobile",
+                "controllerName": "flxSegWithImageAndLabelController"
+            }
+        }
+    },
+    "templatesifcMapping": {
+        "android": {
+            "RefCommonsMA.flxMapWeatherCallout": {
+                "appName": "RefCommonsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxMapWeatherCalloutController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxMapWeatherCalloutController"
+                },
+                "friendlyName": "flxMapWeatherCallout",
+                "templateId": "flxMapWeatherCallout"
+            },
+            "RefCommonsMA.flxSampleRowTemplate": {
+                "appName": "RefCommonsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSampleRowTemplateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSampleRowTemplateController"
+                },
+                "friendlyName": "flxSampleRowTemplate",
+                "templateId": "flxSampleRowTemplate"
+            },
+            "RefCommonsMA.flxSectionHeaderTemplate": {
+                "appName": "RefCommonsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSectionHeaderTemplateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSectionHeaderTemplateController"
+                },
+                "friendlyName": "flxSectionHeaderTemplate",
+                "templateId": "flxSectionHeaderTemplate"
+            },
+            "RefCommonsMA.flxSegCategories": {
+                "appName": "RefCommonsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSegCategoriesController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSegCategoriesController"
+                },
+                "friendlyName": "flxSegCategories",
+                "templateId": "flxSegCategories"
+            },
+            "RefCommonsMA.flxSegRowRecord": {
+                "appName": "RefCommonsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSegRowRecordController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSegRowRecordController"
+                },
+                "friendlyName": "flxSegRowRecord",
+                "templateId": "flxSegRowRecord"
+            },
+            "RefCommonsMA.flxSegRowWithImageAndLabel": {
+                "appName": "RefCommonsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSegRowWithImageAndLabelController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSegRowWithImageAndLabelController"
+                },
+                "friendlyName": "flxSegRowWithImageAndLabel",
+                "templateId": "flxSegRowWithImageAndLabel"
+            },
+            "RefCommonsMA.flxSegWithImageAndLabel": {
+                "appName": "RefCommonsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSegWithImageAndLabelController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSegWithImageAndLabelController"
+                },
+                "friendlyName": "flxSegWithImageAndLabel",
+                "templateId": "flxSegWithImageAndLabel"
+            },
+            "RefEComplaintsMA.flxSampleRowTemplate": {
+                "appName": "RefEComplaintsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSampleRowTemplateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSampleRowTemplateController"
+                },
+                "friendlyName": "flxSampleRowTemplate",
+                "templateId": "flxSampleRowTemplate"
+            },
+            "RefEComplaintsMA.flxSectionHeaderTemplate": {
+                "appName": "RefEComplaintsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSectionHeaderTemplateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSectionHeaderTemplateController"
+                },
+                "friendlyName": "flxSectionHeaderTemplate",
+                "templateId": "flxSectionHeaderTemplate"
+            },
+            "RefERequestsMA.flxSampleRowTemplate": {
+                "appName": "RefERequestsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSampleRowTemplateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSampleRowTemplateController"
+                },
+                "friendlyName": "flxSampleRowTemplate",
+                "templateId": "flxSampleRowTemplate"
+            },
+            "RefERequestsMA.flxSectionHeaderTemplate": {
+                "appName": "RefERequestsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSectionHeaderTemplateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSectionHeaderTemplateController"
+                },
+                "friendlyName": "flxSectionHeaderTemplate",
+                "templateId": "flxSectionHeaderTemplate"
+            },
+            "RefGovtCitizenSA.flxSampleRowTemplate": {
+                "appName": "RefGovtCitizenSA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSampleRowTemplateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSampleRowTemplateController"
+                },
+                "friendlyName": "flxSampleRowTemplate",
+                "templateId": "flxSampleRowTemplate"
+            },
+            "RefGovtCitizenSA.flxSectionHeaderTemplate": {
+                "appName": "RefGovtCitizenSA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSectionHeaderTemplateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSectionHeaderTemplateController"
+                },
+                "friendlyName": "flxSectionHeaderTemplate",
+                "templateId": "flxSectionHeaderTemplate"
+            }
+        },
+        "iphone": {
+            "RefCommonsMA.flxMapWeatherCallout": {
+                "appName": "RefCommonsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxMapWeatherCalloutController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxMapWeatherCalloutController"
+                },
+                "friendlyName": "flxMapWeatherCallout",
+                "templateId": "flxMapWeatherCallout"
+            },
+            "RefCommonsMA.flxSampleRowTemplate": {
+                "appName": "RefCommonsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSampleRowTemplateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSampleRowTemplateController"
+                },
+                "friendlyName": "flxSampleRowTemplate",
+                "templateId": "flxSampleRowTemplate"
+            },
+            "RefCommonsMA.flxSectionHeaderTemplate": {
+                "appName": "RefCommonsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSectionHeaderTemplateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSectionHeaderTemplateController"
+                },
+                "friendlyName": "flxSectionHeaderTemplate",
+                "templateId": "flxSectionHeaderTemplate"
+            },
+            "RefCommonsMA.flxSegCategories": {
+                "appName": "RefCommonsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSegCategoriesController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSegCategoriesController"
+                },
+                "friendlyName": "flxSegCategories",
+                "templateId": "flxSegCategories"
+            },
+            "RefCommonsMA.flxSegRowRecord": {
+                "appName": "RefCommonsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSegRowRecordController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSegRowRecordController"
+                },
+                "friendlyName": "flxSegRowRecord",
+                "templateId": "flxSegRowRecord"
+            },
+            "RefCommonsMA.flxSegRowWithImageAndLabel": {
+                "appName": "RefCommonsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSegRowWithImageAndLabelController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSegRowWithImageAndLabelController"
+                },
+                "friendlyName": "flxSegRowWithImageAndLabel",
+                "templateId": "flxSegRowWithImageAndLabel"
+            },
+            "RefCommonsMA.flxSegWithImageAndLabel": {
+                "appName": "RefCommonsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSegWithImageAndLabelController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSegWithImageAndLabelController"
+                },
+                "friendlyName": "flxSegWithImageAndLabel",
+                "templateId": "flxSegWithImageAndLabel"
+            },
+            "RefEComplaintsMA.flxSampleRowTemplate": {
+                "appName": "RefEComplaintsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSampleRowTemplateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSampleRowTemplateController"
+                },
+                "friendlyName": "flxSampleRowTemplate",
+                "templateId": "flxSampleRowTemplate"
+            },
+            "RefEComplaintsMA.flxSectionHeaderTemplate": {
+                "appName": "RefEComplaintsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSectionHeaderTemplateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSectionHeaderTemplateController"
+                },
+                "friendlyName": "flxSectionHeaderTemplate",
+                "templateId": "flxSectionHeaderTemplate"
+            },
+            "RefERequestsMA.flxSampleRowTemplate": {
+                "appName": "RefERequestsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSampleRowTemplateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSampleRowTemplateController"
+                },
+                "friendlyName": "flxSampleRowTemplate",
+                "templateId": "flxSampleRowTemplate"
+            },
+            "RefERequestsMA.flxSectionHeaderTemplate": {
+                "appName": "RefERequestsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSectionHeaderTemplateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSectionHeaderTemplateController"
+                },
+                "friendlyName": "flxSectionHeaderTemplate",
+                "templateId": "flxSectionHeaderTemplate"
+            },
+            "RefGovtCitizenSA.flxSampleRowTemplate": {
+                "appName": "RefGovtCitizenSA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSampleRowTemplateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSampleRowTemplateController"
+                },
+                "friendlyName": "flxSampleRowTemplate",
+                "templateId": "flxSampleRowTemplate"
+            },
+            "RefGovtCitizenSA.flxSectionHeaderTemplate": {
+                "appName": "RefGovtCitizenSA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSectionHeaderTemplateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSectionHeaderTemplateController"
+                },
+                "friendlyName": "flxSectionHeaderTemplate",
+                "templateId": "flxSectionHeaderTemplate"
+            }
+        },
+        "spaan": {
+            "RefCommonsMA.flxMapWeatherCallout": {
+                "appName": "RefCommonsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxMapWeatherCalloutController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxMapWeatherCalloutController"
+                },
+                "friendlyName": "flxMapWeatherCallout",
+                "templateId": "flxMapWeatherCallout"
+            },
+            "RefCommonsMA.flxSampleRowTemplate": {
+                "appName": "RefCommonsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSampleRowTemplateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSampleRowTemplateController"
+                },
+                "friendlyName": "flxSampleRowTemplate",
+                "templateId": "flxSampleRowTemplate"
+            },
+            "RefCommonsMA.flxSectionHeaderTemplate": {
+                "appName": "RefCommonsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSectionHeaderTemplateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSectionHeaderTemplateController"
+                },
+                "friendlyName": "flxSectionHeaderTemplate",
+                "templateId": "flxSectionHeaderTemplate"
+            },
+            "RefCommonsMA.flxSegCategories": {
+                "appName": "RefCommonsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSegCategoriesController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSegCategoriesController"
+                },
+                "friendlyName": "flxSegCategories",
+                "templateId": "flxSegCategories"
+            },
+            "RefCommonsMA.flxSegRowRecord": {
+                "appName": "RefCommonsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSegRowRecordController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSegRowRecordController"
+                },
+                "friendlyName": "flxSegRowRecord",
+                "templateId": "flxSegRowRecord"
+            },
+            "RefCommonsMA.flxSegRowWithImageAndLabel": {
+                "appName": "RefCommonsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSegRowWithImageAndLabelController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSegRowWithImageAndLabelController"
+                },
+                "friendlyName": "flxSegRowWithImageAndLabel",
+                "templateId": "flxSegRowWithImageAndLabel"
+            },
+            "RefCommonsMA.flxSegWithImageAndLabel": {
+                "appName": "RefCommonsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSegWithImageAndLabelController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSegWithImageAndLabelController"
+                },
+                "friendlyName": "flxSegWithImageAndLabel",
+                "templateId": "flxSegWithImageAndLabel"
+            },
+            "RefEComplaintsMA.flxSampleRowTemplate": {
+                "appName": "RefEComplaintsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSampleRowTemplateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSampleRowTemplateController"
+                },
+                "friendlyName": "flxSampleRowTemplate",
+                "templateId": "flxSampleRowTemplate"
+            },
+            "RefEComplaintsMA.flxSectionHeaderTemplate": {
+                "appName": "RefEComplaintsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSectionHeaderTemplateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSectionHeaderTemplateController"
+                },
+                "friendlyName": "flxSectionHeaderTemplate",
+                "templateId": "flxSectionHeaderTemplate"
+            },
+            "RefERequestsMA.flxSampleRowTemplate": {
+                "appName": "RefERequestsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSampleRowTemplateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSampleRowTemplateController"
+                },
+                "friendlyName": "flxSampleRowTemplate",
+                "templateId": "flxSampleRowTemplate"
+            },
+            "RefERequestsMA.flxSectionHeaderTemplate": {
+                "appName": "RefERequestsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSectionHeaderTemplateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSectionHeaderTemplateController"
+                },
+                "friendlyName": "flxSectionHeaderTemplate",
+                "templateId": "flxSectionHeaderTemplate"
+            },
+            "RefGovtCitizenSA.flxSampleRowTemplate": {
+                "appName": "RefGovtCitizenSA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSampleRowTemplateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSampleRowTemplateController"
+                },
+                "friendlyName": "flxSampleRowTemplate",
+                "templateId": "flxSampleRowTemplate"
+            },
+            "RefGovtCitizenSA.flxSectionHeaderTemplate": {
+                "appName": "RefGovtCitizenSA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSectionHeaderTemplateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSectionHeaderTemplateController"
+                },
+                "friendlyName": "flxSectionHeaderTemplate",
+                "templateId": "flxSectionHeaderTemplate"
+            }
+        },
+        "spaip": {
+            "RefCommonsMA.flxMapWeatherCallout": {
+                "appName": "RefCommonsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxMapWeatherCalloutController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxMapWeatherCalloutController"
+                },
+                "friendlyName": "flxMapWeatherCallout",
+                "templateId": "flxMapWeatherCallout"
+            },
+            "RefCommonsMA.flxSampleRowTemplate": {
+                "appName": "RefCommonsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSampleRowTemplateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSampleRowTemplateController"
+                },
+                "friendlyName": "flxSampleRowTemplate",
+                "templateId": "flxSampleRowTemplate"
+            },
+            "RefCommonsMA.flxSectionHeaderTemplate": {
+                "appName": "RefCommonsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSectionHeaderTemplateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSectionHeaderTemplateController"
+                },
+                "friendlyName": "flxSectionHeaderTemplate",
+                "templateId": "flxSectionHeaderTemplate"
+            },
+            "RefCommonsMA.flxSegCategories": {
+                "appName": "RefCommonsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSegCategoriesController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSegCategoriesController"
+                },
+                "friendlyName": "flxSegCategories",
+                "templateId": "flxSegCategories"
+            },
+            "RefCommonsMA.flxSegRowRecord": {
+                "appName": "RefCommonsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSegRowRecordController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSegRowRecordController"
+                },
+                "friendlyName": "flxSegRowRecord",
+                "templateId": "flxSegRowRecord"
+            },
+            "RefCommonsMA.flxSegRowWithImageAndLabel": {
+                "appName": "RefCommonsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSegRowWithImageAndLabelController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSegRowWithImageAndLabelController"
+                },
+                "friendlyName": "flxSegRowWithImageAndLabel",
+                "templateId": "flxSegRowWithImageAndLabel"
+            },
+            "RefCommonsMA.flxSegWithImageAndLabel": {
+                "appName": "RefCommonsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSegWithImageAndLabelController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSegWithImageAndLabelController"
+                },
+                "friendlyName": "flxSegWithImageAndLabel",
+                "templateId": "flxSegWithImageAndLabel"
+            },
+            "RefEComplaintsMA.flxSampleRowTemplate": {
+                "appName": "RefEComplaintsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSampleRowTemplateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSampleRowTemplateController"
+                },
+                "friendlyName": "flxSampleRowTemplate",
+                "templateId": "flxSampleRowTemplate"
+            },
+            "RefEComplaintsMA.flxSectionHeaderTemplate": {
+                "appName": "RefEComplaintsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSectionHeaderTemplateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSectionHeaderTemplateController"
+                },
+                "friendlyName": "flxSectionHeaderTemplate",
+                "templateId": "flxSectionHeaderTemplate"
+            },
+            "RefERequestsMA.flxSampleRowTemplate": {
+                "appName": "RefERequestsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSampleRowTemplateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSampleRowTemplateController"
+                },
+                "friendlyName": "flxSampleRowTemplate",
+                "templateId": "flxSampleRowTemplate"
+            },
+            "RefERequestsMA.flxSectionHeaderTemplate": {
+                "appName": "RefERequestsMA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSectionHeaderTemplateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSectionHeaderTemplateController"
+                },
+                "friendlyName": "flxSectionHeaderTemplate",
+                "templateId": "flxSectionHeaderTemplate"
+            },
+            "RefGovtCitizenSA.flxSampleRowTemplate": {
+                "appName": "RefGovtCitizenSA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSampleRowTemplateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSampleRowTemplateController"
+                },
+                "friendlyName": "flxSampleRowTemplate",
+                "templateId": "flxSampleRowTemplate"
+            },
+            "RefGovtCitizenSA.flxSectionHeaderTemplate": {
+                "appName": "RefGovtCitizenSA",
+                "controllerInfo": {
+                    "controllerActionName": "flxSectionHeaderTemplateController",
+                    "controllerChannel": "mobile",
+                    "controllerName": "flxSectionHeaderTemplateController"
+                },
+                "friendlyName": "flxSectionHeaderTemplate",
+                "templateId": "flxSectionHeaderTemplate"
+            }
+        }
+    },
+    "userwidgetsifcMapping": {
+        "com.hclacademy.categories": {
+            "appName": "RefCommonsMA",
+            "classname": "categories",
+            "namespace": "com.hclacademy"
+        },
+        "com.hclacademy.createcomplaintorrequest": {
+            "appName": "RefCommonsMA",
+            "classname": "createcomplaintorrequest",
+            "namespace": "com.hclacademy"
+        },
+        "com.hclacademy.custombuttonwithimageandtext": {
+            "appName": "RefCommonsMA",
+            "classname": "custombuttonwithimageandtext",
+            "namespace": "com.hclacademy"
+        },
+        "com.hclacademy.formheader": {
+            "appName": "RefCommonsMA",
+            "classname": "formheader",
+            "namespace": "com.hclacademy"
+        },
+        "com.hclacademy.hamburgermenu": {
+            "appName": "RefCommonsMA",
+            "classname": "hamburgermenu",
+            "namespace": "com.hclacademy"
+        },
+        "com.hclacademy.infoalert": {
+            "appName": "RefCommonsMA",
+            "classname": "infoalert",
+            "namespace": "com.hclacademy"
+        },
+        "com.hclacademy.newsarticles": {
+            "appName": "RefCommonsMA",
+            "classname": "newsarticles",
+            "namespace": "com.hclacademy"
+        },
+        "com.hclacademy.userinput": {
+            "appName": "RefCommonsMA",
+            "classname": "userinput",
+            "namespace": "com.hclacademy"
+        }
+    }
+}

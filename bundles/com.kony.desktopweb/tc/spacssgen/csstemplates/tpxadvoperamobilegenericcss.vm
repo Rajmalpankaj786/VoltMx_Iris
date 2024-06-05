@@ -1,0 +1,70 @@
+#if($focusSkin)
+	#set($s = $skin)
+#else
+	#set($s = "." + $skin)
+#end
+$s{
+    ##parse("tpxadviphonecssborder.vm")
+    #if($forking)
+        #parse("tpxadvoperamobilecssborderspecific.vm")
+    #else
+        #parse("tpxadvoperamobilecssborder.vm")
+    #end
+    #parse("tppalmmojocssfonts.vm")
+     #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end
+#if($textfield!=true)
+    padding: 1px;
+#end
+    #if($background-color)
+        #if($rgba == "true")
+                background-color : $background-color;
+        #else
+                #set($bc = "#" + $background-color)
+                background-color: $bc;
+        #end
+    #elseif($background-gradient)
+            background-image: url(./images/$background-image);
+            background-repeat: repeat-x;
+            background-color: $bottomcolor;
+    #elseif($background-image)
+        #if($repeat && $verticalrepeat)
+            background: url(./images/$background-image) repeat;
+        #elseif($repeat)
+            background: url(./images/$background-image) repeat-x;
+        #elseif($verticalrepeat)
+            background: url(./images/$background-image) repeat-y;
+        #else
+            background: url(./images/$background-image) no-repeat;
+        #end
+    #else
+        background: inherit;
+    #end
+    
+    #if($rounded)
+         -webkit-border-radius: 10px;
+         border-radius: 10px;
+    #end
+
+#if($wtype =="RichText")
+#if($forking)
+    #parse("tpdesktopoperashadowtextcss.vm")
+#end
+#if($forking)
+    #parse("tpdesktopoperashadowcss.vm")
+#end
+#end
+#if($wtype=="TextArea" || $wtype=="TextBox" || $wtype=="Calendar" )
+    box-sizing: border-box;   
+#end
+
+}
+
+#if($wtype=="TextBox")
+    #parse("tpxadviphonetextboxskincss.vm")
+#end

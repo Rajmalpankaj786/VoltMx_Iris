@@ -1,0 +1,71 @@
+#if($default == "true")
+.appmenuskin{
+    position: relative;
+    margin: 1px;
+    border-top-width: 0px;
+    border-bottom-width: 1px;
+    border-right-width: 0px;
+    border-left-width: 0px;
+    border-top-style: none;
+    border-bottom-style: solid;
+    border-right-style: none;
+    border-left-style: none;
+    border-color: #E0E0E0;
+    font-family: $font-family;
+    font-size : $font-size;
+    font-weight : $font-weight;
+    font-style : $font-style;
+    color : #$color;
+    background-color: inherit; 
+    }
+
+.appmenulabel
+{
+    font-family: $font-family;
+    font-size : $font-size;
+    font-weight : $font-weight;
+    font-style : $font-style;
+    color : #$color;
+    background-color: inherit; 
+}
+
+#else
+   .appmenuskin{
+   position: relative;
+    margin: 0;
+    #set($bw = $border-width + "px")
+    border-top-width : 0px;
+    border-bottom-width: 1px;
+    border-right-width: 0px;
+    border-left-width: 0px;
+    border-top-style: none;
+    border-bottom-style: solid;
+    border-right-style: none;
+    border-left-style: none;
+    border-color : #$border-color;
+    font-family: $font-family;
+    font-size : $font-size;
+    font-weight : $font-weight;
+    font-style : $font-style;
+    color : #$color;
+    #if($background-color)
+        background-color: #$background-color;
+    #elseif ($background-image)
+        background-image: url("./images/$background-image");
+        background-repeat: repeat;
+    #else
+        background-color: inherit;
+    #end
+        
+    }
+
+    .appmenulabel
+    {
+        font-family: $font-family;
+        font-size : $font-size;
+        font-weight : $font-weight;
+        font-style : $font-style;
+        color : #$color;
+        background-color: inherit; 
+    }
+#end

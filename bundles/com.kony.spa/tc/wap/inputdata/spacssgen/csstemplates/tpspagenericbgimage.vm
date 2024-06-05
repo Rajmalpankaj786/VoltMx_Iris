@@ -1,0 +1,63 @@
+#if($enabletint == "true")
+    #parse("tpbgimagetintcss.vm")
+#elseif($newlib == "true")
+    #if($enable_bg_size == "true")
+         background: url(../../images/$background-image) no-repeat;
+        #if($formwidget)
+        -webkit-background-size : 100% 100%;
+        #end
+        background-size : 100% 100%;
+    #elseif($repeat && $verticalrepeat)
+        background: url(../../images/$background-image) repeat;
+    #elseif($repeat)
+        background: url(../../images/$background-image) repeat-x;
+    #elseif($verticalrepeat)
+        background: url(../../images/$background-image) repeat-y;
+    #else
+        background: url(../../images/$background-image) no-repeat;
+        #if($buttonwidget == "true")
+            #if($width >= 0)
+                #set($wd = $width + "px !important;")
+                width: $wd
+            #end
+            #if($height >= 0)
+                #set($hd = $height + "px !important;")
+                height: $hd
+            #end
+            #if($spaip)
+                #set($whd = $width + "px " + $height + "px !important" )
+                background-size : $whd;
+            #end
+        #end
+    #end
+#else
+    #if($enable_bg_size == "true")
+         background: url(./images/$background-image) no-repeat;
+        #if($formwidget)
+        -webkit-background-size : 100% 100%;
+        #end
+        background-size : 100% 100%;
+    #elseif($repeat && $verticalrepeat)
+        background: url(./images/$background-image) repeat;
+    #elseif($repeat)
+        background: url(./images/$background-image) repeat-x;
+    #elseif($verticalrepeat)
+        background: url(./images/$background-image) repeat-y;
+    #else
+        background: url(./images/$background-image) no-repeat;
+        #if($buttonwidget == "true")
+            #if($width >= 0)
+                #set($wd = $width + "px !important;")
+                width: $wd
+            #end
+            #if($height >= 0)
+                #set($hd = $height + "px !important;")
+                height: $hd
+            #end
+            #if($spaip)
+                #set($whd = $width + "px " + $height + "px !important" )
+                background-size : $whd;
+            #end
+        #end
+    #end
+#end

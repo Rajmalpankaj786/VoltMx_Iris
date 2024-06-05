@@ -1,0 +1,15 @@
+#if($background-gradient)
+   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$topcolor', endColorstr='$bottomcolor');  
+#elseif($background-split)
+   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$topcolor', endColorstr='$bottomcolor');
+#elseif($background-horizontal-gradient)
+   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr='$topcolor', endColorstr='$bottomcolor');
+#elseif($background-horizontal-split)
+   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr='$topcolor', endColorstr='$bottomcolor');
+#elseif($background-ms-gradient)
+   #if($iemsStyle=="vg")
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$topcolor', endColorstr='$bottomcolor');
+   #else
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr='$topcolor', endColorstr='$bottomcolor');
+   #end
+#end

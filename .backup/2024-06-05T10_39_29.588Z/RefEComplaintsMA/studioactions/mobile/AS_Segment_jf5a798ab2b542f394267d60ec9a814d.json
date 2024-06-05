@@ -1,0 +1,190 @@
+{
+    "AS_Segment_jf5a798ab2b542f394267d60ec9a814d": {
+        "id": "AS_Segment_jf5a798ab2b542f394267d60ec9a814d",
+        "type": "ACTION_SEQUENCE",
+        "params": [{
+            "datatype": "collection",
+            "name": "eventobject"
+        }, {
+            "datatype": "number",
+            "name": "sectionNumber"
+        }, {
+            "datatype": "number",
+            "name": "rowNumber"
+        }],
+        "contextObj": {
+            "name": "frmEComplaintsCreate",
+            "type": "forms",
+            "platform": "",
+            "KUID": "j389a3a5aae44b74b7737ff75e5cba52"
+        },
+        "language": "js",
+        "actions": [{
+            "id": "_b92e67725b674db2bd732eed7d4cd684",
+            "type": "MOVE_ACTION",
+            "itemType": "FORM",
+            "itemId": "frmEComplaintsCreate",
+            "widgetId": "hamburgermenu",
+            "itemKUID": "j389a3a5aae44b74b7737ff75e5cba52",
+            "widgetKUID": "ed5189868ffd4a4cbe4f48969b3ae862",
+            "wType": "UserWidgetInstance",
+            "animationObject": {
+                "left": "-90%",
+                "anchorPoint": {},
+                "stepConfig": {
+                    "timingFunction": "kony.anim.EASE"
+                }
+            },
+            "config": {
+                "delay": "0",
+                "iterationCount": 1,
+                "fillMode": "voltmx.anim.FILL_MODE_FORWARDS",
+                "duration": "1000"
+            },
+            "start": "Immediately",
+            "animationId": "_b92e67725b674db2bd732eed7d4cd684",
+            "displayAnimationId": "MOVE_ACTION_d2969e5f760746ec95ebee8fe1e28744",
+            "forkedPlatform": "all",
+            "parentId": null,
+            "widgetPath": "this.view.hamburgermenu"
+        }, {
+            "id": "IF_CONDITION_hfadc5973e7b4bf88e4e4e0601bbbbed",
+            "type": "IF_CONDITION",
+            "conditions": [{
+                "leftValueType": "expression",
+                "leftValue": "self.view.hamburgermenu.segMenu.selectedRowItems[0].lblMenuOption === \"Dashboard\""
+            }],
+            "parentId": "_b92e67725b674db2bd732eed7d4cd684",
+            "callbackType": "Callback",
+            "criteria": "all"
+        }, {
+            "id": "NAVIGATE_TO_FORM__e1d1418e1b564162ab145f312d44f4bd",
+            "type": "NAVIGATE_TO_FORM",
+            "formId": "frmDashboard",
+            "formKUID": "fcbc1ed742fd42bfba1f4b347c731809",
+            "projectName": "RefGovtCitizenSA",
+            "mappings": {},
+            "mappingsOrder": [],
+            "parentId": "IF_CONDITION_hfadc5973e7b4bf88e4e4e0601bbbbed",
+            "callbackType": null,
+            "enableMappingEditor": true,
+            "package": "",
+            "isCustomInput": false
+        }, {
+            "id": "ELSE_IF_CONDITION_e517577a99c143fe926f30fa09ca0dee",
+            "type": "ELSE_IF_CONDITION",
+            "conditions": [{
+                "leftValueType": "expression",
+                "leftValue": "self.view.hamburgermenu.segMenu.selectedRowItems[0].lblMenuOption === \"Complaints\""
+            }],
+            "parentId": "_b92e67725b674db2bd732eed7d4cd684",
+            "callbackType": "Callback",
+            "criteria": "all"
+        }, {
+            "id": "NAVIGATE_TO_FORM__c8b64403aa984f88bb17008a28a1d278",
+            "type": "NAVIGATE_TO_FORM",
+            "formId": "frmEComplaintsDashboard",
+            "formKUID": "i8f5021dc1ca49a499f141fa7086e1db",
+            "projectName": "RefEComplaintsMA",
+            "mappings": {},
+            "mappingsOrder": [],
+            "parentId": "ELSE_IF_CONDITION_e517577a99c143fe926f30fa09ca0dee",
+            "callbackType": null,
+            "enableMappingEditor": true,
+            "package": "",
+            "isCustomInput": false
+        }, {
+            "id": "ELSE_IF_CONDITION_bd98c90ebf4a4d298f8312cbd7d8db6f",
+            "type": "ELSE_IF_CONDITION",
+            "conditions": [{
+                "leftValueType": "expression",
+                "leftValue": "self.view.hamburgermenu.segMenu.selectedRowItems[0].lblMenuOption === \"Weather Alert\""
+            }],
+            "parentId": "_b92e67725b674db2bd732eed7d4cd684",
+            "callbackType": "Callback",
+            "criteria": "all"
+        }, {
+            "id": "NAVIGATE_TO_FORM__b6ee8f2b994240248989c9b0ca3864c5",
+            "type": "NAVIGATE_TO_FORM",
+            "formId": "frmWeather",
+            "formKUID": "e0e62c55c46744abbf8df19b5749c8ae",
+            "projectName": "RefGovtCitizenSA",
+            "mappings": {},
+            "mappingsOrder": [],
+            "parentId": "ELSE_IF_CONDITION_bd98c90ebf4a4d298f8312cbd7d8db6f",
+            "callbackType": null,
+            "enableMappingEditor": true,
+            "package": "",
+            "isCustomInput": false
+        }, {
+            "id": "ELSE_IF_CONDITION_d4b41b36d46243d78505c999987d951d",
+            "type": "ELSE_IF_CONDITION",
+            "conditions": [{
+                "leftValueType": "expression",
+                "leftValue": "self.view.hamburgermenu.segMenu.selectedRowItems[0].lblMenuOption === \"User Profile\""
+            }],
+            "parentId": "_b92e67725b674db2bd732eed7d4cd684",
+            "callbackType": "Callback",
+            "criteria": "all"
+        }, {
+            "id": "NAVIGATE_TO_FORM__j333649e8c004b4cb56fb4513725dd35",
+            "type": "NAVIGATE_TO_FORM",
+            "formId": "frmUserProfile",
+            "formKUID": "hf1a0fe4870543778f7bfec064abe14e",
+            "projectName": "RefGovtCitizenSA",
+            "mappings": {},
+            "mappingsOrder": [],
+            "parentId": "ELSE_IF_CONDITION_d4b41b36d46243d78505c999987d951d",
+            "callbackType": null,
+            "enableMappingEditor": true,
+            "package": "",
+            "isCustomInput": false
+        }, {
+            "id": "ELSE_IF_CONDITION_a23e7816fb7049649df2152e97537ba0",
+            "type": "ELSE_IF_CONDITION",
+            "conditions": [{
+                "leftValueType": "expression",
+                "leftValue": "self.view.hamburgermenu.segMenu.selectedRowItems[0].lblMenuOption === \"User Preferences\""
+            }],
+            "parentId": "_b92e67725b674db2bd732eed7d4cd684",
+            "callbackType": "Callback",
+            "criteria": "all"
+        }, {
+            "id": "NAVIGATE_TO_FORM__f844ac3c503b417684a0c1529b1b3cd0",
+            "type": "NAVIGATE_TO_FORM",
+            "formId": "frmUserPreferences",
+            "formKUID": "a3e680d6d47046518ff3a57e2831c43a",
+            "projectName": "RefGovtCitizenSA",
+            "mappings": {},
+            "mappingsOrder": [],
+            "parentId": "ELSE_IF_CONDITION_a23e7816fb7049649df2152e97537ba0",
+            "callbackType": null,
+            "enableMappingEditor": true,
+            "package": "",
+            "isCustomInput": false
+        }, {
+            "id": "ELSE_IF_CONDITION_b1d68aeb1fd14912919d330eff41fbfc",
+            "type": "ELSE_IF_CONDITION",
+            "conditions": [{
+                "leftValueType": "expression",
+                "leftValue": "self.view.hamburgermenu.segMenu.selectedRowItems[0].lblMenuOption === \"Requests\""
+            }],
+            "parentId": "_b92e67725b674db2bd732eed7d4cd684",
+            "callbackType": "Callback",
+            "criteria": "all"
+        }, {
+            "id": "NAVIGATE_TO_FORM__a9bab7b638ee4098b8713a3c1552639e",
+            "type": "NAVIGATE_TO_FORM",
+            "formId": "frmERequestsDashboard",
+            "formKUID": "f4b558b9954c4827a0c787dd5ca87fbf",
+            "projectName": "RefERequestsMA",
+            "mappings": {},
+            "mappingsOrder": [],
+            "parentId": "ELSE_IF_CONDITION_b1d68aeb1fd14912919d330eff41fbfc",
+            "callbackType": null,
+            "enableMappingEditor": true,
+            "package": "",
+            "isCustomInput": false
+        }]
+    }
+}

@@ -1,0 +1,95 @@
+#if($focusSkin)
+	#set($s = $skin)
+#else
+	#set($s = "." + $skin)
+#end
+
+
+$s
+{
+   #if($forking)
+        #parse("tpxadviphonecssborderspecific.vm")
+   #else
+        #parse("tpxadviphonecssborder.vm")
+   #end
+   #parse("tppalmmojocssfonts.vm")
+   #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+   #end
+    #*overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal; *#   
+    #if($background-color)
+        #if($rgba == "true")
+             background : $background-color;
+        #else
+            background : #$background-color;
+        #end
+    #elseif($transparent)
+            background:inherit;
+    #elseif($bg-grad-split-ms)
+       #parse("tpxadviphonecssbggradient.vm")
+    #elseif($background-image)
+        #set($buttonwidget = "true")
+        #parse("tpspagenericbgimage.vm")
+        background-color:transparent;
+    #end
+
+#if($forking)
+    #parse("tpxadvshadowtextcss.vm")
+    #parse("tpxadvshadowcss.vm")
+#end
+}
+
+##input[selected="progress"][korigskin="$skin"]
+#* input[selected="progress"][kprogressskin="$skin"]
+{ 
+    #if($background-color)
+        #set($sk = $skin + ".png")
+         background: url(./images/$pimgname) no-repeat, url(./images/$sk) repeat-x;
+         background-position: right center;
+    #elseif($background-gradient)
+        background : url(./images/pimgname) no-repeat, -webkit-gradient(linear, 0% 0%, 0% 100%, from($topcolor), to($bottomcolor));
+        background-position: right center;
+    #elseif($background-split)
+        background : url(./images/loading.gif) no-repeat, -webkit-gradient(linear, 0% 49%, 0% 50%, from($topcolor), to($bottomcolor));
+        background-position: right center;
+    #else
+       background: url(./images/loading.gif) no-repeat, url(./images/$background-image);
+       background-position: right center;
+    #end
+}
+*#
+#if($pimgexists=="true")
+input[selected="progress"][kprogressskin="$skin"]
+{
+    #if($background-color)
+         #if($rgba == "true")
+         background: url(./images/$pimgname) no-repeat, -webkit-gradient(linear, 0% 49%, 0% 50%, from($background-color), to($background-color));
+         #else
+         background: url(./images/$pimgname) no-repeat, -webkit-gradient(linear, 0% 49%, 0% 50%, from(#$background-color), to(#$background-color));
+         #end
+    #elseif($background-gradient)
+        background : url(./images/$pimgname) no-repeat, -webkit-gradient(linear, 0% 0%, 0% 100%, from($topcolor), to($bottomcolor));
+    #elseif($background-split)
+        background : url(./images/$pimgname) no-repeat, -webkit-gradient(linear, 0% 49%, 0% 50%, from($topcolor), to($bottomcolor));
+     #elseif($transparent)
+        background-image : url(./images/$pimgname) !important;
+        background-repeat: no-repeat;
+     #else
+        background: url(./images/$pimgname) no-repeat, url(./images/$background-image);
+    #end
+
+    #if($pimgloc=="left")
+    background-position: left center;
+    #elseif($pimgloc=="right")
+    background-position: right center;
+    #elseif($pimgloc=="center")
+    background-position: center center;
+    #end
+}
+#end

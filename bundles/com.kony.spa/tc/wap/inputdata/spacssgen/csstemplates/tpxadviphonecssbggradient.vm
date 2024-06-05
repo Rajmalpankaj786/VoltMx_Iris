@@ -1,0 +1,15 @@
+#if($background-gradient)
+   background : -webkit-gradient(linear, 0% 0%, 0% 100%, from($topcolor), to($bottomcolor));
+   background : -webkit-linear-gradient(top, $topcolor, $bottomcolor);
+#elseif($background-split)
+   background : -webkit-gradient(linear, 0% 49%, 0% 50%, from($topcolor), to($bottomcolor));
+   background : -webkit-linear-gradient(top, $topcolor 49%, $bottomcolor 50%);
+#elseif($background-horizontal-gradient)
+   background : -webkit-gradient(linear, 0% 0%, 100% 50%, from($topcolor), to($bottomcolor));
+   background : -webkit-linear-gradient(left,$topcolor 0%, $bottomcolor 100%);
+#elseif($background-horizontal-split)
+   background : -webkit-gradient(linear, 49% 0%, 50% 0%, from($topcolor), to($bottomcolor),color-stop(.1,$bottomcolor));
+   background : -webkit-linear-gradient(left, $topcolor 50%,$bottomcolor 50%);
+#elseif($background-ms-gradient)
+   background-image : -webkit-gradient(linear,$background-ms-color);
+#end

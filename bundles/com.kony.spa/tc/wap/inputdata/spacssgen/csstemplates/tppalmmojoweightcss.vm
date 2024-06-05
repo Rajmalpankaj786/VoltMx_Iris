@@ -1,0 +1,12 @@
+#set($s = "." + $skin)
+##set($ss = "." + $skin + "_max")
+#set($wd = $weight + "%")
+
+$s
+{
+    width: $wd;
+}
+##$ss
+##{
+##   max-width: $wd; 
+##}

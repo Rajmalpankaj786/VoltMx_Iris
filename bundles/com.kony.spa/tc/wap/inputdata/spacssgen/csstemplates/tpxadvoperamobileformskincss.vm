@@ -1,0 +1,52 @@
+#if($focusSkin)
+	#set($s = $skin)
+#else
+	#set($s = "." + $skin)
+#end
+$s
+{
+    box-sizing: border-box;    
+    padding: 0px;
+    #parse("tppalmmojocssfonts.vm")
+    #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end
+    #if($background-color)
+            #if($rgba == "true")
+                background-color : $background-color;
+            #else
+                #set($bc = "#" + $background-color)
+                background-color: $bc;
+            #end
+    #elseif($background-gradient)
+            background-image: url(./images/$background-image);
+            background-repeat: repeat-x;
+            background-color: $bottomcolor;
+    #elseif($background-image)
+       #if($repeat && $verticalrepeat)
+            background: url(./images/$background-image) repeat;
+        #elseif($repeat)
+            background: url(./images/$background-image) repeat-x;
+        #elseif($verticalrepeat)
+            background: url(./images/$background-image) repeat-y;
+        #else
+            background: url(./images/$background-image) no-repeat;
+            background-position : center center;
+        #end
+    #else
+        background: inherit;
+    #end    
+
+    #if($forking)
+        #parse("tpxadvoperamobilecssborderspecific.vm")
+    #else
+        #parse("tpxadvoperamobilecssborder.vm")
+    #end
+    #if($forking)
+        #parse("tpdesktopoperashadowcss.vm")
+    #end
+}

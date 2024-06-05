@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <welcome-file-list>
+		<welcome-file>p</welcome-file>
+	</welcome-file-list>
+	<servlet>
+        <servlet-name>KonyWebController</servlet-name>
+        <servlet-class>com.kony.web.controller.KonyWebCommon</servlet-class>
+         <load-on-startup>1</load-on-startup>
+        <init-param>
+            <param-name>appid</param-name> 
+            <param-value>{appid}</param-value>
+        </init-param>
+        <init-param>
+            <param-name>servletname</param-name>
+            <param-value>p</param-value>
+        </init-param>
+        <init-param>
+            <param-name>httpport</param-name>
+            <param-value>{httpport}</param-value>
+        </init-param>
+        <init-param>
+            <param-name>httpsport</param-name>
+            <param-value>{httpsport}</param-value>
+        </init-param>
+         <init-param>
+            <param-name>session_type</param-name>
+            <param-value>{session_type}</param-value>
+        </init-param>
+        <init-param>
+	    <param-name>applocales</param-name>
+            <param-value>{locales}</param-value>
+        </init-param>
+        <init-param>
+            <param-name>device_db_lookup</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param>
+            <param-name>jsp_base</param-name>
+            <param-value>{jsp_base}</param-value>
+        </init-param>
+        <!-- Sumanth, Sep 23, 2011: Added for siteminder applications to 
+     		specify that all requests forwarded from siteminder as secure, even if request is in http. 
+     		For siteminder application sm_secure should be true if all forms are secure.-->
+        <init-param>
+            <param-name>sm_secure</param-name>
+            <param-value>false</param-value>
+        </init-param>
+		<init-param>
+            <param-name>spa</param-name>
+            <param-value>{spa.categories}</param-value>
+        </init-param>            
+        </servlet>
+    <servlet-mapping>
+        <servlet-name>KonyWebController</servlet-name>
+        <url-pattern>/p</url-pattern>
+    </servlet-mapping> 
+    <servlet-mapping>
+        <servlet-name>KonyWebController</servlet-name>
+        <url-pattern>/p/*</url-pattern>
+    </servlet-mapping>    
+    <!-- Remote Deploy I start
+    <servlet-mapping>
+        <servlet-name>KonyWebController</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>   
+     -->
+        <!-- Sumanth: Added for desktop web module   -->
+        <servlet>
+         	<servlet-name>KonyDesktopWeb</servlet-name>
+            <servlet-class>com.kony.web.controller.KonyDesktopServlet</servlet-class>
+        </servlet>    
+        <servlet-mapping>
+                <servlet-name>KonyDesktopWeb</servlet-name>
+                <url-pattern>/kdw</url-pattern>
+    </servlet-mapping> 
+    
+    <!-- Remote Deploy I end -->
+    
+    <!--  SPA servlet to support properties api. -->
+    <servlet>
+        <servlet-name>KonySPAPropertiesServlet</servlet-name>
+        <servlet-class>com.kony.web.controller.KonySPAPropertiesServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>KonySPAPropertiesServlet</servlet-name>
+        <url-pattern>*.kprops</url-pattern>
+    </servlet-mapping>
+    
+    
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    
+    
+    <env-entry>
+        <env-entry-name>servletname</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>p</env-entry-value>
+    </env-entry>
+    
+    <listener>
+          <listener-class>com.konylabs.middleware.common.MiddlewareValidationListener</listener-class>
+    </listener>    
+    <!-- START - Enable SAP Listener for SAP services
+    <listener>
+        <listener-class>com.konylabs.middleware.common.SAPConnectorListener</listener-class>
+    </listener>
+    END - SAP Listener for SAP services -->
+    <!-- START - Enable JMS Listener for JMS services
+    <listener>
+        <listener-class>com.konylabs.middleware.connectors.jms.JmsConnectorListener</listener-class>
+    </listener>
+    END - JMS Listener for JMS services -->
+ 
+        <listener>
+   		<listener-class>com.konylabs.middleware.common.AppContextListener</listener-class>
+	</listener>
+        
+        
+    <!-- XSSFilter start -->
+         <listener>
+            <listener-class>com.kony.web.util.TCValidationListener</listener-class>
+         </listener>
+         <filter>
+            <filter-name>XSSFilter</filter-name>
+            <filter-class>com.konylabs.middleware.common.XSSFilter</filter-class>
+        </filter>
+        <filter-mapping>
+                <filter-name>XSSFilter</filter-name>
+                <servlet-name>KonyWebController</servlet-name>
+        </filter-mapping>
+    <!-- XSSFilter end -->    
+	<filter>
+		<filter-name>MiddlewareDCFilter</filter-name>
+		<filter-class>com.konylabs.middleware.common.DCFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>MiddlewareDCFilter</filter-name>
+		<servlet-name>KonyWebController</servlet-name>
+                <dispatcher>REQUEST</dispatcher>
+                <dispatcher>INCLUDE</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+        <filter-name>MiddlewareDCFilter</filter-name>
+        <servlet-name>KonyDesktopWeb</servlet-name>
+    </filter-mapping>
+	
+	
+    <!-- Error Handler -->
+    <error-page>
+        <error-code>500</error-code>
+        <location>/genericerror.jsp</location>
+    </error-page>
+    <error-page>
+        <exception-type>javax.servlet.ServletException</exception-type>
+        <location>/genericerror.jsp</location>
+    </error-page>
+    <!-- Error Handler end -->
+    <context-param>
+            <description>Interface to middleware</description>
+            <param-name>middleware_interface</param-name>
+            <param-value>local</param-value>
+    </context-param>
+    <context-param>
+        <description>Canonical application ID of middleware</description>
+        <param-name>appID</param-name>       
+        <param-value>{appid}</param-value>
+    </context-param>
+    
+</web-app>

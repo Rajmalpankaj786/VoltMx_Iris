@@ -1,0 +1,61 @@
+#if($default == "true")
+.$skin {
+box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border-bottom: 1px solid #2d3642;
+    border-top: 1px solid #6d84a2;
+    padding:    10px;
+    margin: 0px;
+    height: 45px;
+    width: 100%;
+    background: url(./images/toolbar.png) #6d84a2 repeat-x;
+}
+
+.$skin > h1 {
+    position: absolute;
+    overflow: hidden;
+    left: 30%;
+    margin: 1px 0 0 -75px;
+    height: 45px;
+    font-size: 20px;
+    width: 80%;
+    font-weight: bold;
+    text-shadow: rgba(0, 0, 0, 0.4) 0px -1px 0;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #FFFFFF;
+}
+
+#else
+.$skin {
+box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border-bottom: 1px solid #2d3642;
+    border-top: 1px solid #6d84a2;
+    padding:    10px;
+    margin: 0px;
+    height: 45px;
+    width: 100%;
+    background: url(./images/toolbar.png) #6d84a2 repeat-x;
+}
+
+.$skin > h1 {
+    position: absolute;
+    overflow: hidden;
+    left: 30%;
+    margin: 1px 0 0 -75px;
+    height: 45px;
+    font-size: 20px;
+    width: 80%;
+    font-weight: bold;
+    text-shadow: rgba(0, 0, 0, 0.4) 0px -1px 0;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #FFFFFF;
+}
+
+#end

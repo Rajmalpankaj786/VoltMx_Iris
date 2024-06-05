@@ -1,0 +1,371 @@
+._klabel
+{
+	font-size: 14px;
+}
+._kbutton
+{
+	font-size: 16px !important;
+}
+._klink
+{
+	display: inline-block;
+}
+.topleftalign
+{
+    text-align:left;
+    vertical-align: top;
+}
+.toprightalign
+{
+    text-align:right;
+    vertical-align: top;
+}
+.topcenteralign
+{
+    text-align:center;
+    vertical-align: top;
+}
+.middleleftalign
+{
+    text-align:left;
+    vertical-align: middle;
+}
+.middlerightalign
+{
+    text-align:right;
+    vertical-align: middle;
+}
+.middlecenteralign
+{
+    text-align:center;
+    vertical-align: middle;
+}
+.bottomleftalign
+{
+    text-align:left;
+    vertical-align: bottom;
+}
+.bottomrightalign
+{
+    text-align:right;
+    vertical-align: bottom;
+}
+.bottomcenteralign
+{
+    text-align:center;
+    vertical-align: bottom;
+}
+.kwt100
+{
+    width: 100%;
+}
+/*
+.kwt100_max
+{
+    max-width: 100%;
+}
+*/
+.kwt98
+{
+    width: 98%;
+}
+/*
+.kwt98_max
+{
+	max-width: 98%;
+}
+*/
+.kht100
+{
+	height: 100%;
+}
+.ktable
+{
+    display:table;
+}
+.krow
+{
+    display:table-row;
+    height: 40%;
+}
+.kcol
+{
+    display:table-cell;
+}
+.kcell
+{
+    display: inline-block;
+}
+.kcell_container
+{
+	display:table-cell;
+}
+.cellrborder
+{
+    border-right: 1px solid red;
+}
+.kbasemargin
+{
+  margin: 1% ;
+}
+.kbasepadding
+{
+  padding: 0px ;
+}
+.voltmxsegmentgroup
+{
+    position: relative;
+    background: white;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    border: 1px solid #999999;
+	margin: 0px;
+}
+._voltmxstripcontainer 
+{
+     display: inline-block;
+}
+
+._voltmxstrip 
+{
+    white-space: nowrap;
+    margin-bottom : -3px;
+}
+._voltmxImageStripWrapper
+{
+	position: relative;
+}
+._voltmximagegallerycontainer 
+{ 
+	display: inline;
+}
+.kwhitespace
+{
+    white-space: normal;
+	word-break: break-all;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.koverflow
+{
+	overflow: hidden;
+}
+
+.scene-fade-left 
+{
+	position: absolute; 
+	margin-top: -27px;
+	top: 50%;
+	z-index: 100000;
+	height: 54px; 
+	width: 100%;
+	background: url(../images/fade-arrow-left.png) left center no-repeat;
+	-webkit-palm-mouse-target: ignore;
+}
+
+.scene-fade-right 
+{
+	margin-top: -27px;
+	position: absolute; 
+	z-index: 100000;
+	height: 54px; 
+	width: 100%;
+	top: 50%;
+	background: url(../images/fade-arrow-right.png) right center no-repeat;
+	-webkit-palm-mouse-target: ignore;
+}
+
+/* Headers and footers */
+.voltmx-footer
+{
+	-webkit-border-bottom-right-radius: 1em;
+	-webkit-border-bottom-left-radius: 1em;
+	background-color: rgb(197,197,196);
+ 	position:fixed; 
+  	bottom:0px; 
+	left:0px; 
+	right:0px;
+	z-index: 20000;
+	-webkit-palm-mouse-target: ignore;
+	-webkit-user-select: none;
+}
+
+.voltmx-header
+{
+	-webkit-border-top-right-radius: 1em;
+	-webkit-border-top-left-radius: 1em;
+	background-color: rgb(197,197,196);
+  	position:fixed; 
+  	top:0px; 
+	left:0px; 
+	right:0px;
+	z-index: 20000;
+	-webkit-palm-mouse-target: ignore;
+	-webkit-user-select: none;
+}
+
+.voltmx-scroll-top 
+{
+	background: url(../images/fade-arrow-up.png) top center no-repeat;
+	height: 54px;
+	width: 100%;
+	position: fixed;
+	-webkit-palm-mouse-target: ignore;
+	z-index: 100000;
+}
+
+.voltmx-scroll-bottom
+{
+	background: url(../images/fade-arrow-down.png) bottom center no-repeat;
+	height: 54px;
+	width: 100%;
+	position: fixed;
+	-webkit-palm-mouse-target: ignore;
+	z-index: 100000;
+}
+
+.voltmxChart
+{
+	left:10px;
+	width:300px;
+	height:300px; 	/* TODO: set height from IDE */
+}
+
+div[x-mojo-element="RichTextEdit"]
+{
+	-webkit-user-modify: read-only !important; 
+}
+textarea,textarea.text-edit 
+{
+  font-size: 16px;
+  border-width : 2px;
+  -webkit-border-image: url(../images/textfield-shadow.png) 10 10 10 10 stretch stretch;
+}
+.kcheckbox{
+	display: inline;	
+}
+.kcheckboxcontainer{
+	margin: 5px;
+}
+.palm-radiobutton 
+{
+  min-width: 0px;
+  display: -webkit-box;
+}
+.palm-radiobutton div 
+{
+  float: none;
+  -webkit-box-flex: 1;
+}
+.radiobutton{
+	word-wrap : normal;
+}
+.palm-radiobutton div.first {
+
+	-webkit-border-bottom-left-radius: 15px;
+	-webkit-border-top-left-radius: 15px;
+}
+.palm-radiobutton div.last {
+  
+	-webkit-border-bottom-right-radius: 15px;
+	-webkit-border-top-right-radius: 15px;
+}
+.palm-radiobutton div.selected {
+    background-color: #888888;	
+	color: white;
+  	font-weight: bold;
+}
+.palm-slider-background{	
+	width : 80%;
+}
+._normalimage
+{
+	border: none;
+	-webkit-background-size: 100%;
+}
+.voltmx_block
+{
+      display: block;
+}
+div[widgettype="Listbox"] .palm-row
+{
+	min-height: 40px !important;
+	line-height : 40px;
+}
+label
+{
+	display : inline-block;
+}
+.default-palm-list
+{
+	-webkit-background-image: none;
+	background: none;
+	border: none;
+}
+
+._screenDimensions
+{
+	max-height: 300px;
+}
+
+div[x-mojo-element = "ListSelector"] .title
+{
+	font-size: 16px;
+	line-height: 16px;
+}
+
+/* Palm bug  - NOV-99932*/
+div[name='topSpacer'], div[name='bottomSpacer'] 
+{
+  background-color: transparent !important;
+  height: 0px !important;
+}
+
+#loadingScreenDiv 
+{
+  position: fixed;
+  top: 50%;
+  /* width: 100%;	*/
+  z-index: 98001; 
+  text-align: center;
+}
+
+.voltmx-scrim 
+{
+    background: url(../images/scrim.png) fixed 0 0 repeat-x;
+    left: 0;
+    right: 0;
+}
+
+.kwt_max
+{
+	/* -webkit-border-fit: lines; */ /* Poses issues with alignment */
+	width: auto;
+	margin: 0;
+}
+
+/* Override the box model from transitional to quirks */
+div, table, td, input, textarea, label 
+{
+	-webkit-box-sizing: border-box;	
+}
+.kmg_bottom{
+   margin-bottom : 0%;
+}
+
+.palm-radiobutton div {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.kbaseimgstrippadding
+{
+  padding: 1px;
+}
+.kmg_default
+{
+	margin	: 0px;
+}
+.kmg1111
+{
+	margin: 1% 1% 1% 1% ;
+}

@@ -1,0 +1,8 @@
+#if($shadowoffsetx=="0px" && $shadowoffsety=="0px" && $shadowblurradius=="0px")
+#elseif($shadowoffsetx && $shadowoffsety && $shadowblurradius && $shadowcolor)
+    #if($rgba_shadow=="true")
+        box-shadow: $shadowoffsetx $shadowoffsety $shadowblurradius $shadowcolor #if($inner=="true") inset #end;
+    #else
+        box-shadow: $shadowoffsetx $shadowoffsety $shadowblurradius #$shadowcolor #if($inner=="true") inset #end;
+    #end
+#end

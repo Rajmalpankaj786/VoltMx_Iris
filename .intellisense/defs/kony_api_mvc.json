@@ -1,0 +1,80 @@
+{
+    "!define": {
+        "voltmx.mvc.Navigation.!ret": {
+            "getModel": {
+                "!doc": "This helps to get either app developer’s set model or the model which is returned by the respective form controller. Precedence is for the model set by app developer either using setModel() API or which is passed in Navigation class constrcutor.\n@returns model {JSObject}. A JSObject passed to target form from Navigation object.\n@Available iOS, Android, Windows, SPA\n@Usage <pre>\n var navObject = new voltmx.mvc.Navigation(“friendlyName”, model);\n var formModel = navObject.getModel();\n </pre>",
+                "!type": "fn()"
+            },
+            "navigate": {
+                "!doc": "This helps to navigate among forms with data. This is an asynchronous API.\n@param params {JSObject} A number represents the angle, in degrees, by which this matrix rotates the coordinate system axes.<b>Optional</b>\n@returns {null}.\n@Available iOS, Android, Windows, SPA\n@Usage <pre>\n var navObject = new voltmx.mvc.Navigation(“friendlyName”);\n navObject.navigate();\n </pre>",
+                "!type": "fn(params: ?)"
+            },
+            "setModel": {
+                "!doc": "This helps to navigate to a form with same/different/No data model.\n@param model {JSObject} A number represents the angle, in degrees, by which this matrix rotates the coordinate system axes.<b>Mandatory</b>\n@returns {null}.\n@Available iOS, Android, Windows, SPA\n@Usage <pre>\n var navObject = new voltmx.mvc.Navigation(“friendlyName”);\n var model = { key1: value1, key2: value2 };\n navObject.setModel(model);\n </pre>",
+                "!type": "fn(model: ?)"
+            }
+        },
+        "voltmx.mvc.getApplicationManager.!ret": {
+            "getCurrentAppContext": {
+                "!doc": "This api gets application context of current Micro application.\n@returns {String} Returns application context of the current application.\n@usage <pre>\n var appManager = voltmx.mvc.getApplicationManager();\n var context = appManager.getCurrentAppContext();\n</pre>",
+                "!type": "fn() -> string"
+            },
+            "getCurrentAppName": {
+                "!doc": "This api returns current Micro App name.\n@returns {String} Returns current Micro App name.\n@usage <pre>\n var applicationManager = voltmx.mvc.getApplicationManager();\n applicationManager.getCurrentAppName();\n</pre>",
+                "!type": "fn() -> string"
+            },
+            "isCompositeApp": {
+                "!doc": "This api returns whether app is composite or independent.\n@returns {Boolean} True if app is composite else False.\n@usage <pre>\n var applicationManager = voltmx.mvc.getApplicationManager();\n applicationManager.isCompositeApp();\n</pre>",
+                "!type": "fn() -> bool"
+            },
+            "setAppContext": {
+                "!doc": "This api sets app context to specified Micro application.\n@param params {Object} Specifies context to be updated to application.\n@usage <pre>\n var applicationManager = voltmx.mvc.getApplicationManager();\n applicationManager.setAppContext({\"appName\" : \"\", \"context\" : {}});\n</pre>",
+                "!type": "fn(params: ?)"
+            }
+        },
+        "voltmx.mvc.getNavigationManager.!ret": {
+            "navigate": {
+                "!doc": "This enables to navigate inter/intra app.\n@param params {JSObject}  It is a single object with three  keys \"context\", \"params\", \"destinationConfig\".\n@returns {null}.\n@usage <pre>\n var navConfig = { \"context\" : this,  \"params\" : {} , \"callbackModelConfig\" : {} };\n var navManager = voltmx.mvc.getNavigationManager();\n navManager.navigate(navConfig);\n </pre>",
+                "!type": "fn(params: ?)"
+            }
+        }
+    },
+    "!name": "__voltmx_api__",
+    "voltmx": {
+        "!doc": "voltmx API's.\n@class voltmx\n@returns {voltmx}",
+        "mvc": {
+            "!doc": "MVC APIs",
+            "Navigation": {
+                "!doc": "This is responsible for creating a Navigation object for a form. App developers can create multiple Navigation objects for single form without model object or with same/different model objects.\n@param friendlyName {String} A string will be used to identify an entry in the registry maintained by the MVC framework that maps the navigation path to the form id and its corresponding controller. <b>Mandatory</b>\n@param model {Object} An optional model object associated with said form. <b>Optional</b>\n@returns Returns the instance of Navigation class.\n@Available iOS, Android, Windows, SPA\n@Usage <pre>\n var navObject = new voltmx.mvc.Navigation(“friendlyName”, model);\n</pre>",
+                "!type": "fn(friendlyName: ?, model: ?) -> voltmx.mvc.Navigation.!ret"
+            },
+            "getApplicationManager": {
+                "!doc": "Application Manager can be used in both composite App & non-composite App.\n@returns {JSObject} Returns the application Manager object.",
+                "!type": "fn() -> voltmx.mvc.getApplicationManager.!ret"
+            },
+            "getNavigationManager": {
+                "!doc": "This API returns the navigation manager object of composite/non-composite application.\n@returns {JSObject} Returns the Navigation Manager object.\n@usage <pre>\n var navConfig = { \"context\" : this,  \"params\" : {} , \"callbackModelConfig\" : {} };\n var navManager = voltmx.mvc.getNavigationManager();\n navManager.navigate(navConfig);\n</pre>",
+                "!type": "fn() -> voltmx.mvc.getNavigationManager.!ret"
+            },
+            "registry": {
+                "!doc": "Registry APIs",
+                "add": {
+                    "!doc": "This API enables the developer to register new form id/name with its controller and friendly name. This function has two overloads.\n@param friendlyName {String} <b>Mandatory</b>\n@param formid {String} <b>Mandatory</b>\n@param controllerName {String} <b>Optional</b>\n@param controllerExtensionName {String} <b>Optional</b>\n@returns {Boolean} True if success. False if it fails. If same friendly name is already registered, return false.\n@Available iOS, Android, Windows, SPA",
+                    "!type": "fn(friendlyName: ?, formid: ?, controllerName: ?, controllerExtensionName: ?) -> bool"
+                },
+                "getControllerName": {
+                    "!doc": "This API enables the developer to retrieve the registered controller name from friendly name.\n@param friendlyName {String} <b>Mandatory</b>\n@returns {String/Null} controller name if it is registered. Otherwise “<viewname>Controller” will registered. Null, if friendly name is not registered.\n@Available iOS, Android, Windows, SPA",
+                    "!type": "fn(friendlyName: ?)"
+                },
+                "getViewName": {
+                    "!doc": "This API enables the developer to retrieve the registered form/template id from friendly name.\n@param friendlyName {String} <b>Mandatory</b>\n@returns {String/Null} view name if it is found. Null, if friendly name is not registered.\n@Available iOS, Android, Windows, SPA",
+                    "!type": "fn(friendlyName: ?)"
+                },
+                "remove": {
+                    "!doc": "This API enables the developer to remove already registered form.\n@param friendlyName {String} <b>Mandatory</b>\n@returns {null}.\n@Available iOS, Android, Windows, SPA",
+                    "!type": "fn(friendlyName: ?)"
+                }
+            }
+        }
+    }
+}

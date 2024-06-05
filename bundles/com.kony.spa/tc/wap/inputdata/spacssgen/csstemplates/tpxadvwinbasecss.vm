@@ -1,0 +1,16 @@
+$skinIds {
+                border-radius: 0px;
+	        #*font : normal normal ${font-size} Helvetica;
+                /*author:Bharadwaj turlapati
+                commented the following code to support no generation of
+                Helvetica. Here the skin map only contains font-size to support
+                voltmxcustomcss selector.
+                Remaining font properties are removed from the base css skin Map.
+                i.e.,style,weight,family.
+                */*#
+                color: #000000;
+	        border:none;
+	        ##background:transparent;
+}		
+
+	   

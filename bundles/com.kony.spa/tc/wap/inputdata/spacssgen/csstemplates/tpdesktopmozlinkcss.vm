@@ -1,0 +1,99 @@
+#if($focusSkin)
+	#set($s = $skin)
+#else
+	#set($s = "." + $skin)
+#end
+
+$s{    
+    #if($forking)
+        #parse("tpdesktopmozcssborderspecific.vm")
+    #else
+        #parse("tpdesktopmozcssborder.vm")
+    #end
+    #parse("tppalmmojocssfonts.vm")
+     #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end
+    #if($background-color)
+        #if($rgba == "true")
+            background-color : $background-color;
+        #else
+             #set($bc = "#" + $background-color)
+             background-color: $bc;
+        #end
+    #elseif($bg-grad-split-ms)
+        #parse("tpdesktopmozcssbggradient.vm")
+    #elseif($background-image)
+        #if($repeat && $verticalrepeat)
+            background-image: url(./images/$background-image);
+            background-repeat : repeat;
+        #elseif($repeat)
+            background-image: url(./images/$background-image);
+            background-repeat : repeat-x;
+        #elseif($verticalrepeat)
+            background-image: url(./images/$background-image);
+            background-repeat : repeat-y;
+        #else
+            background-image: url(./images/$background-image);
+            background-repeat : no-repeat;
+        #end
+        #if($enable_bg_size == "true")
+             background-size : 100% 100%;
+        #end
+    #end
+#if($forking)
+   #parse("tpxadvmozshadowcss.vm")
+#end
+   
+    #if($rounded)
+         -moz-border-radius: 10px;
+    #end
+}
+#if(!$focusSkin)
+$s a:link{
+   #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+   #end
+   #if($font-style=="normal")
+        text-decoration:none;
+   #end
+}
+#end
+
+#if($pimgexists=="true")
+div[selected="progressindtr"][kprogressskin="$skin"]
+{
+    #if($background-color)
+         #if($rgba == "true")
+         background: url(./images/$pimgname) no-repeat, -moz-linear-gradient(46% 40% 270deg, $topcolor, $bottomcolor);
+         #else
+         background: url(./images/$pimgname) no-repeat, -moz-linear-gradient(46% 40% 270deg, $topcolor, $bottomcolor);
+         #end
+    #elseif($background-gradient)
+        background : url(./images/$pimgname) no-repeat, -moz-linear-gradient(46% 0% 270deg, $topcolor, $bottomcolor);
+    #elseif($background-split)
+        background : url(./images/$pimgname) no-repeat, -moz-linear-gradient(0% 50% 270deg,$topcolor, $bottomcolor,$bottomcolor 0%);
+     #elseif($transparent)
+        background-image : url(./images/$pimgname) !important;
+        background-repeat: no-repeat;
+     #else
+        background: url(./images/$pimgname) no-repeat, url(./images/$background-image);
+    #end
+
+    #if($pimgloc=="left")
+    background-position: left center;
+    #elseif($pimgloc=="right")
+    background-position: right center;
+    #elseif($pimgloc=="center")
+    background-position: center center;
+    #end
+}
+#end

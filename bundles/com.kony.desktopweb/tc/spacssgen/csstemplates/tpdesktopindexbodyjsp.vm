@@ -1,0 +1,24 @@
+#if($jspgeneration=="true")
+    <input type="hidden" name="_reqHeaders" value='<%=headersJSON != null ? headersJSON : "" %>'>
+
+    <input type="hidden" name="_reqParams" value='<%=paramsJSON != null ? paramsJSON : ""%>'>
+
+    <input type="hidden" name="_voltmxAppProperties" value='<%=propertiesJSON != null ? propertiesJSON : ""%>'>
+
+#end
+#if($jspgeneration=="true")
+    <% Object sessionObj = request.getSession(false); %>
+    <%
+        if(sessionObj == null || session.getAttribute("desktopweb") == null) {
+    %>
+        <div id="isnewsession" style="display:none">true</div>
+    <%
+        session = request.getSession();
+        session.setAttribute("desktopweb","desktopweb");
+        }else{
+    %>
+        <div id="isnewsession" style="display:none">false</div>
+    <%
+        }
+    %>
+#end

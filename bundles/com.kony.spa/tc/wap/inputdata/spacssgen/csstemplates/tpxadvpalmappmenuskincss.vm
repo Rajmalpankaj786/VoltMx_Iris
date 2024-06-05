@@ -1,0 +1,42 @@
+#set($s = "." + $skin)
+$s{
+    ##parse("tpxadviphonecssborder.vm")
+    #if($forking)
+        #parse("tpxadviphonecssborderspecific.vm")
+    #else
+        #parse("tpxadviphonecssborder.vm")
+    #end
+    #parse("tppalmmojocssfonts.vm")
+     #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end
+    padding: 1px;
+    #if($background-color)
+       #if($rgba == "true")
+            background-color : $background-color;
+        #else
+            background-color : #$background-color;
+        #end
+    #elseif($background-image)
+        #if($repeat && $verticalrepeat)
+            background: url(./images/$background-image) repeat;
+        #elseif($repeat)
+            background: url(./images/$background-image) repeat-x;
+        #elseif($verticalrepeat)
+            background: url(./images/$background-image) repeat-y;
+        #else
+            background: url(./images/$background-image) no-repeat;
+        #end
+    #end
+    
+    #if($rounded)
+         -webkit-border-radius: 10px;
+         border-radius: 10px;
+    #end
+
+}
+

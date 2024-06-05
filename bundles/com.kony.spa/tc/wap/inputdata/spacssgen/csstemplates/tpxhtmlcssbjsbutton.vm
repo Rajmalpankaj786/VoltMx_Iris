@@ -1,0 +1,69 @@
+#if($focusSkin)
+	#set($sk = $skin)
+#else
+	#set($sk = "." + $skin)
+#end
+#set($bjsversn = "./images/"+ $bjsVersion+"/$background-image")
+$sk
+{
+    color : #$color;
+    #parse("tpxhtmlcssbasicfont.vm")
+    #if($forking)
+        #parse("tpxhtmlcssbasicborderspecific.vm")
+    #else
+        #parse("tpxhtmlcssbasicborder.vm")
+        #parse("tpxhtmlcssbasicborderline.vm")
+    #end
+
+    #if($background-color)
+        #if($rgba == "true")
+            background-color : $background-color;
+        #else
+            #set($bc = "#" + $background-color)
+            background-color: $bc;
+        #end
+     #elseif($background-gradient)
+        #if($bjsVersion)
+            background-image: url("$bjsversn");
+        #else
+            background-image: url(./images/$background-image);
+        #end
+        background-repeat: repeat-x;
+        background-color: $bottomcolor;
+    #elseif($background-image)
+        #if($bjsVersion)
+            background-image: url("$bjsversn");
+        #else
+            background-image: url(./images/$background-image);
+        #end
+        background-color: transparent;
+        #if($repeat && $verticalrepeat)
+            background-repeat : repeat;
+        #elseif($repeat)
+            background-repeat : repeat-x;
+        #elseif($verticalrepeat)
+            background-repeat : repeat-y;
+        #else
+            background-repeat : no-repeat;
+            #if($width)
+                #set($wd = $width + "px;")
+                width: $wd
+            #end
+            #if($height)
+                #set($hd = $height + "px;")
+                height: $hd
+            #end
+        #end
+    #else
+        background-color: inherit;
+    #end
+
+    #if($text-decoration)
+        text-decoration : none;
+    #end
+    #if($wtype =="Phone")
+        #if($font-style=="normal")
+            text-decoration:none;
+        #end
+    #end
+}

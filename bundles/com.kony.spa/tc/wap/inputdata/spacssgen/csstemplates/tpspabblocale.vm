@@ -1,0 +1,25 @@
+#if($locales)
+    var splashImage = "$splashImage"; // Splash Screen Name
+    var locales = $locales; // Locales
+    var browserLocale = getLang().replace("-","_");
+    var defaultLocale = "$default_locale"; // default locale
+    var splImgNode=document.getElementById("splashScreenImage");
+
+    if(splImgNode)  {
+            if(browserLocale && browserLocale !="" && locales.indexOf(browserLocale) >= 0 ){
+                   splImgNode.src = "${category}images/"+category+"/"+browserLocale+"/"+splashImage;
+            } else if(defaultLocale != "") {
+                   splImgNode.src = "${category}images/"+category+"/"+defaultLocale+"/"+splashImage;
+            }else{
+                   splImgNode.src = "${category}images/"+category+"/"+splashImage;
+            }
+    }
+
+#else
+    var splImgNode=document.getElementById("splashScreenImage");
+    if(splImgNode)
+    {
+        splImgNode.src="${category}images/"+category+"/$splashImage";
+        splImgNode.style.display="block";
+    }
+#end

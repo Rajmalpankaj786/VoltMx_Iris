@@ -1,0 +1,51 @@
+#if($splashImage)
+    #if($locales)
+        function getLang() {
+            if (navigator.language != undefined)
+                return navigator.language;
+            else if(navigator.browserLanguage != undefined)
+                return  navigator.browserLanguage;
+            else
+                return "";
+        }
+    #end
+
+    #if($platform == "spaip")
+        #parse("tpspaiphonelocale.vm");
+    #end
+
+
+    #if($platform == "spaan" || $platform == "spaanwrapper" || $platform == "spaanmixed" || $platform == "spaandroidtablet")
+        #parse("tpspaandroidlocale.vm");
+    #end
+
+    #if($platform == "spabbnth" || $platform == "spabb")
+        #parse("tpspabblocale.vm");
+    #end
+
+    #if($platform == "spawindows" || $platform == "spawinphone8")
+        #parse("tpspawindowslocale.vm");
+    #end
+
+    #if($platform == "spaipad" || $platform == "spawindowstablet")
+
+        setTimeout(function(){appendSplashImage()},100);
+
+        function appendSplashImage() {
+                 var splashImage = "$splashImage"; // Splash Screen Name
+                 var locales = $locales; // Locales
+                 var browserLocale = getLang().replace("-","_");
+                 var defaultLocale = "$default_locale"; // default locale
+                 var splImgNode=document.getElementById("splashScreenImage");
+                 if(splImgNode)  {
+                         if(browserLocale && browserLocale !="" && locales.indexOf(browserLocale) >= 0 ){
+                                splImgNode.src = "${category}images/"+browserLocale+"/"+splashImage;
+                         } else if(defaultLocale != "") {
+                                splImgNode.src = "${category}images/"+defaultLocale+"/"+splashImage;
+                         }else{
+                                splImgNode.src = "${category}images/"+splashImage;
+                         }
+                 }
+        }
+    #end
+#end

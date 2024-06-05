@@ -1,0 +1,6 @@
+#set($s = "." + $skin)
+$s
+{
+    #set($wd = $weight + "%")
+    width: $wd;
+}

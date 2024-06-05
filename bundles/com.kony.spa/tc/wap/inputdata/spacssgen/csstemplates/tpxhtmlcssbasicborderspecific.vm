@@ -1,0 +1,68 @@
+#if ($border-top-width)
+    #set($bw = $border-top-width + "px")
+    border-top-width: $bw;
+    border-top-style: solid;
+    #if ($border-top-color)
+        #if($rgba_top_border == "true")
+             border-top-color : $border-top-color;
+        #else
+             border-top-color : #$border-top-color;
+        #end
+    #else
+        border-top-color : none;
+    #end
+#else
+    border-top:none;
+#end
+
+#if ($border-right-width)
+    #set($bw = $border-right-width + "px")
+    border-right-width: $bw;
+    border-right-style: solid;
+    #if ($border-right-color)
+        #if($rgba_right_border == "true")
+             border-right-color : $border-right-color;
+        #else
+             border-right-color : #$border-right-color;
+        #end
+    #else
+        border-right-color : none;
+    #end
+#else
+    border-right:none;
+#end
+
+#if ($border-bottom-width)
+    #set($bw = $border-bottom-width + "px")
+    border-bottom-width: $bw;
+    border-bottom-style: solid;
+    #if ($border-bottom-color)
+        #if($rgba_bottom_border == "true")
+             border-bottom-color : $border-bottom-color;
+        #else
+             border-bottom-color : #$border-bottom-color;
+        #end
+    #else
+        border-bottom-color : none;
+    #end
+#else
+    border-bottom:none;
+#end
+
+#if ($border-left-width)
+    #set($bw = $border-left-width + "px")
+    border-left-width: $bw;
+    border-left-style:solid;
+    #if ($border-left-color)
+        #if($rgba_left_border == "true")
+             border-left-color : $border-left-color;
+        #else
+             border-left-color : #$border-left-color;
+        #end
+    #else;
+        border-left-color : none;
+    #end
+#else
+    border-left:none;
+#end
+

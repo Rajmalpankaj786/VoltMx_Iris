@@ -1,0 +1,9 @@
+{
+  "name": "MdaModels",
+  "version": "1.0.0",
+  "description": "The node modules can be upgraded to stable releases in future",
+  "dependencies": {
+    "mustache": "3.1.0",
+    "child-process": "1.0.2"
+  }
+}

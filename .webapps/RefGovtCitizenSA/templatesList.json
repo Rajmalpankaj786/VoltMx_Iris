@@ -1,0 +1,194 @@
+{
+    "android": {
+        "formslist": {
+            "mvcFormObjects": [
+                "RefCommonsMA.Form1",
+                "RefEComplaintsMA.frmEComplaintCategories",
+                "RefEComplaintsMA.frmEComplaintsCreate",
+                "RefEComplaintsMA.frmEComplaintsDashboard",
+                "RefEComplaintsMA.frmEComplaintsFetch",
+                "RefERequestsMA.frmERequestsCategories",
+                "RefERequestsMA.frmERequestsCreate",
+                "RefERequestsMA.frmERequestsDashboard",
+                "RefERequestsMA.frmERequestsFetch",
+                "RefGovtCitizenSA.frmDashboard",
+                "RefGovtCitizenSA.frmInterstitial",
+                "RefGovtCitizenSA.frmLogin",
+                "RefGovtCitizenSA.frmUserPreferences",
+                "RefGovtCitizenSA.frmUserProfile",
+                "RefGovtCitizenSA.frmWeather"
+            ],
+            "nonmvcFormObjects": []
+        },
+        "templatesList": {
+            "mvcTemplateObjects": [
+                "com.hclacademy.categories",
+                "com.hclacademy.custombuttonwithimageandtext",
+                "com.hclacademy.formheader",
+                "com.hclacademy.hamburgermenu",
+                "com.hclacademy.infoalert",
+                "com.hclacademy.newsarticles",
+                "com.hclacademy.userinput",
+                "com.hclacademy.createcomplaintorrequest",
+                "RefCommonsMA.SampleRowTemplate",
+                "RefCommonsMA.SampleSectionHeaderTemplate",
+                "RefCommonsMA.tplSegCategories",
+                "RefCommonsMA.tplSegRowRecord",
+                "RefCommonsMA.tplSegRowWithImageAndLabel",
+                "RefCommonsMA.tplSegWithImageAndLabel",
+                "RefCommonsMA.tplMapWeatherCallout",
+                "RefEComplaintsMA.SampleRowTemplate",
+                "RefEComplaintsMA.SampleSectionHeaderTemplate",
+                "RefERequestsMA.SampleRowTemplate",
+                "RefERequestsMA.SampleSectionHeaderTemplate",
+                "RefGovtCitizenSA.SampleRowTemplate",
+                "RefGovtCitizenSA.SampleSectionHeaderTemplate"
+            ],
+            "nonmvcTemplateObjects": []
+        }
+    },
+    "iphone": {
+        "formslist": {
+            "mvcFormObjects": [
+                "RefCommonsMA.Form1",
+                "RefEComplaintsMA.frmEComplaintCategories",
+                "RefEComplaintsMA.frmEComplaintsCreate",
+                "RefEComplaintsMA.frmEComplaintsDashboard",
+                "RefEComplaintsMA.frmEComplaintsFetch",
+                "RefERequestsMA.frmERequestsCategories",
+                "RefERequestsMA.frmERequestsCreate",
+                "RefERequestsMA.frmERequestsDashboard",
+                "RefERequestsMA.frmERequestsFetch",
+                "RefGovtCitizenSA.frmDashboard",
+                "RefGovtCitizenSA.frmInterstitial",
+                "RefGovtCitizenSA.frmLogin",
+                "RefGovtCitizenSA.frmUserPreferences",
+                "RefGovtCitizenSA.frmUserProfile",
+                "RefGovtCitizenSA.frmWeather"
+            ],
+            "nonmvcFormObjects": []
+        },
+        "templatesList": {
+            "mvcTemplateObjects": [
+                "com.hclacademy.categories",
+                "com.hclacademy.custombuttonwithimageandtext",
+                "com.hclacademy.formheader",
+                "com.hclacademy.hamburgermenu",
+                "com.hclacademy.infoalert",
+                "com.hclacademy.newsarticles",
+                "com.hclacademy.userinput",
+                "com.hclacademy.createcomplaintorrequest",
+                "RefCommonsMA.SampleRowTemplate",
+                "RefCommonsMA.SampleSectionHeaderTemplate",
+                "RefCommonsMA.tplSegCategories",
+                "RefCommonsMA.tplSegRowRecord",
+                "RefCommonsMA.tplSegRowWithImageAndLabel",
+                "RefCommonsMA.tplSegWithImageAndLabel",
+                "RefCommonsMA.tplMapWeatherCallout",
+                "RefEComplaintsMA.SampleRowTemplate",
+                "RefEComplaintsMA.SampleSectionHeaderTemplate",
+                "RefERequestsMA.SampleRowTemplate",
+                "RefERequestsMA.SampleSectionHeaderTemplate",
+                "RefGovtCitizenSA.SampleRowTemplate",
+                "RefGovtCitizenSA.SampleSectionHeaderTemplate"
+            ],
+            "nonmvcTemplateObjects": []
+        }
+    },
+    "spaan": {
+        "formslist": {
+            "mvcFormObjects": [
+                "RefCommonsMA.Form1",
+                "RefEComplaintsMA.frmEComplaintCategories",
+                "RefEComplaintsMA.frmEComplaintsCreate",
+                "RefEComplaintsMA.frmEComplaintsDashboard",
+                "RefEComplaintsMA.frmEComplaintsFetch",
+                "RefERequestsMA.frmERequestsCategories",
+                "RefERequestsMA.frmERequestsCreate",
+                "RefERequestsMA.frmERequestsDashboard",
+                "RefERequestsMA.frmERequestsFetch",
+                "RefGovtCitizenSA.frmDashboard",
+                "RefGovtCitizenSA.frmInterstitial",
+                "RefGovtCitizenSA.frmLogin",
+                "RefGovtCitizenSA.frmUserPreferences",
+                "RefGovtCitizenSA.frmUserProfile",
+                "RefGovtCitizenSA.frmWeather"
+            ],
+            "nonmvcFormObjects": []
+        },
+        "templatesList": {
+            "mvcTemplateObjects": [
+                "com.hclacademy.categories",
+                "com.hclacademy.custombuttonwithimageandtext",
+                "com.hclacademy.formheader",
+                "com.hclacademy.hamburgermenu",
+                "com.hclacademy.infoalert",
+                "com.hclacademy.newsarticles",
+                "com.hclacademy.userinput",
+                "com.hclacademy.createcomplaintorrequest",
+                "RefCommonsMA.SampleRowTemplate",
+                "RefCommonsMA.SampleSectionHeaderTemplate",
+                "RefCommonsMA.tplSegCategories",
+                "RefCommonsMA.tplSegRowRecord",
+                "RefCommonsMA.tplSegRowWithImageAndLabel",
+                "RefCommonsMA.tplSegWithImageAndLabel",
+                "RefCommonsMA.tplMapWeatherCallout",
+                "RefEComplaintsMA.SampleRowTemplate",
+                "RefEComplaintsMA.SampleSectionHeaderTemplate",
+                "RefERequestsMA.SampleRowTemplate",
+                "RefERequestsMA.SampleSectionHeaderTemplate",
+                "RefGovtCitizenSA.SampleRowTemplate",
+                "RefGovtCitizenSA.SampleSectionHeaderTemplate"
+            ],
+            "nonmvcTemplateObjects": []
+        }
+    },
+    "spaip": {
+        "formslist": {
+            "mvcFormObjects": [
+                "RefCommonsMA.Form1",
+                "RefEComplaintsMA.frmEComplaintCategories",
+                "RefEComplaintsMA.frmEComplaintsCreate",
+                "RefEComplaintsMA.frmEComplaintsDashboard",
+                "RefEComplaintsMA.frmEComplaintsFetch",
+                "RefERequestsMA.frmERequestsCategories",
+                "RefERequestsMA.frmERequestsCreate",
+                "RefERequestsMA.frmERequestsDashboard",
+                "RefERequestsMA.frmERequestsFetch",
+                "RefGovtCitizenSA.frmDashboard",
+                "RefGovtCitizenSA.frmInterstitial",
+                "RefGovtCitizenSA.frmLogin",
+                "RefGovtCitizenSA.frmUserPreferences",
+                "RefGovtCitizenSA.frmUserProfile",
+                "RefGovtCitizenSA.frmWeather"
+            ],
+            "nonmvcFormObjects": []
+        },
+        "templatesList": {
+            "mvcTemplateObjects": [
+                "com.hclacademy.categories",
+                "com.hclacademy.custombuttonwithimageandtext",
+                "com.hclacademy.formheader",
+                "com.hclacademy.hamburgermenu",
+                "com.hclacademy.infoalert",
+                "com.hclacademy.newsarticles",
+                "com.hclacademy.userinput",
+                "com.hclacademy.createcomplaintorrequest",
+                "RefCommonsMA.SampleRowTemplate",
+                "RefCommonsMA.SampleSectionHeaderTemplate",
+                "RefCommonsMA.tplSegCategories",
+                "RefCommonsMA.tplSegRowRecord",
+                "RefCommonsMA.tplSegRowWithImageAndLabel",
+                "RefCommonsMA.tplSegWithImageAndLabel",
+                "RefCommonsMA.tplMapWeatherCallout",
+                "RefEComplaintsMA.SampleRowTemplate",
+                "RefEComplaintsMA.SampleSectionHeaderTemplate",
+                "RefERequestsMA.SampleRowTemplate",
+                "RefERequestsMA.SampleSectionHeaderTemplate",
+                "RefGovtCitizenSA.SampleRowTemplate",
+                "RefGovtCitizenSA.SampleSectionHeaderTemplate"
+            ],
+            "nonmvcTemplateObjects": []
+        }
+    }
+}

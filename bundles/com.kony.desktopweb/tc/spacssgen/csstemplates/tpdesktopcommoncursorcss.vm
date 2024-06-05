@@ -1,0 +1,11 @@
+#if($cursor-type)
+    #if($cursor-type == "url" && $cursor-image)
+	#if($newlib)
+		cursor : url(../../images/$cursor-image),auto !important;
+	#else
+		cursor : url(./images/$cursor-image),auto !important;
+	#end
+    #else
+        cursor : $cursor-type !important;
+    #end
+#end

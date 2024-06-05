@@ -1,0 +1,5 @@
+#set($class = ".customcb_" + $compid)
+#if($tickedImageUrl) $class .checkbox.true { background: url(../$tickedImageUrl) center center no-repeat; }	
+#end		  
+#if($unTickedImageUrl) $class .checkbox.false { background: url(../$unTickedImageUrl) center center no-repeat; }
+#end

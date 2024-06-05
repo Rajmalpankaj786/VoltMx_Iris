@@ -1,0 +1,109 @@
+#if($focusSkin)
+    #set($son =  $skin+ "on")
+    #set($soff =  $skin+ "off")
+    #set($row =  $skin+ "row")
+#else
+    #set($son = "." + $skin+ "on")
+    #set($soff = "." + $skin+ "off")
+    #set($row = "." + $skin+ "row")
+#end
+$row {
+      #if($forking)
+        #parse("tpxadviphonecssborderspecific.vm")
+      #else
+        #parse("tpxadviphonecssborder.vm")
+      #end
+}
+
+$son{
+     -webkit-transition: margin-left 0.2s ease-in-out;
+     #parse("tppalmmojocssswitchleftfonts.vm")
+     #if($leftcolor)
+        #if($rgba_left_font == "true")
+            color : $leftcolor;
+        #else
+            color: #$leftcolor;
+        #end
+    #end
+    #if($left-background-color)
+        #if($left_rgba == "true")
+            background-color : $left-background-color;
+        #else
+             #set($bc = "#" + $left-background-color)
+             background-color: $bc;
+        #end
+    #elseif($left-background-gradient)
+        background : -webkit-gradient(linear, 0% 0%, 0% 100%, from($lefttopcolor), to($leftbottomcolor));
+    #elseif($left-background-split)
+        background : -webkit-gradient(linear, 0% 49%, 0% 50%, from($lefttopcolor), to($leftbottomcolor));
+    #elseif($left-background-horizontal-gradient)
+        background : -webkit-gradient(linear, 0% 0%, 100% 50%, from($lefttopcolor), to($leftbottomcolor));
+    #elseif($left-background-horizontal-split)
+        background : -webkit-gradient(linear, 49% 0%, 50% 0%, from($lefttopcolor), to($leftbottomcolor),color-stop(.1,$leftbottomcolor));
+    #elseif($left-background-image)
+       #parse("tpspagenericbgimage.vm")
+    #else
+        background: inherit;
+    #end
+
+    #if ($border-top-left-style)
+        -webkit-border-top-left-radius: ${border-top-left-radius}px;
+    #end
+    #if ($border-top-right-style)
+        -webkit-border-top-right-radius: ${border-top-right-radius}px;
+    #end
+    text-align: center;
+    margin-left: 0%;
+}
+
+$soff{
+
+ -webkit-transition: margin-left 0.2s ease-in-out;
+     #parse("tppalmmojocssswitchrightfonts.vm")
+     #if($rightcolor)
+        #if($rgba_right_font == "true")
+            color : $rightcolor;
+        #else
+            color: #$rightcolor;
+        #end
+    #end
+    #if($right-background-color)
+        #if($right_rgba == "true")
+            background-color : $right-background-color;
+        #else
+             #set($bc = "#" + $right-background-color)
+             background-color: $bc;
+        #end
+    #elseif($right-background-gradient)
+        background : -webkit-gradient(linear, 0% 0%, 0% 100%, from($righttopcolor), to($rightbottomcolor));
+    #elseif($right-background-split)
+        background : -webkit-gradient(linear, 0% 49%, 0% 50%, from($righttopcolor), to($rightbottomcolor));
+    #elseif($right-background-horizontal-gradient)
+        background : -webkit-gradient(linear, 0% 0%, 100% 50%, from($righttopcolor), to($rightbottomcolor));
+    #elseif($right-background-horizontal-split)
+        background : -webkit-gradient(linear, 49% 0%, 50% 0%, from($righttopcolor), to($rightbottomcolor),color-stop(.1,$rightbottomcolor));
+    #elseif($right-background-image)
+        #if($repeat && $verticalrepeat)
+            background: url(./images/$background-image) repeat;
+        #elseif($repeat)
+            background: url(./images/$background-image) repeat-x;
+        #elseif($verticalrepeat)
+            background: url(./images/$background-image) repeat-y;
+        #else
+            background: url(./images/$background-image) no-repeat;
+        #end
+    #else
+        background: inherit;
+    #end
+
+    #if ($border-bottom-left-style)
+       -webkit-border-bottom-left-radius: ${border-bottom-left-radius}px;
+    #end
+    #if ($border-bottom-right-style)
+        -webkit-border-bottom-right-radius: ${border-bottom-right-radius}px;
+    #end
+    text-align: center;
+    margin-left: 50%;
+}
+
+    

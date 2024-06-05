@@ -1,0 +1,15 @@
+<style type="text/css" media="screen">
+    .splash {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        bottom: 0px;
+    }
+    #if($splashcss)
+    $splashcss
+    #end
+
+
+</style>
+

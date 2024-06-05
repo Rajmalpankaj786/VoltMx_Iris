@@ -1,0 +1,36 @@
+{
+    "AS_Image_i22ad1d47ed4478384add660529b0ad2": {
+        "id": "AS_Image_i22ad1d47ed4478384add660529b0ad2",
+        "type": "ACTION_SEQUENCE",
+        "params": [{
+            "datatype": "collection",
+            "name": "eventobject"
+        }, {
+            "datatype": "string",
+            "name": "x"
+        }, {
+            "datatype": "string",
+            "name": "y"
+        }],
+        "contextObj": {
+            "name": "frmEComplaintsCreate",
+            "type": "forms",
+            "platform": "",
+            "KUID": "j389a3a5aae44b74b7737ff75e5cba52"
+        },
+        "language": "js",
+        "actions": [{
+            "id": "NAVIGATE_TO_FORM__g8c2e6eadbb948dd9219c3804c84f4fe",
+            "type": "NAVIGATE_TO_FORM",
+            "formId": "frmEComplaintsDashboard",
+            "formKUID": "i8f5021dc1ca49a499f141fa7086e1db",
+            "projectName": "RefEComplaintsMA",
+            "mappings": {},
+            "mappingsOrder": [],
+            "parentId": null,
+            "enableMappingEditor": true,
+            "package": "",
+            "isCustomInput": false
+        }]
+    }
+}

@@ -1,0 +1,35 @@
+CACHE MANIFEST
+#Time stamp $timestamp
+#Version $version
+
+CACHE:
+#set($moduleext = "_kfm.js")
+jslib/voltmxframework.js
+appjs/app.js
+appjs/kvmodules.js
+#if($platform == "desktopweb")
+voltmxdesktop.css
+#end
+#foreach ($module in $modulesList)
+appjs/$module$moduleext
+#end
+
+##appjs/voltmxmodel.js
+
+#*
+#if($platform == "spaip" || $platform == "ipwrapper" || $platform == "iphybrid" || $platform == "ipadwrapper" || $platform == "ipadhybrid")
+voltmxspaiphone.css
+#elseif($platform == "spaan" || $platform == "anwrapper" || $platform == "anhybrid" || $platform == "tabandroidwrapper" || $platform == "tabandroidhybrid")
+voltmxspaandroid.css
+#elseif($platform == "spabb" || $platform == "bbwrapper" || $platform == "bbhybrid")
+voltmxspabb.css
+#elseif($platform == "spaipad")
+voltmxspatabletiphone.css
+#elseif($platform == "spatabandroid")
+voltmxspatabletandroid.css
+#elseif($platform == "spaplaybook")
+voltmxspatabletbb.css
+#end
+*#
+NETWORK:
+*

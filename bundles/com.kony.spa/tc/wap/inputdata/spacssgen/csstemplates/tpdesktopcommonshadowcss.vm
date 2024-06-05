@@ -1,0 +1,18 @@
+#if($forking)
+    #if($shadow_constant)
+        box-shadow: $shadow_constant;
+        -webkit-box-shadow: $shadow_constant;
+    #elseif($shadowoffsetx=="0px" && $shadowoffsety=="0px" && $shadowblurradius=="0px")
+    #elseif($shadowoffsetx && $shadowoffsety && $shadowblurradius && $shadowcolor)
+        #if($rgba_shadow=="true")
+            box-shadow: $shadowoffsetx $shadowoffsety $shadowblurradius $shadowcolor #if($inner=="true") inset #end;
+            -webkit-box-shadow: $shadowoffsetx $shadowoffsety $shadowblurradius $shadowcolor #if($inner=="true") inset #end;
+        #else
+            box-shadow: $shadowoffsetx $shadowoffsety $shadowblurradius #$shadowcolor #if($inner=="true") inset #end;
+            -webkit-box-shadow: $shadowoffsetx $shadowoffsety $shadowblurradius #$shadowcolor #if($inner=="true") inset #end;
+        #end
+    #end
+   #if($wtype=="Label" || $wtype=="Button")
+       #parse("tpdesktopcommontextshadowcss.vm")
+   #end
+#end

@@ -1,0 +1,59 @@
+#if($focusSkin)
+	#set($s = $skin)
+#else
+	#set($s = "." + $skin)
+#end
+$s{   
+    #parse("tppalmmojocssfonts.vm")
+     #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end
+   
+    #if($background-color)
+        #if($rgba == "true")
+                background-color : $background-color;
+            #else
+                #set($bc = "#" + $background-color)
+                background-color: $bc;
+            #end
+     #elseif($bg-grad-split-ms)
+            #parse("tpdesktopoperacssbggradient.vm")
+    #elseif($background-image)
+        #if($repeat && $verticalrepeat)
+            background: url(./images/$background-image) repeat;
+        #elseif($repeat)
+            background: url(./images/$background-image) repeat-x;
+        #elseif($verticalrepeat)
+            background: url(./images/$background-image) repeat-y;
+        #else
+            background: url(./images/$background-image) no-repeat;
+        #end
+        #if($enable_bg_size == "true")
+                  background-size : 100% 100%;
+        #end
+    #end
+#if($forking)
+    #parse("tpdesktopoperashadowtextcss.vm")
+    #parse("tpdesktopoperashadowcss.vm")
+#end
+}
+
+#if($forking)
+  #if ($border-top-width ||$border-bottom-width ||$border-left-width || $border-right-width )
+   div$s 
+        {
+           #parse("tpxadvoperamobilecssborderspecific.vm")
+        }
+  #end
+#else
+  #if($border-width)
+    div$s 
+    {
+      #parse("tpxadvoperamobilecssborder.vm")
+    }
+  #end
+#end

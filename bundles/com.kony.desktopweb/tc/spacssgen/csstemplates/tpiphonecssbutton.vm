@@ -1,0 +1,72 @@
+#if($default == "true")
+$skin {
+    #if(!$hasImage)
+        position: absolute;
+    #end
+    overflow: hidden;
+    top: 8px;
+    right: 6px;
+    ##margin: 1px 0px 1px 0px;
+     #parse("tpxhtmlcssmargins.vm")
+    border-width: 0 5px;
+    padding: 0 3px;
+    #if($width)
+        width: $width%;
+    #else
+        width: auto;
+    #end
+    height: 35px;
+    font-family: inherit;
+    font-size: $font-size;
+    font-weight: bold;
+    color: black;
+    text-shadow: rgba(0, 0, 0, 0.6) 0px -1px 0;
+    text-overflow: ellipsis;
+    text-decoration: none;
+    white-space: normal;
+    background: none;
+    #if($align)
+        text-align: $align;
+    #end
+}
+#else
+$skin {
+    overflow: hidden;
+    top: 8px;
+    right: 6px;
+    ##margin: 1px 0px 1px 0px;
+     #parse("tpxhtmlcssmargins.vm")
+    border-width: 0 5px;
+    #if($bottom-padding)
+        padding: 0 3px $bottom-padding;
+    #else
+        padding: 0 3px;
+    #end
+    #if($width)
+        width: $width%;
+    #else
+        width: auto;
+    #end
+    height: 35px;
+    font-family: $font-family;
+    font-size : $font-size;
+    font-weight : $font-weight;
+    font-style : $font-style;
+    color : #$color;
+    text-shadow: rgba(0, 0, 0, 0.6) 0px -1px 0;
+    text-overflow: ellipsis;
+    text-decoration: none;
+    white-space: normal;
+    background: none;
+    #if($background-image)
+        -webkit-border-image: url(./images/$background-image) 0 5 0 5;
+    #else
+        #if(!$hasImage)
+            -webkit-border-image: url(./images/blueButton.png) 0 5 0 5;
+        #end
+    #end
+    #if($align)
+        text-align: $align;
+    #end
+}
+#end

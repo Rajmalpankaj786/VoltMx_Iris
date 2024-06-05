@@ -1,0 +1,6 @@
+#parse("tpdesktopcommonbordercss.vm")
+#parse("tpdesktopcommonfontcss.vm")
+#parse("tpdesktopcommonbackgroundcss.vm")
+#parse("tpdesktopcommonshadowcss.vm")
+#parse("tpdesktopcommoncursorcss.vm")
+-webkit-appearance: none;

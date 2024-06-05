@@ -1,0 +1,127 @@
+
+.menudivsk
+{
+    padding: 1px;
+    border: none;
+    align: left;
+   
+}
+.voltmxconfirmalertsk{
+     color : blue;
+  font-size: small;
+  font-weight : normal;
+  font-style : normal;
+  border: none;
+      background-color:inherit;
+    text-decoration: none;
+    }
+
+.infovoltmxalertdiv{
+     color : blue;    
+  font-size: small;
+  font-weight : normal;    
+  font-style : normal;
+  border: none;
+      background-color:inherit;
+    text-decoration: none;
+    }
+.errorvoltmxalertdiv{
+     color : blue;
+  font-size: small;
+  font-weight : normal;
+  font-style : normal;
+  border: none;
+      background-color:inherit;
+    text-decoration: none;
+    }
+
+.voltmxdefaultrow
+{
+     padding: 1px;
+    border: none;
+    width: 100%;
+}
+.infovoltmxalertlabel{
+    font-family: inherit;
+    font-style : arial;
+    font-size : small;
+    background-color : inherit;
+    padding : 1px;
+    font-weight: bold;
+    color: blue;
+    text-align: center;
+    }
+.errorvoltmxalertlabel{
+    font-family: inherit;
+    font-style : normal;
+    font-size : small;
+    background-color : inherit;
+    padding : 1px;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    }
+
+ a:hover{
+ background-color:#C0D1E8;
+ }
+
+
+.tabbar1
+{
+ border:1px solid black;
+            border-top:none;
+
+           border-collapse:collapse;
+
+        }
+
+div.tabbar1 table
+{
+border-collapse:collapse;
+}
+.nextArrowNav {
+#if($bjsVersion)
+#set($bjsversn = "./images/"+ $bjsVersion+"/next.png")
+background:url("$bjsversn") no-repeat scroll 0 0 transparent;
+#else
+background:url("./images/next.png") no-repeat scroll 0 0 transparent;
+#end
+}
+.previousArrowNav, .nextArrowNav {
+    height:30px;
+    width:30px;
+    overflow:hidden;
+    text-indent:-9999px;
+    display:block;
+    cursor:pointer;
+    margin-left:10px
+}
+
+.inactive {
+    cursor:default;
+    background-position:0 -30px !important;
+}
+
+.previousArrowNav {
+#if($bjsVersion)
+#set($bjsversn = "./images/"+ $bjsVersion+"/previous.png")
+background:url("$bjsversn") no-repeat scroll 0 0 transparent;
+#else
+background:url("./images/previous.png") no-repeat scroll 0 0 transparent;
+#end
+}
+
+img {
+	vertical-align: bottom;
+        border: none;
+}
+div.scrollx {
+     overflow-y:scroll;
+   }
+   div.scrolly {
+     overflow-x:scroll;
+   }
+            div.scroll {
+     overflow:scroll;
+   }

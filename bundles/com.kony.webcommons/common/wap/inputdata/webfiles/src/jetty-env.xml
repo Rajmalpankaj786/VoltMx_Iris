@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE Configure PUBLIC "-//Mort Bay Consulting//DTD Configure//EN" "http://jetty.mortbay.org/configure.dtd">
+
+<Configure class="org.mortbay.jetty.webapp.WebAppContext">
+
+  <!-- New id="logicalmodel"  class="org.mortbay.jetty.plus.naming.EnvEntry">
+    <Arg>logicalmodel</Arg>
+    <Arg type="java.lang.String">/WEB-INF/logicalmodel.xml</Arg>
+  </New>
+
+  <New id="servletname"  class="org.mortbay.jetty.plus.naming.EnvEntry">
+    <Arg>servletname</Arg>
+    <Arg type="java.lang.String">p</Arg>
+  </New>
+  
+  <New id="appfunctions"  class="org.mortbay.jetty.plus.naming.EnvEntry">
+    <Arg>appfunctions</Arg>
+    <Arg type="java.lang.String">/WEB-INF/functions.xml</Arg>
+  </New -->
+  
+  <New id="sechtno" class="org.mortbay.jetty.plus.naming.EnvEntry">
+      <Arg>sechtno</Arg>
+      <Arg type="java.lang.Integer">https.portno</Arg>
+  </New>
+  
+  <New id="nodeno" class="org.mortbay.jetty.plus.naming.EnvEntry">
+    <Arg>node.no</Arg>
+    <Arg type="java.lang.String">4</Arg>
+  </New>
+  
+</Configure>

@@ -1,0 +1,245 @@
+#set($s = "." + $skin+"basictab")
+$s{
+padding: 3px 0;
+margin-left: 0;
+font: bold 12px Verdana;
+border-bottom: 1px solid gray;
+list-style-type: none;
+text-align: left; /*set to left, center, or right to align the menu as desired*/
+}
+
+$s li{
+display: inline;
+margin: 0;
+}
+
+$s li a{
+text-decoration: none;
+padding: 3px 7px;
+margin-right: 3px;
+border: 1px solid gray;
+border-bottom: none;
+ #* #if($background-image)
+        background: url(./images/$background-image) repeat;
+        #if($enable_bg_size == "true")
+           background-size : 100% 100%;
+        #end
+    #elseif ($background-color)
+       #if($rgba == "true")
+                background-color : $background-color;
+            #else
+                #set($bc = "#" + $background-color)
+                background-color: $bc;
+            #end
+    #else
+        background-color: inherit;
+    #end *#
+#if($background-color)
+        #if($rgba == "true")
+            background-color : $background-color;
+        #else
+             #set($bc = "#" + $background-color)
+             background-color: $bc;
+        #end
+    #elseif($background-gradient)
+            background-image: url(./images/$background-image);
+            background-repeat: repeat-x;
+            background-color: $bottomcolor;
+    #elseif($background-image)
+        #if($repeat && $verticalrepeat)
+            background: url(./images/$background-image) repeat;
+        #elseif($repeat)
+            background: url(./images/$background-image) repeat-x;
+        #elseif($verticalrepeat)
+            background: url(./images/$background-image) repeat-y;
+        #else
+            background: url(./images/$background-image) no-repeat;
+        #end
+        #if($enable_bg_size == "true")
+            background-size : 100% 100%;
+        #end
+    #end
+
+
+
+
+
+
+  #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end
+}
+
+$s li a:visited{
+color: #2d2b2b;
+}
+
+$s li a:hover{
+background-color: #DBFF6C;
+color: black;
+}
+
+$s li a:active{
+color: black;
+}
+
+$s li.selected a{ /*selected tab effect*/
+position: relative;
+top: 1px;
+padding-top: 4px;
+ #* #if($background-image)
+        background: url(./images/$background-image) repeat;
+    #elseif ($background-color)
+        #if($rgba == "true")
+                background-color : $background-color;
+            #else
+                #set($bc = "#" + $background-color)
+                background-color: $bc;
+            #end
+    #else
+        background-color: inherit;
+    #end *#
+#if($background-color)
+        #if($rgba == "true")
+            background-color : $background-color;
+        #else
+             #set($bc = "#" + $background-color)
+             background-color: $bc;
+        #end
+    #elseif($background-gradient)
+            background-image: url(./images/$background-image);
+            background-repeat: repeat-x;
+            background-color: $bottomcolor;
+    #elseif($background-image)
+        #if($repeat && $verticalrepeat)
+            background: url(./images/$background-image) repeat;
+        #elseif($repeat)
+            background: url(./images/$background-image) repeat-x;
+        #elseif($verticalrepeat)
+            background: url(./images/$background-image) repeat-y;
+        #else
+            background: url(./images/$background-image) no-repeat;
+        #end
+    #end
+
+
+
+ #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end
+}
+
+
+.$skin
+{
+font-weight: $font-weight;
+margin: 0px;
+padding: 4px;
+#* #if($background-image)
+        background: url(./images/$background-image) repeat;
+    #elseif ($background-color)
+        #if($rgba == "true")
+                background-color : $background-color;
+            #else
+                #set($bc = "#" + $background-color)
+                background-color: $bc;
+            #end
+    #else
+        background-color: inherit;
+    #end *#
+
+#if($background-color)
+        #if($rgba == "true")
+            background-color : $background-color;
+        #else
+             #set($bc = "#" + $background-color)
+             background-color: $bc;
+        #end
+    #elseif($background-gradient)
+            background-image: url(./images/$background-image);
+            background-repeat: repeat-x;
+            background-color: $bottomcolor;
+    #elseif($background-image)
+        #if($repeat && $verticalrepeat)
+            background: url(./images/$background-image) repeat;
+        #elseif($repeat)
+            background: url(./images/$background-image) repeat-x;
+        #elseif($verticalrepeat)
+            background: url(./images/$background-image) repeat-y;
+        #else
+            background: url(./images/$background-image) no-repeat;
+        #end
+    #end
+
+
+}
+
+div.$skin
+{
+#if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end
+}
+
+li[tabinact="$skin"] a
+{
+position: relative;
+top: 1px;
+padding-top: 4px;
+ #* #if($background-image)
+        background: url(./images/$background-image) repeat;
+    #elseif ($background-color)
+        #if($rgba == "true")
+                background-color : $background-color;
+            #else
+                #set($bc = "#" + $background-color)
+                background-color: $bc;
+            #end
+    #else
+        background-color: inherit;
+    #end *#
+#if($background-color)
+        #if($rgba == "true")
+            background-color : $background-color;
+        #else
+             #set($bc = "#" + $background-color)
+             background-color: $bc;
+        #end
+    #elseif($background-gradient)
+            background-image: url(./images/$background-image);
+            background-repeat: repeat-x;
+            background-color: $bottomcolor;
+    #elseif($background-image)
+        #if($repeat && $verticalrepeat)
+            background: url(./images/$background-image) repeat;
+        #elseif($repeat)
+            background: url(./images/$background-image) repeat-x;
+        #elseif($verticalrepeat)
+            background: url(./images/$background-image) repeat-y;
+        #else
+            background: url(./images/$background-image) no-repeat;
+        #end
+    #end
+
+ #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end
+
+
+}

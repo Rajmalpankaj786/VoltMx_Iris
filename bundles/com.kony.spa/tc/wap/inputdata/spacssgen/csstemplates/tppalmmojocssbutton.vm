@@ -1,0 +1,133 @@
+##set($s = "." + $skin + " .palm-button")
+#set($buttonheight = $height+"px")
+#set($buttonwidth = $width+"px")
+
+#if($focusSkin)
+	#set($s = $skin)
+#else
+	#set($s = "." + $skin)
+#end
+
+$s
+{
+    #parse("tppalmmojocssborder.vm")
+    #parse("tppalmmojocssfonts.vm")
+    #if($color)
+        #if($rgba == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+	#end
+	#if($rounded || !$plain)
+		-webkit-border-radius: 0.5em;
+                border-radius: 0.5em;
+	#end
+	#if($background-image)
+		##border: none;
+		#if($gradient == "true")
+			background: none;
+			#if($vs == "true")
+				-webkit-border-image: url(../$background-image) 1 1 1 1 stretch stretch;
+			#else
+				-webkit-border-image: url(../$background-image) 0 16 0 16 stretch stretch;
+			#end
+		#else
+			-webkit-border-image: none;
+			background: url(../$background-image);
+			#if($buttonheight)
+				height: $buttonheight !important;
+			#end
+			#if($buttonwidth)
+				width: $buttonwidth !important;
+			#end
+		#end
+		##white-space: nowrap !important;
+		##-webkit-border-fit: initial;
+	#elseif($background-color)
+		-webkit-border-image: none;
+		#if($background-split) ## future use
+			background: -webkit-gradient(linear, 0% 49%, 0% 50%, from($startColor), to($endColor));
+		#elseif($background-gradient)  ## future use
+			background: -webkit-gradient(linear, 0% 0%, 0% 100%, from($startColor), to($endColor));
+		#else
+			##background: #$background-color;
+			 #if($bg_rgba == "true")
+				background : $background-color;
+			#else
+				background: #$background-color;
+			#end
+		#end
+	#else
+        background: inherit;
+	#end
+	
+	#if(!$background-image)
+		-webkit-background-size: 100%;
+	#else
+		background-repeat: no-repeat;
+	#end
+}
+
+## TODO: Is this required?
+#if(!$focusSkin)
+#set($ss = "." + $skin + " .palm-button.selected")
+$ss{
+    ##parse("tppalmmojocssborder.vm")
+    #parse("tppalmmojocssfonts.vm")
+     #if($color)
+        #if($rgba == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end
+    #if($rounded || !$plain)
+		-webkit-border-radius: 0.5em;
+                border-radius: 0.5em;
+	#end
+	#if($background-image)
+		##border: none;
+		#if($gradient == "true")
+			background: none;
+			#if($vs == "true")
+				-webkit-border-image: url(../$background-image) 0 0 0 0 stretch stretch;
+			#else
+				-webkit-border-image: url(../$background-image) 0 16 0 16 stretch stretch;
+			#end
+		#else
+			-webkit-border-image: none;
+			background: url(../$background-image);
+			#if($buttonheight)
+				height: $buttonheight !important;
+			#end
+			#if($buttonwidth)
+				width: $buttonwidth !important;
+			#end
+		#end
+		##white-space: nowrap !important
+		##-webkit-border-fit: initial;
+	#elseif ($background-color)
+		-webkit-border-image: none;
+    	#if($background-split) ## future use
+    		background: -webkit-gradient(linear, 0% 49%, 0% 50%, from($startColor), to($endColor));
+        #elseif($background-gradient) ## future use
+            background: -webkit-gradient(linear, 0% 0%, 0% 100%, from($startColor), to($endColor));
+        #else
+			#if($bg_rgba == "true")
+				background : $background-color;
+			#else
+				background: #$background-color;
+			#end
+		#end
+	#else
+        background: inherit;
+	#end
+    
+	#if(!$background-image)
+		-webkit-background-size: 100%;
+	#else
+		background-repeat: no-repeat;
+	#end	
+}
+#end

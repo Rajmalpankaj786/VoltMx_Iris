@@ -1,0 +1,158 @@
+#if($focusSkin)
+
+#else
+    #set($li = "." + $skin + "li")
+    #set($lia = "." + $skin + "lia")
+#end
+
+$lia{
+            text-decoration: none;
+            padding: 3px 7px;
+            margin-right: 3px;
+            border: 1px solid gray;
+            
+            #if($background-color)
+                #if($rgba == "true")
+                    background-color : $background-color;
+                #else
+                    #set($bc = "#" + $background-color)
+                    background-color: $bc;
+                #end
+            #elseif($bg-grad-split-ms)
+                #parse("tpxadviphonecssbggradient.vm")
+            #elseif($background-image)
+                #parse("tpspagenericbgimage.vm")
+            #end
+
+          #if($color)
+                #if($rgba_font == "true")
+                    color : $color;
+                #else
+                    color: #$color;
+                #end
+          #end
+		
+	#if($forking) 	
+                #parse("tpxadviphonecssborderspecific.vm")
+                #if ($border-top-left-style)
+                     -webkit-border-top-left-radius: ${border-top-left-radius}px;
+                #end
+                #if ($border-top-right-style)
+                    -webkit-border-top-right-radius: ${border-top-right-radius}px;
+                #end
+                #if ($border-bottom-left-style)
+                   -webkit-border-bottom-left-radius: ${border-bottom-left-radius}px;
+                #end
+                #if ($border-bottom-right-style)
+                    -webkit-border-bottom-right-radius: ${border-bottom-right-radius}px;
+                #end 
+         #else
+                #parse("tpxadviphonecssborder.vm")
+         #end	 
+        border-bottom: none;
+    }
+	
+ $li{
+        #if($__isspa__)
+          padding: 3px 0;
+        #end
+        margin-left: 0;
+        #parse("tppalmmojocssfonts.vm")
+        border-bottom: 1px solid gray;
+        list-style-type: none;
+        text-align: left; /*set to left, center, or right to align the menu as desired*/
+		#if($forking)
+			 #if ($border-bottom-width)
+                            #set($bw = $border-bottom-width + "px")
+                            border-bottom-width: $bw;
+                            border-bottom-style: solid;
+                            #if ($border-bottom-color)
+                                 #if($rgba_bottom_border == "true")
+                                    border-bottom-color : $border-bottom-color;
+                                #else
+                                    border-bottom-color : #$border-bottom-color;
+                                #end
+                            #else
+                                border-bottom-color : none;
+                            #end
+                        #end
+		#else
+                    #if ($border-width)
+                            #set($bw = $border-width + "px")
+                            #if ($border-color)
+                                #if($rgba_border == "true")
+                                    #set($bc = $border-color)
+                                #else
+                                    #set($bc = "#"+$border-color)
+                                #end
+                           #else
+                                #set($bc = "#000000")
+                           #end
+
+                            border-bottom: $bw solid $bc;
+                           #*  border-top: none;
+                             border-left: none;
+                             border-right: none;
+                            *#
+                    #end
+            #end
+
+    #if($forking)
+        #parse("tpxadvshadowcss.vm")
+    #end
+    }
+
+#if($focusSkin)
+$skin
+#else
+.$skin
+#end
+    {
+        #parse("tppalmmojocssfonts.vm")
+        margin: 0px;
+        padding: 4px;
+
+        #if($background-color)
+            #if($rgba == "true")
+                background-color : $background-color;
+            #else
+                 #set($bc = "#" + $background-color)
+                background-color: $bc;
+            #end
+       #elseif($bg-grad-split-ms)
+           #parse("tpxadviphonecssbggradient.vm")
+       #elseif($background-image)
+            #parse("tpspagenericbgimage.vm")
+      #end
+
+               #if($forking)
+			 #if ($border-bottom-width)
+                            #set($bw = $border-bottom-width + "px")
+                            border-bottom-width: $bw;
+                            border-bottom-style: solid;
+                            #if ($border-bottom-color)
+                                #if($rgba_bottom_border == "true")
+                                    border-bottom-color : $border-bottom-color;
+                                #else
+                                    border-bottom-color : #$border-bottom-color;
+                                #end
+                            #else
+                                border-bottom-color : none;
+                            #end
+                        #end
+		#else
+			 #parse("tpxadviphonecssborder.vm")
+		#end
+
+      #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+      #end
+
+    #if($forking)
+        #parse("tpxadvshadowcss.vm")
+    #end
+    }

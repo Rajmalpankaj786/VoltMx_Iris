@@ -1,0 +1,71 @@
+#if($enableViewportZooming)
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+#else
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+#end
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+#if($appleicon)
+    <link rel="apple-touch-icon" href="desktopweb/images/$appleicon" />
+#end
+#if($favicon)
+    <link rel="shortcut icon" href="desktopweb/images/$favicon"/>
+#end
+#if($webmanifest)
+    <link rel="manifest" href="desktopweb/webmanifest.js">
+#end
+#if($themecolor)
+     <meta name="theme-color" content="$themecolor"/>
+#end
+#if($metatags)
+    $metatags
+#end
+#parse("tpwebfiles.vm")
+#parse("tpxhtmljspxfsbuster.vm")
+<script type="text/javascript">
+    IndexJL = 0;
+</script>
+
+## adding custom widgets(js and css files)
+#parse("tpcustomwidget.vm")
+
+#if($customSplashEnabled)
+    #parse("tpdesktopcommonsplashcss.vm")
+#else
+    #parse("tpdesktopcommonlocale.vm")
+#end
+
+#if($apptitle)
+    <title>$apptitle</title>
+#end
+
+
+
+#set($jscount = $importjsfiles.size())
+#if($jscount > 0)
+    #foreach ($jsfile in $importjsfiles)
+      <script src="$jsfile"></script>
+    #end
+#end
+
+#if($enableProgressiveWeb == "true" && $minified == "true")
+<script type="text/javascript">
+    if('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            #if($buildWar == "true")
+            var swUrl = '/$appName/sw.js';
+            #else
+            var swUrl = '/apps/$appName/sw.js';
+            #end
+            navigator.serviceWorker.register(swUrl).then(function(reg) {
+                window.voltmxSwRegistration = reg;
+                console.log('Service Worker Registered Successfully.');
+            }).catch(function(err) {
+                console.log('Service Worker Registration Failed.', err)
+            });
+        });
+    } else {
+        console.log('Service Workers are not supported.');
+    }
+</script>
+#end

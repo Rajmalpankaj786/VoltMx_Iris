@@ -1,0 +1,24 @@
+#set($sk = "." + $skin)
+#set($bjsversn = "./images/"+ $bjsVersion+"/$background-image")
+$sk
+{
+
+    #parse("tpxhtmlcssbasicfont.vm")
+
+    #if($background-color)
+        #if($rgba == "true")
+            background-color : $background-color;
+            color : $background-color;
+        #else
+            #set($bc = "#" + $background-color)
+            background-color: $bc;
+            color: $bc;
+        #end
+    #else
+        background-color: inherit;
+    #end
+
+    #if($text-decoration)
+        text-decoration : none;
+    #end
+}

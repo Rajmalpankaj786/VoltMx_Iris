@@ -1,0 +1,19 @@
+  .voltmxxmenuitem {
+           color : blue;    
+                font-weight : normal;    
+                font-size : $font-size;
+                font-style : normal;
+                
+        }
+    .voltmxxlabel {
+           color : black;    
+                font-weight : normal;    
+                font-style : normal;
+                font-size: $font-size;
+                }
+
+    .voltmxrow {
+         padding: 2px;
+    }
+    
+

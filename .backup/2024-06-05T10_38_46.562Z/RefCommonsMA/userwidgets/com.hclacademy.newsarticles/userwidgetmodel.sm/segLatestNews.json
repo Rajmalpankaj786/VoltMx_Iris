@@ -1,0 +1,218 @@
+{
+    "@class": "com.kony.gen.viz.model.container.KVizSegment2",
+    "DNDConfig": null,
+    "_data_": [
+        {
+            "imgDisplayPic": {
+                "@class": "com.viz.ide.model.segment.ImageSegmentData",
+                "src": "weather1.jpg"
+            },
+            "lblTitle": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Microsoft Bets Big on the Creator of ChatGPT in Race to Dominate A.I."
+            }
+        },
+        {
+            "imgDisplayPic": {
+                "@class": "com.viz.ide.model.segment.ImageSegmentData",
+                "src": "weather2.jpg"
+            },
+            "lblTitle": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Don’t Ban ChatGPT in Schools. Teach With It."
+            }
+        },
+        {
+            "imgDisplayPic": {
+                "@class": "com.viz.ide.model.segment.ImageSegmentData",
+                "src": "weather3.jpg"
+            },
+            "lblTitle": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "SEC Charges Crypto Companies With Offering Unregistered Securities"
+            }
+        },
+        {
+            "imgDisplayPic": {
+                "@class": "com.viz.ide.model.segment.ImageSegmentData",
+                "src": "weather4.jpg"
+            },
+            "lblTitle": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "A Teacher Who Loves ChatGPT and Is ‘M3GAN’ Real?"
+            }
+        },
+        {
+            "imgDisplayPic": {
+                "@class": "com.viz.ide.model.segment.ImageSegmentData",
+                "src": "weather5.jpg"
+            },
+            "lblTitle": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Alarmed by A.I. Chatbots, Universities Start Revamping How They Teach"
+            }
+        }
+    ],
+    "_height_": {
+        "type": "string",
+        "value": "100%"
+    },
+    "_indicator_": "none",
+    "_margin_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_orientation_": 2,
+    "_padding_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_width_": {
+        "type": "string",
+        "value": "100%"
+    },
+    "autogrowmode": 0,
+    "canUpdateUI": true,
+    "centerx": {
+        "type": "string",
+        "value": "50%"
+    },
+    "centery": {
+        "type": "string",
+        "value": "50%"
+    },
+    "containerweight": 100,
+    "counter": "04",
+    "disabledSkins": {},
+    "focusedindex": null,
+    "focuseditem": null,
+    "groupcells": false,
+    "hasSections": false,
+    "id": "segLatestNews",
+    "info": null,
+    "ipad": {
+        "psp": {
+            "indicator": "rowselect"
+        }
+    },
+    "iphone": {
+        "psp": {
+            "bounces": false,
+            "indicator": "none"
+        }
+    },
+    "iscustomlayout": false,
+    "isvisible": true,
+    "kuid": "e6785efdb35d4a6a8e0a8184deb7e394",
+    "masterdata": {},
+    "mobile": {
+        "_data_": [
+            {
+                "imgDisplayPic": {
+                    "@class": "com.viz.ide.model.segment.ImageSegmentData",
+                    "src": "weather1.jpg"
+                },
+                "lblTitle": {
+                    "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                    "text": "Microsoft Bets Big on the Creator of ChatGPT in Race to Dominate A.I."
+                }
+            },
+            {
+                "imgDisplayPic": {
+                    "@class": "com.viz.ide.model.segment.ImageSegmentData",
+                    "src": "weather2.jpg"
+                },
+                "lblTitle": {
+                    "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                    "text": "Don’t Ban ChatGPT in Schools. Teach With It."
+                }
+            },
+            {
+                "imgDisplayPic": {
+                    "@class": "com.viz.ide.model.segment.ImageSegmentData",
+                    "src": "weather3.jpg"
+                },
+                "lblTitle": {
+                    "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                    "text": "SEC Charges Crypto Companies With Offering Unregistered Securities"
+                }
+            },
+            {
+                "imgDisplayPic": {
+                    "@class": "com.viz.ide.model.segment.ImageSegmentData",
+                    "src": "weather4.jpg"
+                },
+                "lblTitle": {
+                    "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                    "text": "A Teacher Who Loves ChatGPT and Is ‘M3GAN’ Real?"
+                }
+            },
+            {
+                "imgDisplayPic": {
+                    "@class": "com.viz.ide.model.segment.ImageSegmentData",
+                    "src": "weather5.jpg"
+                },
+                "lblTitle": {
+                    "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                    "text": "Alarmed by A.I. Chatbots, Universities Start Revamping How They Teach"
+                }
+            }
+        ],
+        "rowTemplateId": "e3e82007a8814b6185778857749ffd2c",
+        "rowtemplate": "flxSegWithImageAndLabel",
+        "widgetdatamap": {
+            "flxSegWithImageAndLabel": "flxSegWithImageAndLabel",
+            "imgDisplayPic": "imgDisplayPic",
+            "lblTitle": "lblTitle"
+        }
+    },
+    "name": "kony.ui.SegmentedUI2",
+    "needpageindicator": true,
+    "pageoffdotimage": "pageoffdot.png",
+    "pageondotimage": "pageondot.png",
+    "paginationconfig": {
+        "position": "bottom",
+        "vdistance": 1
+    },
+    "parent": "newsarticles",
+    "pf": "userwidgetmodel",
+    "retaincontentalignment": false,
+    "retainflexpositionproperties": false,
+    "retainselection": false,
+    "rowcounter": 4,
+    "rowfocusskin": "s9f119d5a88746e1a000886367db53b6",
+    "rowskin": "s1620b7d9c624973a4bdb27974081859",
+    "screenlevelwidget": false,
+    "seccounter": 0,
+    "sectionheaderskin": "s0a96492ca3b44d2ba2e001256b283f3",
+    "selectedRows": null,
+    "selectedState": false,
+    "selectedindex": null,
+    "selectedindices": null,
+    "selecteditems": null,
+    "selectedsectionindex": 0,
+    "selectionbehavior": "default",
+    "selectionbehaviorconfig": null,
+    "separatorrequired": false,
+    "showscrollbars": false,
+    "swipeContext": {
+        "currentPage": 0,
+        "imageWidth": 1015,
+        "widthRatio": 0
+    },
+    "viewtype": "pageview",
+    "vizProps": {},
+    "wType": "Segment",
+    "widgetalignment": 5,
+    "widgetdatamap": {
+        "flxSegWithImageAndLabel": "flxSegWithImageAndLabel",
+        "imgDisplayPic": "imgDisplayPic",
+        "lblTitle": "lblTitle"
+    },
+    "widgetskin": "s11aa4ca131949a2bc7dba53a0b16cbd",
+    "zindex": 1
+}

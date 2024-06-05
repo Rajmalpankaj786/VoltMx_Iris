@@ -1,0 +1,13 @@
+[ {
+  "sourceObject" : "ComplaintCategory",
+  "targetObject" : "Complaint",
+  "relationshipKeys" : [ {
+    "sourceField" : "CategoryID",
+    "targetField" : "CategoryID",
+    "etag" : "87dd0d1f-1c4b-4bdf-8a70-1e329964737d"
+  } ],
+  "name" : "ComplaintCategory_Complaint",
+  "type" : "OneToMany",
+  "custom" : false,
+  "cascadeDelete" : false
+} ]

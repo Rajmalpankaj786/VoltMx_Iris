@@ -1,0 +1,785 @@
+{
+    "@class": "com.kony.gen.viz.model.container.KVizSegment2",
+    "DNDConfig": null,
+    "_data_": [
+        {
+            "lblAddress": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Address"
+            },
+            "lblAddressValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Mayurinagar, Miyapur, Hyderabad"
+            },
+            "lblAssignedTo": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Assigned to"
+            },
+            "lblAssignedToValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "GHMC-Electrical"
+            },
+            "lblCategory": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Category Name"
+            },
+            "lblCategoryValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Electrical"
+            },
+            "lblCreateDateTime": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Created Date and Time"
+            },
+            "lblCreateDateTimeValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "2023-02-10 09:49:37.085"
+            },
+            "lblCreatedBy": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Status"
+            },
+            "lblCreatedByValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Open"
+            },
+            "lblDescription": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Description"
+            },
+            "lblDescriptionValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Street lights not working"
+            },
+            "lblID": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "ID"
+            },
+            "lblIDValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "1"
+            },
+            "lblStatus": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Status"
+            },
+            "lblStatusValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Open"
+            }
+        },
+        {
+            "lblAddress": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Address"
+            },
+            "lblAddressValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Mayurinagar, Miyapur, Hyderabad"
+            },
+            "lblAssignedTo": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Assigned to"
+            },
+            "lblAssignedToValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "GHMC-Electrical"
+            },
+            "lblCategory": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Category Name"
+            },
+            "lblCategoryValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Electrical"
+            },
+            "lblCreateDateTime": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Created Date and Time"
+            },
+            "lblCreateDateTimeValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "2023-02-10 09:49:37.085"
+            },
+            "lblCreatedBy": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Status"
+            },
+            "lblCreatedByValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Open"
+            },
+            "lblDescription": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Description"
+            },
+            "lblDescriptionValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Street lights not working"
+            },
+            "lblID": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "ID"
+            },
+            "lblIDValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "1"
+            },
+            "lblStatus": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Status"
+            },
+            "lblStatusValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Open"
+            }
+        },
+        {
+            "lblAddress": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Address"
+            },
+            "lblAddressValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Mayurinagar, Miyapur, Hyderabad"
+            },
+            "lblAssignedTo": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Assigned to"
+            },
+            "lblAssignedToValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "GHMC-Electrical"
+            },
+            "lblCategory": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Category Name"
+            },
+            "lblCategoryValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Electrical"
+            },
+            "lblCreateDateTime": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Created Date and Time"
+            },
+            "lblCreateDateTimeValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "2023-02-10 09:49:37.085"
+            },
+            "lblCreatedBy": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Status"
+            },
+            "lblCreatedByValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Open"
+            },
+            "lblDescription": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Description"
+            },
+            "lblDescriptionValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Street lights not working"
+            },
+            "lblID": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "ID"
+            },
+            "lblIDValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "1"
+            },
+            "lblStatus": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Status"
+            },
+            "lblStatusValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Open"
+            }
+        },
+        {
+            "lblAddress": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Address"
+            },
+            "lblAddressValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Mayurinagar, Miyapur, Hyderabad"
+            },
+            "lblAssignedTo": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Assigned to"
+            },
+            "lblAssignedToValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "GHMC-Electrical"
+            },
+            "lblCategory": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Category Name"
+            },
+            "lblCategoryValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Electrical"
+            },
+            "lblCreateDateTime": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Created Date and Time"
+            },
+            "lblCreateDateTimeValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "2023-02-10 09:49:37.085"
+            },
+            "lblCreatedBy": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Status"
+            },
+            "lblCreatedByValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Open"
+            },
+            "lblDescription": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Description"
+            },
+            "lblDescriptionValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Street lights not working"
+            },
+            "lblID": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "ID"
+            },
+            "lblIDValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "1"
+            },
+            "lblStatus": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Status"
+            },
+            "lblStatusValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Open"
+            }
+        },
+        {
+            "lblAddress": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Address"
+            },
+            "lblAddressValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Mayurinagar, Miyapur, Hyderabad"
+            },
+            "lblAssignedTo": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Assigned to"
+            },
+            "lblAssignedToValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "GHMC-Electrical"
+            },
+            "lblCategory": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Category Name"
+            },
+            "lblCategoryValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Electrical"
+            },
+            "lblCreateDateTime": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Created Date and Time"
+            },
+            "lblCreateDateTimeValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "2023-02-10 09:49:37.085"
+            },
+            "lblCreatedBy": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Status"
+            },
+            "lblCreatedByValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Open"
+            },
+            "lblDescription": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Description"
+            },
+            "lblDescriptionValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Street lights not working"
+            },
+            "lblID": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "ID"
+            },
+            "lblIDValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "1"
+            },
+            "lblStatus": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Status"
+            },
+            "lblStatusValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Open"
+            }
+        },
+        {
+            "lblAddress": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Address"
+            },
+            "lblAddressValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Mayurinagar, Miyapur, Hyderabad"
+            },
+            "lblAssignedTo": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Assigned to"
+            },
+            "lblAssignedToValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "GHMC-Electrical"
+            },
+            "lblCategory": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Category Name"
+            },
+            "lblCategoryValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Electrical"
+            },
+            "lblCreateDateTime": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Created Date and Time"
+            },
+            "lblCreateDateTimeValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "2023-02-10 09:49:37.085"
+            },
+            "lblCreatedBy": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Status"
+            },
+            "lblCreatedByValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Open"
+            },
+            "lblDescription": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Description"
+            },
+            "lblDescriptionValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Street lights not working"
+            },
+            "lblID": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "ID"
+            },
+            "lblIDValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "1"
+            },
+            "lblStatus": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Status"
+            },
+            "lblStatusValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Open"
+            }
+        },
+        {
+            "lblAddress": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Address"
+            },
+            "lblAddressValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Mayurinagar, Miyapur, Hyderabad"
+            },
+            "lblAssignedTo": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Assigned to"
+            },
+            "lblAssignedToValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "GHMC-Electrical"
+            },
+            "lblCategory": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Category Name"
+            },
+            "lblCategoryValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Electrical"
+            },
+            "lblCreateDateTime": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Created Date and Time"
+            },
+            "lblCreateDateTimeValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "2023-02-10 09:49:37.085"
+            },
+            "lblCreatedBy": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Status"
+            },
+            "lblCreatedByValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Open"
+            },
+            "lblDescription": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Description"
+            },
+            "lblDescriptionValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Street lights not working"
+            },
+            "lblID": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "ID"
+            },
+            "lblIDValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "1"
+            },
+            "lblStatus": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Status"
+            },
+            "lblStatusValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Open"
+            }
+        },
+        {
+            "lblAddress": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Address"
+            },
+            "lblAddressValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Mayurinagar, Miyapur, Hyderabad"
+            },
+            "lblAssignedTo": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Assigned to"
+            },
+            "lblAssignedToValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "GHMC-Electrical"
+            },
+            "lblCategory": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Category Name"
+            },
+            "lblCategoryValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Electrical"
+            },
+            "lblCreateDateTime": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Created Date and Time"
+            },
+            "lblCreateDateTimeValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "2023-02-10 09:49:37.085"
+            },
+            "lblCreatedBy": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Status"
+            },
+            "lblCreatedByValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Open"
+            },
+            "lblDescription": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Description"
+            },
+            "lblDescriptionValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Street lights not working"
+            },
+            "lblID": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "ID"
+            },
+            "lblIDValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "1"
+            },
+            "lblStatus": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Status"
+            },
+            "lblStatusValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Open"
+            }
+        },
+        {
+            "lblAddress": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Address"
+            },
+            "lblAddressValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Mayurinagar, Miyapur, Hyderabad"
+            },
+            "lblAssignedTo": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Assigned to"
+            },
+            "lblAssignedToValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "GHMC-Electrical"
+            },
+            "lblCategory": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Category Name"
+            },
+            "lblCategoryValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Electrical"
+            },
+            "lblCreateDateTime": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Created Date and Time"
+            },
+            "lblCreateDateTimeValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "2023-02-10 09:49:37.085"
+            },
+            "lblCreatedBy": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Status"
+            },
+            "lblCreatedByValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Open"
+            },
+            "lblDescription": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Description"
+            },
+            "lblDescriptionValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Street lights not working"
+            },
+            "lblID": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "ID"
+            },
+            "lblIDValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "1"
+            },
+            "lblStatus": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Status"
+            },
+            "lblStatusValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Open"
+            }
+        },
+        {
+            "lblAddress": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Address"
+            },
+            "lblAddressValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Mayurinagar, Miyapur, Hyderabad"
+            },
+            "lblAssignedTo": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Assigned to"
+            },
+            "lblAssignedToValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "GHMC-Electrical"
+            },
+            "lblCategory": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Category Name"
+            },
+            "lblCategoryValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Electrical"
+            },
+            "lblCreateDateTime": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Created Date and Time"
+            },
+            "lblCreateDateTimeValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "2023-02-10 09:49:37.085"
+            },
+            "lblCreatedBy": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Status"
+            },
+            "lblCreatedByValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Open"
+            },
+            "lblDescription": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Description"
+            },
+            "lblDescriptionValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Street lights not working"
+            },
+            "lblID": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "ID"
+            },
+            "lblIDValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "1"
+            },
+            "lblStatus": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Status"
+            },
+            "lblStatusValue": {
+                "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                "text": "Open"
+            }
+        }
+    ],
+    "_height_": {
+        "type": "string",
+        "value": "90%"
+    },
+    "_indicator_": "none",
+    "_left_": {
+        "type": "number",
+        "value": "0"
+    },
+    "_margin_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_orientation_": 2,
+    "_padding_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_top_": {
+        "type": "string",
+        "value": "10%"
+    },
+    "_width_": {
+        "type": "string",
+        "value": "100%"
+    },
+    "autogrowmode": 0,
+    "canUpdateUI": true,
+    "containerweight": 100,
+    "counter": "09",
+    "focusedindex": null,
+    "focuseditem": null,
+    "generatedtemplate": null,
+    "groupcells": false,
+    "hasSections": false,
+    "id": "segPreviousComplaints",
+    "info": null,
+    "ipad": {
+        "psp": {
+            "indicator": "rowselect"
+        }
+    },
+    "iphone": {
+        "psp": {
+            "indicator": "none"
+        }
+    },
+    "iscustomlayout": false,
+    "isvisible": true,
+    "kuid": "f3a5d95750e945699e111e81a6bb78be",
+    "masterdata": {},
+    "name": "kony.ui.SegmentedUI2",
+    "needpageindicator": true,
+    "pageoffdotimage": "pageoffdot.png",
+    "pageondotimage": "pageondot.png",
+    "paginationconfig": {
+        "position": "bottom"
+    },
+    "parent": "frmEComplaintsFetch",
+    "pf": "frmEComplaintsFetch",
+    "retaincontentalignment": false,
+    "retainflexpositionproperties": false,
+    "retainselection": false,
+    "rowTemplateId": "j8458fd8100b472cb24f7733cbadf777",
+    "rowcounter": 9,
+    "rowfocusskin": "s43e1ea723ae4e249dfab337c846cb01",
+    "rowskin": "sa1709d3b92443208a7dcc4f54318cbe",
+    "rowtemplate": "flxSegRowRecord",
+    "screenlevelwidget": false,
+    "seccounter": 0,
+    "sectionHeaderTemplateId": null,
+    "sectionheaderskin": "s2cd3fc9b7404f08a86ad264b498537b",
+    "selectedRows": null,
+    "selectedState": false,
+    "selectedindex": null,
+    "selectedindices": null,
+    "selecteditems": null,
+    "selectedsectionindex": 0,
+    "selectionbehavior": "default",
+    "separatorcolor": "aaaaaa00",
+    "separatorrequired": true,
+    "separatorthickness": 1,
+    "showscrollbars": false,
+    "viewtype": "tableview",
+    "vizProps": {},
+    "wType": "Segment",
+    "widgetalignment": 5,
+    "widgetdatamap": {
+        "flxAddress": "flxAddress",
+        "flxAssignedTo": "flxAssignedTo",
+        "flxCategory": "flxCategory",
+        "flxCreatedBy": "flxCreatedBy",
+        "flxCreatedDateTime": "flxCreatedDateTime",
+        "flxDescription": "flxDescription",
+        "flxID": "flxID",
+        "flxSegRowRecord": "flxSegRowRecord",
+        "flxStatus": "flxStatus",
+        "lblAddress": "lblAddress",
+        "lblAddressValue": "lblAddressValue",
+        "lblAssignedTo": "lblAssignedTo",
+        "lblAssignedToValue": "lblAssignedToValue",
+        "lblCategory": "lblCategory",
+        "lblCategoryValue": "lblCategoryValue",
+        "lblCreateDateTime": "lblCreateDateTime",
+        "lblCreateDateTimeValue": "lblCreateDateTimeValue",
+        "lblCreatedBy": "lblCreatedBy",
+        "lblCreatedByValue": "lblCreatedByValue",
+        "lblDescription": "lblDescription",
+        "lblDescriptionValue": "lblDescriptionValue",
+        "lblID": "lblID",
+        "lblIDValue": "lblIDValue",
+        "lblStatus": "lblStatus",
+        "lblStatusValue": "lblStatusValue"
+    },
+    "zindex": 1
+}

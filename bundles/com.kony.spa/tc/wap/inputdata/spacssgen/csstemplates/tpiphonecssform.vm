@@ -1,0 +1,43 @@
+#if($default == true)
+body > $skin {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding: 0px;
+    #if($background)
+        background: $background;
+    #elseif($background-color)
+        background-color : #$background-color;
+    #elseif($background-image)
+        background-image: url(./images/$background-image);
+    #end
+}
+$skin > h2 {
+    margin: 0 0 8px 14px;
+    font-size: inherit;
+    font-weight: bold;
+    color: #4d4d70;
+    text-shadow: rgba(255, 255, 255, 0.75) 2px 2px 0;
+}
+#else
+
+body > $skin {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding: 0px;
+    #if($background)
+        background: $background;
+    #elseif($background-color)
+        background-color : #$background-color;
+    #elseif($background-image)
+        background-image: url(./images/$background-image);
+    #end
+}
+
+$skin > h2 {
+    margin: 0 0 8px 14px;
+    font-size: inherit;
+    font-weight: bold;
+    color: #4d4d70;
+    text-shadow: rgba(255, 255, 255, 0.75) 2px 2px 0;
+}
+#end

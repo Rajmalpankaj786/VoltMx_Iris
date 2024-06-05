@@ -1,0 +1,14 @@
+$skin {
+  font-family: $font-family;
+    font-size : $font-size;
+    font-weight : $font-weight;
+    font-style : $font-style;
+    color : #$color;
+  border: none;
+  #if($background-color)
+    background-color:$background-color;
+  #else
+    background-image:$background-image;
+  #end
+  text-decoration: none;
+}

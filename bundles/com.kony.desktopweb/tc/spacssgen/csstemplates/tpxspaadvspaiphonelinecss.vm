@@ -1,0 +1,14 @@
+#set($s = "." + $skin)
+$s
+{
+   #if($background-color)
+        #if($rgba == "true")
+            color : $background-color;
+        #else
+             #set($bc = "#" + $background-color)
+             color: $bc;
+        #end
+   #else
+        color: transparent;
+   #end
+}

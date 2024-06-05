@@ -1,0 +1,979 @@
+    "popSwitchButtonFocus": {
+        "wType": "Button",
+        "bg_type": "one",
+        "border_color": "ffffff00",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "font_color": "ffffff00",
+        "font_name": "Helvetica",
+        "font_size": 100,
+        "font_style": "normal",
+        "font_weight": "normal",
+        "background_color": "52525200",
+        "shadow": {
+            "br": 0,
+            "color": "00000000",
+            "inner": false,
+            "nm": 0,
+            "opacity": 1,
+            "x": 0,
+            "y": 0
+        },
+        "text_shadow": {
+            "br": 0,
+            "color": "00000000",
+            "opacity": 1,
+            "x": 0,
+            "y": 0
+        }
+    },
+    "notesPopTitle": {
+        "wType": "Label",
+        "bg_type": "one",
+        "border_color": "42424200",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "font_color": "42424200",
+        "font_name": "Helvetica",
+        "font_size": 110,
+        "font_style": "normal",
+        "font_weight": "normal",
+        "background_color": "00000064"
+    },
+    "popSwitchButton": {
+        "wType": "Button",
+        "bg_type": "one",
+        "border_color": "ffffff00",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "font_color": "63636300",
+        "font_name": "Helvetica",
+        "font_size": 100,
+        "font_style": "normal",
+        "font_weight": "normal",
+        "background_color": "bdbdbd64",
+        "shadow": {
+            "br": 0,
+            "color": "00000000",
+            "inner": false,
+            "nm": 0,
+            "opacity": 1,
+            "x": 0,
+            "y": 0
+        },
+        "text_shadow": {
+            "br": 0,
+            "color": "00000000",
+            "opacity": 1,
+            "x": 0,
+            "y": 0
+        }
+    },
+    "popCloseButtonFocus": {
+        "wType": "Button",
+        "background_style": "vg",
+        "bg_type": "two",
+        "background_gradient_top_color": "edeef000",
+        "background_gradient_bottom_color": "d0d1d300",
+        "font_size": 125,
+        "font_color": "0080ff00",
+        "border_color": "00000000",
+        "border_width": 0,
+        "border_style": "plain",
+        "shadow": {
+            "x": 0,
+            "y": 0,
+            "br": 0,
+            "color": "ffffff00",
+            "inner": false
+        },
+        "text_shadow": {
+            "x": 0,
+            "y": 1,
+            "br": 0,
+            "color": "ffffff00"
+        }
+    },
+    "popNotesTimestampLabel": {
+        "wType": "Label",
+        "font_color": "9e9e9e00",
+        "customcss": false,
+        "border_color": "00000000",
+        "border_width": 0,
+        "border_style": "plain",
+        "border_radius": 0
+    },
+    "popNotesTitleHbox": {
+        "wType": "HBox",
+        "background_style": "vg",
+        "bg_type": "two",
+        "background_gradient_top_color": "edeef000",
+        "background_gradient_bottom_color": "d0d1d300",
+        "border_color": "00000000",
+        "border_width": 0,
+        "border_style": "plain",
+        "shadow": {
+            "x": 0,
+            "y": 1,
+            "br": 2,
+            "color": "83838300",
+            "inner": false
+        }
+    },
+    "notesPopBG": {
+        "wType": "Form",
+        "bg_type": "one",
+        "background_color": "ffffff00",
+        "font_style": "",
+        "font_color": "00000000",
+        "customcss": false,
+        "border_color": "00000000",
+        "border_width": 0,
+        "border_style": "plain",
+        "border_radius": 0
+    },
+    "popCloseButton": {
+        "wType": "Button",
+        "font_size": 125,
+        "font_color": "00000000",
+        "border_color": "00000000",
+        "border_width": 0,
+        "border_style": "plain",
+        "shadow": {
+            "x": 0,
+            "y": 0,
+            "br": 0,
+            "color": "ffffff00",
+            "inner": false
+        },
+        "text_shadow": {
+            "x": 0,
+            "y": 1,
+            "br": 0,
+            "color": "ffffff00"
+        }
+    },
+    "notesPopNoteContent": {
+        "wType": "Label",
+        "font_color": "64646400",
+        "border_color": "00000000",
+        "border_width": 0,
+        "border_style": "plain",
+        "shadow": {
+            "x": 0,
+            "y": 0,
+            "br": 0,
+            "color": "00000000",
+            "inner": false
+        },
+        "text_shadow": {
+            "x": 0,
+            "y": 0,
+            "br": 0,
+            "color": "00000000"
+        }
+    },
+    "popNotesPersonLabel": {
+        "wType": "Label",
+        "font_color": "3e3e3e00",
+        "font_name": "Helvetica-Bold",
+        "border_color": "00000000",
+        "border_width": 0,
+        "border_style": "plain",
+        "shadow": {
+            "x": 0,
+            "y": 0,
+            "br": 0,
+            "color": "00000000",
+            "inner": false
+        },
+        "text_shadow": {
+            "x": 0,
+            "y": 0,
+            "br": 0,
+            "color": "00000000"
+        }
+    },
+    "popTitleVbox": {
+        "wType": "VBox",
+        "border_color": "00000000",
+        "border_width": 0,
+        "border_style": "plain",
+        "shadow": {
+            "x": 0,
+            "y": 0,
+            "br": 0,
+            "color": "8f8f8f00",
+            "inner": true
+        }
+    },
+    "segTrans": {
+        "wType": "Segment2",
+        "font_color": "00000000",
+        "customcss": false,
+        "border_color": "00000000",
+        "border_width": 0,
+        "border_style": "plain",
+        "border_radius": 0
+    },
+    "seg2Header": {
+        "wType": "Segment2",
+        "bg_type": "one",
+        "background_color": "b7c0c700",
+        "font_weight": "bold",
+        "font_size": 130,
+        "font_color": "ffffff00",
+        "font_name": "Helvetica-Bold",
+        "border_color": "00000000",
+        "border_width": 0,
+        "border_style": "plain",
+        "shadow": {
+            "x": 0,
+            "y": 0,
+            "br": 0,
+            "color": "00000000",
+            "inner": false
+        }
+    },
+    "segRowTrans": {
+        "wType": "Segment2",
+        "font_color": "00000000",
+        "customcss": false,
+        "border_color": "00000000",
+        "border_width": 0,
+        "border_style": "plain",
+        "border_radius": 0
+    },
+    "sknbtnPostfp": {
+        "wtype": "Button",
+        "font_weight": "bold",
+        "font_size": 120,
+        "font_color": "80808000",
+        "font_name": "HelveticaNeue",
+        "border_color": "9f9f9f00",
+        "border_width": 0,
+        "border_style": "plain",
+        "shadow": {
+            "x": 0,
+            "y": 0,
+            "br": 0,
+            "color": "00000000",
+            "inner": false
+        },
+        "text_shadow": {
+            "x": 0,
+            "y": 0,
+            "br": 0,
+            "color": "00000000"
+        }
+    },
+    "sknbtnEdit": {
+        "wType": "Button",
+        "bg_type": "one",
+        "border_color": "ffffff00",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "font_color": "63636300",
+        "font_name": "Helvetica",
+        "font_size": 100,
+        "font_style": "normal",
+        "font_weight": "normal",
+        "background_color": "bdbdbd64",
+        "shadow": {
+            "br": 0,
+            "color": "00000000",
+            "inner": false,
+            "nm": 0,
+            "opacity": 1,
+            "x": 0,
+            "y": 0
+        },
+        "text_shadow": {
+            "br": 0,
+            "color": "00000000",
+            "opacity": 1,
+            "x": 0,
+            "y": 0
+        }
+    },
+    "sknTrashButton": {
+        "wType": "Button",
+        "bg_type": "one",
+        "border_color": "ffffff00",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "font_color": "ffffff00",
+        "font_name": "Helvetica",
+        "font_size": 110,
+        "font_style": "normal",
+        "font_weight": "normal",
+        "background_color": "e83c1e00",
+        "shadow": {
+            "br": 0,
+            "color": "00000000",
+            "inner": false,
+            "nm": 0,
+            "opacity": 1,
+            "x": 0,
+            "y": 0
+        },
+        "text_shadow": {
+            "br": 0,
+            "color": "00000000",
+            "opacity": 1,
+            "x": 0,
+            "y": 0
+        }
+    },
+    "sknTrashButtonDisabled": {
+        "wType": "Button",
+        "bg_type": "one",
+        "border_color": "ffffff00",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "font_color": "ffffff00",
+        "font_name": "Helvetica",
+        "font_size": 110,
+        "font_style": "normal",
+        "font_weight": "normal",
+        "background_color": "d3d3d300",
+        "shadow": {
+            "br": 0,
+            "color": "00000000",
+            "inner": false,
+            "nm": 0,
+            "opacity": 1,
+            "x": 0,
+            "y": 0
+        },
+        "text_shadow": {
+            "br": 0,
+            "color": "00000000",
+            "opacity": 1,
+            "x": 0,
+            "y": 0
+        }
+    },
+    "sknbtnDone": {
+        "wType": "Button",
+        "bg_type": "one",
+        "border_color": "ffffff00",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "font_color": "ffffff00",
+        "font_name": "Helvetica",
+        "font_size": 100,
+        "font_style": "normal",
+        "font_weight": "normal",
+        "background_color": "1aa2d900",
+        "shadow": {
+            "br": 0,
+            "color": "00000000",
+            "inner": false,
+            "nm": 0,
+            "opacity": 1,
+            "x": 0,
+            "y": 0
+        },
+        "text_shadow": {
+            "br": 0,
+            "color": "00000000",
+            "opacity": 1,
+            "x": 0,
+            "y": 0
+        }
+    },
+    "sknbtnDelete": {
+        "wType": "Button",
+        "bg_type": "one",
+        "border_color": "fa4b4b00",
+        "border_style": "rc",
+        "border_width": 1,
+        "border_type": 0,
+        "font_color": "ffffff00",
+        "font_name": "Helvetica",
+        "font_size": 99,
+        "font_style": "normal",
+        "font_weight": "normal",
+        "background_color": "f0567000",
+        "shadow": {
+            "br": 2,
+            "color": "00000019",
+            "ignoredPart": {
+                "br": 2,
+                "color": "ffffffbf",
+                "inner": true,
+                "nm": 0,
+                "x": 0,
+                "y": 1
+            },
+            "inner": false,
+            "nm": 0,
+            "x": 0,
+            "y": 2
+        },
+        "text_shadow": {
+            "br": 0,
+            "color": "0000003c",
+            "x": 0,
+            "y": -1
+        }
+    },
+    "skntxtAddNotefp": {
+        "wtype": "TextBox2",
+        "font_size": 120,
+        "font_color": "80808000",
+        "font_name": "HelveticaNeue",
+        "border_color": "c0c0c000",
+        "border_width": 1,
+        "border_style": "custom",
+        "border_radius": 3,
+        "shadow": {
+            "x": 0,
+            "y": 0,
+            "br": 0,
+            "color": "00000000",
+            "inner": false
+        }
+    },
+    "popNotesOptions": {
+        "wtype": "Label",
+        "font_size": 140,
+        "font_color": "6ac9e900",
+        "font_name": "HelveticaNeue",
+        "border_color": "00000000",
+        "border_width": 0,
+        "border_style": "plain",
+        "shadow": {
+            "x": 0,
+            "y": 0,
+            "br": 0,
+            "color": "00000000",
+            "inner": false
+        },
+        "text_shadow": {
+            "x": 0,
+            "y": 0,
+            "br": 0,
+            "color": "00000000"
+        }
+    },
+    "slTextArea": {
+        "wType": "TextArea",
+        "bg_type": "one",
+        "border_color": "45454500",
+        "border_style": "plain",
+        "border_width": 2,
+        "border_type": 0,
+        "font_color": "55555500",
+        "font_name": "Helvetica",
+        "font_size": 141,
+        "font_style": "normal",
+        "font_weight": "normal",
+        "background_color": "ffffff00"
+    },
+    "slTextBox": {
+        "wType": "TextField",
+        "bg_type": "one",
+        "border_color": "55555500",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "font_color": "55555500",
+        "font_name": "Helvetica",
+        "font_size": 126,
+        "font_style": "normal",
+        "font_weight": "normal",
+        "background_color": "ffffff00"
+    },
+    "slHbox": {
+        "wType": "HBox",
+        "bg_type": "one",
+        "border_color": "00000000",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "background_color": "00000064"
+    },
+    "slLabel": {
+        "wType": "Label",
+        "bg_type": "one",
+        "border_color": "42424200",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "font_color": "42424200",
+        "font_name": "Helvetica",
+        "font_size": 215,
+        "font_style": "normal",
+        "font_weight": "normal",
+        "background_color": "00000064"
+    },
+    "slButtonGlossBlue": {
+        "wType": "Button",
+        "bg_type": "ms_gradient",
+        "border_color": "ffffff00",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "font_color": "ffffff00",
+        "font_name": "Helvetica",
+        "font_size": 148,
+        "font_style": "normal",
+        "font_weight": "normal",
+        "background_color": {
+            "angle": 0,
+            "colors": [
+                "56a9dd00",
+                "3a83a700",
+                "4aa8d100"
+            ],
+            "cs": [
+                0,
+                50,
+                100
+            ],
+            "gt": "linear"
+        },
+        "background_style": "linear",
+        "text_shadow": {
+            "br": 0,
+            "color": "00000000",
+            "x": 0,
+            "y": -1
+        }
+    },
+    "slButtonGlossRed": {
+        "wType": "Button",
+        "bg_type": "ms_gradient",
+        "border_color": "ffffff00",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "font_color": "ffffff00",
+        "font_name": "Helvetica",
+        "font_size": 148,
+        "font_style": "normal",
+        "font_weight": "normal",
+        "background_color": {
+            "angle": 0,
+            "colors": [
+                "d62c3a00",
+                "bd142100",
+                "dd878d00"
+            ],
+            "cs": [
+                0,
+                50,
+                100
+            ],
+            "gt": "linear"
+        },
+        "background_style": "linear",
+        "text_shadow": {
+            "br": 0,
+            "color": "00000000",
+            "x": 0,
+            "y": -1
+        }
+    },
+    "slCheckBoxGroup": {
+        "wType": "CheckBoxGroup",
+        "bg_type": "one",
+        "border_color": "00000000",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "font_color": "00000000",
+        "font_name": "Helvetica",
+        "font_size": 156,
+        "font_style": "normal",
+        "font_weight": "normal",
+        "background_color": "ffffff00"
+    },
+    "slListBox": {
+        "wType": "ListBox",
+        "bg_type": "one",
+        "border_color": "45454500",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "font_color": "00000000",
+        "font_name": "Helvetica",
+        "font_size": 100,
+        "font_style": "normal",
+        "font_weight": "normal",
+        "background_color": "ffffff00"
+    },
+    "slRadioButtonGroup": {
+        "wType": "RadioButtonGroup",
+        "bg_type": "one",
+        "border_color": "00000000",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "font_color": "00000000",
+        "font_name": "Helvetica",
+        "font_size": 100,
+        "font_style": "normal",
+        "font_weight": "normal",
+        "background_color": "ffffff00"
+    },
+    "slForm": {
+        "wType": "Form",
+        "bg_type": "one",
+        "border_color": "ffffff00",
+        "background_color": "7e7e7e00"
+    },
+    "slTitleBar": {
+        "wType": "TitleBar",
+        "bg_type": "one",
+        "font_color": "33333300",
+        "font_name": "Arial, Helvetica, sans-serif",
+        "font_size": 100,
+        "font_weight": "normal",
+        "background_color": "ffffff00"
+    },
+    "tabCanvas": {
+        "wType": "TabPane",
+        "bg_type": "one",
+        "border_color": "41414100",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "font_color": "41414100",
+        "font_name": "Helvetica",
+        "font_size": 133,
+        "font_style": "normal",
+        "font_weight": "normal",
+        "background_color": "ffffff00"
+    },
+    "tabCanvasInactive": {
+        "wType": "TabPane",
+        "bg_type": "one",
+        "border_color": "ffffff00",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "font_color": "ffffff00",
+        "font_name": "Helvetica",
+        "font_size": 133,
+        "font_style": "normal",
+        "font_weight": "normal",
+        "background_color": "3f96be00"
+    },
+    "slTab": {
+        "wType": "Tab",
+        "bg_type": "one",
+        "border_color": "00000000",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "background_color": "ffffff00"
+    },
+    "slSliderLeftBlue": {
+        "wType": "Slider",
+        "bg_type": "one",
+        "border_color": "00000000",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "font_color": "00000000",
+        "font_name": "Helvetica",
+        "font_size": 119,
+        "font_style": "normal",
+        "font_weight": "normal",
+        "background_color": "167efc00"
+    },
+    "slSliderRightBlue": {
+        "wType": "Slider",
+        "bg_type": "one",
+        "border_color": "97979700",
+        "border_style": "plain",
+        "border_width": 1,
+        "border_type": 0,
+        "font_color": "00000000",
+        "font_name": "Helvetica",
+        "font_size": 119,
+        "font_style": "normal",
+        "font_weight": "normal",
+        "background_color": "b5b5b600"
+    },
+    "slDataGridHead": {
+        "wType": "DataGrid",
+        "bg_type": "two",
+        "border_color": "ffffff00",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "font_color": "ffffff00",
+        "font_name": "Helvetica",
+        "font_size": 156,
+        "font_style": "normal",
+        "font_weight": "normal",
+        "background_gradient_top_color": "44a5cf00",
+        "background_gradient_bottom_color": "33759700",
+        "background_style": "vg"
+    },
+    "slDataGridRow": {
+        "wType": "DataGrid",
+        "bg_type": "one",
+        "border_color": "59595900",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "font_color": "59595900",
+        "font_name": "Helvetica",
+        "font_size": 156,
+        "font_style": "normal",
+        "font_weight": "normal",
+        "background_color": "ffffff00"
+    },
+    "slDataGridFocusedRow": {
+        "wType": "DataGrid",
+        "bg_type": "one",
+        "border_color": "34586e00",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "font_color": "34586e00",
+        "font_name": "Helvetica",
+        "font_size": 156,
+        "font_style": "normal",
+        "font_weight": "normal",
+        "background_color": "ebebeb00"
+    },
+    "slDataGridAltRow": {
+        "wType": "DataGrid",
+        "bg_type": "one",
+        "border_color": "59595900",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "font_color": "59595900",
+        "font_name": "Helvetica",
+        "font_size": 156,
+        "font_style": "normal",
+        "font_weight": "normal",
+        "background_color": "ffffff00"
+    },
+    "slCamera": {
+        "wType": "Camera",
+        "bg_type": "one",
+        "border_color": "00000000",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "font_color": "00000000",
+        "font_name": "Helvetica",
+        "font_size": 100,
+        "font_style": "normal",
+        "font_weight": "normal",
+        "background_color": "00000064"
+    },
+    "slImageGallery": {
+        "wType": "IGallery",
+        "bg_type": "one",
+        "border_color": "00000000",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "font_color": "00000000",
+        "font_name": "Helvetica",
+        "font_size": 156,
+        "font_style": "normal",
+        "font_weight": "normal",
+        "background_color": "00000064"
+    },
+    "slPhone": {
+        "wType": "Phone",
+        "bg_type": "ms_gradient",
+        "border_color": "ffffff00",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "font_color": "ffffff00",
+        "font_name": "Helvetica",
+        "font_size": 148,
+        "font_style": "normal",
+        "font_weight": "normal",
+        "background_color": {
+            "angle": 0,
+            "colors": [
+                "454b5300",
+                "2b313b00",
+                "353d4500",
+                "6d717700"
+            ],
+            "cs": [
+                0,
+                50,
+                51,
+                100
+            ],
+            "gt": "linear"
+        },
+        "background_style": "linear"
+    },
+    "slPickerView": {
+        "wType": "PickerView",
+        "bg_type": "one",
+        "border_color": "00000000",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "font_color": "00000000",
+        "font_name": "Helvetica",
+        "font_size": 156,
+        "font_style": "normal",
+        "font_weight": "normal",
+        "background_color": "00000064"
+    },
+    "slSwitch": {
+        "wType": "Switch",
+        "bg_type": "one",
+        "border_color": "00000000",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "font_name": "Helvetica",
+        "font_size": 156,
+        "font_style": "normal",
+        "font_weight": "normal",
+        "left_background_color": "48d87400",
+        "right_background_color": "ffffff64",
+        "left_font_color": "ffffffff",
+        "right_font_color": "ffffffff"
+    },
+    "slScrollBox": {
+        "wType": "ScrollBox",
+        "bg_type": "one",
+        "border_color": "00000000",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "background_color": "86868600"
+    },
+    "slLine": {
+        "wType": "Line",
+        "bg_type": "one",
+        "border_color": "b3b3b300",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "font_color": "b3b3b300",
+        "font_name": "Helvetica",
+        "font_size": 156,
+        "font_style": "normal",
+        "font_weight": "normal",
+        "background_color": "b3b3b300"
+    },
+    "slLink": {
+        "wType": "Link",
+        "bg_type": "one",
+        "border_color": "42424200",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "font_color": "42424200",
+        "font_name": "Helvetica",
+        "font_size": 185,
+        "font_style": "normal",
+        "font_weight": "normal",
+        "background_color": "00000064"
+    },
+    "slRichText": {
+        "wType": "RichText",
+        "bg_type": "one",
+        "border_color": "42424200",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "font_color": "42424200",
+        "font_name": "Helvetica",
+        "font_size": 156,
+        "font_style": "normal",
+        "font_weight": "normal",
+        "background_color": "00000064"
+    },
+    "slCalendar": {
+        "wType": "Calendar",
+        "bg_type": "one",
+        "border_color": "00000000",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "font_color": "00000000",
+        "font_name": "Helvetica",
+        "font_size": 156,
+        "font_style": "normal",
+        "font_weight": "normal",
+        "background_color": "00000064"
+    },
+    "slComboBox": {
+        "wType": "ComboBox",
+        "bg_type": "one",
+        "border_color": "45454500",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "font_color": "00000000",
+        "font_name": "Helvetica",
+        "font_size": 100,
+        "font_style": "normal",
+        "font_weight": "normal",
+        "background_color": "ffffff00"
+    },
+    "seg2Normal": {
+        "wType": "Segment",
+        "bg_type": "one",
+        "border_color": "00000000",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "background_color": "ffffff00"
+    },
+    "seg2Focus": {
+        "wType": "Segment",
+        "bg_type": "one",
+        "border_color": "00000000",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "background_color": "00000064"
+    },
+    "sliPhoneSegmentHeader": {
+        "wType": "Segment",
+        "bg_type": "one",
+        "border_color": "00000000",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "background_color": "a7a7a700"
+    },
+    "Borderskin": {
+        "wType": "HStrip",
+        "bg_type": "one",
+        "border_color": "00000000",
+        "border_style": "plain",
+        "border_width": 0,
+        "border_type": 0,
+        "font_color": "00000000",
+        "font_name": "Helvetica",
+        "font_size": 156,
+        "font_style": "normal",
+        "font_weight": "normal",
+        "background_color": "00000064"
+    },
+    "slPopup": {
+        "wType": "Popup",
+        "bg_type": "one",
+        "background_color": "7e7e7e00"
+    },

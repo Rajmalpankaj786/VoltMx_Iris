@@ -1,0 +1,46 @@
+<DIV id="splashDiv">
+    <div id="splashScreen" class="splash" style="">
+        #parse("tpdesktopcommonsplashhtml.vm")
+    </div>
+    <script type="text/javascript">
+        function loadcss() {
+            var link = document.createElement('link');
+            link.setAttribute('rel', 'stylesheet');
+            link.setAttribute('type', 'text/css');
+            link.setAttribute('href', 'desktopweb/voltmxdesktop.css');
+            var head = document.getElementsByTagName('head')[0];
+            head.appendChild(link);
+        }
+
+
+
+        #if($enableProgressiveWeb == "true")
+            setTimeout(function() {
+                loadcss();
+                loadVoltmxframework();
+            }, 0);
+        #else
+            setTimeout(function() {
+                loadcss();
+                initappcache();
+            }, 0);
+        #end
+        #parse("tpdesktopindexscript.vm")
+
+
+
+    </script>
+ <style>
+    #JavaScriptDisabledErrorMsg { display:none; }
+ </style>
+ <noscript>
+    <style type='text/css'>
+        form {display: none !important}
+        * html ul li {height:1em; vertical-align:bottom;}
+        html {display : block}
+        #JavaScriptDisabledErrorMsg {display:block;}
+        #splashScreen_main{display:none;}
+    </style>
+ </noscript>
+ <div id="JavaScriptDisabledErrorMsg"> $javascripterrormsg </div>
+ </DIV>

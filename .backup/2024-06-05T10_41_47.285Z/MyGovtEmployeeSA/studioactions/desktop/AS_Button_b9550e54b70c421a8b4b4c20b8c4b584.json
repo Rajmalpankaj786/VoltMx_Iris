@@ -1,0 +1,29 @@
+{
+    "AS_Button_b9550e54b70c421a8b4b4c20b8c4b584": {
+        "id": "AS_Button_b9550e54b70c421a8b4b4c20b8c4b584",
+        "type": "ACTION_SEQUENCE",
+        "params": [{
+            "datatype": "collection",
+            "name": "eventobject"
+        }],
+        "contextObj": {
+            "name": "frmLogin",
+            "type": "forms",
+            "platform": "",
+            "KUID": "c05505e2339e4100993ab35238250a90"
+        },
+        "language": "js",
+        "actions": [{
+            "id": "NAVIGATE_TO_FORM__f9be55775e4745129f4cfd1eaca6f50b",
+            "type": "NAVIGATE_TO_FORM",
+            "formId": "frmDashboard",
+            "formKUID": "b96a695e717d448e8af6a7334c31812e",
+            "projectName": "MyGovtEmployeeSA",
+            "mappings": {},
+            "mappingsOrder": [],
+            "enableMappingEditor": true,
+            "package": "",
+            "isCustomInput": false
+        }]
+    }
+}

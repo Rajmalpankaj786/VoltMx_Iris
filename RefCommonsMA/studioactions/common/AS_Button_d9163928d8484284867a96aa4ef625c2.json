@@ -1,0 +1,32 @@
+{
+    "AS_Button_d9163928d8484284867a96aa4ef625c2": {
+        "id": "AS_Button_d9163928d8484284867a96aa4ef625c2",
+        "type": "ACTION_SEQUENCE",
+        "params": [{
+            "datatype": "collection",
+            "name": "eventobject"
+        }],
+        "contextObj": {
+            "name": "userwidgetmodel",
+            "type": "userwidgets",
+            "KUID": "u46a3d1e41a44f078f87adedeed3dc98"
+        },
+        "language": "js",
+        "actions": [{
+            "id": "SET_FORM_WIDGET_PROPERTY_Untitled__fefdeabf868b4924ae7b5af021b35f47",
+            "type": "SET_WIDGET_PROPERTY",
+            "itemType": "COMPONENT",
+            "itemId": "userwidgetmodel",
+            "widgetId": "infoalert",
+            "propertyName": "isVisible",
+            "propertyValue": "false",
+            "itemKUID": "u46a3d1e41a44f078f87adedeed3dc98",
+            "widgetKUID": "f54b22d9278f478eaf6ae8e76da06ba2",
+            "isSkinProperty": false,
+            "wType": "FlexContainer",
+            "forkedPlatform": "all",
+            "parentId": null,
+            "widgetPath": "this.view"
+        }]
+    }
+}

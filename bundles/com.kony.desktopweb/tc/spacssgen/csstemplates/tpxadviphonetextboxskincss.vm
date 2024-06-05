@@ -1,0 +1,29 @@
+#if($pimgexists=="true")
+input[selected="progress"][kprogressskin="$skin"]
+{
+    #if($background-color)
+         #if($rgba == "true")
+         background: url(./images/$pimgname) no-repeat, -webkit-gradient(linear, 0% 49%, 0% 50%, from($background-color), to($background-color));
+         #else
+         background: url(./images/$pimgname) no-repeat, -webkit-gradient(linear, 0% 49%, 0% 50%, from(#$background-color), to(#$background-color));
+         #end
+    #elseif($background-gradient)
+        background : url(./images/$pimgname) no-repeat, -webkit-gradient(linear, 0% 0%, 0% 100%, from($topcolor), to($bottomcolor));
+    #elseif($background-split)
+        background : url(./images/$pimgname) no-repeat, -webkit-gradient(linear, 0% 49%, 0% 50%, from($topcolor), to($bottomcolor));
+     #elseif($transparent)
+        background-image : url(./images/$pimgname) !important;
+        background-repeat: no-repeat;
+     #else
+        background: url(./images/$pimgname) no-repeat, url(./images/$background-image);
+    #end
+
+    #if($pimgloc=="left")
+    background-position: left center;
+    #elseif($pimgloc=="right")
+    background-position: right center;
+    #elseif($pimgloc=="center")
+    background-position: center center;
+    #end
+}
+#end

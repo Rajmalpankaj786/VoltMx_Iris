@@ -1,0 +1,47 @@
+#if($progressindicator=="true")
+input[selected="progress"][kprogressskin="$skin"]
+{
+background-image: url("./images/$pimgname") !important;
+background-repeat: no-repeat;
+background-position:$pimgloc;
+}
+#elseif($blocked_ui=="true")
+.$skin
+{
+ position:absolute;
+    z-index:998;
+    top:0;
+    right:0;
+    width: 100%;
+##height:396px;
+#if($background-color)
+        #if($rgba == "true")
+            #parse("tpdesktopie8transparency.vm")
+            filter: alpha(opacity=$opacity);
+        #else
+             #set($bc = "#" + $background-color)
+             background-color: $bc;
+        #end
+#elseif($background-gradient)
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$topcolor', endColorstr='$bottomcolor');
+#end
+background-image:url("./images/$bimgname");
+background-repeat:no-repeat;
+#if($bimgloc=="top")
+font-family:Helvetica;
+#elseif($bimgloc=="middle")
+font-family:Verdana;
+#else
+font-family:Arial;
+#end
+## added for the width and height of the blockuiimage
+#if($width)
+
+width:${width}px;
+#end
+#if($height)
+
+height:${height}px;
+#end
+}
+#end

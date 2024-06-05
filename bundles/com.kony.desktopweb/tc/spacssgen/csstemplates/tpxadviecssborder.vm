@@ -1,0 +1,33 @@
+#if ($border-width)
+        #set($bw = $border-width + "px")
+        #if ($border-color)
+            #if($rgba_border == "true")
+                #set($bc = $border-color)
+            #else
+                #set($bc = "#"+$border-color)
+            #end
+        #else
+            #set($bc = "#000000")
+        #end
+
+        border: $bw solid $bc;
+
+       #if ($border-style == "rc")
+            border-radius: 10px;
+       #else
+            border-radius: 0px;
+       #end
+
+
+       #if ($border-style == "custom")
+           #set($br= $border-radius + "px")
+            border-radius: $br;
+       #end
+
+#else
+    #if($wtype == "TextBox" || $wtype == "Calendar" )
+        -webkit-appearance: none;
+    #end
+#end
+
+

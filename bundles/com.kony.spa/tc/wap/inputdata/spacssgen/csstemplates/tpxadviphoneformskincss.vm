@@ -1,0 +1,37 @@
+#if($focusSkin)
+	#set($s = $skin)
+#else
+	#set($s = "." + $skin)
+#end
+
+$s
+{
+    #*box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding: 0px*#
+    #parse("tppalmmojocssfonts.vm")
+    #if($background-color)
+            #if($rgba == "true")
+                background-color : $background-color;
+            #else
+                #set($bc = "#" + $background-color)
+                background-color: $bc;
+            #end
+    #elseif($bg-grad-split-ms)
+       #parse("tpxadviphoneformcssbggradient.vm")
+    #elseif($background-image)
+        #set($formwidget = "true")
+        #parse("tpspagenericbgimage.vm")
+    #elseif($transparent)
+        background: transparent;
+    #end
+   #if($forking)
+        #parse("tpxadviphonecssborderspecific.vm")
+   #else
+        #parse("tpxadviphonecssborder.vm")
+   #end
+#if($forking)
+    
+    #parse("tpxadvshadowcss.vm")
+#end
+}

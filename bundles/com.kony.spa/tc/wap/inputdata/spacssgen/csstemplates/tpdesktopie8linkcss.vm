@@ -1,0 +1,67 @@
+#if($focusSkin)
+	#set($s = $skin)
+#else
+	#set($s = "." + $skin)
+#end
+$s{    
+    #if($forking)
+        #parse("tpxadviecssborderspecific.vm")
+    #else
+        #parse("tpxadviecssborder.vm")
+    #end
+    #parse("tppalmmojocssfonts.vm")
+     #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end
+    #if($background-color)
+        #if($rgba == "true")
+            #parse("tpdesktopie8transparency.vm")
+        #else
+             #set($bc = "#" + $background-color)
+             background-color: $bc;
+        #end
+    #elseif($bg-grad-split-ms)
+        #parse("tpxspaiecssbggradient.vm")
+    #elseif($background-image)
+        #if($repeat && $verticalrepeat)
+            background: url(./images/$background-image) repeat;
+        #elseif($repeat)
+            background: url(./images/$background-image) repeat-x;
+        #elseif($verticalrepeat)
+            background: url(./images/$background-image) repeat-y;
+        #else
+            background: url(./images/$background-image) no-repeat;
+        #end
+        #if($enable_bg_size == "true")
+                  background-size : 100% 100%;
+        #end
+    #else
+        background: inherit;
+    #end
+#if($forking)
+    #if($shadowoffsetx=="0px" && $shadowoffsety=="0px" && $shadowblurradius=="0px")
+    #else
+        #if($rgba_shadow=="true")
+            text-shadow: $shadowoffsetx $shadowoffsety $shadowblurradius $shadowcolor;
+        #else
+            text-shadow: $shadowoffsetx $shadowoffsety $shadowblurradius #$shadowcolor;
+        #end
+    #end
+#end    
+}
+$s a:link{
+   #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+   #end
+   #if($font-style=="normal")
+        text-decoration:none;
+   #end
+}

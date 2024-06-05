@@ -1,0 +1,729 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ==================================================== -->
+<!--      Build file for our first WAP application        -->
+<!--        build.xml, 1/May/2013                         -->
+<!--        Author: Narayana Murty T                      -->
+<!-- ==================================================== -->
+<project name="MainBuild" basedir=".">
+
+    <import file="common-build.xml" />
+
+    <!-- =================================
+          target: init
+         ================================= -->
+    <target name="init" depends="loadTaskDefs" description="init">
+    	<!-- if functionalModule.xml is there then rename it to functionalModules.xml for backward compatability.-->
+        <if>
+            <available file="${project.loc}/functionalmodules/functionalModule.xml"/>
+            <then>
+                <move overwrite="false" tofile="${project.loc}/functionalmodules/functionalModules.xml" file="${project.loc}/functionalmodules/functionalModule.xml" />
+            </then>
+         </if>
+        <if>
+        	<and>
+             <isset property="appfolder"/>
+             <available file="${project.loc}/functionalmodules/functionalModules.xml"/>
+        	</and>
+             <then>
+                <property name="DoubleQuotes" value="&quot;"/>
+                <java fork="true" failonerror="yes" jvm="${java.home}/bin/java" jar="${webcommons.plugin.loc}/common/KonyFMParser.jar">
+                        <arg value="${DoubleQuotes}${project.loc}/functionalmodules/functionalModules.xml${DoubleQuotes}"/>
+                        <arg value="${DoubleQuotes}${appfolder}/${outputdir}${DoubleQuotes}"/>
+                </java>
+             </then>
+         </if>
+    </target>
+
+    <target name="clean">
+    </target>
+
+    <target name="preparepublishfiles">
+        <if>
+            <equals arg1="${jsps.secure}" arg2="true" />
+            <then>
+                <property name="jspbase" value="/WEB-INF/"/>
+            </then>
+            <else>
+                <property name="jspbase" value="/"/>
+            </else>
+        </if>
+		<if>
+			<equals arg1="${buildtype}" arg2="zip"/>
+			<then>
+				<copy todir="${buildweb}/temp" overwrite="true" failonerror="false">
+					<fileset dir="${build.output}" includes="meta.json"/>
+				</copy>
+				<replace file="${buildweb}/temp/meta.json" token="@cacheid@" value="${web.cacheid}" />
+			</then>
+		</if>
+
+        <copy todir="${buildweb}/temp/WEB-INF/" overwrite="true">
+             <fileset file="${cgconf.base}/inputdata/webfiles/src/publish/web.xml" />
+        </copy>
+        <property file="${buildweb}/tc.properties" />
+
+        <replaceTokensInWebXml build.option="${build.option}" buildweb="${buildweb}/temp" http.port="${http.port}"
+                        https.port="${https.port}" jspbase="${jspbase}" locales="${locales}" sessionmgr="${sessionmgr}"
+                        spatargetplatforms="${spatargetplatforms}" devlanguage="${dev.language}" appid="${appid}"
+                        tctargetplatforms="${tctargetplatforms}" metaJsonfileName="${buildweb}/temp/meta.json" cacheid="${web.cacheid}" />
+
+         <if>
+             <equals arg1="${sessionmgr}" arg2="0" />
+             <then>
+                 <replace file="${buildweb}/temp/WEB-INF/web.xml" token="com.konylabs.middleware.common.DCFilter" value="com.konylabs.middleware.common.MemCacheDCFilter"/>
+             </then>
+         </if>
+    </target>
+
+    <target name="luaproject" depends="init,clean,  check-selections, spa-build, tc-build,preparepublishfiles" />
+    <target name="jsproject" depends="init,clean, check-selections, spa-build, tc-build,preparepublishfiles" />
+    <target name="runminify" depends="check-selections,seobuild, run-minify, buildwar, customPostBuildTask" />
+
+	<target name="seobuild">
+		<property name="seobuilddestlocation" value="${buildweb}/temp/spabot" />
+		<property name="seobuildoutputfile" value="seooutput.log" />
+		<property name="sitemapxmlpath" value="${project.loc}/seo/${sitemapxmlfilename}" />
+		<property name="seoconfigfilepath" value="${project.loc}/seo/${seoconfigfilename}" />
+		<property name="doubleQuote" value="&quot;" />
+		<delete dir="${seobuilddestlocation}" />
+		<delete file="${seobuildoutputfile}" />
+		<if>
+			<equals arg1="${enableseo}" arg2="true" />
+			<then>
+				<echo message="STARTED: SEO build process"/>
+				<mkdir dir="${seobuilddestlocation}"/>
+				<exec executable="${phantompath}/phantomjs"  failonerror="true">
+					<arg value="seo.js" />
+					 <arg line="${doubleQuote}destwebappdir=${seobuilddestlocation}${doubleQuote}"/>
+					 <arg line="${doubleQuote}sitemap=${sitemapxmlpath}${doubleQuote}"/>
+					 <arg line="${doubleQuote}configfile=${seoconfigfilepath}${doubleQuote}"/>
+					 <arg line="cacheid=${web.cacheid}"/>
+					 <arg line="buildtype=${buildtype}"/>
+					<redirector output="${seobuildoutputfile}" alwayslog="true"></redirector>
+				</exec>
+				<loadfile srcfile="${seobuildoutputfile}" property="errorline">
+				  <filterchain>
+					<linecontains>
+					  <contains value="PHANTOM ERROR:"></contains>
+					</linecontains>
+				  </filterchain>
+				</loadfile>
+				<fail message="SEO build generation failed.">
+					<condition>
+						<contains string="${errorline}" substring="PHANTOM ERROR:"/>
+					</condition>
+				 </fail>
+				<copy file="${sitemapxmlpath}" todir="${buildweb}/temp/"/>
+				<echo message="END: SEO build process. Please check above messages for SEO status"/>
+			</then>
+			<else>
+				<echo message="SEO build not enabled for this project."/>
+			</else>
+		</if>
+	</target>
+
+    <!--
+        TODO: Dependancy of createWebApp target to be removed for Node Build.
+              A switch to be given for desktopweb NodeBuild.
+    -->
+    <target name="createWebApp" depends="init">
+        <mkdir dir="${buildweb}/temp" />
+        <mkdir dir="${buildweb}/temp/WEB-INF/"/>
+
+        <if>
+            <equals arg1="${tc.plugin.loc}" arg2="" />
+            <then>
+                <property name="build.wap.base" location="${webcommons.plugin.loc}/common/wap" />
+                <unjar src="${webcommons.plugin.loc}/common/wap/lib/konyweblib.jar" dest="${buildweb}/temp/WEB-INF/classes" >
+                     <patternset>
+                            <include name="**/*.class"/>
+                     </patternset>
+                </unjar>
+            </then>
+            <else>
+                <property name="build.wap.base" location="${tc.plugin.loc}/tc/wap" />
+                <unjar src="${tc.plugin.loc}/tc/lib/konyweblib.jar" dest="${buildweb}/temp/WEB-INF/classes">
+                    <patternset>
+                            <include name="**/*.class"/>
+                     </patternset>
+                </unjar>
+            </else>
+        </if>
+
+        <echo message=" build.wap.base : ${build.wap.base}"/>
+        <property name="buildwebfiles" location="${build.wap.base}/inputdata/webfiles" />
+
+        <copy todir="${buildweb}" includeemptydirs="true" >
+            <fileset dir="${webcommons.plugin.loc}/tc" includes="**/*.*" excludes="**/classes/**,**/*.jar" />
+        </copy>
+        <if>
+            <equals arg1="${tc.plugin.loc}" arg2="" />
+            <then>
+            </then>
+            <else>
+                <copy todir="${buildweb}" includeemptydirs="true" >
+                    <fileset dir="${tc.plugin.loc}/tc/wap/tc" includes="**/*.*" excludes="**/classes/**,**/*.jar" />
+                </copy>
+                <copy todir="${buildweb}" includeemptydirs="true" >
+                    <fileset dir="${tc.plugin.loc}/tc/wap/inputdata/webfiles" includes="**/tparty/*.*" excludes="**/classes/**,**/*.jar" />
+                </copy>
+            </else>
+        </if>
+        <if>
+            <equals arg1="${spa.plugin.loc}" arg2="" />
+            <then>
+            </then>
+            <else>
+                <!-- Create Folder structure :-->
+                <ant antfile="${spa.plugin.loc}/tc/wap/spa-build.xml" target="createWEBINFFolders" />
+            </else>
+        </if>
+
+        <if>
+            <equals arg1="${desktopweb.plugin.loc}" arg2="" />
+            <then>
+            </then>
+            <else>
+                <!-- Create Folder structure :-->
+                <ant antfile="${desktopweb.plugin.loc}/tc/desktopweb/build.xml" target="createWEBINFFolders" />
+            </else>
+        </if>
+
+
+        <copy todir="${buildweb}" overwrite="true">
+            <fileset dir="${buildwebfiles}/src" includes="genericerror.jsp,robots.txt"/>
+        </copy>
+
+        <available file="${buildweb}/tparty" type="dir" property="tparty.present"/>
+        <if>
+            <equals arg1="${tparty.present}" arg2="true"/>
+            <then>
+                <copy todir="${buildweb}/tparty" overwrite="true">
+                    <fileset dir="${buildwebfiles}/tparty" includes="**/*.*"/>
+                </copy>
+            </then>
+        </if>
+
+
+        <mkdir dir="${buildweb}/WEB-INF" />
+
+        <copy todir="${buildweb}/WEB-INF" overwrite="true">
+            <fileset dir="${buildwebfiles}/src" includes="web.xml,jetty-env.xml"/>
+        </copy>
+        <copy todir="${buildweb}" overwrite="true">
+            <fileset dir="${buildwebfiles}/src" includes="version.html"/>
+        </copy>
+    </target>
+
+
+    <target name="spa-build" if="spa.selected" >
+        <ant target="-${dev.language}-project" antfile="spa-build.xml" />
+    </target>
+
+    <target name="tc-build" if="tc.selected">
+        <ant target="-${dev.language}-project" antfile="tc-build.xml" />
+    </target>
+
+    <target name="run-minify">
+        <delete dir="${buildweb}/temp" includes="**/*.css,**/*.js" />
+        <if>
+            <available file="tc-build.xml" type="file" />
+        <then>
+            <ant target="runminify" antfile="tc-build.xml" />
+        </then>
+        </if>
+        <if>
+            <available file="spa-build.xml" type="file" />
+        <then>
+            <ant target="runminify" antfile="spa-build.xml" />
+        </then>
+        </if>
+         <if>
+            <available file="../desktopweb/build.xml" type="file" />
+            <then>
+                <property file="${project.loc}/custombuild/spadw.properties" />
+                <if>
+                    <equals arg1="${desktopwebNodeBuild}" arg2="true"/>
+                    <then>
+                        <exec executable="${node.loc}" failonerror="true">
+                            <arg value="${desktopweb.plugin.loc}/tc/desktopweb/buildFiles/build.js"/>
+                            <arg value="--path=${appfolder}/build/spabuild.properties"/>
+                        </exec>
+                        <!--NOTE: Please copy buildFiles folder from desktopweb repo to desktopweb bundles <bundles/com.kony.desktopweb/tc/desktopweb>-->
+                    </then>
+                    <else>
+                        <ant target="runminify" antfile="../desktopweb/build.xml" />
+                    </else>
+                </if>
+            </then>
+        </if>
+    </target>
+
+	<target name="buildwar">
+		<property file="${project.loc}/custombuild/spadw.properties" />
+        <if>
+            <equals arg1="${desktopwebNodeBuild}" arg2="true"/>
+            <then>
+                <echo message="Zip Generation is done in node build"/>
+            </then>
+            <else>
+                <if>
+                    <equals arg1="${enableProgressiveWeb}" arg2="true"/>
+                    <then>
+                        <delete file="${buildweb}/temp/desktopweb/voltmx.manifest" failonerror="false"/>
+                        <copy todir="${buildweb}/temp" overwrite="true" failonerror="false">
+                            <fileset dir="${webfiles}/js/serviceworker" includes="*.js"/>
+                        </copy>
+                        <if>
+                            <equals arg1="${webLibraryMode}" arg2="css" />
+                            <then>
+                                <replace file="${buildweb}/temp/sw.js" token="@cssmode@" value="true" />
+                            </then>
+                            <else>
+                                <replace file="${buildweb}/temp/sw.js" token="@cssmode@" value="false" />
+                            </else>
+                        </if>
+                        <if>
+                            <equals arg1="${buildtype}" arg2="zip" />
+                            <then>
+                                <replace file="${buildweb}/temp/sw.js" token="@buildtype@" value="zip" />
+                            </then>
+                            <else>
+                                <replace file="${buildweb}/temp/sw.js" token="@buildtype@" value="war" />
+                            </else>
+                        </if>
+                        <if>
+                            <available file="${serviceWorkerFile}" type="file" />
+                            <then>
+                                <copy file="${serviceWorkerFile}" tofile="${buildweb}/temp/sw.js" overwrite="true" />
+                            </then>
+                            <else>
+                                <replace file="${buildweb}/temp/sw.js" token="@cacheversion@" value="${web.cacheversion}" />
+                                <if>
+                                    <available file="${serviceWorkerHelperFile}" type="file" />
+                                    <then>
+                                        <copy file="${serviceWorkerHelperFile}" tofile="${buildweb}/temp/sw-helper.js" overwrite="true" />
+                                        <replace file="${buildweb}/temp/sw.js" token="@isSWHelperAvailable@" value="true" />
+                                    </then>
+                                    <else>
+                                        <replace file="${buildweb}/temp/sw.js" token="@isSWHelperAvailable@" value="false" />
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                        <replace file="${buildweb}/temp/sw-ext.js" token="@cacheid@" value="${web.cacheid}" />
+                        <if>
+                            <equals arg1="${enablePushNotificationsDW}" arg2="true"/>
+                            <then>
+                                <replace file="${buildweb}/temp/sw-ext.js" token="@fcmsenderid@" value="${fcmsenderid}" />
+                            </then>
+                            <else>
+                                <replace file="${buildweb}/temp/sw-ext.js" token="@fcmsenderid@" value="" />
+                            </else>
+                        </if>
+                    </then>
+                    <else>
+                        <delete file="${buildweb}/temp/sw.js" failonerror="false"/>
+                        <delete file="${buildweb}/temp/sw-ext.js" failonerror="false"/>
+                        <delete file="${buildweb}/temp/sw-helper.js" failonerror="false"/>
+                    </else>
+                </if>
+                <if>
+                <equals arg1="${buildtype}" arg2="zip"/>
+                <then>
+                    <mkdir dir="${cgconf.base}/build" />
+                    <delete dir="${buildweb}/temp/WEB-INF" failonerror="false"/>
+                    <for list="spaiphone,spaandroid,spablackberry,spawindows,spawinphone8,spaipad,spaandroidtablet,spawindowstablet,desktopweb" param="build.cat">
+                        <sequential>
+                            <condition property="build.for.@{build.cat}">
+                                <or>
+                                    <available file="${buildweb}/@{build.cat}/appjs/app.js" type="file" />
+                                </or>
+                            </condition>
+                        </sequential>
+                    </for>
+                    <delete file="${cgconf.base}/build/${w.context}.zip" failonerror="false"/>
+                    <zip destfile="${cgconf.base}/build/${w.context}.zip" duplicate="preserve">
+                        <mappedresources>
+                            <fileset dir="${buildweb}">
+                                <include name="spaiphone/**/images/**/*.*" if="build.for.spaiphone" />
+                                <include name="spaiphone/**/*.ttf" if="build.for.spaiphone" />
+                                <include name="spaiphone/**/*.eot" if="build.for.spaiphone" />
+                                <include name="spaiphone/**/*.otf" if="build.for.spaiphone" />
+                            </fileset>
+                            <globmapper from="*" to="${web.cacheid}/*"/>
+                        </mappedresources>
+                        <mappedresources>
+                            <fileset dir="${buildweb}" >
+                                <include name="spaandroid/**/images/**/*.*" if="build.for.spaandroid" />
+                                <include name="spaandroid/**/*.ttf" if="build.for.spaandroid" />
+                                <include name="spaandroid/**/*.eot" if="build.for.spaandroid" />
+                                <include name="spaandroid/**/*.otf" if="build.for.spaandroid" />
+                            </fileset>
+                            <globmapper from="*" to="${web.cacheid}/*"/>
+                        </mappedresources>
+                        <mappedresources>
+                            <fileset dir="${buildweb}" >
+                                <include name="spablackberry/**/images/**/*.*" if="build.for.spablackberry" />
+                                <include name="spablackberry/**/*.ttf" if="build.for.spablackberry" />
+                                <include name="spablackberry/**/*.eot" if="build.for.spablackberry" />
+                                <include name="spablackberry/**/*.otf" if="build.for.spablackberry" />
+                            </fileset>
+                            <globmapper from="*" to="${web.cacheid}/*"/>
+                        </mappedresources>
+                        <mappedresources>
+                            <fileset dir="${buildweb}" >
+                                <include name="spawindows/**/images/**/*.*" if="build.for.spawindows" />
+                                <include name="spawindows/**/*.ttf" if="build.for.spawindows" />
+                                <include name="spawindows/**/*.eot" if="build.for.spawindows" />
+                                <include name="spawindows/**/*.otf" if="build.for.spawindows" />
+                            </fileset>
+                            <globmapper from="*" to="${web.cacheid}/*"/>
+                        </mappedresources>
+                        <mappedresources>
+                            <fileset dir="${buildweb}" >
+                                <include name="spawinphone8/**/images/**/*.*" if="build.for.spawinphone8" />
+                                <include name="spawinphone8/**/*.ttf" if="build.for.spawinphone8" />
+                                <include name="spawinphone8/**/*.eot" if="build.for.spawinphone8" />
+                                <include name="spawinphone8/**/*.otf" if="build.for.spawinphone8" />
+                            </fileset>
+                            <globmapper from="*" to="${web.cacheid}/*"/>
+                        </mappedresources>
+                        <mappedresources>
+                            <fileset dir="${buildweb}">
+                                <include name="spaipad/**/images/**/*.*" if="build.for.spaipad" />
+                                <include name="spaipad/**/*.ttf" if="build.for.spaipad" />
+                                <include name="spaipad/**/*.eot" if="build.for.spaipad" />
+                                <include name="spaipad/**/*.otf" if="build.for.spaipad" />
+                            </fileset>
+                            <globmapper from="*" to="${web.cacheid}/*"/>
+                        </mappedresources>
+                        <mappedresources>
+                            <fileset dir="${buildweb}" >
+                                <include name="spaandroidtablet/**/images/**/*.*" if="build.for.spaandroidtablet" />
+                                <include name="spaandroidtablet/**/*.ttf" if="build.for.spaandroidtablet" />
+                                <include name="spaandroidtablet/**/*.eot" if="build.for.spaandroidtablet" />
+                                <include name="spaandroidtablet/**/*.otf" if="build.for.spaandroidtablet" />
+                            </fileset>
+                            <globmapper from="*" to="${web.cacheid}/*"/>
+                        </mappedresources>
+                        <mappedresources>
+                            <fileset dir="${buildweb}" >
+                                <include name="spawindowstablet/**/images/**/*.*" if="build.for.spawindowstablet" />
+                                <include name="spawindowstablet/**/*.ttf" if="build.for.spawindowstablet" />
+                                <include name="spawindowstablet/**/*.eot" if="build.for.spawindowstablet" />
+                                <include name="spawindowstablet/**/*.otf" if="build.for.spawindowstablet" />
+                            </fileset>
+                            <globmapper from="*" to="${web.cacheid}/*"/>
+                        </mappedresources>
+                        <mappedresources>
+                            <fileset dir="${buildweb}" >
+                                <include name="desktopweb/**/images/**/*.*" if="build.for.desktopweb" />
+                                <include name="desktopweb/**/*.html" if="build.for.desktopweb" />
+                                <exclude name="desktopweb/**/index.html"/>
+                                <include name="desktopweb/**/*.ttf" if="build.for.desktopweb" />
+                                <include name="desktopweb/**/*.eot" if="build.for.desktopweb" />
+                                <include name="desktopweb/**/*.otf" if="build.for.desktopweb" />
+                            </fileset>
+                            <globmapper from="*" to="${web.cacheid}/*"/>
+                        </mappedresources>
+                        <mappedresources>
+                            <fileset dir="${buildweb}">
+                                <exclude name="sw.js" />
+                                <exclude name="sw-*.js" />
+                                <include name="*.js" />
+                                <include name="*.html" />
+                                <include name="*.png" />
+                                <include name="*.ico" />
+                                <include name="tparty/**/*.*" />
+                            </fileset>
+                            <globmapper from="*" to="${web.cacheid}/*"/>
+                        </mappedresources>
+                        <mappedresources>
+                            <fileset dir="${buildweb}/temp">
+                                <exclude name="**/*.xml"/>
+                                <exclude name="sw.js" />
+                                <exclude name="sw-*.js" />
+                                <exclude name="meta.json"/>
+                                <exclude name="**/voltmx.manifest"/>
+                            </fileset>
+                            <globmapper from="*" to="${web.cacheid}/*"/>
+                        </mappedresources>
+                        <fileset dir="${buildweb}/temp">
+                            <include name="meta.json"/>
+                            <include name="sw.js" />
+                            <include name="sitemap.xml" />
+                        </fileset>
+                        <fileset dir="${buildweb}">
+                            <include name="robots.txt" />
+                        </fileset>
+                        <mappedresources>
+                            <fileset dir="${buildweb}/temp">
+                                <include name="**/voltmx.manifest"/>
+                                <include name="**/sw-*.js"/>
+                            </fileset>
+                            <globmapper from="*" to="nocache/*"/>
+                        </mappedresources>
+                        <mappedresources>
+                            <fileset erroronmissingdir="false" dir="${project.loc}/_nocache">
+                                <include name="**/*.*"/>
+                                <exclude name="**/voltmx.manifest"/>
+                            </fileset>
+                            <globmapper from="*" to="nocache/*"/>
+                        </mappedresources>
+                    </zip>
+                </then>
+                <else>
+                <!-- Copy all files from buildweb into Jar file -->
+                <for list="iphone,android,bb,nth,palm,bjs,spaiphone,spaandroid,spablackberry,spabbnth,spawindows,spawinphone8,spaipad,spaandroidtablet,spawindowstablet,desktopweb" param="build.cat">
+                    <sequential>
+                        <condition property="build.for.@{build.cat}">
+                            <or>
+                                <available file="${buildweb}/@{build.cat}/appjs/app.js" type="file" />
+                                <available file="${buildweb}/WEB-INF/scripts/@{build.cat}webluascript.o" type="file" />
+                            </or>
+                        </condition>
+                    </sequential>
+                </for>
+                <condition property="build.for.xhtml">
+                    <or>
+                    <available file="${buildweb}/xhtml/appjs/app.js" type="file" />
+                    <available file="${buildweb}/WEB-INF/scripts/basicwebluascript.o" type="file" />
+                    </or>
+                </condition>
+                <mkdir dir="${cgconf.base}/build" />
+                <delete file="${cgconf.base}/build/${w.context}-local.war" failonerror="false"/>
+                <if>
+                <equals arg1="${port.changed}" arg2="true"/>
+                <then>
+                <property name="port.changed.true" value="true"/>
+                </then>
+                </if>
+                <echo message="port.changed.true ${port.changed.true} ${port.changed}"/>
+                <jar jarfile="${cgconf.base}/build/${w.context}-local.war" duplicate="preserve">
+                    <fileset dir="${buildweb}">
+                        <include name="WEB-INF/iphone/*.jsp" if="build.for.iphone" />
+                        <include name="iphone/**/*.*" if="build.for.iphone" />
+                        <exclude name="iphone/*.*" if="build.for.iphone" />
+                        <exclude name="iphone/**/*.css" if="build.for.iphone" />
+                        <exclude name="WEB-INF/iphone/head*.*" if="build.for.iphone" />
+                    </fileset>
+                    <fileset dir="${buildweb}">
+                        <include name="WEB-INF/android/*.jsp" if="build.for.android" />
+                        <include name="android/**/*.*" if="build.for.android" />
+                        <exclude name="android/*.*" if="build.for.android" />
+                        <exclude name="android/**/*.css" if="build.for.android" />
+                        <exclude name="WEB-INF/android/head*.*" if="build.for.android" />
+                    </fileset>
+                    <fileset dir="${buildweb}">
+                        <include name="WEB-INF/bb/*.jsp" if="build.for.bb" />
+                        <include name="bb/**/*.*" if="build.for.bb" />
+                        <exclude name="bb/*.*" if="build.for.bb" />
+                        <exclude name="bb/**/*.css" if="build.for.bb" />
+                        <exclude name="WEB-INF/bb/head*.*" if="build.for.bb" />
+                    </fileset>
+                    <fileset dir="${buildweb}">
+                        <include name="WEB-INF/nth/*.jsp" if="build.for.nth" />
+                        <include name="nth/**/*.*" if="build.for.nth" />
+                        <exclude name="nth/*.*" if="build.for.nth" />
+                        <exclude name="nth/**/*.css" if="build.for.nth" />
+                        <exclude name="WEB-INF/nth/head*.*" if="build.for.nth" />
+                    </fileset>
+                    <fileset dir="${buildweb}">
+                        <include name="WEB-INF/palm/*.jsp" if="build.for.palm" />
+                        <include name="palm/**/*.*" if="build.for.palm" />
+                        <exclude name="palm/*.*" if="build.for.palm" />
+                        <exclude name="palm/**/*.css" if="build.for.palm" />
+                        <exclude name="WEB-INF/palm/head*.*" if="build.for.palm" />
+                    </fileset>
+                    <fileset dir="${buildweb}">
+                        <include name="WEB-INF/bjs/*.jsp" if="build.for.bjs" />
+                        <include name="WEB-INF/win/*.jsp" if="build.for.bjs" />
+                        <include name="bjs/**/*.*" if="build.for.bjs" />
+                        <exclude name="bjs/**/*.css" if="build.for.bjs" />
+                        <exclude name="bjs/*.*" if="build.for.bjs" />
+                        <exclude name="/WEB-INF/bjs/bjshead*.*" if="build.for.bjs" />
+                        <exclude name="/WEB-INF/win/bjshead*.*" if="build.for.bjs" />
+                    </fileset>
+                    <fileset dir="${buildweb}" >
+                        <include name="WEB-INF/xhtml/*.jsp" if="build.for.xhtml" />
+                        <include name="xhtml/**/*.*" if="build.for.xhtml" />
+                        <exclude name="xhtml/*.js" if="build.for.xhtml" />
+                    </fileset>
+                    <fileset dir="${buildweb}">
+                        <include name="spaiphone/**/images/**/*.*" if="build.for.spaiphone" />
+                        <include name="spaiphone/**/*.ttf" if="build.for.spaiphone" />
+                        <include name="spaiphone/**/*.eot" if="build.for.spaiphone" />
+                        <include name="spaiphone/**/*.otf" if="build.for.spaiphone" />
+                        <include name="spaiphone/*.js" if="build.for.spaiphone" />
+                    </fileset>
+                    <fileset dir="${buildweb}" >
+                        <include name="spaandroid/**/images/**/*.*" if="build.for.spaandroid" />
+                        <include name="spaandroid/**/*.ttf" if="build.for.spaandroid" />
+                        <include name="spaandroid/**/*.eot" if="build.for.spaandroid" />
+                        <include name="spaandroid/**/*.otf" if="build.for.spaandroid" />
+                        <include name="spaandroid/*.js" if="build.for.spaandroid" />
+                    </fileset>
+                    <fileset dir="${buildweb}" >
+                        <include name="spablackberry/**/images/**/*.*" if="build.for.spablackberry" />
+                        <include name="spablackberry/**/*.ttf" if="build.for.spablackberry" />
+                        <include name="spablackberry/**/*.eot" if="build.for.spablackberry" />
+                        <include name="spablackberry/**/*.otf" if="build.for.spablackberry" />
+                        <include name="spablackberry/*.js" if="build.for.spablackberry" />
+                    </fileset>
+                    <fileset dir="${buildweb}" >
+                        <include name="spabbnth/**/images/**/*.*" if="build.for.spabbnth" />
+                        <include name="spabbnth/**/*.ttf" if="build.for.spabbnth" />
+                        <include name="spabbnth/**/*.eot" if="build.for.spabbnth" />
+                        <include name="spabbnth/**/*.otf" if="build.for.spabbnth" />
+                        <include name="spabbnth/*.js" if="build.for.spabbnth" />
+                    </fileset>
+                    <fileset dir="${buildweb}" >
+                        <include name="spawindows/**/images/**/*.*" if="build.for.spawindows" />
+                        <include name="spawindows/**/*.ttf" if="build.for.spawindows" />
+                        <include name="spawindows/**/*.eot" if="build.for.spawindows" />
+                        <include name="spawindows/**/*.otf" if="build.for.spawindows" />
+                        <include name="spawindows/*.js" if="build.for.spawindows" />
+                    </fileset>
+                    <fileset dir="${buildweb}" >
+                        <include name="spawinphone8/**/images/**/*.*" if="build.for.spawinphone8" />
+                        <include name="spawinphone8/**/*.ttf" if="build.for.spawinphone8" />
+                        <include name="spawinphone8/**/*.eot" if="build.for.spawinphone8" />
+                        <include name="spawinphone8/**/*.otf" if="build.for.spawinphone8" />
+                        <include name="spawinphone8/*.js" if="build.for.spawinphone8" />
+                    </fileset>
+                    <fileset dir="${buildweb}">
+                        <include name="spaipad/**/images/**/*.*" if="build.for.spaipad" />
+                        <include name="spaipad/**/*.ttf" if="build.for.spaipad" />
+                        <include name="spaipad/**/*.eot" if="build.for.spaipad" />
+                        <include name="spaipad/**/*.otf" if="build.for.spaipad" />
+                        <include name="spaipad/*.js" if="build.for.spaipad" />
+                    </fileset>
+                    <fileset dir="${buildweb}" >
+                        <include name="spaandroidtablet/**/images/**/*.*" if="build.for.spaandroidtablet" />
+                        <include name="spaandroidtablet/**/*.ttf" if="build.for.spaandroidtablet" />
+                        <include name="spaandroidtablet/**/*.eot" if="build.for.spaandroidtablet" />
+                        <include name="spaandroidtablet/**/*.otf" if="build.for.spaandroidtablet" />
+                        <include name="spaandroidtablet/*.js" if="build.for.spaandroidtablet" />
+                    </fileset>
+                    <fileset dir="${buildweb}" >
+                        <include name="spawindowstablet/**/images/**/*.*" if="build.for.spawindowstablet" />
+                        <include name="spawindowstablet/**/*.ttf" if="build.for.spawindowstablet" />
+                        <include name="spawindowstablet/**/*.eot" if="build.for.spawindowstablet" />
+                        <include name="spawindowstablet/**/*.otf" if="build.for.spawindowstablet" />
+                        <include name="spawindowstablet/*.js" if="build.for.spawindowstablet" />
+                    </fileset>
+                    <fileset dir="${buildweb}" >
+                        <include name="desktopweb/**/images/**/*.*" if="build.for.desktopweb" />
+                        <include name="desktopweb/**/*.html" if="build.for.desktopweb" />
+                        <exclude name="desktopweb/**/index.html"/>
+                        <include name="desktopweb/**/*.ttf" if="build.for.desktopweb" />
+                        <include name="desktopweb/**/*.eot" if="build.for.desktopweb" />
+                        <include name="desktopweb/**/*.otf" if="build.for.desktopweb" />
+                    </fileset>
+                    <fileset dir="${buildweb}">
+                        <include name="*.jsp" />
+                        <include name="*.js" />
+                        <include name="*.html" />
+                        <include name="*.txt" />
+                        <include name="*.png" />
+                        <include name="*.ico" />
+                        <include name="tparty/**/*.*" />
+                        <include name="**/*.o" />
+                        <include name="WEB-INF/classes/**/*.*" />
+                        <exclude name="sw.js" />
+                        <exclude name="sw-*.js" />
+                    </fileset>
+                    <mappedresources>
+                        <fileset dir="${buildweb}/temp">
+                            <include name="sw-*.js"/>
+                        </fileset>
+                        <globmapper from="*" to="nocache/*"/>
+                    </mappedresources>
+                    <fileset dir="${buildweb}/temp">
+                        <exclude name="meta.json" />
+                        <exclude name="sw-*.js" />
+                        <exclude name="**/*.xml" if="port.changed.true" />
+                    </fileset>
+                    <fileset dir=".">
+                        <include name="WEB-INF/web.xml" if="port.changed.true" />
+                    </fileset>
+                </jar>
+                </else>
+                </if>
+            </else>
+        </if>
+        <tstamp>
+            <format property="current.time" pattern="dd/MM/yyyy hh:mm:ss"/>
+        </tstamp>
+        <echo message="END OF DESKTOP WEB BUILD ${current.time} "/>
+    </target>
+
+    <target name="check-selections" depends="loadTaskDefs">
+        <condition property="spa.selected">
+            <or>
+                <equals arg1="${spaiphone.selected}" arg2="true"/>
+                <equals arg1="${spaandroid.selected}" arg2="true"/>
+                <equals arg1="${spablackberry.selected}" arg2="true"/>
+                <equals arg1="${spaipad.selected}" arg2="true"/>
+            	<equals arg1="${spabbnth.selected}" arg2="true"/>
+                <equals arg1="${spawindowstablet.selected}" arg2="true"/>
+                <equals arg1="${spaandroidtablet.selected}" arg2="true"/>
+                <equals arg1="${spaplaybook.selected}" arg2="true"/>
+                <equals arg1="${spawindows.selected}" arg2="true"/>
+                <equals arg1="${spawinphone8.selected}" arg2="true"/>
+                <equals arg1="${playbook.selected}" arg2="true"/>
+            </or>
+        </condition>
+        <condition property="tc.selected">
+            <or>
+                <equals arg1="${xhtmladviphone.selected}" arg2="true"/>
+                <equals arg1="${xhtmladvandroid.selected}" arg2="true"/>
+                <equals arg1="${xhtmladvnth.selected}" arg2="true"/>
+                <equals arg1="${xhtmladvpalm.selected}" arg2="true"/>
+                <equals arg1="${xhtmladvbb.selected}" arg2="true"/>
+                <equals arg1="${bjs.selected}" arg2="true"/>
+                <equals arg1="${xhtmlnormal.selected}" arg2="true"/>
+            </or>
+        </condition>
+        <echo message="spa selected: ${spa.selected}" />
+        <echo message="tc selected: ${tc.selected}" />
+    </target>
+
+    <target name="replaceTokensInWebXml" depends="loadTaskDefs">
+        <replaceTokensInWebXml build.option="${build.option}" buildweb="${buildweb}" http.port="${http.port}"
+                        https.port="${https.port}" jspbase="${jspbase}" locales="${locales}" sessionmgr="${sessionmgr}"
+                        spatargetplatforms="${spatargetplatforms}" devlanguage="${dev.language}" appid="${appid}"
+                        tctargetplatforms="${tctargetplatforms}" metaJsonfileName="" cacheid="" />
+    </target>
+
+    <target name="customPostBuildTask">
+        <if>
+            <available file="${project.loc}/custombuild/build.xml" type="file" />
+            <then>
+                <if>
+                    <equals arg1="${buildtype}" arg2="zip" />
+                    <then>
+                        <property name="webartifactpath" value="${cgconf.base}/build/${w.context}.zip" />
+                        <property name="webartifactname" value="${w.context}" />
+                    </then>
+                    <else>
+                        <property name="webartifactpath" value="${cgconf.base}/build/${w.context}-local.war" />
+                        <property name="webartifactname" value="${w.context}-local" />
+                    </else>
+                </if>
+                <property name="webartifactfolder" value="${cgconf.base}/build" />
+                <property name="webartifacttype" value="${buildtype}" />
+                <property name="isAsync" value="${enableasyncdesktopweb}" />
+                <property name="keys.dir" value="${workspace.loc}/__encryptionkeys" />
+                <property name="konyproject.dir" value="${project.loc}" />
+                <ant target="postbuild" antfile="${project.loc}/custombuild/build.xml" />
+            </then>
+            <else>
+                <echo message="No custom build task found for SPA/Desktopweb." />
+            </else>
+        </if>
+    </target>
+
+
+</project>

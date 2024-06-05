@@ -1,0 +1,62 @@
+<style type="text/css" media="screen">
+    .splash {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        bottom: 0px;
+        #if($splashImage)
+            #if(!$locales)
+                background : #if($bgcolor) $bgcolor #else rgba(255, 0, 0,0.5) #end url(${category}images/$splashImage) no-repeat fixed center center;
+            #end
+        #else
+        background-color: $bgcolor;
+        #end
+        animation: fadein 1.5s ease-in;
+        -moz-animation: fadein 1.5s ease-in;
+    }
+
+    @-webkit-keyframes fadein
+    {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    keyframes fadein
+    {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+</style>
+
+#if($locales && $splashImage)
+        <script type="text/javascript">
+            function getLang() {
+                if (navigator.language != undefined)
+                    return navigator.language;
+                else if(navigator.browserLanguage != undefined)
+                    return  navigator.browserLanguage;
+                else
+                        return "";
+            }
+
+            function appendSplashImage() {
+                    var locales = $locales; // Locales
+                    var browserLocale = getLang().replace("-","_");
+                    var defaultLocale = "$default_locale"; // default locale
+                    var splashImage = "$splashImage";
+                    var ss=document.getElementById("splashScreen");
+                    if(ss) {
+                           if(browserLocale && browserLocale !="" && locales.indexOf(browserLocale) >= 0 ){
+                                   ss.style.background = "$bgcolor url('${category}images/"+browserLocale+"/"+splashImage+"') no-repeat fixed center center";
+                           } else if(defaultLocale != "") {
+                                   ss.style.background = "$bgcolor url('${category}images/"+defaultLocale+"/"+splashImage+"') no-repeat fixed center center";
+                           } else {
+                                   ss.style.background = "$bgcolor url('${category}images/"+splashImage+"') no-repeat fixed center center";
+                           }
+                    }
+            }
+            setTimeout(function(){appendSplashImage()},100);
+        </script>
+#end
+

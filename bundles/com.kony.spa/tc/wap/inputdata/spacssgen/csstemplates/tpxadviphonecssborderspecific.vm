@@ -1,0 +1,231 @@
+##parsing border top
+#set($btc="")
+#set($brc="")
+#set($bbc="")
+#set($blc="")
+#if ($border-top-width)
+    #set($btw = $border-top-width + "px")
+    #if ($border-top-color)
+        #if($rgba_top_border == "true")
+             #set( $btc = $border-top-color)
+        #else
+             #set( $btc = "#"+$border-top-color)
+        #end
+    #else
+        #set( $btc = "#000000")
+    #end
+   ## border-top: $btw solid $btc;
+#end
+##parsing border right
+#if ($border-right-width)
+    #set($brw = $border-right-width + "px")
+    #if ($border-right-color)
+        #if($rgba_right_border == "true")
+             #set( $brc = $border-right-color)
+        #else
+             #set( $brc = "#"+$border-right-color)
+        #end
+    #else
+        #set( $brc = "#000000")
+    #end
+   ## border-right: $brw solid $brc;
+#end
+##parsing border bottom
+#if ($border-bottom-width)
+    #set($bbw = $border-bottom-width + "px")
+    #if ($border-bottom-color)
+        #if($rgba_bottom_border == "true")
+             #set( $bbc = $border-bottom-color)
+        #else
+             #set( $bbc = "#"+$border-bottom-color)
+        #end
+    #else
+        #set( $bbc = "#000000")
+    #end
+   ## border-bottom: $bbw solid $bbc;
+#end
+##parsing border left
+#if ($border-left-width)
+    #set($blw = $border-left-width + "px")
+    #if ($border-left-color)
+        #if($rgba_left_border == "true")
+             #set( $blc = $border-left-color)
+        #else
+             #set( $blc = "#"+$border-left-color)
+        #end
+    #else
+        #set( $blc = "#000000")
+    #end
+   ## border-left: $blw sol$btw && id $blc;
+#end
+
+#if($btw && ($btw == $bbw) && ($btw == $brw) && ($btw == $blw) && ($btc == $bbc) && ($btc == $brc) && ($btc == $blc))
+    border : $btw solid $btc;
+#else
+   #if ($border-top-width)
+    border-top: $btw solid $btc;
+   #end
+    #if ($border-right-width)
+    border-right: $brw solid $brc;
+   #end
+   #if ($border-bottom-width)
+    border-bottom: $bbw solid $bbc;
+   #end
+   #if($border-left-width)
+    border-left: $blw solid $blc;
+   #end
+#end
+
+ #if($border-top-left-radius && ($border-top-left-radius == $border-top-right-radius) &&
+     ($border-top-left-radius== $border-bottom-left-radius) &&
+     ($border-top-left-radius== $border-bottom-right-radius))
+       -webkit-border-radius: ${border-top-left-radius}px;
+       border-radius: ${border-top-left-radius}px;
+ #else
+
+    #if ($border-top-left-style)
+        -webkit-border-top-left-radius: ${border-top-left-radius}px;
+    #end
+    #if ($border-top-right-style)
+        -webkit-border-top-right-radius: ${border-top-right-radius}px;
+    #end
+    #if ($border-bottom-left-style)
+       -webkit-border-bottom-left-radius: ${border-bottom-left-radius}px;
+    #end
+    #if ($border-bottom-right-style)
+        -webkit-border-bottom-right-radius: ${border-bottom-right-radius}px;
+    #end
+  #end
+
+
+
+
+
+
+
+##commented shorthand notation for rounded corner because old browsers like iphone3, android 1.6 emulator.
+#*
+#if ($border-top-left-style)
+    #set($btlr = ${border-top-left-radius} +"px")
+#else
+    #set($btlr= "0px")
+#end
+#if ($border-top-right-style)
+    #set($btrr = ${border-top-right-radius} +"px")
+#else
+    #set($btrr= "0px")
+#end
+#if ($border-bottom-right-style)
+    #set($bbrr = ${border-bottom-right-radius} +"px")
+#else
+    #set($bbrr= "0px")
+#end
+#if ($border-bottom-left-style)
+    #set($bblr = ${border-bottom-left-radius} +"px")
+#else
+    #set($bblr= "0px")
+#end
+#if(!($btlr=="0px" && $btrr=="0px" && $bbrr=="0px" && $bblr=="0px"))
+    -webkit-border-radius: $btlr $btrr $bbrr $bblr;
+    border-radius: $btlr $btrr $bbrr $bblr;
+#end
+*#
+
+##old implementation(upto 3.0, from 3.1 onwards we used short hand notation for border)
+#*
+#if ($border-top-width)
+    #set($bw = $border-top-width + "px")
+    border-top-width: $bw;
+    border-top-style: solid;
+    #if ($border-top-color)
+        #if($rgba_top_border == "true")
+             border-top-color : $border-top-color;
+        #else
+             border-top-color : #$border-top-color;
+        #end
+    #else
+        border-top-color : #000000;
+    #end
+#end
+
+#if ($border-right-width)
+    #set($bw = $border-right-width + "px")
+    border-right-width: $bw;
+    border-right-style: solid;
+    #if ($border-right-color)
+        #if($rgba_right_border == "true")
+             border-right-color : $border-right-color;
+        #else
+             border-right-color : #$border-right-color;
+        #end
+    #else
+        border-right-color : #000000;
+    #end
+#end
+
+#if ($border-bottom-width)
+    #set($bw = $border-bottom-width + "px")
+    border-bottom-width: $bw;
+    border-bottom-style: solid;
+    #if ($border-bottom-color)
+        #if($rgba_bottom_border == "true")
+             border-bottom-color : $border-bottom-color;
+        #else
+             border-bottom-color : #$border-bottom-color;
+        #end
+    #else
+        border-bottom-color : #000000;
+    #end
+#end
+
+#if ($border-left-width)
+    #set($bw = $border-left-width + "px")
+    border-left-width: $bw;
+    border-left-style:solid;
+    #if ($border-left-color)
+        #if($rgba_left_border == "true")
+             border-left-color : $border-left-color;
+        #else
+             border-left-color : #$border-left-color;
+        #end
+    #else;
+        border-left-color : #000000;
+    #end
+#end
+
+#if($wtype=="Button" || $wtype=="TextBox" || $wtype=="TextArea" || $wtype=="ComboBox" ||$wtype=="ListBox" )
+    #if ($border-top-left-style)
+        -webkit-border-top-left-radius: ${border-top-left-radius}px;
+    #else
+        -webkit-border-top-left-radius: 0px;
+    #end
+    #if ($border-top-right-style)
+        -webkit-border-top-right-radius: ${border-top-right-radius}px;
+     #else
+       -webkit-border-top-right-radius: 0px;
+    #end
+    #if ($border-bottom-left-style)
+       -webkit-border-bottom-left-radius: ${border-bottom-left-radius}px;
+     #else
+       -webkit-border-bottom-left-radius: 0px;
+    #end
+    #if ($border-bottom-right-style)
+        -webkit-border-bottom-right-radius: ${border-bottom-right-radius}px;
+     #else
+       -webkit-border-bottom-right-radius: 0px;
+    #end
+#else
+    #if ($border-top-left-style)
+        -webkit-border-top-left-radius: ${border-top-left-radius}px;
+    #end
+    #if ($border-top-right-style)
+        -webkit-border-top-right-radius: ${border-top-right-radius}px;
+    #end
+    #if ($border-bottom-left-style)
+       -webkit-border-bottom-left-radius: ${border-bottom-left-radius}px;
+    #end
+    #if ($border-bottom-right-style)
+        -webkit-border-bottom-right-radius: ${border-bottom-right-radius}px;
+    #end
+#end
+*#

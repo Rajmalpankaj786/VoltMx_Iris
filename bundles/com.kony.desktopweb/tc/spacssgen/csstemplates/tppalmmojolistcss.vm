@@ -1,0 +1,6 @@
+#if($dropDownImage)
+	#$compid .list-selector-triangle
+	{ 
+		background: url(../$dropDownImage) top no-repeat;
+	}
+#end

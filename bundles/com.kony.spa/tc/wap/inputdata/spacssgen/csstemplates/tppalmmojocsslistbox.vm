@@ -1,0 +1,82 @@
+#if($focusSkin && !$single)
+	#set($s = $skin + ".selected")
+	#set($f = $skin + ".first.selected")
+	#set($l = $skin + ".last.selected")
+#elseif($focusSkin)
+	#set($s = $skin)	
+#else
+	#set($s = "." + $skin)
+#end
+
+ $s{
+    ##parse("tppalmmojocssborder.vm")
+    #parse("tppalmmojocssfonts.vm")
+    #if($color)
+        #if($rgba == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end
+    #if($background-color)
+        #if($bg_rgba == "true")
+            background : $background-color;
+        #else
+            background : #$background-color;
+        #end
+    #elseif($background-image)
+        #if($repeat)
+            background: url(../$background-image) repeat;
+        #else
+            background: url(../$background-image);
+			-webkit-background-size: 100%;
+			background-repeat: no-repeat;
+        #end
+    #end
+
+    ##if($rounded)
+         ##-webkit-border-radius: 5px;
+         border-radius: 5px;
+
+	#if($single)
+		 -webkit-border-radius: 10px;
+                 border-radius: 10px;
+		 #parse("tppalmmojocssborder.vm")
+	#elseif(!$focusSkin)
+		-webkit-border-radius: 18px;
+                border-radius: 18px;
+	#end
+	
+	#if($focusSkin && !$single)
+		border-width: 18px;
+		 -webkit-border-image: url(../none.png) 24 20 24 20 repeat repeat;
+	#end
+ }
+ 
+#if($f && !$single)
+$f{
+	 #if($background-color)
+        #if($rgba == "true")
+            background-color : $background-color;
+        #else
+            background-color : #$background-color;
+        #end
+	#end
+	-webkit-border-top-left-radius: 14px;
+	-webkit-border-top-right-radius: 14px;
+}
+#end
+ 
+#if($l && !$single)
+$l{
+	 #if($background-color)
+        #if($rgba == "true")
+            background-color : $background-color;
+        #else
+            background-color : #$background-color;
+        #end
+	#end
+	-webkit-border-bottom-right-radius: 14px;
+    -webkit-border-bottom-left-radius: 14px;
+}
+#end 

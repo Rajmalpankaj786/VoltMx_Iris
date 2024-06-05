@@ -1,0 +1,1017 @@
+{
+    "idToKuidMapping": {
+        "androidwear": {},
+        "desktop": {},
+        "masters": {},
+        "mobile": {
+            "Form1": "aa68fd06825f4aa5ab72cc15b9893839",
+            "SampleRowTemplate": "ee9e4dec31524b82b2a73c9618d9f13a",
+            "SampleSectionHeaderTemplate": "d0e99470edfd4500b6159c82bb7a496c",
+            "frmDashboard": "fcbc1ed742fd42bfba1f4b347c731809",
+            "frmEComplaintCategories": "aa3a8d906c9946c2b289f049ed23b43d",
+            "frmEComplaintsCreate": "j389a3a5aae44b74b7737ff75e5cba52",
+            "frmEComplaintsDashboard": "i8f5021dc1ca49a499f141fa7086e1db",
+            "frmEComplaintsFetch": "aa29ac2e27804ffc8569cc83b4c9a43d",
+            "frmERequestsCategories": "db5db5ca51da467a839ce5de636adebf",
+            "frmERequestsCreate": "fd35171f4b3b47f8aeb4964823132df3",
+            "frmERequestsDashboard": "f4b558b9954c4827a0c787dd5ca87fbf",
+            "frmERequestsFetch": "ab688e7f3d64437aaf58aeda499928d0",
+            "frmInterstitial": "acee5f4c13d846d7b0bc81f40cfe003d",
+            "frmLogin": "id61e65640e8422fbd585e98ed70503a",
+            "frmUserPreferences": "a3e680d6d47046518ff3a57e2831c43a",
+            "frmUserProfile": "hf1a0fe4870543778f7bfec064abe14e",
+            "frmWeather": "e0e62c55c46744abbf8df19b5749c8ae",
+            "tplMapWeatherCallout": "jec6edc9955d4366a240950d7a593db3",
+            "tplSegCategories": "fec027966f264e86815394bf682c579d",
+            "tplSegRowRecord": "j8458fd8100b472cb24f7733cbadf777",
+            "tplSegRowWithImageAndLabel": "ff13a7aa3f154293b5303c8feb26742b",
+            "tplSegWithImageAndLabel": "e3e82007a8814b6185778857749ffd2c"
+        },
+        "skins": {
+            "defBtnFocus": "s63b59e6c7ee47168f546a8bd7d6d2ae",
+            "defBtnNormal": "s0ace6a34e964e759ff5114b258f9dba",
+            "defLabel": "s8299d2e0f6d45a4abebff59a577207f",
+            "defListBoxFocus": "sd413ea5f4084497b9e2c2a2bb2e5300",
+            "defListBoxNormal": "s007201bf44e4837815ce297e8672130",
+            "defRichTextLink": "sc319efa73e14ee8ae22c8282d91c7ec",
+            "defRichTextNormal": "sa704895d0d94edd831ea463670f2b22",
+            "defTextBoxFocus": "s72695cc30f74a81973c28e209f86864",
+            "defTextBoxNormal": "s378ee4b52dc478697a9805bd4cfbd43",
+            "defTextBoxPlaceholder": "s0901e3860d84403b0ebf4d193ac756c",
+            "seg2Focus": "sa4d4ed218064b01b979e7bd7cb8e2f8",
+            "seg2Normal": "sf86533233684c7a983d0b3990ecb879",
+            "sknBtnFocus": "s985842733fc4c828e2385b3130471e9",
+            "sknBtnNormal": "sb8197d842a74852a8aaef01fdb3a914",
+            "sknBtnNormal1": "s3a713c664e24bd89915acc3332f162c",
+            "sknCamWithImage": "s320b2fe503e4ef189e791d77e91836b",
+            "sknChx1": "sfdca126f1e04efcac2a62c4494e9a40",
+            "sknDataGridHeading1": "s0f142829cf2459d88642dcfdc9897dc",
+            "sknDataGridRow1": "s5fabef17cc14b9e9b1b09643a22bc64",
+            "sknDataGridSelectedRow1": "s9561a68c3a748dea75cb0efdb878c8a",
+            "sknFlex4": "s3dd5cf6c35845beba53c37314a7e5ee",
+            "sknFlexTransparent": "s2607b32c56b45c49134a23c5dc69ac1",
+            "sknFlexWithShadow": "sc0288ea4a1f45d8a6166ab73c18f45b",
+            "sknFlexWithShadowPrimaryGradient1": "sfc0a6e8d91a4b76bf1a8c56335a3f2e",
+            "sknFlexWithShadowPrimaryGradientBg": "s21c1b1ca6074ea081ecb75d04d473c0",
+            "sknFlexWithShadowWhiteBg": "s0ba442caa6a4fe28d6c027a33c7e651",
+            "sknFlx1": "s3aaa55bb50349a9829fdf885453008f",
+            "sknFlx2": "sf2a7ba2ce9e4cf3ab4dc961a2fa5ef5",
+            "sknFlx3": "sdf8c987bbbe49d9afc748be03af7102",
+            "sknFlx5": "s4e62d61d7c641c28ae18dc3ddfeb6ca",
+            "sknFlx6": "s967ff60e025449bad99b7dc413d0d38",
+            "sknFlxBtnFocus": "s8be2d4b199d45888679f0723448c157",
+            "sknFlxBtnNormal": "s9fc386a7cb049628015273474ecc2b5",
+            "sknFrm1": "s3b6710653dd46ddb119f6040806bc7d",
+            "sknLblDescription": "s30730c6843946939e12bd4b0410c12d",
+            "sknLblHeading1": "s2eaefd163e64a7b8192e2503ed9e1be",
+            "sknLblHeading2": "sec83b35e337457a9699052f9645c988",
+            "sknLblHeading3": "sf94ee47a4fc4f5c9cccb7538c510a21",
+            "sknLblHeading4": "sf7045e080014a9caa035b4a8bf8b671",
+            "sknLblNormal": "sa6889039c51433784850dca2d1ab7b1",
+            "sknLblNormal1": "s8257c0d65fc413680f6f582fb356918",
+            "sknLblRowHeading": "sd91598629914cafbb326305eec12730",
+            "sknLblStrip": "s9d88a1f0bc6425faf909229cfa838b1",
+            "sknLblTimeStamp": "s85b4a53c9024d009092f7a48126b160",
+            "sknLst1": "s0e9d1832dd746aa90289cdfd4585ab3",
+            "sknSampleRowTemplate": "s57098f508944a0a85cbaf73b5a67aab",
+            "sknSampleSectionHeaderTemplate": "s6d55e127e5b4832a9483dd51fe118fe",
+            "sknSectionHeaderLabelSkin": "s86dbeb976224f01aa05c58c156b986c",
+            "sknSegTransparent": "sa1709d3b92443208a7dcc4f54318cbe",
+            "sknSegWithRoundedCorners": "s11aa4ca131949a2bc7dba53a0b16cbd",
+            "sknTbx": "sa5020cd27364ee1a041310fb6c9d788",
+            "sknTbx1": "s5b922bb05aa4ed186d14f0389f72446",
+            "slCamera": "s84e02ea28184357b48400078b260aab",
+            "slCheckBoxGroup": "s1f77a2da7fb4d8984f6de77bed2e4a6",
+            "slDynamicNotificationForm": "s005e7c2940e4e2a8d3df784a101091f",
+            "slFbox": "s331cbaf446548988624d50773bd8364",
+            "slForm": "sdc1390b988d47dc96e622f4e60c9344",
+            "slImage": "s5873097ecaf4514b0c1be0f28c4e1bc",
+            "slSplashiOS": "se1192f008c14464a6c29b3c21b375be",
+            "slStaticNotificationForm": "sa4596906345412998366e99ef756155",
+            "slTitleBar": "s8ac7a7c8fa04a93b8d4dbae94186bb3",
+            "slWatchForm": "sc219d7865e3496f9a02fcfdf6b39fff",
+            "sliPhoneSegmentHeader": "sef6fdbda357450f91e8e8279bf0920c"
+        },
+        "tablet": {},
+        "userwidgets": {
+            "com.hclacademy.categories": "u38e980082fc42c49d253252863a983d",
+            "com.hclacademy.createcomplaintorrequest": "e732394c25464a37ae94b150aed40581",
+            "com.hclacademy.custombuttonwithimageandtext": "u7eb3663256c4225bccdd11de9db0a9a",
+            "com.hclacademy.formheader": "u51836de895f459f8c40424459a9eb88",
+            "com.hclacademy.hamburgermenu": "u2746a61ff4b452c81900b1df9e335dd",
+            "com.hclacademy.infoalert": "u46a3d1e41a44f078f87adedeed3dc98",
+            "com.hclacademy.newsarticles": "uce2b8f7b0af4d3784e35d591f58d279",
+            "com.hclacademy.userinput": "uca61967f6374da6adc7918f55d99ea5"
+        }
+    },
+    "kuidDependencyMap": {
+        "e3e82007a8814b6185778857749ffd2c": [
+            "uce2b8f7b0af4d3784e35d591f58d279"
+        ],
+        "fec027966f264e86815394bf682c579d": [
+            "u38e980082fc42c49d253252863a983d"
+        ],
+        "ff13a7aa3f154293b5303c8feb26742b": [
+            "u2746a61ff4b452c81900b1df9e335dd"
+        ],
+        "j8458fd8100b472cb24f7733cbadf777": [
+            "aa29ac2e27804ffc8569cc83b4c9a43d",
+            "ab688e7f3d64437aaf58aeda499928d0"
+        ],
+        "jec6edc9955d4366a240950d7a593db3": [
+            "e0e62c55c46744abbf8df19b5749c8ae"
+        ],
+        "s00f7805a8814636af697f35d62da08a": [
+            "a47b57ef339646469bf914df9ab832be"
+        ],
+        "s0a96492ca3b44d2ba2e001256b283f3": [
+            "uce2b8f7b0af4d3784e35d591f58d279"
+        ],
+        "s0ba442caa6a4fe28d6c027a33c7e651": [
+            "u46a3d1e41a44f078f87adedeed3dc98"
+        ],
+        "s0e9d1832dd746aa90289cdfd4585ab3": [
+            "id61e65640e8422fbd585e98ed70503a",
+            "a3e680d6d47046518ff3a57e2831c43a"
+        ],
+        "s111df75bd7c462b97979f2e75e251ea": [
+            "e196d794169045e897dca5876fd749a7"
+        ],
+        "s11aa4ca131949a2bc7dba53a0b16cbd": [
+            "uce2b8f7b0af4d3784e35d591f58d279"
+        ],
+        "s1620b7d9c624973a4bdb27974081859": [
+            "uce2b8f7b0af4d3784e35d591f58d279"
+        ],
+        "s182cf6d5fbf4101abf09c07f4a3b567": [
+            "u38e980082fc42c49d253252863a983d",
+            "u2746a61ff4b452c81900b1df9e335dd"
+        ],
+        "s1df16dcc35045068a70a4aee877385a": [
+            "u38e980082fc42c49d253252863a983d",
+            "u51836de895f459f8c40424459a9eb88",
+            "uca61967f6374da6adc7918f55d99ea5",
+            "e732394c25464a37ae94b150aed40581",
+            "fec027966f264e86815394bf682c579d",
+            "j8458fd8100b472cb24f7733cbadf777",
+            "ff13a7aa3f154293b5303c8feb26742b",
+            "jec6edc9955d4366a240950d7a593db3",
+            "aa3a8d906c9946c2b289f049ed23b43d",
+            "j389a3a5aae44b74b7737ff75e5cba52",
+            "i8f5021dc1ca49a499f141fa7086e1db",
+            "aa29ac2e27804ffc8569cc83b4c9a43d",
+            "db5db5ca51da467a839ce5de636adebf",
+            "fd35171f4b3b47f8aeb4964823132df3",
+            "f4b558b9954c4827a0c787dd5ca87fbf",
+            "ab688e7f3d64437aaf58aeda499928d0",
+            "fcbc1ed742fd42bfba1f4b347c731809",
+            "a3e680d6d47046518ff3a57e2831c43a",
+            "hf1a0fe4870543778f7bfec064abe14e",
+            "e0e62c55c46744abbf8df19b5749c8ae"
+        ],
+        "s1f58569aabf44e0be4fae7fdfabaa41": [
+            "id61e65640e8422fbd585e98ed70503a"
+        ],
+        "s208444e0e384702b66cb8096ed6c346": [
+            "i37a789331574eddb5d2ab6420158ee1"
+        ],
+        "s21c1b1ca6074ea081ecb75d04d473c0": [
+            "u2746a61ff4b452c81900b1df9e335dd",
+            "a3e680d6d47046518ff3a57e2831c43a",
+            "hf1a0fe4870543778f7bfec064abe14e",
+            "e0e62c55c46744abbf8df19b5749c8ae"
+        ],
+        "s2207250b5a940d98fcdcdc56df8ab46": [
+            "i8f5021dc1ca49a499f141fa7086e1db",
+            "f4b558b9954c4827a0c787dd5ca87fbf",
+            "fcbc1ed742fd42bfba1f4b347c731809",
+            "id61e65640e8422fbd585e98ed70503a"
+        ],
+        "s2607b32c56b45c49134a23c5dc69ac1": [
+            "j8458fd8100b472cb24f7733cbadf777",
+            "a3e680d6d47046518ff3a57e2831c43a",
+            "hf1a0fe4870543778f7bfec064abe14e"
+        ],
+        "s2968e94eee1401baeb53504616e7387": [
+            "h35e5b8b62e14111b1db63186bcc4c65"
+        ],
+        "s2a862037a6b41f88fc0f76cf378d4d6": [
+            "e196d794169045e897dca5876fd749a7"
+        ],
+        "s2cd3fc9b7404f08a86ad264b498537b": [
+            "aa29ac2e27804ffc8569cc83b4c9a43d"
+        ],
+        "s2eaefd163e64a7b8192e2503ed9e1be": [
+            "u51836de895f459f8c40424459a9eb88"
+        ],
+        "s30730c6843946939e12bd4b0410c12d": [
+            "ee9e4dec31524b82b2a73c9618d9f13a"
+        ],
+        "s320b2fe503e4ef189e791d77e91836b": [
+            "e732394c25464a37ae94b150aed40581",
+            "hf1a0fe4870543778f7bfec064abe14e"
+        ],
+        "s331cbaf446548988624d50773bd8364": [
+            "fcbc1ed742fd42bfba1f4b347c731809",
+            "a3e680d6d47046518ff3a57e2831c43a",
+            "hf1a0fe4870543778f7bfec064abe14e",
+            "e0e62c55c46744abbf8df19b5749c8ae"
+        ],
+        "s39b064f511a42da91ea57729648ef8d": [
+            "aa68fd06825f4aa5ab72cc15b9893839"
+        ],
+        "s3a713c664e24bd89915acc3332f162c": [
+            "u46a3d1e41a44f078f87adedeed3dc98"
+        ],
+        "s3aaa55bb50349a9829fdf885453008f": [
+            "e3e82007a8814b6185778857749ffd2c"
+        ],
+        "s3b6710653dd46ddb119f6040806bc7d": [
+            "aa3a8d906c9946c2b289f049ed23b43d",
+            "j389a3a5aae44b74b7737ff75e5cba52",
+            "i8f5021dc1ca49a499f141fa7086e1db",
+            "aa29ac2e27804ffc8569cc83b4c9a43d",
+            "db5db5ca51da467a839ce5de636adebf",
+            "fd35171f4b3b47f8aeb4964823132df3",
+            "f4b558b9954c4827a0c787dd5ca87fbf",
+            "ab688e7f3d64437aaf58aeda499928d0",
+            "fcbc1ed742fd42bfba1f4b347c731809",
+            "acee5f4c13d846d7b0bc81f40cfe003d",
+            "id61e65640e8422fbd585e98ed70503a",
+            "a3e680d6d47046518ff3a57e2831c43a",
+            "hf1a0fe4870543778f7bfec064abe14e",
+            "e0e62c55c46744abbf8df19b5749c8ae"
+        ],
+        "s3dd5cf6c35845beba53c37314a7e5ee": [
+            "u46a3d1e41a44f078f87adedeed3dc98",
+            "e732394c25464a37ae94b150aed40581"
+        ],
+        "s3dfe1de751f4028bc3f1d4dc0030296": [
+            "f8578e7f158a4017a70d159c0b0074b7"
+        ],
+        "s431b486935444ed93b77e731e4ee7a9": [
+            "f8578e7f158a4017a70d159c0b0074b7"
+        ],
+        "s43e1ea723ae4e249dfab337c846cb01": [
+            "aa29ac2e27804ffc8569cc83b4c9a43d"
+        ],
+        "s46200175210450b83e41901ed21556a": [
+            "u7eb3663256c4225bccdd11de9db0a9a",
+            "u46a3d1e41a44f078f87adedeed3dc98",
+            "a9371ba2a060436789637712cf1ec398",
+            "e3e82007a8814b6185778857749ffd2c",
+            "jec6edc9955d4366a240950d7a593db3"
+        ],
+        "s4a76e6772e04f4d881869f1f8a55027": [
+            "e196d794169045e897dca5876fd749a7"
+        ],
+        "s4ae3c8478b846a0aed3c55cf6a7dff8": [
+            "id61e65640e8422fbd585e98ed70503a"
+        ],
+        "s4e62d61d7c641c28ae18dc3ddfeb6ca": [
+            "u51836de895f459f8c40424459a9eb88",
+            "u2746a61ff4b452c81900b1df9e335dd",
+            "hf1a0fe4870543778f7bfec064abe14e"
+        ],
+        "s54ebdf66f9344039476a495a0b7fb1a": [
+            "u38e980082fc42c49d253252863a983d",
+            "u2746a61ff4b452c81900b1df9e335dd"
+        ],
+        "s55498f961a4457fae6eca6b3ac654a6": [
+            "aa68fd06825f4aa5ab72cc15b9893839"
+        ],
+        "s57098f508944a0a85cbaf73b5a67aab": [
+            "ee9e4dec31524b82b2a73c9618d9f13a"
+        ],
+        "s57bd64e7324414aad0921f62f6c337c": [
+            "a47b57ef339646469bf914df9ab832be"
+        ],
+        "s5b922bb05aa4ed186d14f0389f72446": [
+            "uca61967f6374da6adc7918f55d99ea5"
+        ],
+        "s5f445be9974482ba83fe21d1d6f895f": [
+            "e196d794169045e897dca5876fd749a7"
+        ],
+        "s6d55e127e5b4832a9483dd51fe118fe": [
+            "d0e99470edfd4500b6159c82bb7a496c"
+        ],
+        "s6ef8a61711d4388873425446854bb52": [
+            "a9371ba2a060436789637712cf1ec398"
+        ],
+        "s76e75aea06c4798bc069ef97eed93ea": [
+            "id61e65640e8422fbd585e98ed70503a"
+        ],
+        "s7ff2b8321a6468cac7d565e7f5ce38e": [
+            "i8f5021dc1ca49a499f141fa7086e1db"
+        ],
+        "s8257c0d65fc413680f6f582fb356918": [
+            "uce2b8f7b0af4d3784e35d591f58d279"
+        ],
+        "s847575ca9da41a6af3d9214a4c803b7": [
+            "a47b57ef339646469bf914df9ab832be"
+        ],
+        "s85b4a53c9024d009092f7a48126b160": [
+            "ee9e4dec31524b82b2a73c9618d9f13a"
+        ],
+        "s8671abd644147b2b45faa6b4ca2fe9f": [
+            "e196d794169045e897dca5876fd749a7"
+        ],
+        "s86dbeb976224f01aa05c58c156b986c": [
+            "d0e99470edfd4500b6159c82bb7a496c"
+        ],
+        "s8ac7a7c8fa04a93b8d4dbae94186bb3": [
+            "acee5f4c13d846d7b0bc81f40cfe003d",
+            "a3e680d6d47046518ff3a57e2831c43a",
+            "hf1a0fe4870543778f7bfec064abe14e",
+            "e0e62c55c46744abbf8df19b5749c8ae"
+        ],
+        "s900d3b3e22143beb38f0171b5c4ad05": [
+            "h35e5b8b62e14111b1db63186bcc4c65"
+        ],
+        "s94a9da6ec3741a69eb5a82ce134fecf": [
+            "a9371ba2a060436789637712cf1ec398"
+        ],
+        "s94ecde40fb44fa4a43a60d0d91a7613": [
+            "db5db5ca51da467a839ce5de636adebf",
+            "fd35171f4b3b47f8aeb4964823132df3",
+            "ab688e7f3d64437aaf58aeda499928d0"
+        ],
+        "s985842733fc4c828e2385b3130471e9": [
+            "e732394c25464a37ae94b150aed40581",
+            "id61e65640e8422fbd585e98ed70503a",
+            "a3e680d6d47046518ff3a57e2831c43a"
+        ],
+        "s9d88a1f0bc6425faf909229cfa838b1": [
+            "ee9e4dec31524b82b2a73c9618d9f13a"
+        ],
+        "s9f119d5a88746e1a000886367db53b6": [
+            "uce2b8f7b0af4d3784e35d591f58d279"
+        ],
+        "s9f306f9b65143169709f96967c2dd8b": [
+            "i37a789331574eddb5d2ab6420158ee1"
+        ],
+        "s9fc386a7cb049628015273474ecc2b5": [
+            "u7eb3663256c4225bccdd11de9db0a9a",
+            "i8f5021dc1ca49a499f141fa7086e1db",
+            "f4b558b9954c4827a0c787dd5ca87fbf",
+            "fcbc1ed742fd42bfba1f4b347c731809"
+        ],
+        "sa1709d3b92443208a7dcc4f54318cbe": [
+            "u38e980082fc42c49d253252863a983d",
+            "u2746a61ff4b452c81900b1df9e335dd",
+            "aa29ac2e27804ffc8569cc83b4c9a43d",
+            "ab688e7f3d64437aaf58aeda499928d0"
+        ],
+        "sa34583e1bcd4f09b5d2a3136a872558": [
+            "aa3a8d906c9946c2b289f049ed23b43d",
+            "j389a3a5aae44b74b7737ff75e5cba52",
+            "aa29ac2e27804ffc8569cc83b4c9a43d"
+        ],
+        "sa4d4ed218064b01b979e7bd7cb8e2f8": [
+            "ab688e7f3d64437aaf58aeda499928d0"
+        ],
+        "sa5020cd27364ee1a041310fb6c9d788": [
+            "id61e65640e8422fbd585e98ed70503a"
+        ],
+        "sa6ed7d58a17483a903ce797e1a54f59": [
+            "aa3a8d906c9946c2b289f049ed23b43d",
+            "j389a3a5aae44b74b7737ff75e5cba52",
+            "i8f5021dc1ca49a499f141fa7086e1db",
+            "aa29ac2e27804ffc8569cc83b4c9a43d",
+            "db5db5ca51da467a839ce5de636adebf",
+            "fd35171f4b3b47f8aeb4964823132df3",
+            "f4b558b9954c4827a0c787dd5ca87fbf",
+            "ab688e7f3d64437aaf58aeda499928d0",
+            "fcbc1ed742fd42bfba1f4b347c731809"
+        ],
+        "sa704895d0d94edd831ea463670f2b22": [
+            "id61e65640e8422fbd585e98ed70503a"
+        ],
+        "saeea93027e64fd4bffc453a92c4eb8c": [
+            "a47b57ef339646469bf914df9ab832be"
+        ],
+        "sb8197d842a74852a8aaef01fdb3a914": [
+            "e732394c25464a37ae94b150aed40581",
+            "id61e65640e8422fbd585e98ed70503a",
+            "a3e680d6d47046518ff3a57e2831c43a"
+        ],
+        "sba79326ae474755b555169f5ad91f3f": [
+            "u7eb3663256c4225bccdd11de9db0a9a",
+            "u51836de895f459f8c40424459a9eb88",
+            "u2746a61ff4b452c81900b1df9e335dd",
+            "e732394c25464a37ae94b150aed40581",
+            "ff13a7aa3f154293b5303c8feb26742b",
+            "e3e82007a8814b6185778857749ffd2c",
+            "jec6edc9955d4366a240950d7a593db3",
+            "hf1a0fe4870543778f7bfec064abe14e"
+        ],
+        "sbde95017fa748ae9c4a601472758ec9": [
+            "a9371ba2a060436789637712cf1ec398"
+        ],
+        "sc0288ea4a1f45d8a6166ab73c18f45b": [
+            "uce2b8f7b0af4d3784e35d591f58d279",
+            "fcbc1ed742fd42bfba1f4b347c731809"
+        ],
+        "sc319efa73e14ee8ae22c8282d91c7ec": [
+            "id61e65640e8422fbd585e98ed70503a"
+        ],
+        "sd0a270bb1214047aed2db8a91452ef7": [
+            "a47b57ef339646469bf914df9ab832be"
+        ],
+        "sd413ea5f4084497b9e2c2a2bb2e5300": [
+            "id61e65640e8422fbd585e98ed70503a",
+            "a3e680d6d47046518ff3a57e2831c43a"
+        ],
+        "sd91598629914cafbb326305eec12730": [
+            "ee9e4dec31524b82b2a73c9618d9f13a"
+        ],
+        "sdf8c987bbbe49d9afc748be03af7102": [
+            "uca61967f6374da6adc7918f55d99ea5"
+        ],
+        "se1b452f7cc8484f9a85d6b3e9385fda": [
+            "a9371ba2a060436789637712cf1ec398"
+        ],
+        "sec83b35e337457a9699052f9645c988": [
+            "e732394c25464a37ae94b150aed40581",
+            "fec027966f264e86815394bf682c579d",
+            "ff13a7aa3f154293b5303c8feb26742b",
+            "fcbc1ed742fd42bfba1f4b347c731809",
+            "a3e680d6d47046518ff3a57e2831c43a",
+            "hf1a0fe4870543778f7bfec064abe14e"
+        ],
+        "sef6fdbda357450f91e8e8279bf0920c": [
+            "ab688e7f3d64437aaf58aeda499928d0"
+        ],
+        "sefc15424ea64a00bf7c2517fe360f72": [
+            "f4b558b9954c4827a0c787dd5ca87fbf"
+        ],
+        "sf2a7ba2ce9e4cf3ab4dc961a2fa5ef5": [
+            "u2746a61ff4b452c81900b1df9e335dd",
+            "e732394c25464a37ae94b150aed40581",
+            "hf1a0fe4870543778f7bfec064abe14e"
+        ],
+        "sf94ee47a4fc4f5c9cccb7538c510a21": [
+            "u2746a61ff4b452c81900b1df9e335dd",
+            "u46a3d1e41a44f078f87adedeed3dc98",
+            "uca61967f6374da6adc7918f55d99ea5",
+            "j8458fd8100b472cb24f7733cbadf777",
+            "fcbc1ed742fd42bfba1f4b347c731809",
+            "a3e680d6d47046518ff3a57e2831c43a",
+            "hf1a0fe4870543778f7bfec064abe14e"
+        ],
+        "sfc0a6e8d91a4b76bf1a8c56335a3f2e": [
+            "jec6edc9955d4366a240950d7a593db3"
+        ],
+        "sfdca126f1e04efcac2a62c4494e9a40": [
+            "id61e65640e8422fbd585e98ed70503a"
+        ]
+    },
+    "kuidInfo": {
+        "androidwear": {},
+        "desktop": {},
+        "masters": {},
+        "mobile": {
+            "a3e680d6d47046518ff3a57e2831c43a": {
+                "appName": "RefGovtCitizenSA",
+                "id": "frmUserPreferences",
+                "relFormId": "frmUserPreferences",
+                "templateType": "forms",
+                "widgetInfo": {
+                    "mapWgtPltfrms": [],
+                    "videoWgtPltfrms": []
+                }
+            },
+            "a47b57ef339646469bf914df9ab832be": {
+                "appName": "RefEComplaintsMA",
+                "id": "SampleRowTemplate",
+                "templateType": "segments",
+                "topFlexId": "flxSampleRowTemplate"
+            },
+            "a9371ba2a060436789637712cf1ec398": {
+                "appName": "RefCommonsMA",
+                "id": "SampleRowTemplate",
+                "templateType": "segments",
+                "topFlexId": "flxSampleRowTemplate"
+            },
+            "aa29ac2e27804ffc8569cc83b4c9a43d": {
+                "appName": "RefEComplaintsMA",
+                "id": "frmEComplaintsFetch",
+                "relFormId": "frmEComplaintsFetch",
+                "templateType": "forms",
+                "widgetInfo": {
+                    "mapWgtPltfrms": [],
+                    "videoWgtPltfrms": []
+                }
+            },
+            "aa3a8d906c9946c2b289f049ed23b43d": {
+                "appName": "RefEComplaintsMA",
+                "id": "frmEComplaintCategories",
+                "relFormId": "frmEComplaintCategories",
+                "templateType": "forms",
+                "widgetInfo": {
+                    "mapWgtPltfrms": [],
+                    "videoWgtPltfrms": []
+                }
+            },
+            "aa68fd06825f4aa5ab72cc15b9893839": {
+                "appName": "RefCommonsMA",
+                "id": "Form1",
+                "relFormId": "Form1",
+                "templateType": "forms",
+                "widgetInfo": {
+                    "mapWgtPltfrms": [],
+                    "videoWgtPltfrms": []
+                }
+            },
+            "ab688e7f3d64437aaf58aeda499928d0": {
+                "appName": "RefERequestsMA",
+                "id": "frmERequestsFetch",
+                "relFormId": "frmERequestsFetch",
+                "templateType": "forms",
+                "widgetInfo": {
+                    "mapWgtPltfrms": [],
+                    "videoWgtPltfrms": []
+                }
+            },
+            "acee5f4c13d846d7b0bc81f40cfe003d": {
+                "appName": "RefGovtCitizenSA",
+                "id": "frmInterstitial",
+                "relFormId": "frmInterstitial",
+                "templateType": "forms",
+                "widgetInfo": {
+                    "mapWgtPltfrms": [],
+                    "videoWgtPltfrms": []
+                }
+            },
+            "d0e99470edfd4500b6159c82bb7a496c": {
+                "appName": "RefGovtCitizenSA",
+                "id": "SampleSectionHeaderTemplate",
+                "templateType": "segments",
+                "topFlexId": "flxSectionHeaderTemplate"
+            },
+            "db5db5ca51da467a839ce5de636adebf": {
+                "appName": "RefERequestsMA",
+                "id": "frmERequestsCategories",
+                "relFormId": "frmERequestsCategories",
+                "templateType": "forms",
+                "widgetInfo": {
+                    "mapWgtPltfrms": [],
+                    "videoWgtPltfrms": []
+                }
+            },
+            "e0e62c55c46744abbf8df19b5749c8ae": {
+                "appName": "RefGovtCitizenSA",
+                "id": "frmWeather",
+                "relFormId": "frmWeather",
+                "templateType": "forms",
+                "widgetInfo": {
+                    "mapWgtPltfrms": [
+                        "iphone",
+                        "spaip",
+                        "android",
+                        "spaan"
+                    ],
+                    "videoWgtPltfrms": []
+                }
+            },
+            "e196d794169045e897dca5876fd749a7": {
+                "appName": "RefERequestsMA",
+                "id": "SampleRowTemplate",
+                "templateType": "segments",
+                "topFlexId": "flxSampleRowTemplate"
+            },
+            "e3e82007a8814b6185778857749ffd2c": {
+                "appName": "RefCommonsMA",
+                "id": "tplSegWithImageAndLabel",
+                "templateType": "segments",
+                "topFlexId": "flxSegWithImageAndLabel"
+            },
+            "ee9e4dec31524b82b2a73c9618d9f13a": {
+                "appName": "RefGovtCitizenSA",
+                "id": "SampleRowTemplate",
+                "templateType": "segments",
+                "topFlexId": "flxSampleRowTemplate"
+            },
+            "f4b558b9954c4827a0c787dd5ca87fbf": {
+                "appName": "RefERequestsMA",
+                "id": "frmERequestsDashboard",
+                "relFormId": "frmERequestsDashboard",
+                "templateType": "forms",
+                "widgetInfo": {
+                    "mapWgtPltfrms": [],
+                    "videoWgtPltfrms": []
+                }
+            },
+            "f8578e7f158a4017a70d159c0b0074b7": {
+                "appName": "RefERequestsMA",
+                "id": "SampleSectionHeaderTemplate",
+                "templateType": "segments",
+                "topFlexId": "flxSectionHeaderTemplate"
+            },
+            "fcbc1ed742fd42bfba1f4b347c731809": {
+                "appName": "RefGovtCitizenSA",
+                "id": "frmDashboard",
+                "relFormId": "frmDashboard",
+                "templateType": "forms",
+                "widgetInfo": {
+                    "mapWgtPltfrms": [],
+                    "videoWgtPltfrms": []
+                }
+            },
+            "fd35171f4b3b47f8aeb4964823132df3": {
+                "appName": "RefERequestsMA",
+                "id": "frmERequestsCreate",
+                "relFormId": "frmERequestsCreate",
+                "templateType": "forms",
+                "widgetInfo": {
+                    "mapWgtPltfrms": [],
+                    "videoWgtPltfrms": []
+                }
+            },
+            "fec027966f264e86815394bf682c579d": {
+                "appName": "RefCommonsMA",
+                "id": "tplSegCategories",
+                "templateType": "segments",
+                "topFlexId": "flxSegCategories"
+            },
+            "ff13a7aa3f154293b5303c8feb26742b": {
+                "appName": "RefCommonsMA",
+                "id": "tplSegRowWithImageAndLabel",
+                "templateType": "segments",
+                "topFlexId": "flxSegRowWithImageAndLabel"
+            },
+            "h35e5b8b62e14111b1db63186bcc4c65": {
+                "appName": "RefEComplaintsMA",
+                "id": "SampleSectionHeaderTemplate",
+                "templateType": "segments",
+                "topFlexId": "flxSectionHeaderTemplate"
+            },
+            "hf1a0fe4870543778f7bfec064abe14e": {
+                "appName": "RefGovtCitizenSA",
+                "id": "frmUserProfile",
+                "relFormId": "frmUserProfile",
+                "templateType": "forms",
+                "widgetInfo": {
+                    "mapWgtPltfrms": [],
+                    "videoWgtPltfrms": []
+                }
+            },
+            "i37a789331574eddb5d2ab6420158ee1": {
+                "appName": "RefCommonsMA",
+                "id": "SampleSectionHeaderTemplate",
+                "templateType": "segments",
+                "topFlexId": "flxSectionHeaderTemplate"
+            },
+            "i8f5021dc1ca49a499f141fa7086e1db": {
+                "appName": "RefEComplaintsMA",
+                "id": "frmEComplaintsDashboard",
+                "relFormId": "frmEComplaintsDashboard",
+                "templateType": "forms",
+                "widgetInfo": {
+                    "mapWgtPltfrms": [],
+                    "videoWgtPltfrms": []
+                }
+            },
+            "id61e65640e8422fbd585e98ed70503a": {
+                "appName": "RefGovtCitizenSA",
+                "id": "frmLogin",
+                "relFormId": "frmLogin",
+                "templateType": "forms",
+                "widgetInfo": {
+                    "mapWgtPltfrms": [],
+                    "videoWgtPltfrms": []
+                }
+            },
+            "j389a3a5aae44b74b7737ff75e5cba52": {
+                "appName": "RefEComplaintsMA",
+                "id": "frmEComplaintsCreate",
+                "relFormId": "frmEComplaintsCreate",
+                "templateType": "forms",
+                "widgetInfo": {
+                    "mapWgtPltfrms": [],
+                    "videoWgtPltfrms": []
+                }
+            },
+            "j8458fd8100b472cb24f7733cbadf777": {
+                "appName": "RefCommonsMA",
+                "id": "tplSegRowRecord",
+                "templateType": "segments",
+                "topFlexId": "flxSegRowRecord"
+            },
+            "jec6edc9955d4366a240950d7a593db3": {
+                "appName": "RefCommonsMA",
+                "id": "tplMapWeatherCallout",
+                "templateType": "maps"
+            }
+        },
+        "tablet": {},
+        "userwidgets": {
+            "e732394c25464a37ae94b150aed40581": {
+                "appName": "RefCommonsMA",
+                "id": "com.hclacademy.createcomplaintorrequest",
+                "templateType": "userwidgets",
+                "viewName": "createcomplaintorrequest",
+                "widgetInfo": {
+                    "mapWgtPltfrms": [],
+                    "videoWgtPltfrms": []
+                }
+            },
+            "u2746a61ff4b452c81900b1df9e335dd": {
+                "appName": "RefCommonsMA",
+                "id": "com.hclacademy.hamburgermenu",
+                "templateType": "userwidgets",
+                "viewName": "hamburgermenu",
+                "widgetInfo": {
+                    "mapWgtPltfrms": [],
+                    "videoWgtPltfrms": []
+                }
+            },
+            "u38e980082fc42c49d253252863a983d": {
+                "appName": "RefCommonsMA",
+                "id": "com.hclacademy.categories",
+                "templateType": "userwidgets",
+                "viewName": "categories",
+                "widgetInfo": {
+                    "mapWgtPltfrms": [],
+                    "videoWgtPltfrms": []
+                }
+            },
+            "u46a3d1e41a44f078f87adedeed3dc98": {
+                "appName": "RefCommonsMA",
+                "id": "com.hclacademy.infoalert",
+                "templateType": "userwidgets",
+                "viewName": "infoalert",
+                "widgetInfo": {
+                    "mapWgtPltfrms": [],
+                    "videoWgtPltfrms": []
+                }
+            },
+            "u51836de895f459f8c40424459a9eb88": {
+                "appName": "RefCommonsMA",
+                "id": "com.hclacademy.formheader",
+                "templateType": "userwidgets",
+                "viewName": "formheader",
+                "widgetInfo": {
+                    "mapWgtPltfrms": [],
+                    "videoWgtPltfrms": []
+                }
+            },
+            "u7eb3663256c4225bccdd11de9db0a9a": {
+                "appName": "RefCommonsMA",
+                "id": "com.hclacademy.custombuttonwithimageandtext",
+                "templateType": "userwidgets",
+                "viewName": "custombuttonwithimageandtext",
+                "widgetInfo": {
+                    "mapWgtPltfrms": [],
+                    "videoWgtPltfrms": []
+                }
+            },
+            "uca61967f6374da6adc7918f55d99ea5": {
+                "appName": "RefCommonsMA",
+                "id": "com.hclacademy.userinput",
+                "templateType": "userwidgets",
+                "viewName": "userinput",
+                "widgetInfo": {
+                    "mapWgtPltfrms": [],
+                    "videoWgtPltfrms": []
+                }
+            },
+            "uce2b8f7b0af4d3784e35d591f58d279": {
+                "appName": "RefCommonsMA",
+                "id": "com.hclacademy.newsarticles",
+                "templateType": "userwidgets",
+                "viewName": "newsarticles",
+                "widgetInfo": {
+                    "mapWgtPltfrms": [],
+                    "videoWgtPltfrms": []
+                }
+            }
+        }
+    },
+    "userWidgetsKuidToIdMap": {
+        "a03b94c4301043cb83494b5b821256fe": {
+            "id": "camCapturePhoto",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.createcomplaintorrequest\\userwidgetmodel.sm"
+        },
+        "a060237436ad46c9934ebbc688e08779": {
+            "id": "formheader",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.formheader"
+        },
+        "a6bbb5d73b1c4dba8e61be12e30449ca": {
+            "id": "flxProfilePhoto",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.hamburgermenu\\userwidgetmodel.sm"
+        },
+        "a92a459771f84870a8f1301252c47474": {
+            "id": "lblAlertTitle",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.infoalert\\userwidgetmodel.sm"
+        },
+        "aa92bfffcfb940839ad0a6e057d8212e": {
+            "id": "lblUserName",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.hamburgermenu\\userwidgetmodel.sm"
+        },
+        "af0acba7b3924e5bb00903a5a35b46fd": {
+            "id": "flxSegCategories",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.categories\\userwidgetmodel.sm"
+        },
+        "b00e532f382e44bcb2576f6fbbbff20c": {
+            "id": "newsarticles",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.newsarticles"
+        },
+        "b02e134593244a23a2fe15cd95880310": {
+            "id": "flxTitle",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.hamburgermenu\\userwidgetmodel.sm"
+        },
+        "b825d7fe45af411cb712ac57708534d9": {
+            "id": "lblNewsAdvisor",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.newsarticles\\userwidgetmodel.sm"
+        },
+        "b89b2e0e2cc14ef1a5b06b28ae8e16a1": {
+            "id": "lblInputTitle",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.userinput\\userwidgetmodel.sm"
+        },
+        "b9af0902f7d345118c9d060c0d718201": {
+            "id": "flxPhoto",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.createcomplaintorrequest\\userwidgetmodel.sm"
+        },
+        "bc0588540dcd4b4fbf6dda38d4a66f7a": {
+            "id": "imgUserPhoto",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.hamburgermenu\\userwidgetmodel.sm"
+        },
+        "c1fc5e87839d4f68be334e19724bfb4f": {
+            "id": "flxMainContent",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.createcomplaintorrequest\\userwidgetmodel.sm"
+        },
+        "c3066dd1f8964e95be4fb205d06df907": {
+            "id": "inputDescription",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.createcomplaintorrequest\\userwidgetmodel.sm"
+        },
+        "c5da4079da3e4f2b8f7bafefd0e7cefe": {
+            "id": "imgBack",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.formheader\\userwidgetmodel.sm"
+        },
+        "c60136b77b5243a0974e5b15792dafd6": {
+            "id": "imgProfile",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.formheader\\userwidgetmodel.sm"
+        },
+        "cc3f6151a80f497fbb47bba5ae8fceee": {
+            "id": "inputPhone",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.createcomplaintorrequest\\userwidgetmodel.sm"
+        },
+        "d7630af1ced144d6bae40ba510c3d43a": {
+            "id": "imgPhoto",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.createcomplaintorrequest\\userwidgetmodel.sm"
+        },
+        "db2ca99d55e046de8ca757aa8476aa23": {
+            "id": "lblCompanyName",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.formheader\\userwidgetmodel.sm"
+        },
+        "db4b003ac9df4358b03a26db12b8f9bc": {
+            "id": "flxProfilePhoto",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.formheader\\userwidgetmodel.sm"
+        },
+        "dc193fadd7fe41b6ad00053b180235aa": {
+            "id": "tbxInput",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.userinput\\userwidgetmodel.sm"
+        },
+        "dd440d5a670f4967bf2f24714606fd3d": {
+            "id": "lblAction",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.custombuttonwithimageandtext\\userwidgetmodel.sm"
+        },
+        "dedd96f9f6ac472cb4910e9ffa2d2c12": {
+            "id": "flxSegRowWithImageAndLabel",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.hamburgermenu\\userwidgetmodel.sm"
+        },
+        "e3e82007a8814b6185778857749ffd2c": {
+            "id": "tplSegWithImageAndLabel",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.newsarticles\\userwidgetmodel.sm"
+        },
+        "e530afaecc344d6db4b2decef0f8adc6": {
+            "id": "imgMenu",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.formheader\\userwidgetmodel.sm"
+        },
+        "e6785efdb35d4a6a8e0a8184deb7e394": {
+            "id": "segLatestNews",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.newsarticles\\userwidgetmodel.sm"
+        },
+        "e6ceb468dd164443be546a670203b903": {
+            "id": "categories",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.categories"
+        },
+        "e732394c25464a37ae94b150aed40581": {
+            "id": "userwidgetmodel",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.createcomplaintorrequest\\userwidgetmodel.sm"
+        },
+        "e7a0b2d0f8f54898ac5b3ea6e845851f": {
+            "id": "imgAction",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.custombuttonwithimageandtext\\userwidgetmodel.sm"
+        },
+        "e90036275ca94f9fad905305ac2f2403": {
+            "id": "flxInfoAlert",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.infoalert\\userwidgetmodel.sm"
+        },
+        "ec7cb5d3fe5e44e58a479561fab008db": {
+            "id": "lblCapturePhoto",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.createcomplaintorrequest\\userwidgetmodel.sm"
+        },
+        "ef1717577e1947f69d38dcf291ba342e": {
+            "id": "segCategories",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.categories\\userwidgetmodel.sm"
+        },
+        "ef327c55bf3e4304a06fa9ff32ee1de1": {
+            "id": "lblTitle",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.createcomplaintorrequest\\userwidgetmodel.sm"
+        },
+        "f54b22d9278f478eaf6ae8e76da06ba2": {
+            "id": "infoalert",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.infoalert"
+        },
+        "fbbfb53027744f0991b8f1d70ee7a460": {
+            "id": "createcomplaintorrequest",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.createcomplaintorrequest"
+        },
+        "fec027966f264e86815394bf682c579d": {
+            "id": "tplSegCategories",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.categories\\userwidgetmodel.sm"
+        },
+        "ff13a7aa3f154293b5303c8feb26742b": {
+            "id": "tplSegRowWithImageAndLabel",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.hamburgermenu\\userwidgetmodel.sm"
+        },
+        "g427893ed7824463b2f8036e18fdff2c": {
+            "id": "btnAlertOK",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.infoalert\\userwidgetmodel.sm"
+        },
+        "g4ae2a70ac164cba9f27374f2a9a9b00": {
+            "id": "btnCreate",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.createcomplaintorrequest\\userwidgetmodel.sm"
+        },
+        "gda76995f2584f4a86b54652ab0bf057": {
+            "id": "flxInput",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.userinput\\userwidgetmodel.sm"
+        },
+        "h252d274516e4e2ab04f2b8968e3e8d1": {
+            "id": "hamburgermenu",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.hamburgermenu"
+        },
+        "h7b3459e2cc442c68167d83132794d92": {
+            "id": "custombuttonwithimageandtext",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.custombuttonwithimageandtext"
+        },
+        "ha0a142470b346feb9ec23df61ac9bef": {
+            "id": "userinput",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.userinput"
+        },
+        "he3c6fd9c99d45b1b2b8752b4a8b2743": {
+            "id": "lblAlertMessage",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.infoalert\\userwidgetmodel.sm"
+        },
+        "i943478501cf48eba9f28495cdbfc087": {
+            "id": "infoalert",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.createcomplaintorrequest\\userwidgetmodel.sm"
+        },
+        "i94fb8cbf9f343d790262c359c3e71dc": {
+            "id": "flxSegWithImageAndLabel",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.newsarticles\\userwidgetmodel.sm"
+        },
+        "ie5d78f8247c47c8b3918fb083a9e070": {
+            "id": "inputName",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.createcomplaintorrequest\\userwidgetmodel.sm"
+        },
+        "j4fe2ddaf3954db48d1b680c45676837": {
+            "id": "inputLocation",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.createcomplaintorrequest\\userwidgetmodel.sm"
+        },
+        "ja3ba65c950847c8b0ec2c7009d2e4b3": {
+            "id": "segMenu",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.hamburgermenu\\userwidgetmodel.sm"
+        },
+        "u2746a61ff4b452c81900b1df9e335dd": {
+            "id": "userwidgetmodel",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.hamburgermenu\\userwidgetmodel.sm"
+        },
+        "u38e980082fc42c49d253252863a983d": {
+            "id": "userwidgetmodel",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.categories\\userwidgetmodel.sm"
+        },
+        "u46a3d1e41a44f078f87adedeed3dc98": {
+            "id": "userwidgetmodel",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.infoalert\\userwidgetmodel.sm"
+        },
+        "u51836de895f459f8c40424459a9eb88": {
+            "id": "userwidgetmodel",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.formheader\\userwidgetmodel.sm"
+        },
+        "u7eb3663256c4225bccdd11de9db0a9a": {
+            "id": "userwidgetmodel",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.custombuttonwithimageandtext\\userwidgetmodel.sm"
+        },
+        "uca61967f6374da6adc7918f55d99ea5": {
+            "id": "userwidgetmodel",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.userinput\\userwidgetmodel.sm"
+        },
+        "uce2b8f7b0af4d3784e35d591f58d279": {
+            "id": "userwidgetmodel",
+            "path": "C:\\Users\\DELL\\Desktop\\VoltMx_Iris\\RefCommonsMA\\userwidgets\\com.hclacademy.newsarticles\\userwidgetmodel.sm"
+        }
+    }
+}

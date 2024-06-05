@@ -1,0 +1,58 @@
+#if($focusSkin)
+	#set($s = $skin)
+#else
+	#set($s = "." + $skin)
+#end
+
+$s{
+   #if($forking)
+        #parse("tpxadviphonecssborderspecific.vm")
+   #else
+        #parse("tpxadviphonecssborder.vm")
+   #end
+   #parse("tppalmmojocssfonts.vm")
+     #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end
+
+    #if($background-color)
+        #if($rgba == "true")
+            background-color : $background-color;
+        #else
+             #set($bc = "#" + $background-color)
+             background-color: $bc;
+        #end
+    #elseif($bg-grad-split-ms)
+       #parse("tpxadviphonecssbggradient.vm")
+    #elseif($background-image)
+        #parse("tpspagenericbgimage.vm")
+    #else
+        background: inherit;
+    #end
+    
+    #if($rounded)
+         -webkit-border-radius: 10px;
+         border-radius: 10px;
+    #end
+
+   #if($font-style=="underline")
+        text-decoration:underline;
+   #elseif($font-style=="overline")
+        text-decoration:overline;
+   #elseif($font-style=="line-through")
+        text-decoration:line-through;
+   #elseif($font-style=="italic")
+        font-style: italic;
+   #else
+        text-decoration:none;
+   #end
+
+#if($forking)    
+    #parse("tpxadvshadowcss.vm")
+#end
+}
+    

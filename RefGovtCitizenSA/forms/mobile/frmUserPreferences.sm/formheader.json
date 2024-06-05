@@ -1,0 +1,137 @@
+{
+    "@class": "com.kony.gen.viz.model.component.KVizUserWidget",
+    "DNDConfig": null,
+    "_children_": [],
+    "_height_": {
+        "type": "string",
+        "value": "10%"
+    },
+    "_left_": {
+        "type": "string",
+        "value": "0dp"
+    },
+    "_margin_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_orientation_": 1,
+    "_padding_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_percent_": true,
+    "_skin_": "s1df16dcc35045068a70a4aee877385a",
+    "_top_": {
+        "type": "string",
+        "value": "0dp"
+    },
+    "_width_": {
+        "type": "string",
+        "value": "100%"
+    },
+    "areflexpropsreferenced": false,
+    "autogrowmode": 0,
+    "canUpdateUI": true,
+    "clipbounds": false,
+    "containerweight": 0,
+    "dataDiffs": {
+        "flxProfilePhoto": {
+            "__events__": {},
+            "__info__": {
+                "kuid": "b2ad4e6730f747588a615e168cc99d91",
+                "srcKUID": "db4b003ac9df4358b03a26db12b8f9bc",
+                "wType": "FlexContainer"
+            },
+            "isVisible": false
+        },
+        "formheader": {
+            "__events__": {},
+            "__info__": {
+                "isRoot": true,
+                "kuid": "a62fdc921c4b4ff1a116c858a0bf0ccb",
+                "srcKUID": "a060237436ad46c9934ebbc688e08779",
+                "wType": "FlexContainer"
+            },
+            "centerY": {
+                "Default": {
+                    "type": "string",
+                    "value": ""
+                }
+            },
+            "top": {
+                "Default": {
+                    "type": "string",
+                    "value": "0dp"
+                }
+            }
+        },
+        "imgBack": {
+            "__events__": {
+                "ide_onTouchEnd": "AS_Image_de92bf15e5b742388ef7ed71eee81c5a"
+            },
+            "__info__": {
+                "kuid": "bf5e6328f92d4a67a4cd1fd14f5a2eb7",
+                "srcKUID": "c5da4079da3e4f2b8f7bafefd0e7cefe",
+                "wType": "Image"
+            },
+            "right": {
+                "Default": {
+                    "type": "number",
+                    "value": "5"
+                }
+            }
+        },
+        "imgMenu": {
+            "__events__": {
+                "ide_onTouchEnd": "AS_Image_dfcb355a5525437c8b099027ccf55f99"
+            },
+            "__info__": {
+                "kuid": "d964d22db35c40b28747d259317bb855",
+                "srcKUID": "e530afaecc344d6db4b2decef0f8adc6",
+                "wType": "Image"
+            }
+        },
+        "imgProfile": {
+            "__events__": {},
+            "__info__": {
+                "kuid": "a01c700f67c04e93a277d714bbc2923e",
+                "srcKUID": "c60136b77b5243a0974e5b15792dafd6",
+                "wType": "Image"
+            }
+        },
+        "lblCompanyName": {
+            "__events__": {},
+            "__info__": {
+                "kuid": "j5f70be78824423bbaba1270b91d9c77",
+                "srcKUID": "db2ca99d55e046de8ca757aa8476aa23",
+                "wType": "Label"
+            },
+            "i18n_text": "eGovernance",
+            "text": "e-Governance"
+        }
+    },
+    "enablescrolling": true,
+    "id": "formheader",
+    "info": null,
+    "iscustomlayout": false,
+    "isdatareferenced": false,
+    "isvisible": true,
+    "kuid": "a62fdc921c4b4ff1a116c858a0bf0ccb",
+    "layouttype": 2,
+    "masterType": 0,
+    "name": "kony.ui.UserWidgetInstance",
+    "parent": "flxMainContent",
+    "pf": "frmUserPreferences",
+    "retaincontentalignment": false,
+    "retainflexpositionproperties": false,
+    "retainflowhorizontalalignment": false,
+    "snapgridsize": 10,
+    "snaptogrid": true,
+    "sourceUserWidget": "a060237436ad46c9934ebbc688e08779",
+    "wType": "UserWidgetInstance",
+    "zindex": 1
+}

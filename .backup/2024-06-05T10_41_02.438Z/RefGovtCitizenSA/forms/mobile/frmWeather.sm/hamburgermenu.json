@@ -1,0 +1,178 @@
+{
+    "@class": "com.kony.gen.viz.model.component.KVizUserWidget",
+    "DNDConfig": null,
+    "_children_": [],
+    "_height_": {
+        "type": "string",
+        "value": "100%"
+    },
+    "_left_": {
+        "type": "string",
+        "value": "-90%"
+    },
+    "_margin_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_orientation_": 1,
+    "_padding_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_percent_": true,
+    "_skin_": "s21c1b1ca6074ea081ecb75d04d473c0",
+    "_top_": {
+        "type": "string",
+        "value": "0dp"
+    },
+    "_width_": {
+        "type": "string",
+        "value": "80%"
+    },
+    "areflexpropsreferenced": false,
+    "autogrowmode": 0,
+    "canUpdateUI": true,
+    "clipbounds": false,
+    "containerweight": 0,
+    "dataDiffs": {
+        "flxProfilePhoto": {
+            "__events__": {},
+            "__info__": {
+                "kuid": "a7352556f63b4eb49f27d3cf8343433e",
+                "srcKUID": "a6bbb5d73b1c4dba8e61be12e30449ca",
+                "wType": "FlexContainer"
+            }
+        },
+        "flxTitle": {
+            "__events__": {},
+            "__info__": {
+                "kuid": "b1bb10430fca455ea52d5177c6919020",
+                "srcKUID": "b02e134593244a23a2fe15cd95880310",
+                "wType": "FlexContainer"
+            }
+        },
+        "hamburgermenu": {
+            "__events__": {},
+            "__info__": {
+                "isRoot": true,
+                "kuid": "i029056e528240a498d5f1eefd7c7d17",
+                "srcKUID": "h252d274516e4e2ab04f2b8968e3e8d1",
+                "wType": "FlexContainer"
+            }
+        },
+        "imgUserPhoto": {
+            "__events__": {},
+            "__info__": {
+                "kuid": "ga39057ea3d0413485ebd32c75d6483b",
+                "srcKUID": "bc0588540dcd4b4fbf6dda38d4a66f7a",
+                "wType": "Image"
+            }
+        },
+        "lblUserName": {
+            "__events__": {},
+            "__info__": {
+                "kuid": "je4b125828ee454fae142a40c780083c",
+                "srcKUID": "aa92bfffcfb940839ad0a6e057d8212e",
+                "wType": "Label"
+            }
+        },
+        "segMenu": {
+            "__events__": {
+                "ide_onRowClick": "AS_Segment_ja3d607969b94ad18f64406886e17f34"
+            },
+            "__info__": {
+                "kuid": "c594db34010048f6b9c6d2b46e809576",
+                "srcKUID": "ja3ba65c950847c8b0ec2c7009d2e4b3",
+                "wType": "Segment"
+            },
+            "data": {
+                "mobile": [
+                    {
+                        "imgMenuOption": {
+                            "@class": "com.viz.ide.model.segment.ImageSegmentData",
+                            "src": "overview.png"
+                        },
+                        "lblMenuOption": {
+                            "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                            "text": "Dashboard"
+                        }
+                    },
+                    {
+                        "imgMenuOption": {
+                            "@class": "com.viz.ide.model.segment.ImageSegmentData",
+                            "src": "erequest.png"
+                        },
+                        "lblMenuOption": {
+                            "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                            "text": "Requests"
+                        }
+                    },
+                    {
+                        "imgMenuOption": {
+                            "@class": "com.viz.ide.model.segment.ImageSegmentData",
+                            "src": "ecomplaint.png"
+                        },
+                        "lblMenuOption": {
+                            "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                            "text": "Complaints"
+                        }
+                    },
+                    {
+                        "imgMenuOption": {
+                            "@class": "com.viz.ide.model.segment.ImageSegmentData",
+                            "src": "weatheralert.png"
+                        },
+                        "lblMenuOption": {
+                            "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                            "text": "Weather Alert"
+                        }
+                    },
+                    {
+                        "imgMenuOption": {
+                            "@class": "com.viz.ide.model.segment.ImageSegmentData",
+                            "src": "userprofile.png"
+                        },
+                        "lblMenuOption": {
+                            "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                            "text": "User Profile"
+                        }
+                    },
+                    {
+                        "imgMenuOption": {
+                            "@class": "com.viz.ide.model.segment.ImageSegmentData",
+                            "src": "userpreferences.png"
+                        },
+                        "lblMenuOption": {
+                            "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                            "text": "User Preferences"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "enablescrolling": true,
+    "id": "hamburgermenu",
+    "info": null,
+    "iscustomlayout": false,
+    "isdatareferenced": false,
+    "isvisible": true,
+    "kuid": "i029056e528240a498d5f1eefd7c7d17",
+    "layouttype": 2,
+    "masterType": 0,
+    "name": "kony.ui.UserWidgetInstance",
+    "parent": "frmWeather",
+    "pf": "frmWeather",
+    "retaincontentalignment": false,
+    "retainflexpositionproperties": false,
+    "retainflowhorizontalalignment": false,
+    "snapgridsize": 10,
+    "snaptogrid": true,
+    "sourceUserWidget": "h252d274516e4e2ab04f2b8968e3e8d1",
+    "wType": "UserWidgetInstance",
+    "zindex": 1
+}

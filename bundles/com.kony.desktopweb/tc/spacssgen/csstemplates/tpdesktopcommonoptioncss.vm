@@ -1,0 +1,30 @@
+#if($newlib == "true")
+
+#else 
+
+$s option{
+            #if($background-color)
+                #if($rgba == "true")
+                    background-color : $background-color;
+                #else
+                     #set($bc = "#" + $background-color)
+                     background-color: $bc;
+                #end
+            #elseif($bg-grad-split-ms)
+               #parse("tpxadviphonecssbggradient.vm")
+            #elseif($background-image)               
+                #if($repeat && $verticalrepeat)
+                    background: url(./images/$background-image) repeat;
+                #elseif($repeat)
+                    background: url(./images/$background-image) repeat-x;
+                #elseif($verticalrepeat)
+                    background: url(./images/$background-image) repeat-y;
+                #else
+                    background: url(./images/$background-image) no-repeat;
+                #end
+               
+            #elseif($transparent)
+                background: transparent;
+            #end
+        }
+#end

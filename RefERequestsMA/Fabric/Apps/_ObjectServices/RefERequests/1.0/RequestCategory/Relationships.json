@@ -1,0 +1,13 @@
+[ {
+  "sourceObject" : "RequestCategory",
+  "targetObject" : "Request",
+  "relationshipKeys" : [ {
+    "sourceField" : "CategoryID",
+    "targetField" : "CategoryID",
+    "etag" : "360a0484-09eb-4893-b55a-0102a1a7cd4f"
+  } ],
+  "name" : "RequestCategory_Request",
+  "type" : "OneToMany",
+  "custom" : false,
+  "cascadeDelete" : false
+} ]

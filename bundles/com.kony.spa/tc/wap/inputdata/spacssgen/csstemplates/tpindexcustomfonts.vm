@@ -1,0 +1,8 @@
+#if($fontsObj)
+  #foreach ($key in $fontsObj.keySet())
+    @font-face {
+        font-family: '$key';
+        src: $fontsObj.get($key);
+    }
+  #end
+#end

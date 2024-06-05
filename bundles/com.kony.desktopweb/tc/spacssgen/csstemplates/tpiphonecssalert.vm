@@ -1,0 +1,69 @@
+.erroralertsk{
+    position: relative;
+    margin: 5px 0 5px 0;
+    padding: 1px;
+    #if($background-color)
+        background: #$background-color;
+    #else
+        background: inherit;
+    #end
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    #if ($border-width)
+        border-width: $border-width;
+    #else
+        border-width: 1px;
+    #end
+    border-style: solid;
+    #if ($border-color)
+        border-color : #$border-color;
+    #else
+        border-color : red;
+    #end
+    font-size: $font-size;
+    font-weight: bold;
+    color: red;
+    min-height: 30px;
+    height:auto !important;
+    overflow:auto;
+    #if($align)
+        text-align: $align;
+    #else
+        text-align: left;
+    #end
+    }
+
+.infoalertsk{
+    position: relative;
+    margin: 5px 0 5px 0;
+    padding: 1px;
+    #if($background-color)
+        background: #$background-color;
+    #else
+        background: inherit;
+    #end
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    #if ($border-width)
+        border-width: $border-widthpx;
+    #else
+        border-width: 1px;
+    #end
+    #if ($border-color)
+        border-color : #$border-color;
+    #else
+        border-color : blue;
+    #end
+    border-style: solid;
+    font-size:  $font-size ;
+    min-height: 30px;
+    font-weight:normal;
+    color: blue;
+    height:auto !important;
+    overflow:auto;
+    #if($align)
+        text-align: $align;
+    #else
+        text-align: left;
+    #end
+    }

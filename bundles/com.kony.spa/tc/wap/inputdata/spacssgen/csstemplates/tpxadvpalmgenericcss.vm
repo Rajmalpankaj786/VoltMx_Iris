@@ -1,0 +1,108 @@
+#set($s = "." + $skin)
+$s{
+    ##parse("tpxadviphonecssborder.vm")
+    #if($forking)
+        #parse("tpxadviphonecssborderspecific.vm")
+    #else
+        #parse("tpxadviphonecssborder.vm")
+    #end
+    #parse("tppalmmojocssfonts.vm")
+     #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end
+
+    #if($background-color)
+        #if($rgba == "true")
+                background-color : $background-color;
+        #else
+                #set($bc = "#" + $background-color)
+                background-color: $bc;
+        #end
+    #elseif($background-gradient)
+            background-image: url(./images/$background-image);
+            background-repeat: repeat-x;
+            background-color: $bottomcolor;
+    #elseif($background-image)
+        #if($repeat && $verticalrepeat)
+            background: url(./images/$background-image) repeat;
+        #elseif($repeat)
+            background: url(./images/$background-image) repeat-x;
+        #elseif($verticalrepeat)
+            background: url(./images/$background-image) repeat-y;
+        #else
+            background: url(./images/$background-image) no-repeat;
+        #end
+    #end
+
+    #if($rounded)
+         -webkit-border-radius: 10px;
+         border-radius: 10px;
+    #end
+##commented below code for bug:37163
+##author Maruthi
+#*
+#if($checkbox=="true")
+       height:22px;
+       width:22px;
+#end
+*#
+#if($wtype=="CheckBoxGroup" || $wtype=="RadioButtonGroup")
+    -webkit-box-sizing: border-box;
+#end
+#if($wtype=="TextArea" || $wtype=="TextBox" || $wtype=="Calendar" )
+    -webkit-box-sizing: border-box;
+    -webkit-appearance: none;
+#end
+#if($wtype =="Phone")
+        #if($font-style=="normal")
+            text-decoration:none;
+        #end
+#end
+
+}
+
+#if($wtype=="TextBox")
+    #parse("tpxadviphonetextboxskincss.vm")
+#end
+#if($wtype=="Grid Calendar Cell Skin")
+   #set($c = $s + "cell")
+
+$c{
+     #if($color)
+        #if($rgba_font == "true")
+            color : $color !important;
+        #else
+            color: #$color !important;
+        #end
+    #end
+    #if($background-color)
+        #if($rgba == "true")
+            background-color : $background-color !important;
+        #else
+             #set($bc = "#" + $background-color)
+             background-color: $bc !important;
+        #end
+    #elseif($bg-grad-split-ms)
+       #parse("tpxadviphonecssbggradient.vm")
+    #elseif($background-image)
+        #if($repeat && $verticalrepeat)
+            background: url(./images/$background-image) repeat !important;
+        #elseif($repeat)
+            background: url(./images/$background-image) repeat-x !important;
+        #elseif($verticalrepeat)
+            background: url(./images/$background-image) repeat-y !important;
+        #else
+            background: url(./images/$background-image) no-repeat !important;
+        #end
+        #if($enable_bg_size == "true")
+                  background-size : 100% 100%;
+        #end
+    #elseif($transparent)
+        background: inherit !important;
+    #end
+   }
+#end

@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="IDE" default="makeArchive" basedir=".">
+	<target name="init">
+		<taskdef resource="net/sf/antcontrib/antcontrib.properties">
+			<classpath>
+				<pathelement location="${plugin.loc}/lib/ant-contrib-0.6.jar"/>
+			</classpath>
+		</taskdef>
+	</target>
+
+	<target name="makeArchive" depends="init">
+		<mkdir dir="${output.dir}"/>
+		<mkdir dir="${temp.dir}/context/${context}"/>
+		<unzip src="${mobileweb.file}" dest="${temp.dir}/context/${context}">
+		</unzip>
+		<if>
+			<equals arg1="${middleware.type}" arg2="ear"/>
+			<then>
+				<echo message="Unzipping middleware EAR"/>
+				<unzip src="${middleware.file}" dest="${temp.dir}/middleware" overwrite="true">
+				</unzip>
+				<echo message="Unzipping middleware WAR"/>
+				<unzip src="${temp.dir}/middleware/middleware.war" dest="${temp.dir}/context/${context}" overwrite="true">
+				</unzip>
+				<if>
+					<equals arg1="${build.ear}" arg2="true"/>
+					<then>
+						<echo message="Copying META-INF/"/>
+						<copy todir="${temp.dir}/context/META-INF">
+							<fileset dir="${temp.dir}/middleware/META-INF/" includes="**/*">
+							</fileset>
+						</copy>
+						<echo message="Adding context entry in application.xml"/>
+						<replaceregexp flags="s" file="${temp.dir}/context/META-INF/application.xml" >
+							<regexp pattern="(&lt;module.*?&lt;web.*?&lt;web-uri.*?middleware.war\s*&lt;/web-uri\s*>\s*&lt;context-root\s*>\s*/middleware\s*&lt;/context-root\s*>\s*&lt;/web\s*>\s*&lt;/module\s*>)">
+							</regexp>
+							<substitution expression="&lt;module id=&quot;MobileWebModule&quot;>&lt;web>&lt;web-uri>${context}\.war&lt;/web-uri>&lt;context-root>/${context}&lt;/context-root>&lt;/web>&lt;/module>"/>
+						</replaceregexp>
+						<replaceregexp flags="s" file="${temp.dir}/context/META-INF/application.xml" >
+							<regexp pattern="(&lt;display-name.*?&lt;/display-name\s*>)">
+							</regexp>
+							<substitution expression="&lt;display-name>${context}&lt;/display-name>"/>
+						</replaceregexp>
+					</then>
+				</if>
+			</then>
+			<else>
+				<echo message="Unzipping middleware WAR"/>
+				<unzip src="${middleware.file}" dest="${temp.dir}/context/${context}" overwrite="true">
+				</unzip>
+			</else>
+		</if>
+		<delete file="${temp.dir}/context/${context}/WEB-INF/web.xml">
+		</delete>
+		<copy file="${temp.dir}/web.xml" todir="${temp.dir}/context/${context}/WEB-INF/" failonerror="false">
+		</copy>
+		<available file="${temp.dir}/context/${context}/WEB-INF/jboss-web.xml" property="jboss.exists"/>
+		<if>
+			<equals arg1="${jboss.exists}" arg2="true"/>
+			<then>
+				<replace file="${temp.dir}/context/${context}/WEB-INF/jboss-web.xml" token="/middleware" value="/${context}">
+				</replace>
+			</then>
+		</if>
+		<available file="${servicedef.location}" property="servicedef.exists"/>
+		<if>
+			<equals arg1="${servicedef.exists}" arg2="true"/>
+			<then>
+				<mkdir dir="${temp.dir}/context/${context}/WEB-INF/classes/appregistry"/>
+				<copy file="${servicedef.location}" tofile="${temp.dir}/context/${context}/WEB-INF/classes/appregistry/${appid}.xml" failonerror="false">
+				</copy>
+			</then>
+			<else>
+				<echo message="Service def file doesn't exist"/>
+			</else>
+		</if>
+		<copy todir="${temp.dir}/context/${context}/WEB-INF/lib">
+			<fileset dir="${temp.dir}/lib">
+			</fileset>
+		</copy>
+		<zip basedir="${temp.dir}/context/${context}" destfile="${temp.dir}/context/${context}.war">
+		</zip>
+		<if>
+			<equals arg1="${build.ear}" arg2="true"/>
+			<then>
+				<echo message="Creating EAR file"/>
+				<zip destfile="${temp.dir}/context/${context}.ear">
+					<fileset dir="${temp.dir}/context/" includes="${context}.war">
+					</fileset>
+					<fileset dir="${temp.dir}/context/" includes="META-INF/*">
+					</fileset>
+				</zip>
+				<copy file="${temp.dir}/context/${context}.ear" todir="${output.dir}"/>
+			</then>
+		</if>
+		<if>
+			<equals arg1="${build.war}" arg2="true"/>
+			<then>
+				<copy file="${temp.dir}/context/${context}.war" todir="${output.dir}"/>
+			</then>
+		</if>
+	</target>
+
+
+	<target name="makeCloudArchive" depends="init">
+		<mkdir dir="${output.dir}"/>
+		<mkdir dir="${temp.dir}/context/${context}"/>
+		<!-- Unzip web archive only if it exists. Used incase of services publish for native apps-->
+		<if>
+			<equals arg1="${mobileweb.file.skip}" arg2="true" />
+			<then>
+				<echo message="Unzipping mobileweb WAR has been skipped"/>
+			</then>
+			<else>
+				<echo message="Unzipping mobileweb WAR"/>
+				<unzip src="${mobileweb.file}" dest="${temp.dir}/context/${context}">
+				</unzip>
+			</else>
+		</if>
+
+		<echo message="Unzipping middleware WAR"/>
+		<unzip src="${middleware.file}" dest="${temp.dir}/context/${context}" overwrite="true">
+		</unzip>
+
+		<!--delete>
+			<fileset dir="${temp.dir}/context/${context}/WEB-INF/middleware/middleware-bootconfig/tc">
+			    <include name="deviceDetectionLogic.xml"/>
+			</fileset>
+		</delete-->
+		<available file="${webcommons.plugin.loc}/common/wap/deviceDetectionLogic.xml" property="device.present"/>
+		<if>
+			<equals arg1="${device.present}" arg2="true" />
+			<then>
+				<copy todir="${temp.dir}/context/${context}/WEB-INF/middleware/middleware-bootconfig/tc" overwrite="true">
+					<fileset dir="${webcommons.plugin.loc}/common/wap" includes="deviceDetectionLogic.xml"/>
+				</copy>
+			</then>
+		</if>
+
+		<available file="${temp.dir}/context/${context}/WEB-INF/lib" type="dir" property="libfolder.exists"/>
+		<if>
+			<equals arg1="${libfolder.exists}" arg2="true"/>
+			<then>
+				<delete>
+					<fileset dir="${temp.dir}/context/${context}/WEB-INF/lib">
+						<include name="*.jar"/>
+					</fileset>
+				</delete>
+			</then>
+		</if>
+
+		<available file="${webcommons.plugin.loc}/konywebcommonslib/KonyWebCommons.jar" type="file" property="wecommonlib.exists" />
+		<if>
+			<equals arg1="${wecommonlib.exists}" arg2="true" />
+			<then>
+				<copy todir="${temp.dir}/context/${context}/WEB-INF/lib" overwrite="true">
+					<fileset dir="${webcommons.plugin.loc}/konywebcommonslib/" />
+				</copy>
+			</then>
+		</if>
+
+
+		<if>
+			<and>
+				<equals arg1="${mobileweb.file.skip}" arg2="true" />
+				<equals arg1="${https.redirect}" arg2="false" />
+			</and>
+			<then>
+				<echo message="Copy of web.xml is skipped."/>
+			</then>
+			<else>
+				<delete file="${temp.dir}/context/${context}/WEB-INF/web.xml">
+				</delete>
+				<copy file="${temp.dir}/web.xml" todir="${temp.dir}/context/${context}/WEB-INF/" failonerror="false">
+				</copy>
+			</else>
+		</if>
+		<!-- Even incase of dummy war, we need to replace appid in web.xml -->
+		<if>
+			<equals arg1="${mobileweb.file.skip}" arg2="true"/>
+			<then>
+				<replace file="${temp.dir}/context/${context}/WEB-INF/web.xml" 
+					token="&lt;param-value&gt;middleware&lt;/param-value&gt;" value="&lt;param-value&gt;${appid}&lt;/param-value&gt;"/>
+			</then>
+		</if>
+
+		<!-- START Replacing jboss -->
+		<available file="${temp.dir}/context/${context}/WEB-INF/jboss-web.xml" property="jboss.exists"/>
+		<if>
+			<equals arg1="${jboss.exists}" arg2="true"/>
+			<then>
+				<replace file="${temp.dir}/context/${context}/WEB-INF/jboss-web.xml" token="/middleware" value="/${context}">
+				</replace>
+			</then>
+		</if>
+		<!-- END Replacing jboss -->
+
+		<!-- START Copying servicedef -->
+		<available file="${servicedef.location}" property="servicedef.exists"/>
+		<if>
+			<equals arg1="${servicedef.exists}" arg2="true"/>
+			<then>
+				<mkdir dir="${temp.dir}/context/${context}/WEB-INF/middleware/middleware-bootconfig/appregistry"/>
+				<copy file="${servicedef.location}" tofile="${temp.dir}/context/${context}/WEB-INF/middleware/middleware-bootconfig/appregistry/${appid}.xml" failonerror="false">
+				</copy>
+			</then>
+			<else>
+				<echo message="Service def file doesn't exist"/>
+			</else>
+		</if>
+		<!-- END Copying servicedef -->
+
+		<!-- START Copying DSL files -->
+		<!--available file="${dsl.loc}" property="dsl.exists" type="dir"/>
+		<if>
+			<equals arg1="${dsl.exists}" arg2="true"/>
+			<then>
+				<copy todir="${temp.dir}/context/${context}/WEB-INF/middleware/middleware-bootconfig/genericscrapper/${appid}">
+					<fileset dir="${dsl.loc}" includes="*.dsl,*.properties"/>
+				</copy>
+			</then>
+			<else>
+				<echo message="DSL folder doesn't exist"/>
+			</else>
+		</if-->
+		<!-- END Copying DSL files -->
+
+		<!-- START Copying Cert files -->
+		<available file="${certs.loc}" property="certs.exists" type="dir"/>
+		<if>
+			<equals arg1="${certs.exists}" arg2="true"/>
+			<then>
+				<copy todir="${temp.dir}/context/${context}/WEB-INF/middleware/middleware-bootconfig/certs">
+					<fileset dir="${certs.loc}" includes="*.*"/>
+				</copy>
+			</then>
+			<else>
+				<echo message="Certs folder doesn't exist"/>
+			</else>
+		</if>
+		<!-- END Copying Cert files -->
+
+		<!-- START Copying libraries -->
+		<if>
+			<equals arg1="${includemiddleware}" arg2="true"/>
+			<then>
+				<echo message="Copying thirdparty middleware jars, excluding conflicted files"/>
+				<copy todir="${temp.dir}/context/${context}/WEB-INF/lib">
+					<fileset dir="${cloudthirdparty.location}" excludes="${excludemiddlewarelib}" includes="*.jar"/>
+				</copy>
+			</then>
+		</if>
+		<echo message="Copying custom jars"/>
+		<for list="${newlibs}" param="customlib">
+			<sequential>
+				<copy file="@{customlib}" todir="${temp.dir}/context/${context}/WEB-INF/lib"/>
+			</sequential>
+		</for>
+		<for list="${newlibswithoutpath}" param="customlibname">
+			<sequential>
+				<move file="${temp.dir}/context/${context}/WEB-INF/lib/@{customlibname}" 
+						tofile="${temp.dir}/context/${context}/WEB-INF/lib/custom-${appid}-@{customlibname}"/>
+			</sequential>
+		</for>
+		<!-- END Copying libraries -->
+
+		<!-- START Copying system libraries -->
+		<echo message="Copying system libs"/>
+		<for list="${systemlibs}" param="systemlib">
+			<sequential>
+				<copy file="@{systemlib}" todir="${temp.dir}/context/${context}/WEB-INF/systemlib"/>
+			</sequential>
+		</for>
+		<for list="${systemlibswithoutpath}" param="systemlibname">
+			<sequential>
+				<move file="${temp.dir}/context/${context}/WEB-INF/systemlib/@{systemlibname}" 
+						tofile="${temp.dir}/context/${context}/WEB-INF/systemlib/${appid}_@{systemlibname}"/>
+			</sequential>
+		</for>
+		<!-- END Copying system libraries -->
+
+		<replace file="${temp.dir}/context/${context}/WEB-INF/middleware/middleware-bootconfig/cloud-middleware-log4j.properties" token="middleware.log" value="${context}-middleware.log"/>
+		<replace file="${temp.dir}/context/${context}/WEB-INF/middleware/middleware-bootconfig/cloud-middleware-log4j.properties" token="com.kony=DEBUG" value="com.kony=${log_level}"/>
+		<replace file="${temp.dir}/context/${context}/WEB-INF/middleware/middleware-bootconfig/cloud-middleware-log4j.properties" token="com.konylabs=DEBUG" value="com.konylabs=${log_level}"/>
+
+		<!-- START Create appid.properties in middleware/middleware-bootconfig/tc folder for spa /mobile web app -->
+		<property name="tcfolder" value="${temp.dir}/context/${context}/WEB-INF/middleware/middleware-bootconfig/tc"/>
+		<mkdir dir="${tcfolder}"/>
+		<touch file="${tcfolder}/${appid}.properties"/>
+		<concat fixlastline="yes" destfile="${tcfolder}/${appid}.properties" append="true">appmiddlewarecontext=${appid}</concat>
+		<!-- END Create appid.properties in middleware/middleware-bootconfig/tc folder for spa /mobile web app -->
+
+		<!-- START Replacing MANIFEST -->
+		<property name="manifestfile" value="${temp.dir}/context/${context}/META-INF/MANIFEST.MF"/>
+		<concat fixlastline="yes" destfile="${manifestfile}" append="true">Name: LibVersions${line.separator}</concat>
+		<concat fixlastline="yes" destfile="${manifestfile}" append="true">IsThirdPartyLibIncluded: ${includemiddleware}${line.separator}</concat>
+		<concat fixlastline="yes" destfile="${manifestfile}" append="true">MiddlewareLibVersion: ${cloudmiddleware.version}${line.separator}</concat>
+		<concat fixlastline="yes" destfile="${manifestfile}" append="true">ThirdPartyLibVersion: ${cloudthirdparty.version}${line.separator}</concat>
+		<concat fixlastline="yes" destfile="${manifestfile}" append="true">MobileWebLibVersion: ${webcommons.version}</concat>
+		<!-- END Replacing MANIFEST -->
+
+		<!-- START Replacing middleware.properties -->
+		<property name="propertyfile" value="${temp.dir}/context/${context}/WEB-INF/middleware/middleware-bootconfig/middleware.properties"/>
+
+		<replace file="${propertyfile}" token="ssl.keyStore=" value="ssl.keyStore=${certs_key_store_file}"/>
+		<replace file="${propertyfile}" token="ssl.trustStore=" value="ssl.trustStore=${certs_trust_store_file}"/>
+
+		<replace file="${propertyfile}" token="ssl.keyStorePassword=changeit" value="ssl.keyStorePassword=${certs_key_store_pwd}"/>
+		<replace file="${propertyfile}" token="ssl.trustStorePassword=changeit" value="ssl.trustStorePassword=${certs_trust_store_pwd}"/>
+
+		<replace file="${propertyfile}" token="ssl.keyStoreType=jks" value="ssl.keyStoreType=${certs_key_store_type}"/>
+		<replace file="${propertyfile}" token="ssl.trustStoreType=jks" value="ssl.trustStoreType=${certs_trust_store_type}"/>
+
+		<replace file="${propertyfile}" token="ssl.algorithm=TLS" value="ssl.algorithm=${certs_ssl_algorithm}"/>
+		<!-- END Replacing middleware.properties -->
+		<if>
+			<equals arg1="${sap.exists}" arg2="true"/>
+			<then>
+				<echo message="replacing..."/>
+				<replace file="${temp.dir}/context/${context}/WEB-INF/web.xml" token="&lt;!-- START - Enable SAP Listener for SAP services" 
+					value="&lt;!-- START - Enabled SAP Listener for SAP services --&gt;" />
+				<replace file="${temp.dir}/context/${context}/WEB-INF/web.xml" token="END - SAP Listener for SAP services --&gt;" 
+					value="&lt;!-- END - SAP Listener for SAP services --&gt;" />
+			</then>
+		</if>
+		<if>
+			<equals arg1="${mainframe.exists}" arg2="true"/>
+			<then>
+				<replace file="${temp.dir}/context/${context}/WEB-INF/web.xml" token="&lt;!-- START - Enable JMS Listener for JMS services" 
+					value="&lt;!-- START - Enabled JMS Listener for JMS services --&gt;" />
+				<replace file="${temp.dir}/context/${context}/WEB-INF/web.xml" token="END - JMS Listener for JMS services --&gt;" 
+					value="&lt;!-- END - JMS Listener for JMS services --&gt;" />
+			</then>
+		</if>
+		<zip basedir="${temp.dir}/context/${context}" destfile="${temp.dir}/context/${context}.war">
+		</zip>
+		<copy file="${temp.dir}/context/${context}.war" todir="${output.dir}"/>
+	</target>
+
+	<target name="makeServiceArchive" depends="init">
+		<available file="${temp.loc}/services.zip" property="zip.avaialble"/>
+		<if>
+			<equals arg1="${zip.avaialble}" arg2="true"/>
+			<then>
+				<delete file="${temp.loc}/services.zip"/>
+			</then>
+		</if>
+		<mkdir dir="${temp.dir}/services"/>
+		<mkdir dir="${temp.dir}/services/webconnector"/>
+		<!-- START Copying servicedef -->
+		<available file="${servicedef.location}" property="servicedef.exists"/>
+		<if>
+			<equals arg1="${servicedef.exists}" arg2="true"/>
+			<then>
+				<copy file="${servicedef.location}" tofile="${temp.dir}/services/${appid}.xml" failonerror="false">
+				</copy>
+			</then>
+			<else>
+				<echo message="Service def file doesn't exist"/>
+			</else>
+		</if>
+		<!-- END Copying servicedef -->
+
+		<!-- START Copying DSL files -->
+		<available file="${dsl.loc}" property="dsl.exists" type="dir"/>
+		<if>
+			<equals arg1="${dsl.exists}" arg2="true"/>
+			<then>
+				<copy todir="${temp.dir}/services/webconnector">
+					<fileset dir="${dsl.loc}" includes="*.dsl,*.properties"/>
+				</copy>
+			</then>
+			<else>
+				<echo message="DSL folder doesn't exist"/>
+			</else>
+		</if>
+		<!-- END Copying DSL files -->
+
+		<!-- START Copying properties files -->
+		<!-- constants defined in  com.pat.tool.keditor.tasks.TServicePublish  -->
+		<copypropertyfiles service.location="${sap.location}"/>
+		<copypropertyfiles service.location="${siebel.location}"/>
+		<copypropertyfiles service.location="${mainframe.location}"/>
+		<!-- END Copying properties files -->
+		<if>
+			<equals arg1="${fullpublish}" arg2="true"/>
+			<then>
+				<mkdir dir="${temp.dir}/loglevel"/>
+				<echo message="Current loglevel is: ${log_level}"/>
+				<copy file="${plugin.loc}/loglevel.json" tofile="${temp.dir}/loglevel/${appid}_loglevel.json"/>
+				<replace file="${temp.dir}/loglevel/${appid}_loglevel.json" token='"DEBUG"' value='"${log_level}"'/>
+			</then>
+		</if>
+
+		<zip destfile="${temp.loc}/config.zip" basedir="${temp.dir}">
+		</zip>
+		<delete dir="${temp.dir}">
+		</delete>
+	</target>
+	<macrodef name="copypropertyfiles">
+		<attribute name="service.location" default=""/>
+		<sequential>
+			<echo message="Copying property files from '@{service.location}'"/>
+			<available file="@{service.location}" type="dir" property="service.present"/>
+			<if>
+				<equals arg1="${service.present}" arg2="true" />
+				<then>
+					<copy todir="${temp.dir}/services">
+						<fileset dir="@{service.location}" includes="*.properties"/>
+					</copy>
+				</then>
+			</if>
+		</sequential>
+	</macrodef>
+</project>

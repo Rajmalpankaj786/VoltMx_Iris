@@ -1,0 +1,52 @@
+{
+    "AS_Image_cac4e58d220b4d07a21af3d6d807ae92": {
+        "id": "AS_Image_cac4e58d220b4d07a21af3d6d807ae92",
+        "type": "ACTION_SEQUENCE",
+        "params": [{
+            "datatype": "collection",
+            "name": "eventobject"
+        }, {
+            "datatype": "string",
+            "name": "x"
+        }, {
+            "datatype": "string",
+            "name": "y"
+        }],
+        "contextObj": {
+            "name": "frmEComplaintCategories",
+            "type": "forms",
+            "platform": "",
+            "KUID": "aa3a8d906c9946c2b289f049ed23b43d"
+        },
+        "language": "js",
+        "actions": [{
+            "id": "_i8ff1f1a84944d70a30cd631a394e82c",
+            "type": "MOVE_ACTION",
+            "itemType": "FORM",
+            "itemId": "frmEComplaintCategories",
+            "widgetId": "hamburgermenu",
+            "itemKUID": "aa3a8d906c9946c2b289f049ed23b43d",
+            "widgetKUID": "a9b6ed6cbaf849648c797d35e2a06827",
+            "wType": "UserWidgetInstance",
+            "animationObject": {
+                "left": "0dp",
+                "anchorPoint": {},
+                "stepConfig": {
+                    "timingFunction": "kony.anim.EASE"
+                }
+            },
+            "config": {
+                "delay": "0",
+                "iterationCount": 1,
+                "fillMode": "voltmx.anim.FILL_MODE_FORWARDS",
+                "duration": "1000"
+            },
+            "start": "Immediately",
+            "animationId": "_i8ff1f1a84944d70a30cd631a394e82c",
+            "displayAnimationId": "MOVE_ACTION_f15e1aab6f2046a19c88fb9222132bfe",
+            "forkedPlatform": "all",
+            "parentId": null,
+            "widgetPath": "this.view.hamburgermenu"
+        }]
+    }
+}

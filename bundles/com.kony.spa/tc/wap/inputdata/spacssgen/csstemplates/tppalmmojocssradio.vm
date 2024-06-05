@@ -1,0 +1,41 @@
+#if($focusSkin)
+	#set($s = $skin)
+#else
+	#set($s = "." + $skin)
+#end
+
+ $s{
+	#if ($border-width)
+	#parse("tppalmmojocssborder.vm")
+	border-style: solid;
+	#end
+    #parse("tppalmmojocssfonts.vm")
+    #if($color)
+        #if($rgba == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end
+    #if($background-color)
+        #if($bg_rgba == "true")
+            background-color : $background-color;
+        #else
+            background-color : #$background-color;
+        #end
+    #elseif($background-image)
+        #if($repeat || $gradient)
+            background-image: url(../$background-image);
+        #else
+            background-image: url(../$background-image);
+			background-repeat: no-repeat;
+			-webkit-background-size: 100%;
+        #end
+    #end
+
+    #if($rounded)
+         -webkit-border-radius: 5px;
+         border-radius: 5px;
+    #end
+	-webkit-border-image : url(../none.png) 10 10 10 10 stretch stretch;
+ }

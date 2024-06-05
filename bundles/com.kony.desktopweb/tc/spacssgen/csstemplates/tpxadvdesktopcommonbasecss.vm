@@ -1,0 +1,14 @@
+$skinIds {
+        -moz-border-radius: 0px;
+        -webkit-border-radius: 0px;
+        border-radius: 0px;
+        color: #000000;
+        border:none;
+        background:transparent;
+}		
+	
+.voltmxcustomcss {
+    font-size: ${font-size};
+
+}   
+

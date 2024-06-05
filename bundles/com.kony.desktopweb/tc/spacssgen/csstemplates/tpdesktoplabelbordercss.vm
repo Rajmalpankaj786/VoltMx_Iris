@@ -1,0 +1,15 @@
+#if($forking)
+  #if ($border-top-width ||$border-bottom-width ||$border-left-width || $border-right-width )
+   div$s 
+        {
+           #parse("tpdesktopcommoncssborderspecific.vm")
+        }
+  #end
+#else
+  #if($border-width)
+    div$s 
+    {
+      #parse("tpdesktopcommoncssborder.vm")
+    }
+  #end
+#end

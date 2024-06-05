@@ -1,0 +1,9 @@
+#if($cssval == "small")
+    $cssname : 9pt;
+#elseif($cssval == "medium")
+    $cssname : 10pt;
+#elseif($cssval == "large")
+    $cssname : 11pt;
+#else
+    $cssname : 9pt;
+#end

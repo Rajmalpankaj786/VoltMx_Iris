@@ -1,0 +1,35 @@
+{
+    "NativeFunctionAPI": {
+        "iOS": {},
+        "Android": {
+            "4.0": {
+                "Kony_FileStorage-Android-4.0": {
+                    "title": "Kony_FileStorage",
+                    "platform": "Android",
+                    "os": "4.0",
+                    "ci": true,
+                    "isDefault": true,
+                    "filename": "Kony_FileStorage-Android-4.0.zip"
+                },
+                "Kony_SDKCommons-Android-4.0": {
+                    "title": "Kony_SDKCommons",
+                    "platform": "Android",
+                    "os": "4.0",
+                    "ci": true,
+                    "isDefault": true,
+                    "filename": "Kony_SDKCommons-Android-4.0.zip"
+                },
+                "Kony_SyncV2-Android-4.0": {
+                    "title": "Kony_SyncV2",
+                    "platform": "Android",
+                    "os": "4.0",
+                    "ci": true,
+                    "isDefault": true,
+                    "filename": "Kony_SyncV2-Android-4.0.zip"
+                }
+            }
+        },
+        "Desktop": {}
+    },
+    "Metadata": {}
+}

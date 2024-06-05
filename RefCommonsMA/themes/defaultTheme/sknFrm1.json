@@ -1,0 +1,16 @@
+{
+  "background_gradient_bottom_color": "fee5d0ff",
+  "background_gradient_top_color": "c8f0faff",
+  "background_style": "vg",
+  "bg_type": "two",
+  "border_color": "ffffffff",
+  "constants": {
+    "background_color": {
+      "key": "color",
+      "value": "${themes.primarySecondaryColorsGradient1}"
+    }
+  },
+  "isDefaultSkin": true,
+  "kuid": "s3b6710653dd46ddb119f6040806bc7d",
+  "wType": "Form"
+}

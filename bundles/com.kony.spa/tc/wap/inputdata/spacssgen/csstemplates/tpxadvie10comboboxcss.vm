@@ -1,0 +1,40 @@
+#if($focusSkin)
+	#set($s = $skin)
+#else
+	#set($s = "." + $skin)
+#end
+
+$s{   
+   #if($forking)
+        #parse("tpxadvie10cssborderspecific.vm")
+   #else
+        #parse("tpxadvie10cssborder.vm")
+   #end
+   #parse("tppalmmojocssfonts.vm")
+   #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end
+    #if($background-color)
+        #if($rgba == "true")
+            background-color : $background-color;
+        #else
+             #set($bc = "#" + $background-color)
+             background-color: $bc;
+        #end
+    #elseif($background-image)
+        #parse("tpspagenericbgimage.vm")
+    #else #parse("tpxadvie10backgroundgradientscss.vm")
+    #end
+    #if($rounded)
+         -ms-border-radius: 10px;
+		 border-radius: 10px;
+    #end
+    #if($forking)
+        #parse("tpxadvie10shadowcss.vm")
+    #end
+}
+    

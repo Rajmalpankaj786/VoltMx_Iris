@@ -1,0 +1,29 @@
+#if($newlib)
+    #if($customfontsinuse)
+      #foreach ($cf in $customfontsinuse)
+        #set($url = "url('../../fonts/"+$cf+$ext+"')")
+        #set($url2 = "url('../../fonts/"+$cf+$ext2+"')")
+         @font-face {
+          font-family: '$cf';
+          src: $url#if($ext2),$url2#end ;
+        }
+      #end
+    #end
+#else
+    #if($customfontsinuse)
+      #foreach ($cf in $customfontsinuse)
+        #if($themeName=="default")
+            #set($url = "url('"+$cf+$ext+"')")
+            #set($url2 = "url('"+$cf+$ext2+"')")
+        #else
+            #set($url = "url('../"+$cf+$ext+"')")
+            #set($url2 = "url('../"+$cf+$ext2+"')")
+
+        #end
+         @font-face {
+          font-family: '$cf';
+          src: $url#if($ext2),$url2#end ;
+        }
+      #end
+    #end
+#end

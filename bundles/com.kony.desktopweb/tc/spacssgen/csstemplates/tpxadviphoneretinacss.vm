@@ -1,0 +1,23 @@
+#if($focusSkin)
+	#set($s = $skin)
+#else
+	#set($s = "." + $skin)
+#end
+
+
+$s{
+
+    #if($backgroundretinaimage)
+        #if($retinarepeatImage)
+            background: url(./images/$backgroundretinaimage) repeat;
+        #else
+            background: url(./images/$backgroundretinaimage) no-repeat;
+        #end
+    #end
+
+    #if($width && $height)
+        background-size: $width $height;
+    #end
+}
+
+    

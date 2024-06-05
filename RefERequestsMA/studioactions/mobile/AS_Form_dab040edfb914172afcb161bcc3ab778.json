@@ -1,0 +1,24 @@
+{
+    "AS_Form_dab040edfb914172afcb161bcc3ab778": {
+        "id": "AS_Form_dab040edfb914172afcb161bcc3ab778",
+        "type": "ACTION_SEQUENCE",
+        "params": [{
+            "datatype": "collection",
+            "name": "eventobject"
+        }],
+        "contextObj": {
+            "name": "frmERequestsCreate",
+            "type": "forms",
+            "platform": "",
+            "KUID": "fd35171f4b3b47f8aeb4964823132df3"
+        },
+        "language": "js",
+        "actions": [{
+            "id": "ADD_SNIPPET_c12767b4eaa143589c80cf9a140ca32f",
+            "type": "ADD_SNIPPET",
+            "codeSnippet": "this.view.createRequest.lblTitleText = \"Request \"+this.navigationContext.segCategories_selectedRowItems[0].Category + \".\";\nthis.view.createRequest.lblCapturePhotoText = \"Tap here to capture photo of request.\";\nthis.view.createRequest.complaintOrRequestObject.CategoryID = this.navigationContext.segCategories_selectedRowItems[0].CategoryID;\n",
+            "parentId": null,
+            "callbackType": null
+        }]
+    }
+}

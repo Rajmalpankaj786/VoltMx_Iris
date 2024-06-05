@@ -1,0 +1,29 @@
+ ## adding web header tags provided by application developer - project settings
+   #foreach($webtags in $webheadertags)
+       $webtags
+   #end
+
+ ## adding web/localfiles css
+   #foreach($filepath in $webcsslist)
+        #if($filepath.indexOf('://') > 0 || $filepath.indexOf('//') == 0)
+            <link rel="stylesheet" href="$filepath" type="text/css" /></link>
+        #else
+            #if($jspgeneration=="true")
+                <link rel="stylesheet" href="${category}web/localfiles/$filepath?ver=$version" type="text/css" /></link>
+            #else
+                <link rel="stylesheet" href="${category}web/localfiles/$filepath" type="text/css" /></link>
+            #end
+        #end
+   #end
+ ## adding web/localfiles js
+   #foreach($filepath in $webjslist)
+        #if($filepath.indexOf('://') > 0 || $filepath.indexOf('//') == 0)
+            <script type="text/javascript" src="$filepath"></script>
+        #else
+            #if($jspgeneration=="true")
+                <script type="text/javascript" src="${category}web/localfiles/$filepath?ver=$version"></script>
+            #else
+                <script type="text/javascript" src="${category}web/localfiles/$filepath"></script>
+            #end
+        #end
+   #end

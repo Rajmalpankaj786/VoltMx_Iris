@@ -1,0 +1,151 @@
+/*
+    This is an auto generated file and any modifications to it may result in corrupted data.
+*/
+define([], function() {
+    var BaseModel = voltmx.mvc.Data.BaseModel;
+    var preProcessorCallback;
+    var postProcessorCallback;
+    var objectMetadata;
+    var context = {"object" : "{{name}}", "objectService" : "{{appId}}"};
+
+    var setterFunctions = {
+    {{#columns}}
+        {{name}}: function(val, state) {
+            context["field"] = "{{name}}";
+            context["metadata"] = (objectMetadata ? objectMetadata["{{name}}"] : null);
+            state['{{name}}'] = voltmx.mvc.util.ProcessorUtils.applyFunction(preProcessorCallback, val, context);
+        },
+    {{/columns}}
+    };
+
+    //Create the Model Class
+    function {{name}}(defaultValues) {
+        var privateState = {};
+        {{#columns}}
+        context["field"] = "{{name}}";
+        context["metadata"] = (objectMetadata ? objectMetadata["{{name}}"] : null);
+        privateState.{{name}} = defaultValues ?
+            (defaultValues["{{name}}"] ?
+                voltmx.mvc.util.ProcessorUtils.applyFunction(preProcessorCallback, defaultValues["{{name}}"], context) :
+                null) :
+            null;
+
+        {{/columns}}
+
+        //Using parent constructor to create other properties req. to kony sdk
+        BaseModel.call(this);
+
+        //Defining Getter/Setters
+        Object.defineProperties(this, {
+            {{#columns}}
+            "{{name}}": {
+                get: function() {
+                    context["field"] = "{{name}}";
+                    context["metadata"] = (objectMetadata ? objectMetadata["{{name}}"] : null);
+                    return voltmx.mvc.util.ProcessorUtils.applyFunction(postProcessorCallback, privateState.{{name}}, context);
+                },
+                set: function(val) {
+                    setterFunctions['{{name}}'].call(this, val, privateState);
+                },
+                enumerable: true,
+            },
+            {{/columns}}
+        });
+
+        //converts model object to json object.
+        this.toJsonInternal = function() {
+            return Object.assign({}, privateState);
+        };
+
+        //overwrites object state with provided json value in argument.
+        this.fromJsonInternal = function(value) {
+            {{#columns}}
+            privateState.{{name}} = value ? (value["{{name}}"] ? value["{{name}}"] : null) : null;
+            {{/columns}}
+        };
+    }
+
+    //Setting BaseModel as Parent to this Model
+    BaseModel.isParentOf({{name}});
+
+    //Create new class level validator object
+    BaseModel.Validator.call({{name}});
+
+    var registerValidatorBackup = {{name}}.registerValidator;
+
+    {{name}}.registerValidator = function() {
+        var propName = arguments[0];
+        if(!setterFunctions[propName].changed) {
+            var setterBackup = setterFunctions[propName];
+            setterFunctions[arguments[0]] = function() {
+                if({{name}}.isValid(this, propName, val)) {
+                    return setterBackup.apply(null, arguments);
+                } else {
+                    throw Error("Validation failed for " + propName + " : " + val);
+                }
+            }
+            setterFunctions[arguments[0]].changed = true;
+        }
+        return registerValidatorBackup.apply(null, arguments);
+    }
+
+    //Extending Model for custom operations
+    {{#verbs}}
+    //For Operation '{{operation}}' with service id '{{serviceid}}'
+     {{name}}.{{operation}} = function(params, onCompletion){
+        return {{name}}.customVerb('{{operation}}', params, onCompletion);
+     };
+
+     {{/verbs}}
+    var relations = [];
+
+    {{name}}.relations = relations;
+
+    {{name}}.prototype.isValid = function() {
+        return {{name}}.isValid(this);
+    };
+
+    {{name}}.prototype.objModelName = "{{name}}";
+
+    /*This API allows registration of preprocessors and postprocessors for model.
+     *It also fetches object metadata for object.
+     *Options Supported
+     *preProcessor  - preprocessor function for use with setters.
+     *postProcessor - post processor callback for use with getters.
+     *getFromServer - value set to true will fetch metadata from network else from cache.
+     */
+    {{name}}.registerProcessors = function(options, successCallback, failureCallback) {
+
+        if(!options) {
+            options = {};
+        }
+
+        if(options && ((options["preProcessor"] && typeof(options["preProcessor"]) === "function") || !options["preProcessor"])) {
+            preProcessorCallback = options["preProcessor"];
+        }
+
+        if(options && ((options["postProcessor"] && typeof(options["postProcessor"]) === "function") || !options["postProcessor"])) {
+            postProcessorCallback = options["postProcessor"];
+        }
+
+        function metaDataSuccess(res) {
+            objectMetadata = voltmx.mvc.util.ProcessorUtils.convertObjectMetadataToFieldMetadataMap(res);
+            successCallback();
+        }
+
+        function metaDataFailure(err) {
+            failureCallback(err);
+        }
+
+        voltmx.mvc.util.ProcessorUtils.getMetadataForObject("{{appId}}", "{{name}}", options, metaDataSuccess, metaDataFailure);
+    };
+
+    //clone the object provided in argument.
+    {{name}}.clone = function(objectToClone) {
+        var clonedObj = new {{name}}();
+        clonedObj.fromJsonInternal(objectToClone.toJsonInternal());
+        return clonedObj;
+    };
+
+    return {{name}};
+});

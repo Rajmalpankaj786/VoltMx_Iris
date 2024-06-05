@@ -1,0 +1,41 @@
+{
+    "AS_Form_hc2647286b43430191440f70d4ac351e": {
+        "id": "AS_Form_hc2647286b43430191440f70d4ac351e",
+        "type": "ACTION_SEQUENCE",
+        "params": [{
+            "datatype": "collection",
+            "name": "eventobject"
+        }],
+        "contextObj": {
+            "name": "frmEComplaintsCreate",
+            "type": "forms",
+            "platform": "",
+            "KUID": "j389a3a5aae44b74b7737ff75e5cba52"
+        },
+        "language": "js",
+        "actions": [{
+            "id": "_d9e8d48770444467ba7fe43b134f989c",
+            "type": "IF_CONDITION",
+            "conditions": [{
+                "leftValueType": "navigationsource",
+                "leftValue": "(this.getPreviousForm() === \"frmEComplaintCategories\") && this.navigationContext && this.navigationContext._meta_ && (this.navigationContext._meta_.widgetId ===  \"segCategories\") && (this.navigationContext._meta_.eventName ===  \"onRowClick\")",
+                "operator": "===",
+                "rightValue": "",
+                "leftItemKUID": "aa3a8d906c9946c2b289f049ed23b43d",
+                "leftWidgetKUID": "ea90672091a543c59925552ef3aa5840",
+                "sequenceId": "AS_Segment_e30f2fdff2284e47ba5496bae1d30959",
+                "eventName": "onRowClick",
+                "widgetId": "segCategories"
+            }],
+            "parentId": null,
+            "callbackType": null,
+            "criteria": "all"
+        }, {
+            "id": "ADD_SNIPPET_ef607a2c65a34da88147026b9cc8bc2f",
+            "type": "ADD_SNIPPET",
+            "codeSnippet": "this.view.createComplaint.lblTitleText = \"Report \"+this.navigationContext.segCategories_selectedRowItems[0].Category + \" Complaint.\";\nthis.view.createComplaint.lblCapturePhotoText = \"Tap here to capture photo of complaint.\";\nthis.view.createComplaint.complaintOrRequestObject.CategoryID = this.navigationContext.segCategories_selectedRowItems[0].CategoryID;\n",
+            "parentId": "_d9e8d48770444467ba7fe43b134f989c",
+            "callbackType": null
+        }]
+    }
+}

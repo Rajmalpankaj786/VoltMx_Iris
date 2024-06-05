@@ -1,0 +1,308 @@
+<?xml version="1.0"?>
+    <!-- =========================================================      -->
+    <!--      Build file for creating intital dir structure for RC      -->
+    <!--        & TC for jetty deploy, 19/Feb/2011                                  -->
+    <!-- =========================================================      -->
+<project name="Kony web project" default="all" basedir=".">
+
+    <target name="init">
+        <property name="dirs.base" value="${basedir}"/>
+        <property name="wap.base" location="${tcplugin.loc}/tc/wap"/>
+        <property name="buildlib" location="${basedir}/lib"/>
+        <property name="inputdata" location="${wap.base}/inputdata"/>
+        <property name="webfiles" location="${wap.base}/inputdata/webfiles"/>
+       
+        <taskdef resource="net/sf/antcontrib/antcontrib.properties">
+          <classpath>
+            <pathelement location="${plugin.loc}/lib/ant-contrib-0.6.jar"/>
+          </classpath>
+        </taskdef>
+    </target>
+	
+	<target name="changewebxml" depends="init">
+		<available file="${webapps.loc}/${projname}" type="dir" property="app.present"/>
+		<if>
+			<equals arg1="${app.present}" arg2="true"/>
+			<then>
+				<if>
+					<equals arg1="${tc.available}" arg2="true"/>
+					<then>
+					    <copy todir="${webapps.loc}/${projname}/WEB-INF" overwrite="true">
+					        <fileset dir="${webfiles}/src" includes="web.xml"/>
+					    </copy>
+					</then>
+					<else>
+					    <copy todir="${webapps.loc}/${projname}/WEB-INF" overwrite="true">
+					        <fileset dir="${webcommons.plugin.loc}/common/wap/inputdata/webfiles/src" includes="web.xml"/>
+					    </copy>
+					</else>
+				</if>
+			  	<handlewebxml webfile="${webapps.loc}/${projname}/WEB-INF/web.xml" appid="${appid}" jetty.portnum="${jetty.portnum}" 
+			  		jetty.httpsportnum="${jetty.httpsportnum}" 
+			  		locales="${locales}" sessionmgr="${sessionmgr}" build.option="${build.option}" jspbase="${jspbase}" 
+			  		spatargets="${spatargetplatforms}" webinfdir="${webapps.loc}/${projname}/WEB-INF"
+			  		resourcedir="${resfolder}" devlanguage="${devlanguage}" tctargets="${tctargetplatforms}"/>
+			</then>
+		</if>
+	</target>
+	
+	<target name="changepreviewwebxml" depends="init">
+		<available file="${webapps.loc}/${projname}" type="dir" property="app.present"/>
+		<if>
+			<equals arg1="${app.present}" arg2="true"/>
+			<then>			
+		        <copy todir="${webapps.loc}/${projname}/WEB-INF" overwrite="true">
+		            <fileset dir="${tcplugin.loc}/tc/wap/tc/WEB-INF" includes="web.xml"/>
+		        </copy>
+			  	<handlewebxml webfile="${webapps.loc}/${projname}/WEB-INF/web.xml" appid="${appid}" jetty.portnum="${jetty.portnum}" 
+			  		jetty.httpsportnum="${jetty.httpsportnum}" 
+			  		locales="${locales}" sessionmgr="${sessionmgr}" build.option="${build.option}" jspbase="${jspbase}" 
+			  		spatargets="${spatargetplatforms}" webinfdir="${webapps.loc}/${projname}/WEB-INF"
+			  		resourcedir="${resfolder}" devlanguage="${devlanguage}" tctargets="${tctargetplatforms}"/>
+			</then>
+		</if>
+	</target>
+	
+	<target name="jettyportchange" depends="init">
+		<for list="${apps.list}" param="projname">
+		  <sequential>
+		  	<available file="${webapps.loc}/@{projname}" type="dir" property="@{projname}_app.present"/>
+		  	<if>
+		  		<equals arg1="${@{projname}_app.present}" arg2="true"/>
+		  		<then>	
+				  	<property name="@{projname}_webinf" location="${webapps.loc}/@{projname}/WEB-INF"/>	
+		  			<if>
+		  				<equals arg1="${tc.available}" arg2="true"/>
+		  				<then>
+					        <copy todir="${@{projname}_webinf}" overwrite="true">
+					            <fileset dir="${webfiles}/src" includes="web.xml,jetty-env.xml"/>
+					        </copy>
+		  				</then>
+		  				<else>
+					        <copy todir="${@{projname}_webinf}" overwrite="true">
+					            <fileset dir="${webcommons.plugin.loc}/common/wap/inputdata/webfiles/src" includes="web.xml,jetty-env.xml"/>
+					        </copy>
+		  				</else>
+		  			</if>
+				  	<handlewebxml webfile="${@{projname}_webinf}/web.xml" appid="${@{projname}_appid}" jetty.portnum="${jetty.portnum}" 
+				  			  		jetty.httpsportnum="${jetty.httpsportnum}" 
+				  			  		locales="${@{projname}_locales}" sessionmgr="${@{projname}_sessionmgr}" 
+				  					build.option="${@{projname}_build.option}" jspbase="${@{projname}_jspbase}" 
+				  					spatargets="${@{projname}_spatargetplatforms}" webinfdir="${webapps.loc}/@{projname}/WEB-INF"
+				  					resourcedir="${@{projname}_resfolder}" devlanguage="${@{projname}_devlanguage}" tctargets="${@{projname}_tctargetplatforms}"/>
+				  	<handlejettyenvxml webfile="${@{projname}_webinf}/jetty-env.xml" jetty.httpsportnum="${jetty.httpsportnum}"/>
+		  		</then>
+		  	</if>
+		  </sequential>
+		</for>
+		<available file="${webapps.loc}/preview" type="dir" property="previewdir.present"/>
+		  	<if>
+		  		<equals arg1="${previewdir.present}" arg2="true"/>
+		  		<then>
+		  			<echo message="Entered previe...${jetty.portnum}..${wap.base}/tc/WEB-INF"/>
+		  			<if>
+		  				<equals arg1="${tc.available}" arg2="true"/>
+		  				<then>
+				  			<copy todir="${webapps.loc}/preview/WEB-INF" overwrite="true">
+				  				<fileset dir="${wap.base}/tc/WEB-INF" includes="web.xml"/>
+				  			</copy>
+		  				</then>
+		  				<else>
+		  					<available file="${webcommons.plugin.loc}/common/wap/tc/WEB-INF" type="dir" property="webcommons.webxml"/>
+		  					<if>
+		  						<equals arg1="${webcommons.webxml}" arg2="true"/>
+		  						<then>
+							        <copy todir="${@{projname}_webinf}" overwrite="true">
+							            <fileset dir="${webcommons.plugin.loc}/common/wap/tc/WEB-INF" includes="web.xml,jetty-env.xml"/>
+							        </copy>
+		  						</then>
+		  					</if>
+		  				</else>
+		  			</if>
+		  			<replace file="${webapps.loc}/preview/WEB-INF/web.xml" token="{httpport}" value="${jetty.portnum}"/>
+		  		</then>
+		  	</if>
+	</target>
+	
+	<target name="createrichdirs" description ="inital" depends="init">
+		<for list="${apps.list}" param="projname">
+		  <sequential>
+		  	<echo message="AppID: @{projname}"/>
+		  	
+		  	<mkdir dir="${webapps.loc}/@{projname}r"/>
+		  	<copy todir="${webapps.loc}/@{projname}r" overwrite="true">
+		  		<fileset dir="${basedir}/richclient" includes="**/**/*"/>
+		  	</copy>
+		  	<replace file="${webapps.loc}/@{projname}r/WEB-INF/web.xml" token="actualpath" value="${webapps.loc}/@{projname}r"/>
+		  </sequential>
+		</for>
+	</target>
+	
+     <target name="createthindirs" description="inital" depends="init">
+		<echo message="APPS ${apps.list}" />
+		<for list="${apps.list}" param="projname">
+			<sequential>
+				<echo message="AppID: @{projname}" />
+				<available file="${webapps.loc}/@{projname}" type="dir" property="@{projname}_present" />
+				<available file="${webapps.loc}/@{projname}/WEB-INF/web.xml" type="file" property="@{projname}_webxml.present" />
+
+				<if>
+					<and>
+						<equals arg1="@{projname}_present" arg2="true" />
+						<equals arg1="@{projname}_webxml.present" arg2="true" />
+					</and>
+					<then>
+						<!-- Nothing todo..as TC plugin is not changed -->
+					</then>
+					<else>
+						<echo message="TC plugin changed or dir doesn't exist" />
+						<mkdir dir="${webapps.loc}/@{projname}" />
+						<delete failonerror="false">
+							<fileset dir="${webapps.loc}/@{projname}" includes="*.pluginversion" />
+						</delete>
+						<property name="@{projname}_webinf" location="${webapps.loc}/@{projname}/WEB-INF" />
+
+						<ant antfile="${webcommons.plugin.loc}/common/wap/build.xml" target="createWebApp">
+							<property name="buildweb" value="${webapps.loc}/@{projname}" />
+							<property name="cgconf.base" value="${wap.base}" />
+							<property name="tc.plugin.loc" value="${tc.plugin.loc}" />
+							<property name="spa.plugin.loc" value="${spa.plugin.loc}" />
+							<property name="webcommons.plugin.loc" value="${webcommons.plugin.loc}" />
+						</ant>
+						<handlewebxml webfile="${@{projname}_webinf}/web.xml" appid="${@{projname}_appid}" 
+							jetty.portnum="${jetty.portnum}" jetty.httpsportnum="${jetty.httpsportnum}" 
+							locales="${@{projname}_locales}" sessionmgr="${@{projname}_sessionmgr}" 
+							build.option="${@{projname}_build.option}" jspbase="${@{projname}_jspbase}" 
+							spatargets="${@{projname}_spatargetplatforms}" webinfdir="${webapps.loc}/@{projname}/WEB-INF" 
+							resourcedir="${@{projname}_resfolder}" devlanguage="${@{projname}_devlanguage}" tctargets="${@{projname}_tctargetplatforms}"/>
+
+						<handlejettyenvxml webfile="${@{projname}_webinf}/jetty-env.xml" jetty.httpsportnum="${jetty.httpsportnum}" />
+						<concat fixlastline="yes" destfile="${webapps.loc}/@{projname}/version.html" append="true">Application Version=${@{projname}_appversion}</concat>
+
+					</else>
+				</if>
+
+
+			</sequential>
+		</for>
+
+	</target>
+	
+	<macrodef name="handlewebxml">
+		<attribute name="webfile" default="" />
+		<attribute name="appid" default="" />
+		<attribute name="jetty.portnum" default="" />
+		<attribute name="jetty.httpsportnum" default="" />
+		<attribute name="locales" default="" />
+		<attribute name="sessionmgr" default="" />
+		<attribute name="build.option" default="" />
+		<attribute name="jspbase" default="" />
+		<attribute name="spatargets" default=""/>
+		<attribute name="tctargets" default=""/>
+		<attribute name="webinfdir" default=""/>
+		<attribute name="resourcedir" default=""/>
+		<attribute name="devlanguage" default="lua"/>
+		<sequential>
+			<echo message="Webfile: @{webfile}"/>
+			<echo message="AppID: @{appid}"/>
+			<echo message="HTTP Port: @{jetty.portnum}"/>
+			<echo message="HTTPs Port: @{jetty.httpsportnum}"/>
+			<echo message="Locales: @{locales}"/>
+			<echo message="Session Manager: @{sessionmgr}"/>
+			<echo message="Build Option: @{build.option}"/>
+			<echo message="SPA Target platforms: @{spatargets}"/>
+			<echo message="TC Target platforms: @{tctargets}"/>
+			<echo message="res dir: @{resourcedir}"/>
+			<echo message="dev language: @{devlanguage}"/>
+			
+			<echo message="Executing target in: ${tcplugin.loc}/tc/wap/build.xml"/>
+		       
+			<ant antfile="${webcommons.plugin.loc}/common/wap/build.xml" target="replaceTokensInWebXml">
+	       		<property name="build.option" value="@{build.option}"/>
+	       		<property name="buildweb" value="@{webinfdir}/.."/>
+	       		<property name="http.port" value="@{jetty.portnum}"/>
+	       		<property name="https.port" value="@{jetty.httpsportnum}"/>
+	       		<property name="jspbase" value="@{jspbase}"/>
+	       		<property name="locales" value="@{locales}"/>
+	       		<property name="sessionmgr" value="@{sessionmgr}"/>
+	       		<property name="spatargetplatforms" value="@{spatargets}"/>
+				<property name="tctargetplatforms" value="@{tctargets}"/>
+	       		<property name="warDir" value="@{webinfdir}/.."/>
+				<property name="dev.language" value="@{devlanguage}"/>
+				<property name="appid" value="@{appid}"/>
+		   </ant>
+			
+			<!-- copy locale files -->
+			<for list="@{locales}" param="locale">
+				<sequential>
+					<if>
+						<not>
+							<available file="@{webinfdir}/classes/com/kony/web/resource/@{locale}.properties"/>
+						</not>
+						<then>
+							<if>
+								<available file="@{resourcedir}/i18n/android_properties/@{locale}.prop"/>
+								<then>
+									<copy file="@{resourcedir}/i18n/android_properties/@{locale}.prop" 
+												tofile="@{webinfdir}/classes/com/kony/web/resource/@{locale}.properties" failonerror="false"/>
+								</then>
+							</if>
+						</then>
+					</if>
+				</sequential>
+			</for>
+			
+		</sequential>
+	</macrodef>
+	
+	<macrodef name="handlejettyenvxml">
+		<attribute name="webfile" default="" />
+		<attribute name="jetty.httpsportnum" default="" />
+		<sequential>
+	        <replace file="@{webfile}" token="https.portno" value="@{jetty.httpsportnum}"/>
+		</sequential>
+	</macrodef>
+	
+	<target name="cleantcfolders" depends="init">
+		<for list="${apps.list}" param="projname">
+			<sequential>
+				<delete dir="${webapps.loc}/@{projname}"/>
+			</sequential>
+		</for>
+
+		<copyversionfile pluginname="tc" versionrelativepath="tc/wap" plugindisplayname="thinclient"/>
+		<copyversionfile pluginname="spa" versionrelativepath="tc/wap" plugindisplayname="spa"/>
+		<copyversionfile pluginname="desktopweb" versionrelativepath="tc/desktopweb" plugindisplayname="desktopweb"/>
+		<copyversionfile pluginname="webcommons" versionrelativepath="common/wap" plugindisplayname="webcommons"/>
+	</target>
+	
+	<macrodef name="copyversionfile">
+		<attribute name="pluginname" default="" />
+		<attribute name="versionrelativepath" default="" />
+		<attribute name="plugindisplayname" default=""/>
+		<sequential>
+			<if>
+				<equals arg1="${@{pluginname}.changed}" arg2="true"/>
+				<then>
+					<delete failonerror="false">
+						<fileset dir="${webapps.loc}" includes="*.${@{pluginname}.versionextension}"/>
+					</delete>
+					<echo message="@{plugindisplayname} plugin is changed.."/>
+					<copy file="${@{pluginname}.plugin.loc}/@{versionrelativepath}/${@{pluginname}.version}.txt" tofile="${webapps.loc}/${@{pluginname}.version}.${@{pluginname}.versionextension}"/>
+				</then>
+			</if>
+			<if>
+				<equals arg1="${@{pluginname}.removed}" arg2="true"/>
+				<then>
+					<delete failonerror="false">
+						<fileset dir="${webapps.loc}" includes="*.${@{pluginname}.versionextension}"/>
+					</delete>
+					<echo message="@{plugindisplayname} plugin is removed.."/>
+				</then>
+			</if>
+		</sequential>
+	</macrodef>
+
+    <!-- Main target  -->
+    <target name="all" depends="init, createrichdirs, createthindirs"/>
+</project>

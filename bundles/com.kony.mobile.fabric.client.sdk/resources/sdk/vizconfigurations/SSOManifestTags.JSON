@@ -1,0 +1,4 @@
+{
+	"manifest_tag": "<permission android:name=\"com.kony.sso.${ssoOrganizationID}\" android:protectionLevel=\"signature\"\/> <uses-permission android:name=\"com.kony.sso.${ssoOrganizationID}\"\/>",
+	"application_tag": "<receiver android:name=\"com.kony.sso.SSOTokenReceiver\" android:exported=\"true\" android:permission=\"com.kony.sso.${ssoOrganizationID}\"><intent-filter><action android:name=\"com.kony.ssobroadcast\"\/><\/intent-filter><intent-filter><action android:name=\"com.kony.ssoappinstalled\"\/><\/intent-filter><\/receiver>"
+}

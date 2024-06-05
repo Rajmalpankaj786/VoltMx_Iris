@@ -1,0 +1,285 @@
+{
+    "models": {
+        "mobile": {
+            "class": "GraphLinksModel",
+            "linkDataArray": [
+                {
+                    "actionId": "NAVIGATE_TO_FORM__b62c2c846fce4515964049a8a575abc4",
+                    "actionSequenceId": "AS_Image_e310ed4cad51499da8f210a794972e70",
+                    "beautifiedPath": "frmEComplaintCategories > formheader > imgBack > onTouchEnd",
+                    "evt": "ide_onTouchEnd",
+                    "from": "aa3a8d906c9946c2b289f049ed23b43d",
+                    "isPSP": false,
+                    "points": [
+                        95.6,
+                        364.045263671875,
+                        95.6,
+                        374.045263671875,
+                        95.6,
+                        374.045263671875,
+                        -12,
+                        374.045263671875,
+                        -12,
+                        1028,
+                        66.39999999999999,
+                        1028,
+                        66.39999999999999,
+                        1206.845263671875,
+                        66.39999999999999,
+                        1224.845263671875
+                    ],
+                    "to": "i8f5021dc1ca49a499f141fa7086e1db",
+                    "widgetKUID": "af7bcd06dad74f2194ef44019921e7e8"
+                },
+                {
+                    "actionId": "NAVIGATE_TO_FORM__b2e54f4a905b4b3b931016ebf3b8ccde",
+                    "actionSequenceId": "AS_Segment_e30f2fdff2284e47ba5496bae1d30959",
+                    "beautifiedPath": "frmEComplaintCategories > categories > segCategories > onRowClick",
+                    "evt": "ide_onRowClick",
+                    "from": "aa3a8d906c9946c2b289f049ed23b43d",
+                    "isPSP": false,
+                    "points": [
+                        88,
+                        331.24526367187497,
+                        88,
+                        341.24526367187497,
+                        88,
+                        341.24526367187497,
+                        88,
+                        341.24526367187497,
+                        88,
+                        614.845263671875,
+                        88,
+                        624.845263671875
+                    ],
+                    "to": "j389a3a5aae44b74b7737ff75e5cba52",
+                    "widgetKUID": "ea90672091a543c59925552ef3aa5840"
+                },
+                {
+                    "actionId": "NAVIGATE_TO_FORM__cadee7e5c51d4ff4a3d9dbdb16b001d4",
+                    "actionSequenceId": "AS_Segment_i50dab2e48b24feda1d7221c9b4958b5",
+                    "beautifiedPath": "frmEComplaintCategories > hamburgermenu > segMenu > onRowClick",
+                    "evt": "ide_onRowClick",
+                    "from": "aa3a8d906c9946c2b289f049ed23b43d",
+                    "isPSP": false,
+                    "to": "i8f5021dc1ca49a499f141fa7086e1db",
+                    "widgetKUID": "e7e22ab54e9a426e9978ae3833ecbcb5"
+                },
+                {
+                    "actionId": "NAVIGATE_TO_FORM__g8c2e6eadbb948dd9219c3804c84f4fe",
+                    "actionSequenceId": "AS_Image_i22ad1d47ed4478384add660529b0ad2",
+                    "beautifiedPath": "frmEComplaintsCreate > formheader > imgBack > onTouchEnd",
+                    "evt": "ide_onTouchEnd",
+                    "from": "j389a3a5aae44b74b7737ff75e5cba52",
+                    "isPSP": false,
+                    "points": [
+                        95.6,
+                        964.0452636718751,
+                        95.6,
+                        974.0452636718751,
+                        95.6,
+                        972,
+                        95.6,
+                        972,
+                        95.6,
+                        1028,
+                        68,
+                        1028,
+                        68,
+                        1204,
+                        124.79999999999998,
+                        1204,
+                        124.79999999999998,
+                        1206.845263671875,
+                        124.79999999999998,
+                        1224.845263671875
+                    ],
+                    "to": "i8f5021dc1ca49a499f141fa7086e1db",
+                    "widgetKUID": "ab44cf2ced2943ff93b937eabc63fa7f"
+                },
+                {
+                    "actionId": "NAVIGATE_TO_FORM__c8b64403aa984f88bb17008a28a1d278",
+                    "actionSequenceId": "AS_Segment_jf5a798ab2b542f394267d60ec9a814d",
+                    "beautifiedPath": "frmEComplaintsCreate > hamburgermenu > segMenu > onRowClick",
+                    "evt": "ide_onRowClick",
+                    "from": "j389a3a5aae44b74b7737ff75e5cba52",
+                    "isPSP": false,
+                    "to": "i8f5021dc1ca49a499f141fa7086e1db",
+                    "widgetKUID": "g47673155a3845b6a678a3f40155151a"
+                },
+                {
+                    "actionId": "NAVIGATE_TO_FORM__bd05dc31f28c40489e8b088f173e4fe8",
+                    "actionSequenceId": "AS_Segment_dad0b862a2fb404785f83f69d316f3be",
+                    "beautifiedPath": "frmEComplaintsDashboard > hamburgermenu > segMenu > onRowClick",
+                    "evt": "ide_onRowClick",
+                    "from": "i8f5021dc1ca49a499f141fa7086e1db",
+                    "isPSP": false,
+                    "points": [
+                        182.2,
+                        1394.445263671875,
+                        208.2,
+                        1394.445263671875,
+                        208.2,
+                        1394.445263671875,
+                        208.2,
+                        1589.045263671875,
+                        95.6,
+                        1589.045263671875,
+                        95.6,
+                        1563.045263671875
+                    ],
+                    "to": "i8f5021dc1ca49a499f141fa7086e1db",
+                    "widgetKUID": "gcfa16f0cc804af2886ce6696af789f5"
+                },
+                {
+                    "actionId": "NAVIGATE_TO_FORM__b8171fea192443f299ce5af00345b830",
+                    "actionSequenceId": "AS_UWI_ae4c5f30957542279bb34b3b236f8bec",
+                    "beautifiedPath": "frmEComplaintsDashboard > btnPreviousComplaints > onTouchEnd",
+                    "evt": "ide_onTouchEnd",
+                    "from": "i8f5021dc1ca49a499f141fa7086e1db",
+                    "isPSP": false,
+                    "points": [
+                        114.66666666666667,
+                        1531.245263671875,
+                        114.66666666666667,
+                        1549.245263671875,
+                        114.66666666666666,
+                        1549.245263671875,
+                        114.66666666666666,
+                        1549.245263671875,
+                        114.66666666666666,
+                        1814.845263671875,
+                        114.66666666666666,
+                        1824.845263671875
+                    ],
+                    "to": "aa29ac2e27804ffc8569cc83b4c9a43d",
+                    "widgetKUID": "g49b07d8a35844969523a877f3da9844"
+                },
+                {
+                    "actionId": "NAVIGATE_TO_FORM__b8171fea192443f299ce5af00345b830",
+                    "actionSequenceId": "AS_UWI_ae4c5f30957542279bb34b3b236f8bec",
+                    "beautifiedPath": "frmEComplaintsDashboard > btnPreviousComplaints > onTouchEnd",
+                    "evt": "ide_onTouchEnd",
+                    "from": "i8f5021dc1ca49a499f141fa7086e1db",
+                    "isPSP": false,
+                    "to": "aa29ac2e27804ffc8569cc83b4c9a43d",
+                    "widgetKUID": "g49b07d8a35844969523a877f3da9844"
+                },
+                {
+                    "actionId": "NAVIGATE_TO_FORM__a8fd5c66812d4a0a9239fb14d8f8a10d",
+                    "actionSequenceId": "AS_UWI_b1e9e1ee47964c9e92d20e1b86d4ddf7",
+                    "beautifiedPath": "frmEComplaintsDashboard > btnNewComplaint > onTouchEnd",
+                    "evt": "ide_onTouchEnd",
+                    "from": "i8f5021dc1ca49a499f141fa7086e1db",
+                    "isPSP": false,
+                    "points": [
+                        128,
+                        1224.845263671875,
+                        128,
+                        1198.845263671875,
+                        128,
+                        1196,
+                        188,
+                        1196,
+                        188,
+                        588,
+                        128,
+                        588,
+                        128,
+                        341.24526367187497,
+                        128,
+                        331.24526367187497
+                    ],
+                    "to": "aa3a8d906c9946c2b289f049ed23b43d",
+                    "widgetKUID": "aff8346cd7ac4b71908a778f0709ddd8"
+                },
+                {
+                    "actionId": "NAVIGATE_TO_FORM__a8fd5c66812d4a0a9239fb14d8f8a10d",
+                    "actionSequenceId": "AS_UWI_b1e9e1ee47964c9e92d20e1b86d4ddf7",
+                    "beautifiedPath": "frmEComplaintsDashboard > btnNewComplaint > onTouchEnd",
+                    "evt": "ide_onTouchEnd",
+                    "from": "i8f5021dc1ca49a499f141fa7086e1db",
+                    "isPSP": false,
+                    "to": "aa3a8d906c9946c2b289f049ed23b43d",
+                    "widgetKUID": "aff8346cd7ac4b71908a778f0709ddd8"
+                },
+                {
+                    "actionId": "NAVIGATE_TO_FORM__cc5439b6a32244a8a712c9abc0dfc0e3",
+                    "actionSequenceId": "AS_Image_fd5cf2814d904502ad174e48d7d8c66f",
+                    "beautifiedPath": "frmEComplaintsFetch > formheader > imgBack > onTouchEnd",
+                    "evt": "ide_onTouchEnd",
+                    "from": "aa29ac2e27804ffc8569cc83b4c9a43d",
+                    "isPSP": false,
+                    "points": [
+                        95.6,
+                        1824.845263671875,
+                        95.6,
+                        1814.845263671875,
+                        95.6,
+                        1814.845263671875,
+                        95.6,
+                        1814.845263671875,
+                        95.6,
+                        1574.045263671875,
+                        95.6,
+                        1564.045263671875
+                    ],
+                    "to": "i8f5021dc1ca49a499f141fa7086e1db",
+                    "widgetKUID": "ief32065858940d0b47e0060513c7157"
+                },
+                {
+                    "actionId": "NAVIGATE_TO_FORM__b2353dc5455e41229ccdfecd87051274",
+                    "actionSequenceId": "AS_Segment_f5e6363b195c4c438b29b154d981333a",
+                    "beautifiedPath": "frmEComplaintsFetch > hamburgermenu > segMenu > onRowClick",
+                    "evt": "ide_onRowClick",
+                    "from": "aa29ac2e27804ffc8569cc83b4c9a43d",
+                    "isPSP": false,
+                    "to": "i8f5021dc1ca49a499f141fa7086e1db",
+                    "widgetKUID": "ebf041ad5f7f41ac9ba1725c780a75e4"
+                }
+            ],
+            "nodeDataArray": [
+                {
+                    "formKUID": "aa68fd06825f4aa5ab72cc15b9893839",
+                    "formName": "Form1",
+                    "isStartupForm": false,
+                    "key": "aa68fd06825f4aa5ab72cc15b9893839",
+                    "loc": "228 224.845263671875",
+                    "thumbnailURL": null
+                },
+                {
+                    "formKUID": "aa3a8d906c9946c2b289f049ed23b43d",
+                    "formName": "frmEComplaintCategories",
+                    "isStartupForm": false,
+                    "key": "aa3a8d906c9946c2b289f049ed23b43d",
+                    "loc": "8 24.845263671875003",
+                    "thumbnailURL": null
+                },
+                {
+                    "formKUID": "j389a3a5aae44b74b7737ff75e5cba52",
+                    "formName": "frmEComplaintsCreate",
+                    "isStartupForm": false,
+                    "key": "j389a3a5aae44b74b7737ff75e5cba52",
+                    "loc": "8 624.845263671875",
+                    "thumbnailURL": null
+                },
+                {
+                    "formKUID": "i8f5021dc1ca49a499f141fa7086e1db",
+                    "formName": "frmEComplaintsDashboard",
+                    "isStartupForm": true,
+                    "key": "i8f5021dc1ca49a499f141fa7086e1db",
+                    "loc": "8 1224.845263671875",
+                    "thumbnailURL": "/assets/RefEComplaintsMA/forms/mobile/frmEComplaintsDashboard.sm/.thumbs/default.jpeg"
+                },
+                {
+                    "formKUID": "aa29ac2e27804ffc8569cc83b4c9a43d",
+                    "formName": "frmEComplaintsFetch",
+                    "isStartupForm": false,
+                    "key": "aa29ac2e27804ffc8569cc83b4c9a43d",
+                    "loc": "8 1824.845263671875",
+                    "thumbnailURL": null
+                }
+            ]
+        }
+    }
+}

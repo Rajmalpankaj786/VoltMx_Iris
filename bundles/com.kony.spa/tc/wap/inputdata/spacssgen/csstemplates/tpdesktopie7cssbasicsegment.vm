@@ -1,0 +1,61 @@
+$skin 
+{
+     position: relative;
+     border: none;         
+     #parse("tpxhtmlcssbasicfont.vm")
+     ##color : #$color;
+     #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+     #end
+     #set($bjsversn = "./images/"+ $bjsVersion+"/$background-image")
+
+     #if($background-color)
+        ##background-color: #$background-color;
+        #if($rgba == "true")
+            #parse("tpdesktopie7transparency.vm")
+        #else
+            #set($bc = "#" + $background-color)
+            background-color: $bc;
+        #end
+     #elseif($background-gradient)
+        #if($bjsVersion)
+            background-image: url("$bjsversn");
+        #else
+            background-image: url(./images/$background-image);
+        #end
+        background-repeat: repeat-x;
+        background-color: $bottomcolor;
+    #elseif ($background-image)
+        #if($bjsVersion)
+        background-image: url("$bjsversn");
+        #else
+        background-image: url("./images/$background-image");
+        #end
+        #if($repeat && $verticalrepeat)
+            background-repeat : repeat;
+        #elseif($repeat)
+            background-repeat : repeat-x;
+        #elseif($verticalrepeat)
+            background-repeat : repeat-y;
+        #else
+            background-repeat : no-repeat;
+        #end
+     #else
+        background-color: inherit;
+     #end 
+}
+
+#set($sp = $skin + "sp")
+$sp
+{
+ #if($sepcolor)
+    #set($spt = $septhickness + "px")
+    border-bottom:$spt solid #$sepcolor
+ #else
+
+ #end
+}

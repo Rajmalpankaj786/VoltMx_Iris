@@ -1,0 +1,168 @@
+{
+    "@class": "com.kony.gen.viz.model.component.KVizUserWidget",
+    "DNDConfig": null,
+    "_children_": [],
+    "_height_": {
+        "type": "string",
+        "value": "100%"
+    },
+    "_left_": {
+        "type": "string",
+        "value": "-90%"
+    },
+    "_margin_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_orientation_": 1,
+    "_padding_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_percent_": true,
+    "_skin_": "sa6ed7d58a17483a903ce797e1a54f59",
+    "_top_": {
+        "type": "string",
+        "value": "0dp"
+    },
+    "_width_": {
+        "type": "string",
+        "value": "80%"
+    },
+    "areflexpropsreferenced": false,
+    "autogrowmode": 0,
+    "canUpdateUI": true,
+    "clipbounds": false,
+    "containerweight": 0,
+    "dataDiffs": {
+        "flxProfilePhoto": {
+            "__events__": {},
+            "__info__": {
+                "kuid": "j19b059f5d014f1aa9c8f9e05035b705",
+                "srcKUID": "a6bbb5d73b1c4dba8e61be12e30449ca",
+                "wType": "FlexContainer"
+            }
+        },
+        "flxTitle": {
+            "__events__": {},
+            "__info__": {
+                "kuid": "ac024ba9ae14456590c56982581a456a",
+                "srcKUID": "b02e134593244a23a2fe15cd95880310",
+                "wType": "FlexContainer"
+            }
+        },
+        "hamburgermenu": {
+            "__events__": {},
+            "__info__": {
+                "isRoot": true,
+                "kuid": "ed5189868ffd4a4cbe4f48969b3ae862",
+                "srcKUID": "h252d274516e4e2ab04f2b8968e3e8d1",
+                "wType": "FlexContainer"
+            }
+        },
+        "imgUserPhoto": {
+            "__events__": {},
+            "__info__": {
+                "kuid": "c3bf6300b51345888ca83bd96d0c584f",
+                "srcKUID": "bc0588540dcd4b4fbf6dda38d4a66f7a",
+                "wType": "Image"
+            }
+        },
+        "lblUserName": {
+            "__events__": {},
+            "__info__": {
+                "kuid": "ef6cb1ed4b5d4d8e84607d2ed9c7f1d4",
+                "srcKUID": "aa92bfffcfb940839ad0a6e057d8212e",
+                "wType": "Label"
+            }
+        },
+        "segMenu": {
+            "__events__": {
+                "ide_onRowClick": "AS_Segment_jf5a798ab2b542f394267d60ec9a814d"
+            },
+            "__info__": {
+                "kuid": "g47673155a3845b6a678a3f40155151a",
+                "srcKUID": "ja3ba65c950847c8b0ec2c7009d2e4b3",
+                "wType": "Segment"
+            },
+            "data": {
+                "mobile": [
+                    {
+                        "imgMenuOption": {
+                            "@class": "com.viz.ide.model.segment.ImageSegmentData",
+                            "src": "erequest.png"
+                        },
+                        "lblMenuOption": {
+                            "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                            "text": "Requests"
+                        }
+                    },
+                    {
+                        "imgMenuOption": {
+                            "@class": "com.viz.ide.model.segment.ImageSegmentData",
+                            "src": "ecomplaint.png"
+                        },
+                        "lblMenuOption": {
+                            "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                            "text": "Complaints"
+                        }
+                    },
+                    {
+                        "imgMenuOption": {
+                            "@class": "com.viz.ide.model.segment.ImageSegmentData",
+                            "src": "weatheralert.png"
+                        },
+                        "lblMenuOption": {
+                            "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                            "text": "Weather Alert"
+                        }
+                    },
+                    {
+                        "imgMenuOption": {
+                            "@class": "com.viz.ide.model.segment.ImageSegmentData",
+                            "src": "userprofile.png"
+                        },
+                        "lblMenuOption": {
+                            "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                            "text": "User Profile"
+                        }
+                    },
+                    {
+                        "imgMenuOption": {
+                            "@class": "com.viz.ide.model.segment.ImageSegmentData",
+                            "src": "userpreferences.png"
+                        },
+                        "lblMenuOption": {
+                            "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                            "text": "User Preferences"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "enablescrolling": true,
+    "id": "hamburgermenu",
+    "info": null,
+    "iscustomlayout": false,
+    "isdatareferenced": false,
+    "isvisible": true,
+    "kuid": "ed5189868ffd4a4cbe4f48969b3ae862",
+    "layouttype": 2,
+    "masterType": 0,
+    "name": "kony.ui.UserWidgetInstance",
+    "parent": "frmEComplaintsCreate",
+    "pf": "frmEComplaintsCreate",
+    "retaincontentalignment": false,
+    "retainflexpositionproperties": false,
+    "retainflowhorizontalalignment": false,
+    "snapgridsize": 10,
+    "snaptogrid": true,
+    "sourceUserWidget": "h252d274516e4e2ab04f2b8968e3e8d1",
+    "wType": "UserWidgetInstance",
+    "zindex": 1
+}

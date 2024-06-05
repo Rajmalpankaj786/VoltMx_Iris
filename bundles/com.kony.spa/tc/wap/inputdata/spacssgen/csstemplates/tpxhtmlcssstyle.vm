@@ -1,0 +1,11 @@
+#set($hash = "#")
+#if($rep == "hash") 
+    $cssname : $hash$cssval;    
+#elseif ($rep == "img")
+    $cssname : url("$cssval");
+#elseif ($rep == "pt")
+    #parse("tpxhtmlcssfont.vm")
+#else
+    $cssname : $cssval;
+    
+#end

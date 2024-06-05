@@ -1,0 +1,11 @@
+{
+  "subType" : "customapp",
+  "description" : "MyERequestsMA",
+  "version" : "1.0",
+  "objectSvcs" : [ {
+    "name" : "RefERequests",
+    "version" : "1.0",
+    "etag" : "4f41ca37-7fef-4b83-a615-da63c3e9f20c"
+  } ],
+  "identitySvcConf" : "{\"session_idle_timeout_mins\":20,\"session_max_duration_mins\":360,\"show_security_attributes\":false,\"is_integrity_enabled\":false,\"auto_extend\":true}"
+}

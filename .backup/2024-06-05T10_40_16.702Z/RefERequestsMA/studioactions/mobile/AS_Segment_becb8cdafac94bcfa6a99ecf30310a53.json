@@ -1,0 +1,64 @@
+{
+    "AS_Segment_becb8cdafac94bcfa6a99ecf30310a53": {
+        "id": "AS_Segment_becb8cdafac94bcfa6a99ecf30310a53",
+        "type": "ACTION_SEQUENCE",
+        "params": [{
+            "datatype": "collection",
+            "name": "eventobject"
+        }, {
+            "datatype": "number",
+            "name": "sectionNumber"
+        }, {
+            "datatype": "number",
+            "name": "rowNumber"
+        }],
+        "contextObj": {
+            "name": "frmERequestsCategories",
+            "type": "forms",
+            "platform": "",
+            "KUID": "db5db5ca51da467a839ce5de636adebf"
+        },
+        "language": "js",
+        "actions": [{
+            "id": "NAVIGATE_TO_FORM__a302e87ed9c240819cb96cbef2f11474",
+            "type": "NAVIGATE_TO_FORM",
+            "formId": "frmERequestsCreate",
+            "formKUID": "fd35171f4b3b47f8aeb4964823132df3",
+            "projectName": "RefERequestsMA",
+            "mappings": {
+                "ME_Mapping_i951df99f81c435f8e2aa558977096a5": {
+                    "channel": "mobile",
+                    "id": "ME_Mapping_i951df99f81c435f8e2aa558977096a5",
+                    "type": "MAPPING",
+                    "callbackType": null,
+                    "rectified": true,
+                    "source": {
+                        "type": "Forms",
+                        "propertyName": "selectedRowItems",
+                        "propertyKey": "segCategories_selectedRowItems",
+                        "widgetId": "segCategories",
+                        "widgetPath": "this.view.categories.segCategories",
+                        "widgetType": "Segment",
+                        "dataType": "collection",
+                        "itemId": "frmERequestsCategories",
+                        "widgetKUID": "de6bd25bcbef4169b54267f6a4bd054e",
+                        "itemKUID": "db5db5ca51da467a839ce5de636adebf",
+                        "forkedPlatform": "all",
+                        "instanceKUID": "a6dc54c3920745629bdf10502e7184e3"
+                    },
+                    "target": {
+                        "forkedPlatform": "all"
+                    }
+                }
+            },
+            "mappingsOrder": ["ME_Mapping_i951df99f81c435f8e2aa558977096a5"],
+            "parentId": null,
+            "callbackType": null,
+            "enableMappingEditor": true,
+            "package": "",
+            "enableNavigationObj": true,
+            "navigationObj": "{\n    \"segCategories_selectedRowItems\": self.view.categories.segCategories.selectedRowItems,\n    \"_meta_\": {\n        \"eventName\": \"onRowClick\",\n        \"widgetId\": \"\"\n    }\n}",
+            "isCustomInput": false
+        }]
+    }
+}

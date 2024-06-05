@@ -1,0 +1,60 @@
+#if($focusSkin)
+	#set($sk = $skin)
+#else
+	#set($sk = "." + $skin)
+#end
+#set($bjsversn = "./images/"+ $bjsVersion+"/$background-image")
+$sk
+{
+    ##color : #$color;
+    #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end
+    #parse("tpxhtmlcssbasicfont.vm")
+    #if($forking)
+        #parse("tpxhtmlcssbasicborderspecific.vm")
+    #else
+        #parse("tpxhtmlcssbasicborder.vm")
+        #parse("tpxhtmlcssbasicborderline.vm")
+    #end
+    
+    #if($background-color)
+        #if($rgba == "true")
+            background-color : $background-color;
+        #else
+            #set($bc = "#" + $background-color)
+            background-color: $bc;
+        #end
+    #elseif($background-gradient)
+        #if($bjsVersion)
+            background-image: url("$bjsversn");
+        #else
+            background-image: url(./images/$background-image);
+        #end
+        background-repeat: repeat-x;
+        background-color: $bottomcolor;
+        padding : 0px;
+        margin: 0px;        
+    #elseif($background-image)
+        #if($bjsVersion)
+            background-image: url("$bjsversn");
+        #else
+            background-image: url(./images/$background-image);
+        #end
+        #if($repeat && $verticalrepeat)
+            background-repeat : repeat;
+        #elseif($repeat)
+            background-repeat : repeat-x;
+        #elseif($verticalrepeat)
+            background-repeat : repeat-y;
+        #else
+            background-repeat : no-repeat;
+        #end
+    #else
+        background-color: inherit;
+    #end
+}

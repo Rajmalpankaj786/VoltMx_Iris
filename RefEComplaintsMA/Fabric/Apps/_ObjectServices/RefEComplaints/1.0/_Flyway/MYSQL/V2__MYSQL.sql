@@ -1,0 +1,2 @@
+ALTER TABLE `ComplaintCategory`
+	ADD CONSTRAINT `242ef59884cc4c82c2898cb14a036f` UNIQUE KEY(`Category`);

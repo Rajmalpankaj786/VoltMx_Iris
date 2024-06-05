@@ -1,0 +1,2 @@
+ALTER TABLE `Complaint`
+	ADD CONSTRAINT `fc729134f8f87009991b317e34bbe5` FOREIGN KEY(`CategoryID`) REFERENCES `ComplaintCategory`(`CategoryID`);

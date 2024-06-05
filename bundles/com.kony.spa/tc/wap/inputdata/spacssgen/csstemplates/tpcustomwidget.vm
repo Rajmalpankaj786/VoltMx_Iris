@@ -1,0 +1,16 @@
+ ## adding customwidget csslist
+   #foreach($component in $csslist)
+          #if($jspgeneration=="true")
+             <link rel="stylesheet" href="${category}jslib/tparty/$component?ver=$version" type="text/css" /></link>
+          #else
+             <link rel="stylesheet" href="${category}jslib/tparty/$component" type="text/css" /></link> 
+          #end
+   #end
+ ## adding customwidget jslist  
+   #foreach($component in $jslist)
+          #if($jspgeneration=="true")
+             <script type="text/javascript" src="${category}jslib/tparty/$component?ver=$version"></script>
+          #else
+             <script type="text/javascript" src="${category}jslib/tparty/$component"></script>
+          #end
+   #end

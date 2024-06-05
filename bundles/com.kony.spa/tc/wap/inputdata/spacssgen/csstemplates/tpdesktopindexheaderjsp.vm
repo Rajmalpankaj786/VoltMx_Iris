@@ -1,0 +1,23 @@
+
+#if($jspgeneration == "true")
+<%@ page contentType="text/html; charset=UTF-8" import="java.net.URLEncoder,java.util.*,com.kony.web.WEBConstants,com.kony.web.util.WAPConfigUtility,com.kony.web.KonyAppConfig" %>
+    <%
+    response.setDateHeader("Expires", (new Date(0)).getTime());
+    response.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0");
+    response.setHeader("Pragma", "no-cache");
+    %>
+
+
+<%
+    KonyAppConfig appConfig = (KonyAppConfig) application.getAttribute(WEBConstants.KONY_APP_CONFIG);
+    String propertiesJSON = "";
+    String headersJSON = "";
+    String paramsJSON = "";
+    if(appConfig!=null ){
+    propertiesJSON = (String) application.getAttribute(appConfig.getAppID() + WEBConstants.THINCLIENT_PROPERTIES + "_JSON");
+
+    headersJSON = (String) request.getAttribute("headersJSON");
+    paramsJSON = (String) request.getAttribute("paramsJSON");
+    }
+  %>
+#end

@@ -1,0 +1,41 @@
+#set($s = "." + $skin)
+$s{
+    ##parse("tpdesktopmozcssborder.vm")
+    #if($forking)
+        #parse("tpdesktopmozcssborderspecific.vm")
+    #else
+        #parse("tpdesktopmozcssborder.vm")
+    #end
+    #parse("tppalmmojocssfonts.vm")
+     #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end
+    padding: 1px;
+    #if($background-color)
+       #if($rgba == "true")
+            background-color : $background-color;
+        #else
+            background-color : #$background-color;
+        #end
+    #elseif($bg-grad-split-ms)
+        #parse("tpdesktopmozcssbggradient.vm")
+    #elseif($background-image)
+        #if($repeat && $verticalrepeat)
+            background: url(./images/$background-image) repeat;
+        #elseif($repeat)
+            background: url(./images/$background-image) repeat-x;
+        #elseif($verticalrepeat)
+            background: url(./images/$background-image) repeat-y;
+        #else
+            background: url(./images/$background-image) no-repeat;
+        #end
+    #end    
+    #if($rounded)
+         -moz-border-radius: 10px;
+    #end
+}
+

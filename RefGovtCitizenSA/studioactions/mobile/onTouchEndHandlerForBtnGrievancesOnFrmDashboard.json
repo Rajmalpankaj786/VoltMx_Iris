@@ -1,0 +1,36 @@
+{
+    "AS_UWI_ea5fc0bc5f5848c79aebb6bf024f6319": {
+        "id": "AS_UWI_ea5fc0bc5f5848c79aebb6bf024f6319",
+        "type": "ACTION_SEQUENCE",
+        "name": "onTouchEndHandlerForBtnGrievancesOnFrmDashboard",
+        "params": [{
+            "datatype": "collection",
+            "name": "eventobject"
+        }, {
+            "datatype": "string",
+            "name": "x"
+        }, {
+            "datatype": "string",
+            "name": "y"
+        }],
+        "contextObj": {
+            "name": "frmDashboard",
+            "type": "forms",
+            "platform": "",
+            "KUID": "fcbc1ed742fd42bfba1f4b347c731809"
+        },
+        "language": "js",
+        "actions": [{
+            "id": "NAVIGATE_TO_FORM__f314e465df9e41df912a9db79499f941",
+            "type": "NAVIGATE_TO_FORM",
+            "formId": "frmEComplaintsDashboard",
+            "formKUID": "i8f5021dc1ca49a499f141fa7086e1db",
+            "projectName": "RefEComplaintsMA",
+            "mappings": {},
+            "mappingsOrder": [],
+            "enableMappingEditor": true,
+            "package": "",
+            "isCustomInput": false
+        }]
+    }
+}

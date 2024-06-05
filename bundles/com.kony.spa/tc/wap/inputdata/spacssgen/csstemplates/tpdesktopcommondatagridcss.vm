@@ -1,0 +1,121 @@
+#if($focusSkin)
+	#set($s = $skin)
+#else
+	#set($s = "." + $skin)
+#end
+#set($tb="tb")
+#set($tr="tr")
+#set($td="td")
+#set($bw = "0px")
+#set($lw = "0px")
+#set($rw = "0px")
+#set($tw = "0px")
+#if($forking)
+    #if($border-top-width)
+	#set($tw = $border-top-width + "px")
+    #end
+    #if($border-right-width)
+	#set($rw = $border-right-width + "px")
+    #end
+    #if($border-bottom-width)
+	#set($bw = $border-bottom-width + "px")
+    #end
+    #if($border-left-width)
+	#set($lw = $border-left-width + "px")
+    #end
+
+    $s{
+        #parse("tppalmmojocssfonts.vm")
+        ##color : #$color;
+        #if($color)
+            #if($rgba_font == "true")
+                color : $color;
+            #else
+                color: #$color;
+            #end
+        #end
+        padding: 0;
+        margin: 0;
+        #if($background-image)
+            #parse("tpspagenericbgimage.vm")
+        #elseif ($background-color)
+            #if($rgba == "true")
+                 background-color : $background-color;
+             #else
+                background-color : #$background-color;
+             #end
+         #elseif($bg-grad-split-ms)
+            #parse("tpdesktopcommoncssbggradient.vm")
+         #elseif($bg_constant)
+              background: $bg_constant;
+         #else
+              background-color: inherit;
+         #end
+         border-collapse:collapse;
+         #if($is_border_constant == "true")
+            #parse("tpdesktopcommoncssborderconstant.vm")
+         #else
+            #if($rgba_top_border == "true")
+                border-top: $tw solid $border-top-color;
+            #else
+                border-top: $tw solid #$border-top-color;
+            #end
+            #if($rgba_left_border == "true")
+                border-left: $lw solid $border-left-color;
+            #else
+                border-left: $lw solid #$border-left-color;
+            #end
+            #if($rgba_right_border == "true")
+                border-right: $rw solid $border-right-color;
+            #else
+                border-right: $rw solid #$border-right-color;
+            #end
+            #if($rgba_bottom_border == "true")
+                border-bottom: $bw solid $border-bottom-color;
+            #else
+                border-bottom: $bw solid #$border-bottom-color;
+            #end
+         #end
+     }    
+#else
+    #if($border-width)
+	#set($bw = $border-width + "px")   
+    #end
+    $s{
+        #parse("tppalmmojocssfonts.vm")
+        ##color : #$color;
+        #if($color)
+            #if($rgba_font == "true")
+                color : $color;
+            #else
+                color: #$color;
+            #end
+        #end
+        padding: 0;
+        margin: 0;
+        #if($background-image)
+                #parse("tpspagenericbgimage.vm")
+        #elseif ($background-color)
+            #if($rgba == "true")
+                 background-color : $background-color;
+             #else
+                background-color : #$background-color;
+             #end
+         #elseif($bg-grad-split-ms)
+            #parse("tpdesktopcommoncssbggradient.vm")
+         #elseif($bg_constant)
+            background: $bg_constant;
+         #else
+              background-color: inherit;
+         #end
+         border-collapse:collapse;
+         #if($is_border_constant == "true")
+            #parse("tpdesktopcommoncssborderconstant.vm")
+         #elseif($rgba_border == "true")
+            border: $bw solid $border-color;
+         #else
+            border: $bw solid #$border-color;
+         #end
+      
+    }
+#end

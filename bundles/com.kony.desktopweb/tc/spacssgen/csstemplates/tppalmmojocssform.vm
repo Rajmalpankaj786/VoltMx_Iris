@@ -1,0 +1,48 @@
+#set($s = "body." + $skin)
+#set($ss = "." + $skin)
+$s
+{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding: 0px;
+    #if($background-color)
+        #if($bg_rgba == "true")
+            background-color : $background-color;
+        #else
+            background-color : #$background-color;
+        #end
+    #elseif ($background-image)
+        #if($repeat)
+            background: url(../$background-image) repeat;
+        #else
+            background: url(../$background-image);
+            background-repeat:no-repeat;
+			-webkit-background-size: 100%;
+        #end
+    #else
+        background: none;
+    #end
+}
+$ss
+{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding: 0px;
+    #if($background-color)
+        #if($bg_rgba == "true")
+            background-color : $background-color;
+        #else
+            background-color : #$background-color;
+        #end
+    #elseif ($background-image)
+        #if($repeat)
+            background: url(../$background-image) repeat;
+        #else
+            background: url(../$background-image);
+            background-repeat:no-repeat;
+			-webkit-background-size: 100%;
+        #end
+    #else
+        background: none;
+    #end
+}

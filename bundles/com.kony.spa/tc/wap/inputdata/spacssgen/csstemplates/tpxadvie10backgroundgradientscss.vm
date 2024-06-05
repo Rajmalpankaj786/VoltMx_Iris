@@ -1,0 +1,11 @@
+    #if($background-gradient)
+        background-image : -ms-linear-gradient(top, $topcolor, $bottomcolor);
+    #elseif($background-split)
+        background-image : -ms-linear-gradient(top, $topcolor 49%, $bottomcolor 50%);
+    #elseif($background-horizontal-gradient)
+        background-image : -ms-linear-gradient(left,$topcolor 0%, $bottomcolor 100%); 
+    #elseif($background-horizontal-split)
+        background-image : -ms-linear-gradient(left, $topcolor 50%,$bottomcolor 50%);
+    #elseif($background-ms-gradient)
+        background-image : -ms-linear-gradient($background-ms-color);
+    #end

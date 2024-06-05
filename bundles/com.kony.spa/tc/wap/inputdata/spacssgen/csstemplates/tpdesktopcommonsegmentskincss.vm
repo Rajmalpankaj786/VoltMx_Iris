@@ -1,0 +1,227 @@
+#set($s = "." + $skin)
+#set($u = $s + "ul")
+#set($g = $s + "grp")
+#set($l = $s + "lst")
+#set($h = $s + "hdr")
+#set($pg = $s + "pg")
+
+#if($focusSkin)
+	#set($s = $skin)
+#else
+	#set($s = "." + $skin)
+#end
+	
+    $s
+    {
+        ##position: relative;
+        margin: 0px;
+		#if($is_border_constant == "true")
+            #if($border_constant)
+                border: $border_constant;
+            #end
+            #if($border_radius)
+                -moz-border-radius: $border_radius;
+                -webkit-border-radius: $border_radius;
+                border-radius: $border_radius;
+            #end
+            #if($border_bottom)
+                border-bottom: $border_bottom;
+            #end
+		#elseif($forking)
+			#if($border-bottom-color)
+				#if($rgba_bottom_border == "true")
+					 border-bottom-color : $border-bottom-color;
+				#else
+					 border-bottom-color : #$border-bottom-color;
+				#end
+			#end
+			#if ($border-bottom-width)
+				#set($bw = $border-bottom-width + "px")
+				border-bottom-width: $bw;
+				border-bottom-style: solid;
+			#end
+		#else
+                     #set($b = $border-width + "px") 
+			 #if($border-color)
+				#if($rgba_border == "true")
+					  border-bottom :  $b solid $border-color;
+				#else
+					  border-bottom :  $b solid #$border-color;
+				#end
+			#else
+				border-bottom: $b solid #E0E0E0;
+			#end
+		#end
+       
+
+        #parse("tppalmmojocssfonts.vm")
+
+        #if($color)
+            #if($rgba_font == "true")
+                color : $color;
+            #else
+                color: #$color;
+            #end
+        #end
+        list-style: none;
+        #if($background-image)
+            #parse("tpspagenericbgimage.vm")
+        #elseif ($background-color)
+            #if($rgba == "true")
+                background-color : $background-color;
+            #else
+                #set($bc = "#" + $background-color)
+                background-color: $bc;
+            #end
+        #elseif($bg-grad-split-ms)
+            #parse("tpdesktopcommoncssbggradient.vm")
+        #elseif($bg_constant)
+            background: $bg_constant;
+        #elseif($transparent)
+            background-color: transparent;
+        #end   
+    }
+
+#if(!$focusSkin)	
+    $g
+    {
+        ##position: relative;
+        ##padding : 1px;
+        #if($background-image)
+            #parse("tpspagenericbgimage.vm")
+        #elseif ($background-color)
+            #if($rgba == "true")
+                background-color : $background-color;
+            #else
+                #set($bc = "#" + $background-color)
+                background-color: $bc;
+            #end
+        #elseif($bg-grad-split-ms)
+           #parse("tpdesktopcommoncssbggradient.vm")
+        #elseif($bg_constant)
+            background: $bg_constant;
+        #else
+            background-color: transparent;
+        #end
+        #if($is_border_constant == "true")
+            #parse("tpdesktopcommoncssborderconstant.vm")
+        #elseif($forking)
+            #parse("tpdesktopcommoncssborderspecific.vm")
+		#else
+            #parse("tpdesktopcommoncssborder.vm")
+		#end
+        ##font : normal normal 12px;
+        color : #000000;
+        #if($forking)
+           #parse("tpdesktopcommonshadowcss.vm")
+        #end
+    }
+     $pg
+    {
+        #if($is_border_constant == "true")
+            #parse("tpdesktopcommoncssborderconstant.vm")
+        #elseif($forking)
+            #parse("tpdesktopcommoncssborderspecific.vm")
+		#else
+            #parse("tpdesktopcommoncssborder.vm")
+		#end
+    }
+#if($border-style == "rc" || $forking )
+    $s:first-child
+    {
+        top: 0;
+        border-top: none;
+		#if($is_border_constant == "true")
+            #if ($border-top-left-radius)
+                    -moz-border-radius-topleft: $border-top-left-radius;
+                    border-top-left-radius: $border-top-left-radius;
+                    -webkit-border-top-left-radius: $border-top-left-radius;
+            #end
+            #if ($border-top-right-radius)
+                    -moz-border-radius-topright: $border-top-right-radius;
+                    border-top-right-radius: $border-top-right-radius;
+                    -webkit-border-top-right-radius: $border-top-right-radius;
+            #end
+		#elseif($forking)
+			#if($border-top-left-style)
+                                border-top-left-radius: ${child_border-top-left-radius}px;
+                                -moz-border-top-left-radius: ${child_border-top-left-radius}px;
+                                -webkit-border-top-left-radius: ${child_border-top-left-radius}px;
+			#end
+			#if($border-top-right-style)
+                                 border-top-right-radius: ${child_border-top-right-radius}px;
+                                 -moz-border-top-right-radius: ${child_border-top-right-radius}px;
+                                 -webkit-border-top-right-radius: ${child_border-top-right-radius}px;
+			#end
+		#elseif($border-style == "rc")
+                        border-top-left-radius: 10px;
+                        -moz-border-top-left-radius: 10px;
+                        -webkit-border-top-left-radius: 10px;
+                        border-top-right-radius: 10px;			
+                        -moz-border-top-right-radius: 10px;
+                        -webkit-border-top-right-radius: 10px;
+		#end
+		
+    }
+
+    $s:last-child
+    {
+        border-bottom: none;
+		#if($is_border_constant == "true")
+            #if ($border-bottom-left-radius)
+                    -moz-border-radius-bottomleft: $border-bottom-left-radius;
+                    border-bottom-left-radius: $border-bottom-left-radius;
+                    -webkit-border-bottom-left-radius: $border-bottom-left-radius;
+            #end
+            #if ($border-bottom-right-radius)
+                    -moz-border-radius-bottomright: $border-bottom-right-radius;
+                    border-bottom-right-radius: $border-bottom-right-radius;
+                    -webkit-border-bottom-right-radius: $border-bottom-right-radius;
+            #end
+		#elseif($forking)
+			#if ($border-bottom-left-style)
+				border-bottom-left-radius: ${child_border-bottom-left-radius}px;
+                                -moz-border-bottom-left-radius: ${child_border-bottom-left-radius}px;
+                                -webkit-border-bottom-left-radius: ${child_border-bottom-left-radius}px;
+			#end
+			#if ($border-bottom-right-style)
+				border-bottom-right-radius: ${child_border-bottom-right-radius}px;
+                                -moz-border-bottom-right-radius: ${child_border-bottom-right-radius}px;
+                                -webkit-border-bottom-right-radius: ${child_border-bottom-right-radius}px;
+			#end
+		#elseif($border-style == "rc")
+			border-bottom-left-radius: 10px;			
+                        -moz-border-bottom-left-radius: 10px;			
+                        -webkit-border-bottom-left-radius: 10px;			
+			border-bottom-right-radius: 10px;
+                        -moz-border-bottom-right-radius: 10px;
+                        -webkit-border-bottom-right-radius: 10px;
+		#end		
+    }
+#end
+#end 
+#if($pimgexists=="true")
+div[progressindicator="true"][progressskin="$skin"]
+{
+    background-image: url(./images/$pimgname) !important;
+    background-repeat: no-repeat;
+    ##background-color:  transparent;
+     #if ($picolor)
+        #if($pirgba == "true")
+            background-color : $picolor;
+        #else
+            #set($bc = "#" + $picolor)
+            background-color: $bc;
+        #end
+    #else
+        background-color:  transparent;
+    #end
+    #if($pimgloc=="left")
+    background-position: left center;
+    #elseif($pimgloc=="right")
+    background-position: right center;
+    #elseif($pimgloc=="center")
+    background-position: center center;
+    #end
+}
+#end

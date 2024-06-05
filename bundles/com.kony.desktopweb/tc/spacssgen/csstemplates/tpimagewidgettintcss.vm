@@ -1,0 +1,14 @@
+#if($enabletint == "true")
+    #if($focusSkin)
+	#set($s = $skin)
+    #else
+	#set($s = "." + $skin)
+    #end
+    $s:before {
+        content: "";
+        position: absolute;
+        width:100%;
+        height:100%;
+        background-color:$tint_color;
+    }   
+#end

@@ -1,0 +1,73 @@
+#if($focusSkin)
+	#set($s = $skin)
+#else
+	#set($s = "." + $skin)
+#end
+
+$s{
+	#if($border-width)
+		#parse("tppalmmojocssborder.vm")
+		-webkit-border-radius: 10px;
+                border-radius: 10px;
+	#end
+    #parse("tppalmmojocssfonts.vm")
+     #if($color)
+        #if($rgba == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end
+    #if($background-color)
+        #if($bg_rgba == "true")
+            background-color : $background-color;
+        #else
+            background-color : #$background-color;
+        #end
+    #elseif($background-image)
+        #if($repeat)
+            background-image: url(../$background-image) repeat;
+        #else
+            background-image: url(../$background-image);
+        #end
+    #end
+    min-height: 30px;
+}
+
+#set($s = "." + $skin + "default")
+$s{
+	#if($border-width)
+		#parse("tppalmmojocssborder.vm")
+		-webkit-border-radius: 10px;
+                border-radius: 10px;
+                
+	#else	
+		border-width: 1px;
+		border-color : #grey;
+		border-style: solid;
+		-webkit-border-radius: 5px;
+                border-radius: 5px;
+	#end
+    #parse("tppalmmojocssfonts.vm")
+     #if($color)
+        #if($rgba == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end
+    #if($background-color)
+        #if($bg_rgba == "true")
+            background-color : $background-color;
+        #else
+            background-color : #$background-color;
+        #end
+    #elseif($background-image)
+        #if($repeat)
+            background-image: url(../$background-image) repeat;
+        #else
+            background-image: url(../$background-image);
+        #end
+    #end
+    min-height: 30px;
+}

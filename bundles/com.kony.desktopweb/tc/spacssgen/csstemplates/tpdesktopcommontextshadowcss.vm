@@ -1,0 +1,10 @@
+#if($text_shadow_constant)
+    text-shadow: $text_shadow_constant;
+#elseif($txtshadowoffsetx=="0px" && $txtshadowoffsety=="0px" && $txtshadowblurradius=="0px")
+#elseif($txtshadowoffsetx && $txtshadowoffsety && $txtshadowblurradius && $txtshadowcolor)
+    #if($rgba_shadow=="true")
+        text-shadow: $txtshadowoffsetx $txtshadowoffsety $txtshadowblurradius $txtshadowcolor;
+    #else
+        text-shadow: $txtshadowoffsetx $txtshadowoffsety $txtshadowblurradius #$txtshadowcolor;
+    #end
+#end

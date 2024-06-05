@@ -1,0 +1,7 @@
+#if($is_border_constant == "true")
+        #parse("tpdesktopcommoncssborderconstant.vm")
+#elseif($forking)
+        #parse("tpdesktopcommoncssborderspecific.vm")
+#else
+        #parse("tpdesktopcommoncssborder.vm")
+#end

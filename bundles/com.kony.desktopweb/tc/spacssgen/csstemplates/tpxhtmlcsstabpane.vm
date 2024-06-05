@@ -1,0 +1,105 @@
+#if($default == "true")
+
+#set($tc = "." + $tabpaneid + "tabcontent")
+$tc {
+    margin-top:0px;
+    border: 1px solid #$border-color;
+}
+
+#set($tb = "." + $tabpaneid + "tabbar")
+$tb
+{
+     width:100%;
+     background-color: white;
+     border: 1px solid #$border-color;
+     
+}
+#set($iat = "." + $tabpaneid + "inactiveitem")
+$iat
+{
+        background-color: white;
+        color: black;
+        border: none;
+        border-right: 1px solid #$border-color;
+        font-family: $font-family;
+    font-size : $font-size;
+    font-weight : $font-weight;
+    font-style : $font-style;
+    }
+#set($at = "." + $tabpaneid + "activeitem")
+$at
+{
+    background-color: white;
+    color: black;
+    border: none;
+    border-right: 1px solid #$border-color;
+    font-family: $font-family;
+    font-size : $font-size;
+    font-weight : $font-weight;
+    font-style : $font-style;
+}
+
+
+ .superscript{font-size:xx-small; vertical-align:top;}
+
+#else
+ 
+#set($tc = "." + $tabpaneid + "tabcontent")
+$tc {
+    margin-top:0px;
+     #set($bw = $border-width + "px")
+    border-width : $bw;
+    border-style : $border-style;
+    border-color : #$border-color;
+}
+
+#set($tb = "." + $tabpaneid + "tabbar")
+$tb
+{
+     width:100%;
+     #if($background-color)
+        background-color : #$background-color;
+     #else
+        background-color : inherit;
+     #end
+      #set($bw = $border-width + "px")
+    border-width : $bw;
+    border-style : $border-style;
+    border-color : #$border-color;
+
+}
+#set($iat = "." + $tabpaneid + "inactiveitem")
+$iat
+{
+         #if($background-color)
+            background-color : #$background-color;
+        #else
+            background-color : inherit;
+        #end
+        border-right: 1px solid #$border-color;
+        font-family: $font-family;
+        font-size : $font-size;
+        font-weight : $font-weight;
+        font-style : $font-style;
+        color : #$color;
+         text-decoration: none;
+    }
+#set($at = "." + $tabpaneid + "activeitem")
+$at
+{
+     #if($background-color)
+        background-color : #$background-color;
+    #else
+        background-color : inherit;
+    #end
+    border-right: 1px solid #$border-color;
+    font-family: $font-family;
+    font-size : $font-size;
+    font-weight : $font-weight;
+    font-style : $font-style;
+    color : #$color;
+ text-decoration: none;
+}
+ .superscript{font-size:xx-small; vertical-align:top;}
+
+#end

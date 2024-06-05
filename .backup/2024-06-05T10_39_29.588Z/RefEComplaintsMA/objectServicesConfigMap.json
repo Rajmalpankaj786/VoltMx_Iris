@@ -1,0 +1,16 @@
+{
+    "EComplaints_ComplaintCategory": {
+        "servicename": "EComplaints",
+        "serviceid": "2c9170eb-4220-4768-b5e3-01216b681cde",
+        "type": "objectsvcs",
+        "objectname": "ComplaintCategory",
+        "objectid": "68850"
+    },
+    "EComplaints_Complaint": {
+        "servicename": "EComplaints",
+        "serviceid": "2c9170eb-4220-4768-b5e3-01216b681cde",
+        "type": "objectsvcs",
+        "objectname": "Complaint",
+        "objectid": "68950"
+    }
+}

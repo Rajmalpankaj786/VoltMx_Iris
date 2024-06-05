@@ -1,0 +1,21 @@
+/*
+    This is an auto generated file and any modifications to it may result in corrupted data.
+*/
+define([], function(){
+	var repoMapping = {
+	{{#objectsvc_meta}}
+		{{table}}  : {
+			model : "{{db}}/{{table}}/Model",
+			config : "{{db}}/{{table}}/MF_Config",
+			{{#verbs}}
+			repository : "{{db}}/{{table}}/Repository",
+			{{/verbs}}
+			{{^verbs}}
+            repository : "",
+            {{/verbs}}
+		},
+	{{/objectsvc_meta}}
+	};
+
+	return repoMapping;
+})

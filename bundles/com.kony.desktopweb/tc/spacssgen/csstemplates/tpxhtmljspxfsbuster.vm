@@ -1,0 +1,12 @@
+#if($enablexfs == "false")
+<script type="text/javascript"> 
+if (document.getElementById && document.createElement) {
+    document.write("<style>html {display: none;}</style><script>if( self == top ){document.documentElement.style.display = 'block';} else {top.location = self.location;}</sc"+"ript>");
+}
+else {
+    if (top != self) {
+        top.location = self.location;
+    }
+}
+</script>
+#end

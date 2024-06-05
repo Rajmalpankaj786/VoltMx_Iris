@@ -1,0 +1,29 @@
+#set($style = "")
+#set($textdec = "")
+#if($font-style)
+    #if($font-style=="italic" || $font-style=="normal" || $styleFlag)
+       #set($style = $font-style)
+    #else
+        #set($textdec = $font-style)
+    #end
+#end
+#if($font-style || $font-weight || $font-family || $font-size )
+font : #if($font-style) $style #else normal #end #if($font-weight) $font-weight #else normal #end #if($font-size) $font-size #else $base-font #end #if($font-family) $font-family #else Helvetica #end;
+#else
+
+#end
+#if($textdec !="")
+    text-decoration : $textdec;
+#end
+##commented old code
+#*
+    #if($font-style=="italic" || $font-style=="normal")
+       #set($style = $font-style)
+    #else
+        #set($textdec = $font-style)
+    #end
+    font : $style $font-weight $font-size $font-family;
+    #if($textdec !="")
+        text-decoration : $textdec;
+    #end
+*#

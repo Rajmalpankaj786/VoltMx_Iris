@@ -1,0 +1,24 @@
+{
+    "AS_Form_fae0e1a09f91479fa68406053ea1f140": {
+        "id": "AS_Form_fae0e1a09f91479fa68406053ea1f140",
+        "type": "ACTION_SEQUENCE",
+        "params": [{
+            "datatype": "collection",
+            "name": "eventobject"
+        }],
+        "contextObj": {
+            "name": "frmEComplaintsCreate",
+            "type": "forms",
+            "platform": "",
+            "KUID": "j389a3a5aae44b74b7737ff75e5cba52"
+        },
+        "language": "js",
+        "actions": [{
+            "id": "ADD_SNIPPET_bd3313965d9346f99032a45a94fd9072",
+            "type": "ADD_SNIPPET",
+            "codeSnippet": "this.view.createComplaint.lblTitleText = \"Report \"+this.navigationContext.segCategories_selectedRowItems[0].Category + \" Complaint.\";\nthis.view.createComplaint.lblCapturePhotoText = \"Tap here to capture photo of complaint.\";\nthis.view.createComplaint.complaintOrRequestObject.CategoryID = this.navigationContext.segCategories_selectedRowItems[0].CategoryID;\n",
+            "parentId": null,
+            "callbackType": null
+        }]
+    }
+}

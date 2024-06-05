@@ -1,0 +1,519 @@
+{
+    "@class": "com.kony.gen.viz.model.container.KVizSegment2",
+    "DNDConfig": null,
+    "_data_": [
+        [
+            {
+                "lblDescription": {
+                    "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                    "text": "Description"
+                },
+                "lblID": {
+                    "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                    "text": "ID"
+                },
+                "lblStatus": {
+                    "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                    "text": "Status"
+                },
+                "lblType": {
+                    "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                    "text": "Type"
+                }
+            },
+            [
+                {
+                    "lblDescriptionValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Street lights not working"
+                    },
+                    "lblIDValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "9005"
+                    },
+                    "lblStatusValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Completed"
+                    },
+                    "lblTypeValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Complaint"
+                    }
+                },
+                {
+                    "lblDescriptionValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Street lights not working"
+                    },
+                    "lblIDValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "9005"
+                    },
+                    "lblStatusValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Completed"
+                    },
+                    "lblTypeValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Complaint"
+                    }
+                },
+                {
+                    "lblDescriptionValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Street lights not working"
+                    },
+                    "lblIDValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "9005"
+                    },
+                    "lblStatusValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Completed"
+                    },
+                    "lblTypeValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Complaint"
+                    }
+                },
+                {
+                    "lblDescriptionValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Street lights not working"
+                    },
+                    "lblIDValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "9005"
+                    },
+                    "lblStatusValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Completed"
+                    },
+                    "lblTypeValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Complaint"
+                    }
+                },
+                {
+                    "lblDescriptionValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Street lights not working"
+                    },
+                    "lblIDValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "9005"
+                    },
+                    "lblStatusValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Completed"
+                    },
+                    "lblTypeValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Complaint"
+                    }
+                },
+                {
+                    "lblDescriptionValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Street lights not working"
+                    },
+                    "lblIDValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "9005"
+                    },
+                    "lblStatusValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Completed"
+                    },
+                    "lblTypeValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Complaint"
+                    }
+                },
+                {
+                    "lblDescriptionValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Street lights not working"
+                    },
+                    "lblIDValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "9005"
+                    },
+                    "lblStatusValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Completed"
+                    },
+                    "lblTypeValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Complaint"
+                    }
+                },
+                {
+                    "lblDescriptionValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Street lights not working"
+                    },
+                    "lblIDValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "9005"
+                    },
+                    "lblStatusValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Completed"
+                    },
+                    "lblTypeValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Complaint"
+                    }
+                },
+                {
+                    "lblDescriptionValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Street lights not working"
+                    },
+                    "lblIDValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "9005"
+                    },
+                    "lblStatusValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Completed"
+                    },
+                    "lblTypeValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Complaint"
+                    }
+                },
+                {
+                    "lblDescriptionValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Street lights not working"
+                    },
+                    "lblIDValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "9005"
+                    },
+                    "lblStatusValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Completed"
+                    },
+                    "lblTypeValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Complaint"
+                    }
+                }
+            ]
+        ],
+        [
+            {
+                "lblDescription": {
+                    "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                    "text": "Description"
+                },
+                "lblID": {
+                    "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                    "text": "ID"
+                },
+                "lblStatus": {
+                    "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                    "text": "Status"
+                },
+                "lblType": {
+                    "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                    "text": "Type"
+                }
+            },
+            [
+                {
+                    "lblDescriptionValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Street lights not working"
+                    },
+                    "lblIDValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "9005"
+                    },
+                    "lblStatusValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Completed"
+                    },
+                    "lblTypeValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Complaint"
+                    }
+                },
+                {
+                    "lblDescriptionValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Street lights not working"
+                    },
+                    "lblIDValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "9005"
+                    },
+                    "lblStatusValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Completed"
+                    },
+                    "lblTypeValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Complaint"
+                    }
+                },
+                {
+                    "lblDescriptionValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Street lights not working"
+                    },
+                    "lblIDValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "9005"
+                    },
+                    "lblStatusValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Completed"
+                    },
+                    "lblTypeValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Complaint"
+                    }
+                },
+                {
+                    "lblDescriptionValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Street lights not working"
+                    },
+                    "lblIDValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "9005"
+                    },
+                    "lblStatusValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Completed"
+                    },
+                    "lblTypeValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Complaint"
+                    }
+                },
+                {
+                    "lblDescriptionValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Street lights not working"
+                    },
+                    "lblIDValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "9005"
+                    },
+                    "lblStatusValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Completed"
+                    },
+                    "lblTypeValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Complaint"
+                    }
+                },
+                {
+                    "lblDescriptionValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Street lights not working"
+                    },
+                    "lblIDValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "9005"
+                    },
+                    "lblStatusValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Completed"
+                    },
+                    "lblTypeValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Complaint"
+                    }
+                },
+                {
+                    "lblDescriptionValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Street lights not working"
+                    },
+                    "lblIDValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "9005"
+                    },
+                    "lblStatusValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Completed"
+                    },
+                    "lblTypeValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Complaint"
+                    }
+                },
+                {
+                    "lblDescriptionValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Street lights not working"
+                    },
+                    "lblIDValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "9005"
+                    },
+                    "lblStatusValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Completed"
+                    },
+                    "lblTypeValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Complaint"
+                    }
+                },
+                {
+                    "lblDescriptionValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Street lights not working"
+                    },
+                    "lblIDValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "9005"
+                    },
+                    "lblStatusValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Completed"
+                    },
+                    "lblTypeValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Complaint"
+                    }
+                },
+                {
+                    "lblDescriptionValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Street lights not working"
+                    },
+                    "lblIDValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "9005"
+                    },
+                    "lblStatusValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Completed"
+                    },
+                    "lblTypeValue": {
+                        "@class": "com.viz.ide.model.segment.SimpleTextSegmentData",
+                        "text": "Complaint"
+                    }
+                }
+            ]
+        ]
+    ],
+    "_height_": {
+        "type": "string",
+        "value": "100%"
+    },
+    "_indicator_": "none",
+    "_margin_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_orientation_": 2,
+    "_padding_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_width_": {
+        "type": "string",
+        "value": "100%"
+    },
+    "autogrowmode": 0,
+    "canUpdateUI": true,
+    "centerx": {
+        "type": "string",
+        "value": "50%"
+    },
+    "centery": {
+        "type": "string",
+        "value": "50%"
+    },
+    "containerweight": 100,
+    "counter": "19",
+    "focusedindex": null,
+    "focuseditem": null,
+    "groupcells": false,
+    "hasSections": true,
+    "id": "segRequestsComplaints",
+    "info": null,
+    "ipad": {
+        "psp": {
+            "indicator": "rowselect"
+        }
+    },
+    "iphone": {
+        "psp": {
+            "indicator": "rowselect"
+        }
+    },
+    "iscustomlayout": false,
+    "isvisible": false,
+    "kuid": "eaf4c95e119240848f82643e741679ca",
+    "masterdata": {},
+    "name": "kony.ui.SegmentedUI2",
+    "needpageindicator": true,
+    "pageoffdotimage": "pageoffdot.png",
+    "pageondotimage": "pageondot.png",
+    "paginationconfig": {
+        "position": "bottom"
+    },
+    "parent": "flxRequestsComplaintsDetails",
+    "pf": "frmDashboard",
+    "responsiveData": {
+        "b3": {
+            "isVisible": true
+        }
+    },
+    "retaincontentalignment": false,
+    "retainflexpositionproperties": false,
+    "retainselection": false,
+    "rowTemplateId": "c76791c02782482c83c17c228953443d",
+    "rowcounter": 9,
+    "rowfocusskin": "s84d21a74931436798fea6a22324c9ae",
+    "rowskin": "s79979c023e745c6a0fa3d03c4846117",
+    "rowtemplate": "myFlxSegRequestsComplaints",
+    "screenlevelwidget": false,
+    "seccounter": 1,
+    "sectionHeaderTemplateId": "d62bdba42a4648b68425a72bec42de93",
+    "sectionheaderskin": "se076558a3dc4f1f8867237b50237780",
+    "sectionheadertemplate": "myFlxSegRequestsComplaintsHeader",
+    "selectedRows": null,
+    "selectedState": false,
+    "selectedindex": null,
+    "selectedindices": null,
+    "selecteditems": null,
+    "selectedsectionindex": 0,
+    "selectionbehavior": "default",
+    "separatorcolor": "aaaaaa00",
+    "separatorrequired": true,
+    "separatorthickness": 1,
+    "showscrollbars": false,
+    "viewtype": "tableview",
+    "vizProps": {},
+    "wType": "Segment",
+    "widgetalignment": 5,
+    "widgetdatamap": {
+        "lblDescription": "lblDescription",
+        "lblDescriptionValue": "lblDescriptionValue",
+        "lblID": "lblID",
+        "lblIDValue": "lblIDValue",
+        "lblStatus": "lblStatus",
+        "lblStatusValue": "lblStatusValue",
+        "lblType": "lblType",
+        "lblTypeValue": "lblTypeValue",
+        "myFlxSegRequestsComplaints": "myFlxSegRequestsComplaints",
+        "myFlxSegRequestsComplaintsHeader": "myFlxSegRequestsComplaintsHeader"
+    },
+    "zindex": 1
+}

@@ -1,0 +1,16 @@
+#if($margin-top)
+    #set($mt = $margin-top + "%")
+    margin-top: $mt;
+#end
+#if($margin-right)
+    #set($mr = $margin-right + "%")
+    margin-right: $mr;
+#end
+#if($margin-bottom)
+    #set($mb = $margin-bottom + "%")
+    margin-bottom: $mb;
+#end
+#if($margin-left)
+    #set($ml = $margin-left + "%")
+    margin-left: $ml;
+#end

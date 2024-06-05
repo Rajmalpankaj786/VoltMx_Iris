@@ -1,0 +1,84 @@
+#set($do = ".")
+#set($tabpanesk =  $do + $component.id + "tabpane")
+#set($tabulsk = $do  + $component.id + "tabul")
+#set($tablisk = $do  + $component.id + "tabli")
+#set($tabask = $do  + $component.id + "taba")
+
+#if($default == "true")
+ $tabpanesk 
+ {
+    width: 97%;
+    text-align: left;
+    height: 46px;
+ }
+ $tabulsk
+ {
+    margin: 0 auto;
+    padding: 3px 0 0 1px;
+    list-style: none;
+    display: block;
+    height: 36px;
+    width: 100%;
+    text-align: left;
+    overflow: hidden;
+ }
+ $tablisk
+ {
+    margin: 0 2px 0px 1px;
+    float: left;
+    position: relative;
+    border-width: 0px 1px 0px 0px;
+    border-style: solid;
+ }
+ $tabask
+ {
+    text-decoration:none;
+    text-align: center;
+    color: black;
+    font-size: $font-size;
+    font-weight: bold;
+    margin : 0 2px 0 2px; 
+ }
+
+#else
+
+$tabpanesk 
+ {
+    width: 97%;
+    text-align: left;
+    height: 46px;
+    #if($background-color)
+        background-color : #$background-color;
+    #end
+ }
+ $tabulsk
+ {
+    margin: 0 auto;
+    padding: 3px 0 0 1px;
+    list-style: none;
+    display: block;
+    height: 36px;
+    width: 100%;
+    text-align: left;
+    overflow: hidden;
+ }
+ $tablisk
+ {
+    margin: 0 2px 0px 1px;
+    float: left;
+    position: relative;
+    border-width: 0px 1px 0px 0px;
+    border-style: solid;
+ }
+ $tabask
+ {
+    text-decoration:none;
+    text-align: center;
+    font-family: $font-family;
+    font-size : $font-size;
+    font-weight : $font-weight;
+    font-style : $font-style;
+    color : #$color;
+    margin : 0 2px 0 2px; 
+ }
+#end

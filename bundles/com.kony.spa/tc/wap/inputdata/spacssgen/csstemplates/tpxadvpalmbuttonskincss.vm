@@ -1,0 +1,117 @@
+#set($s = "." + $skin)
+$s
+{
+   #if($forking)
+        #parse("tpxadviphonecssborderspecific.vm")
+   #else
+        #parse("tpxadviphonecssborder.vm")
+   #end
+   #parse("tppalmmojocssfonts.vm")
+   #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+   #end
+   
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+
+    #*
+    white-space: nowrap;
+    text-shadow: rgba(0, 0, 0, 0.6) 0px -1px 0;
+    text-overflow: ellipsis;
+    *#
+    
+    #if($background-color)
+        #if($rgba == "true")
+            background-color : $background-color;
+        #else
+            background-color : #$background-color;
+        #end
+     #elseif($transparent)
+            background:inherit;
+      #elseif($background-gradient)
+            background-image: url(./images/$background-image);
+            background-repeat: repeat-x;
+         background-color: $bottomcolor;
+     #else
+        ##background-image: url(./images/$background-image);
+        #if($repeat && $verticalrepeat)
+            background: url(./images/$background-image) repeat;
+        #elseif($repeat)
+            background: url(./images/$background-image) repeat-x;
+        #elseif($verticalrepeat)
+            background: url(./images/$background-image) repeat-y;
+        #else
+            background: url(./images/$background-image) no-repeat;
+            #if($width)
+                #set($wd = $width + "px !important;")
+                width: $wd
+            #end
+            #if($height)
+                #set($hd = $height + "px !important;")
+                height: $hd
+            #end
+        #end
+        #if($enable_bg_size == "true")
+                  background-size : 100% 100%;
+        #end
+        background-color:transparent;
+    #end
+
+}
+#if($pimgexists=="true")
+input[selected="progress"][kprogressskin="$skin"]
+{
+    #if($background-color)
+         #if($rgba == "true")
+         background: url(./images/$pimgname) no-repeat, $background-color;
+         #else
+         background: url(./images/$pimgname) no-repeat, #$background-color;
+         #end
+     #elseif($background-gradient)
+         background: url(./images/$pimgname) no-repeat, url(./images/$background-image) repeat-x;
+     #elseif($transparent)
+        background-image : url(./images/$pimgname) !important;
+        background-repeat: no-repeat;
+     #else
+        #if($repeatimage=="true")
+        background: url(./images/$pimgname) no-repeat, url(./images/$background-image) repeat-x;
+        #else
+        background: url(./images/$pimgname) no-repeat, url(./images/$background-image) no-repeat;
+        #end
+    #end
+
+    #if($pimgloc=="left")
+    background-position: left center;
+    #elseif($pimgloc=="right")
+    background-position: right center;
+    #elseif($pimgloc=="center")
+    background-position: center center;
+    #end
+}
+#end
+
+#*
+input[selected="progress"][korigskin="$skin"]
+{ 
+    #if($background-color)
+        #set($sk = $skin + ".png")
+         background: url(./images/loading.gif) no-repeat, url(./images/$sk) repeat-x;
+         background-position: right center;
+    #else
+        #if($repeat == "true")           
+            #if($background-image)
+                 background: url(./images/loading.gif) no-repeat,url(./images/$background-image) repeat-x;
+                 background-position: right center;
+            #end
+        #else 
+            background: url(./images/loading.gif) no-repeat, url(./images/$background-image);
+            background-position: right center;
+        #end
+    #end
+}
+*#

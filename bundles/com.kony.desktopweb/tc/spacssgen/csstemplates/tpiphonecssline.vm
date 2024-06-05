@@ -1,0 +1,46 @@
+#if($default == true)
+    $skin {
+        border:none;
+        #if($width)
+            width: $width%;
+        #else
+            width: auto;
+        #end
+        #if($height)
+            #set($h = $height + "px")
+            height: $h;
+        #else
+            height: 1px;
+        #end
+        #if($color)
+            color: #$color;
+            background-color: #$color;
+        #else
+            color: black;
+            background-color: black;
+        #end
+         #parse("tpxhtmlcssmargins.vm")
+    }
+#else
+    $skin {
+        border:none;
+    #if($width)
+            width: $width%;
+        #else
+            width: auto;
+        #end
+        #if($height)
+            height: $heightpx;
+        #else
+            height: 1px;
+        #end
+    #if($color)
+        color: #$color;
+        background-color: #$color;
+    #else
+        color: black;
+        background-color: black;
+    #end
+         #parse("tpxhtmlcssmargins.vm")
+    }
+#end

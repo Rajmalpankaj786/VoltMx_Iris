@@ -1,0 +1,15 @@
+#set($sg = $skin + "seggroup")
+$sg
+{
+    margin: 2px;
+    position: relative;
+    padding : 1px;
+    background: #FFFFFF;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    border: 1px solid #999999;
+    font-size : 12px;
+    font-weight : normal;
+    font-style : normal;
+    color : #000000;
+}

@@ -1,0 +1,23 @@
+
+#if($background-gradient)
+
+    #if($platform == "advandroid")
+       background : -webkit-gradient(linear, 0% 0%, 0% 100%, from($topcolor), to($bottomcolor));
+       background : -webkit-linear-gradient(top, $topcolor, $bottomcolor);
+    #else
+       background : -webkit-gradient(linear, 0% 0%, 0% 100%, from($topcolor), to($bottomcolor)) fixed;
+       background : -webkit-linear-gradient(top, $topcolor, $bottomcolor) fixed;
+    #end
+
+#elseif($background-split)
+   background : -webkit-gradient(linear, 0% 49%, 0% 50%, from($topcolor), to($bottomcolor))fixed;
+   background : -webkit-linear-gradient(top, $topcolor 49%, $bottomcolor 50%)fixed;
+#elseif($background-horizontal-gradient)
+   background : -webkit-gradient(linear, 0% 0%, 100% 0%, from($topcolor), to($bottomcolor))fixed;
+   background : -webkit-linear-gradient(left,$topcolor 0%, $bottomcolor 100%)fixed;
+#elseif($background-horizontal-split)
+   background : -webkit-gradient(linear, 49% 0%, 50% 0%, from($topcolor), to($bottomcolor),color-stop(.1,$bottomcolor))fixed;
+   background : -webkit-linear-gradient(left, $topcolor 50%,$bottomcolor 50%)fixed;
+#elseif($background-ms-gradient)
+   background : -webkit-gradient(linear,$background-ms-color)fixed;
+#end

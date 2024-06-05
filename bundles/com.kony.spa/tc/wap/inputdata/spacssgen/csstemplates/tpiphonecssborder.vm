@@ -1,0 +1,13 @@
+#if ($border-width)
+    #set($bw = $border-width + "px")
+    border-width: $bw;
+    border-style: solid;
+    #if ($border-color)
+        border-color : #$border-color;
+    #else
+        border-color : #000000;
+    #end
+#else
+        border: #000000;
+#end
+

@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+		<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <style type="text/css" media="screen">
+            .splash {
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                left: 0px;
+                bottom: 0px;
+                background-color: rgba(255, 0, 0);
+				                background-position: center;
+                background-attachment: fixed;
+            }
+        </style>
+        <link rel="stylesheet" href="desktopweb/jslib/tparty/cal/container.css" type="text/css"></link>
+        <link rel="stylesheet" href="desktopweb/jslib/tparty/cal/calendar.css" type="text/css"></link>
+        <title></title>
+    </head>
+    <body>
+		<div id="splashScreen" class="splash" style="display:none"></div>
+		<script type="text/javascript">
+			function intiappcache(){
+				voltmx.appinit.setGlobal("platformver", "desktopweb/"); 
+				voltmx.appinit.loadCSS();
+				var splashDiv = document.getElementById("splashScreen");
+				if (splashDiv) {
+					splashDiv.style[voltmx.appinit.vendor + 'Animation'] = 'fadein 1.5s ease-in';
+					splashDiv.style.display = "";
+				}
+				voltmx.appinit.initappcache();
+			}
+			
+			var head = document.getElementsByTagName('head')[0];
+			var script = document.createElement('script');
+			script.src = "desktopweb/jslib/voltmxinit.js";
+			//onreadystatechange for IE, IE9 supports both onload and onreadystatechange.
+			if(!script.addEventListener){
+				script.onreadystatechange = function(){
+					(this.readyState == 'complete' || this.readyState == 'loaded') && intiappcache();
+				};
+			}
+			else
+				script.onload = intiappcache;
+			head.appendChild(script);
+		</script>
+    </body>
+</html>

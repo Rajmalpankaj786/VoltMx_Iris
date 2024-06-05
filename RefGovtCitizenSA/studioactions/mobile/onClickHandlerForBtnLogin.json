@@ -1,0 +1,225 @@
+{
+    "AS_Button_j9a5bfc7e627494a94e50656bc45ccad": {
+        "id": "AS_Button_j9a5bfc7e627494a94e50656bc45ccad",
+        "type": "ACTION_SEQUENCE",
+        "name": "onClickHandlerForBtnLogin",
+        "params": [{
+            "datatype": "collection",
+            "name": "eventobject"
+        }],
+        "contextObj": {
+            "name": "frmLogin",
+            "type": "forms",
+            "platform": "",
+            "KUID": "id61e65640e8422fbd585e98ed70503a"
+        },
+        "language": "js",
+        "actions": [{
+            "id": "NAVIGATE_TO_FORM__ce84004bbf2e41b0a024b665b39e4517",
+            "type": "NAVIGATE_TO_FORM",
+            "formId": "frmDashboard",
+            "formKUID": "fcbc1ed742fd42bfba1f4b347c731809",
+            "projectName": "RefGovtCitizenSA",
+            "mappings": {
+                "ME_Mapping_h795d3dc1d6444ed8186e28ead65edd9": {
+                    "channel": "mobile",
+                    "id": "ME_Mapping_h795d3dc1d6444ed8186e28ead65edd9",
+                    "type": "MAPPING",
+                    "callbackType": null,
+                    "rectified": true,
+                    "source": {
+                        "type": "Forms",
+                        "propertyName": "text",
+                        "propertyKey": "tbxUserName_text",
+                        "widgetId": "tbxUserName",
+                        "widgetPath": "this.view.tbxUserName",
+                        "widgetType": "TextField",
+                        "dataType": "string",
+                        "itemId": "frmLogin",
+                        "widgetKUID": "febc8a061f2d4f7692ff6dcc5e65b2b7",
+                        "itemKUID": "id61e65640e8422fbd585e98ed70503a",
+                        "forkedPlatform": "all"
+                    },
+                    "target": {
+                        "forkedPlatform": "all"
+                    }
+                }
+            },
+            "mappingsOrder": ["ME_Mapping_h795d3dc1d6444ed8186e28ead65edd9"],
+            "enableMappingEditor": true,
+            "disabled": true,
+            "package": "",
+            "enableNavigationObj": true,
+            "navigationObj": "{\n    \"tbxUserName_text\": self.view.tbxUserName.text,\n    \"_meta_\": {\n        \"eventName\": \"onClick\",\n        \"widgetId\": \"btnLogin\"\n    }\n}",
+            "isCustomInput": false
+        }, {
+            "id": "LOADING_INDICATOR_ee8717a98ca141b18b65119a9712b1e2",
+            "selectedOption": "show",
+            "parentId": null,
+            "type": "LOADING_INDICATOR",
+            "callbackType": null,
+            "skin": "none",
+            "position": "constants.LOADING_SCREEN_POSITION_FULL_SCREEN",
+            "isBlocked": "true",
+            "showProgressIndicator": "true",
+            "text": "Identity service call in progress ..."
+        }, {
+            "id": "INVOKE_SERVICE_h9a0969fa83e4038be1fa3ee3a0af6f2",
+            "type": "INVOKE_IDENTITY_SERVICE",
+            "mappings": {
+                "ME_Mapping_beb578fac8bb48bfa87b0fd78f55b56e": {
+                    "channel": "mobile",
+                    "id": "ME_Mapping_beb578fac8bb48bfa87b0fd78f55b56e",
+                    "type": "MAPPING",
+                    "callbackType": null,
+                    "rectified": true,
+                    "source": {
+                        "type": "Forms",
+                        "propertyName": "text",
+                        "widgetId": "tbxUserName",
+                        "widgetPath": "this.view.tbxUserName",
+                        "widgetType": "TextField",
+                        "dataType": "string",
+                        "itemId": "frmLogin",
+                        "widgetKUID": "febc8a061f2d4f7692ff6dcc5e65b2b7",
+                        "itemKUID": "id61e65640e8422fbd585e98ed70503a",
+                        "forkedPlatform": "all"
+                    },
+                    "target": {
+                        "type": "Services",
+                        "propertyName": "userid",
+                        "dataType": "string",
+                        "forkedPlatform": "all",
+                        "serviceconfig": {
+                            "operationname": "login",
+                            "servicename": "VMXBootcampIdentity",
+                            "type": "identity",
+                            "isDeepLinkRequired": false,
+                            "login_type": "basic"
+                        }
+                    }
+                },
+                "ME_Mapping_faa613026f5f4ef3bcfc7e3ee9781238": {
+                    "channel": "mobile",
+                    "id": "ME_Mapping_faa613026f5f4ef3bcfc7e3ee9781238",
+                    "type": "MAPPING",
+                    "callbackType": null,
+                    "rectified": true,
+                    "source": {
+                        "type": "Forms",
+                        "propertyName": "text",
+                        "widgetId": "tbxPassword",
+                        "widgetPath": "this.view.tbxPassword",
+                        "widgetType": "TextField",
+                        "dataType": "string",
+                        "itemId": "frmLogin",
+                        "widgetKUID": "h5c23913ae5943299d4095675764924d",
+                        "itemKUID": "id61e65640e8422fbd585e98ed70503a",
+                        "forkedPlatform": "all"
+                    },
+                    "target": {
+                        "type": "Services",
+                        "propertyName": "password",
+                        "dataType": "string",
+                        "forkedPlatform": "all",
+                        "serviceconfig": {
+                            "operationname": "login",
+                            "servicename": "VMXBootcampIdentity",
+                            "type": "identity",
+                            "isDeepLinkRequired": false,
+                            "login_type": "basic"
+                        }
+                    }
+                }
+            },
+            "mappingsOrder": ["ME_Mapping_beb578fac8bb48bfa87b0fd78f55b56e", "ME_Mapping_faa613026f5f4ef3bcfc7e3ee9781238"],
+            "serviceconfig": {
+                "operationname": "login",
+                "servicename": "VMXBootcampIdentity",
+                "type": "identity",
+                "isDeepLinkRequired": false,
+                "login_type": "basic"
+            },
+            "parentId": null,
+            "callbackType": null,
+            "enableMappingEditor": true,
+            "useDeviceBrowser": false,
+            "isDeepLinkRequired": false
+        }, {
+            "id": "LOADING_INDICATOR_f2e09f2fa69043f19737ac9bfcae78c5",
+            "selectedOption": "dismiss",
+            "parentId": "INVOKE_SERVICE_h9a0969fa83e4038be1fa3ee3a0af6f2",
+            "type": "LOADING_INDICATOR",
+            "callbackType": "Failure",
+            "skin": "none",
+            "position": "constants.LOADING_SCREEN_POSITION_FULL_SCREEN",
+            "isBlocked": "true",
+            "showProgressIndicator": "true"
+        }, {
+            "id": "SHOW_ALERT_f331a3a494644d1c9fb617c2ec62f6c1",
+            "type": "SHOW_ALERT",
+            "alertType": "constants.ALERT_TYPE_ERROR",
+            "alertTitle": "Login",
+            "yesLabel": "OK",
+            "alertMessage": "Invalid Credentials.",
+            "messageType": "constant",
+            "parentId": "INVOKE_SERVICE_h9a0969fa83e4038be1fa3ee3a0af6f2",
+            "callbackType": "Failure",
+            "alertTitlei18n": null,
+            "yesLabeli18n": null,
+            "noLabeli18n": null,
+            "alertMessagei18n": null,
+            "iconPosition": "constants.ALERT_ICON_POSITION_LEFT",
+            "disabled": null
+        }, {
+            "id": "LOADING_INDICATOR_ef54722ee83e4a1e9523fab4bf35e167",
+            "selectedOption": "dismiss",
+            "parentId": "INVOKE_SERVICE_h9a0969fa83e4038be1fa3ee3a0af6f2",
+            "type": "LOADING_INDICATOR",
+            "callbackType": "Success",
+            "skin": "none",
+            "position": "constants.LOADING_SCREEN_POSITION_FULL_SCREEN",
+            "isBlocked": "true",
+            "showProgressIndicator": "true"
+        }, {
+            "id": "NAVIGATE_TO_FORM__a086424abbbb49ea85125b254ccc7459",
+            "type": "NAVIGATE_TO_FORM",
+            "formId": "frmDashboard",
+            "formKUID": "fcbc1ed742fd42bfba1f4b347c731809",
+            "projectName": "RefGovtCitizenSA",
+            "mappings": {
+                "ME_Mapping_h1e1681e6ff14a0b88e339d2ee3febb5": {
+                    "channel": "mobile",
+                    "id": "ME_Mapping_h1e1681e6ff14a0b88e339d2ee3febb5",
+                    "type": "MAPPING",
+                    "callbackType": null,
+                    "rectified": true,
+                    "source": {
+                        "type": "Forms",
+                        "propertyName": "text",
+                        "propertyKey": "tbxUserName_text",
+                        "widgetId": "tbxUserName",
+                        "widgetPath": "this.view.tbxUserName",
+                        "widgetType": "TextField",
+                        "dataType": "string",
+                        "itemId": "frmLogin",
+                        "widgetKUID": "febc8a061f2d4f7692ff6dcc5e65b2b7",
+                        "itemKUID": "id61e65640e8422fbd585e98ed70503a",
+                        "forkedPlatform": "all"
+                    },
+                    "target": {
+                        "forkedPlatform": "all"
+                    }
+                }
+            },
+            "mappingsOrder": ["ME_Mapping_h1e1681e6ff14a0b88e339d2ee3febb5"],
+            "parentId": "INVOKE_SERVICE_h9a0969fa83e4038be1fa3ee3a0af6f2",
+            "callbackType": "Success",
+            "enableMappingEditor": true,
+            "package": "",
+            "enableNavigationObj": true,
+            "navigationObj": "{\n    \"tbxUserName_text\": self.view.tbxUserName.text,\n    \"_meta_\": {\n        \"eventName\": \"onClick\",\n        \"widgetId\": \"btnLogin\"\n    }\n}",
+            "isCustomInput": false
+        }]
+    }
+}

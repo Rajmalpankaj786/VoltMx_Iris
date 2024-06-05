@@ -1,0 +1,755 @@
+*{
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body
+{
+    background: #FFFFFF;
+    color: #000000;
+    overflow-x: hidden;
+    -webkit-user-select: text;
+    -webkit-text-size-adjust: none;
+	-webkit-touch-callout: none;
+}
+
+
+/* Layout classes */
+.kbasemargin
+{
+    margin: 0px;
+}
+.kbasepadding
+{
+    padding: 0px;
+}
+.kheight
+{
+	min-height: 28px;
+}
+.kselect
+{
+	height: 28px;
+}
+.kwt100
+{
+    width: 100%;
+}
+.ktable
+{
+    display:table;
+}
+.krow
+{
+    display:table-row;
+    height: 40%;
+}
+.kcell
+{
+    display:table-cell;
+}
+.hide
+{
+	display : none !important;
+}
+.hidden
+{
+	visibility:hidden;
+}
+.tabhide
+{
+    display:none;
+}
+.tabshow
+{
+    display:block;
+}
+.auto
+{
+	width: auto;
+}
+
+/* Alignment classes */
+.topleftalign
+{
+    text-align:left;
+    vertical-align: top;
+}
+.toprightalign
+{
+    text-align:right;
+    vertical-align: top;
+}
+.topcenteralign
+{
+    text-align:center;
+    vertical-align: top;
+}
+.middleleftalign
+{
+    text-align:left;
+    vertical-align: middle;
+}
+.middlerightalign
+{
+    text-align:right;
+    vertical-align: middle;
+}
+.middlecenteralign
+{
+    text-align:center;
+    vertical-align: middle;
+}
+.bottomleftalign
+{
+    text-align:left;
+    vertical-align: bottom;
+}
+.bottomrightalign
+{
+    text-align:right;
+    vertical-align: bottom;
+}
+.bottomcenteralign
+{
+    text-align:center;
+    vertical-align: bottom;
+}
+.cntbottomcenteralign
+{
+    display:flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    display: -ms-flexbox;
+    -ms-flex-pack: center;
+    -ms-flex-align: end;
+}
+.cntbottomleftalign
+{
+    display:flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+
+    display: -ms-flexbox;
+   -ms-flex-pack: start
+   -ms-flex-align: end;
+}
+.cntbottomrightalign
+{
+    display:flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    display: -ms-flexbox;
+    -ms-flex-pack: end;
+    -ms-flex-align: end;
+}
+.cntmiddlecenteralign
+{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    display: -ms-flexbox;
+   -ms-flex-pack: center;
+   -ms-flex-align: center;
+}
+.cntmiddleleftalign
+{
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    display: -ms-flexbox;
+    -ms-flex-pack: start;
+    -ms-flex-align: center;
+}
+.cntmiddlerightalign
+{
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+
+
+    display: -ms-flexbox;
+    -ms-flex-pack: end;
+    -ms-flex-align: center;
+}
+.cnttopcenteralign
+{
+    display:flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    display: -ms-flexbox;
+    -ms-flex-pack: center;
+    -ms-flex-align: start;
+}
+.cnttopleftalign
+{
+    display:flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    display: -ms-flexbox;
+    -ms-flex-pack: start;
+    -ms-flex-align: start;
+}
+.cnttoprightalign
+{
+    display:flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+
+    display: -ms-flexbox;
+    -ms-flex-pack: end;
+    -ms-flex-align: start;
+}
+
+
+/* Widget classes */
+
+input[type="checkbox"]
+{
+	height:24px !important;
+	width:24px !important;
+}
+input[type="radio"]
+{
+	height:20px !important;
+	width:20px !important;
+}
+/* iOS */
+input[type="button"]
+{
+	-webkit-appearance: none;
+}
+div[kwidgettype="Link"]>a
+{
+	color: #000000;
+}
+
+img
+{
+	vertical-align: middle;
+	-webkit-user-drag: none;
+	-webkit-user-select: none;
+}
+
+li,ul
+{
+	list-style: none;
+}
+
+.voltmxlink
+{
+    text-decoration: none;
+}
+.voltmxsliderleft
+{
+    background-color : grey;
+}
+.voltmxsliderright
+{
+    background-color : black;
+}
+.voltmxline
+{
+   width: 100%;
+   border-width: 1px;
+   border-top-style: solid;
+   border-right-style : none;
+   border-left-style : none;
+   border-bottom-style : none;
+}
+.kstripcontainer
+{
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.kstrip
+{
+    float: left;
+    display: inline;
+    padding: 0px;
+    margin: 0px;
+    -webkit-transition-property: -webkit-transform;
+    -webkit-transition-duration: 0.5s;
+    -webkit-transition-timing-function: ease-out;
+    -webkit-transform: translate3d(0px, 0px, 0px);
+}
+
+/* switch css */
+.switch
+{
+	display: -webkit-box;
+	-webkit-border-radius: 6px;
+	-webkit-user-select: none;
+	overflow: hidden;
+	text-align: center;
+	line-height: 25px;
+}
+.switch .thumb
+{
+	position: relative;
+	-webkit-border-radius: 7px;
+	z-index: 3;
+	border: 1px solid #919191;
+}
+.switch .thumb span
+{
+	display: block;
+	-webkit-border-radius: 6px;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#cecece), to(#fbfbfb));
+	background-image: -webkit-linear-gradient(top, #cecece, #fbfbfb);
+	min-height: 25px;
+}
+.switch .on
+{
+	color: #fff;
+	min-height: 27px;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#295ab2), to(#76adfc));
+	background-image: -webkit-linear-gradient(top, #295ab2, #76adfc);
+	-webkit-border-top-left-radius: 6px;
+	-webkit-border-bottom-left-radius: 6px;
+	border: 1px solid #093889;
+	padding-right: 4px;
+	margin-right: -6px;
+}
+.switch .off
+{
+	color: #666;
+	min-height: 27px;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#b5b5b5), color-stop(0.50, #fff));
+	background-image: -webkit-linear-gradient(top, #b5b5b5 0%, #fff 50%);
+	-webkit-border-top-right-radius: 6px;
+	-webkit-border-bottom-right-radius: 6px;
+	border: 1px solid #a1a1a1;
+	padding-left: 4px;
+	margin-left: -6px;
+}
+
+
+/* Popup css */
+.popupcontainer
+{
+	z-index: 8;
+}
+.absoluteContainer
+{
+    position :absolute;
+    height: 100%;
+    width: 100%;
+}
+.popuplayer
+{
+    background-color: black;
+    opacity: 0.5;
+}
+
+
+/* scroller css */
+.form_scroller
+{
+	position: absolute;
+    z-index: 1;
+    /*
+    left: 0;
+    right: 0;
+    */
+    width: 100%;
+    overflow: hidden;
+}
+.form_scrollee
+{
+	width: 100%;
+}
+.header_scroller
+{
+	z-index: 6;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+.footer_scroller
+{
+    z-index: 6;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.appmenu_scroller
+{
+    z-index: 8;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.scrollerX
+{
+    overflow: hidden;
+    position: relative;
+}
+.scrolleeX
+{
+    white-space: nowrap;
+}
+
+.form_nativeScroller
+{
+	z-index: 1;
+	position: relative;
+}
+
+.main_container
+{
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.relativePos
+{
+	position: relative;
+}
+.absolutePos
+{
+	#if($bbnth)
+	position: fixed !important;
+	#end
+	position: absolute;
+}
+/*
+.absPos
+{
+	position: absolute;
+}
+*/
+
+#*
+.header_stickyScroller
+{
+	position:relative;
+	z-index:6;
+	top:0;
+	left:0;
+	width:100%;
+}
+.footer_stickyScroller
+{
+    position:relative;
+    z-index:6;
+    bottom: 0;
+    left:0;
+    width:100%;
+}
+.appmenu_stickyScroller
+{
+	position:relative;
+    z-index:8;
+    bottom: 0;
+    left:0;
+    width:100%;
+}
+*#
+
+/* fade css */
+.scroll_fades
+{
+    position: absolute;
+    z-index: 100;
+}
+.scroll_view
+{
+    position: absolute !important;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 100%;
+}
+.leftfade
+{
+    top: 50%;
+    left: 0;
+}
+.rightfade
+{
+    top: 50%;
+    right: 0;
+}
+.topfade
+{
+    top: 0;
+    left: 50%;
+}
+.bottomfade
+{
+	bottom: 0;
+    left: 50%;
+}
+
+
+/* Transitions */
+@-webkit-keyframes slidetopout
+{
+    from { -webkit-transform: translateY(0%); }
+    to { -webkit-transform: translateY(-100%); }
+}
+@-webkit-keyframes slidetopin
+{
+	from { -webkit-transform: translateY(100%); }
+    to { -webkit-transform: translateY(0); }
+}
+@-webkit-keyframes slidebottomout
+{
+    from { -webkit-transform: translateY(0%); }
+    to { -webkit-transform: translateY(100%); }
+}
+@-webkit-keyframes slidebottomin
+{
+    from { -webkit-transform: translateY(-100%); }
+    to { -webkit-transform: translateY(0); }
+}
+@-webkit-keyframes slideleftout
+{
+    from { -webkit-transform: translateX(0); }
+    to { -webkit-transform: translateX(-100%); }
+}
+@-webkit-keyframes slideleftin
+{
+    from { -webkit-transform: translateX(100%); }
+    to { -webkit-transform: translateX(0); }
+}
+@-webkit-keyframes sliderightout
+{
+    from { -webkit-transform: translateX(0); }
+    to { -webkit-transform: translateX(100%); }
+}
+@-webkit-keyframes sliderightin
+{
+    from { -webkit-transform: translateX(-100%); }
+    to { -webkit-transform: translateX(0); }
+}
+@-webkit-keyframes fadeout
+{
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+@-webkit-keyframes fadein
+{
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+/* Misc */
+div[selected="progress"]
+{
+    background-image: url(./images/loading.gif) !important;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    z-index: 998;
+    width: 25px;
+    height: 20px;
+    position: absolute;
+}
+
+.popupmain
+{
+	top: 0;
+}
+
+/*
+ * Pull down styles
+ */
+
+div[name="pullDown"],
+div[name="pullUp"] {
+    background-size: 25px 25px;
+    background-repeat: no-repeat;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+div[name="pullDown"] .pullDownIcon,
+div[name="pullUp"] .pullUpIcon {
+    width: 25px;
+    height: 25px;
+    background-size: 25px 25px;
+    background-repeat: no-repeat;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-transition-property: -webkit-transform;
+    -webkit-transition-duration: 250ms;
+}
+
+div[name="pullDownAnimate"],
+div[name="pullUpAnimate"] {
+    background-size: 25px 25px;
+    background-repeat: no-repeat;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+div[name="pullDownAnimate"] .pullDownIcon,
+div[name="pullUpAnimate"] .pullUpIcon {
+    width: 25px;
+    height: 25px;
+    background-size: 25px 25px;
+    background-repeat: no-repeat;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-transition-property: -webkit-transform;
+    -webkit-transition-duration: 250ms;
+}
+
+div[name="pullDownAnimate"] .pullDownIcon {
+    -webkit-transform: rotate(0deg) translateZ(0);
+}
+
+div[name="pullUpAnimate"] .pullUpIcon {
+    -webkit-transform: rotate(-180deg) translateZ(0);
+}
+
+div[name="pullDownAnimate"].flip .pullDownIcon {
+    -webkit-transform: rotate(-180deg) translateZ(0);
+}
+
+div[name="pullUpAnimate"].flip .pullUpIcon {
+    -webkit-transform: rotate(0deg) translateZ(0);
+}
+
+div[name="pullDownAnimate"].loading .pullDownIcon,
+div[name="pullUpAnimate"].loading .pullUpIcon {
+    background-position: 0 100%;
+    -webkit-transform: rotate(0deg) translateZ(0);
+    -webkit-transition-duration: 0ms;
+    -webkit-animation-name: loading;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+
+@-webkit-keyframes loading
+{
+	from { -webkit-transform:rotate(0deg) translateZ(0); }
+	to { -webkit-transform:rotate(360deg) translateZ(0); }
+}
+
+/* Autocomplete */
+.autocomplete_base {
+    font-size: 12px;
+    background-color: white;
+    border: 1px solid black;
+    position: absolute;
+    cursor: default;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.autocomplete_item {
+    padding: 1px;
+    padding-left: 5px;
+    width: 100%;
+}
+
+.autocomplete_item_highlighted {
+    padding: 1px;
+    padding-left: 5px;
+    color: white;
+    background-color: #0A246A;
+}
+
+.klistbox {
+    height: 26px;
+    line-height: 26px;
+    padding-left: 4px;
+    border: 1px solid #555555;
+    -webkit-border-radius: 5px;
+    background-color:#FAFAFA;
+}
+
+.kddicon {
+    background-image: url('./images/listboxIcon.png');
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+
+#parse("tpxspaadvcalbasecss.vm")
+
+.KMenu li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    list-style: none;
+}
+
+.KClear {
+    float: none;
+    clear: both;
+    font-size: 0px;
+    line-height:0px;
+    height: 0px;
+}
+
+input[type="number"]::-webkit-outer-spin-button { display: none; }
+##JSPFQA7256: group widgets are overalpping in scrollbox, if width is not sufficient
+div[kwidgettype="RadioButtonGroup"], div[kwidgettype="CheckBoxGroup"]
+{
+ white-space: pre-wrap;
+}
+
+#parse("tpxtxtcopyablecss.vm")
+
+.jasmine_html-reporter {
+    display: none;
+}
+.container-horiz {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+}
+.container-horiz > * {
+    flex-shrink: 0;
+    overflow-wrap: break-word;
+    position: relative;
+}
+.container-horiz-reverse {
+    flex-direction: row-reverse;
+}
+.container-freeform {
+    position: relative;
+}
+.container-freeform > * {
+    position: absolute;
+}
+.container-vert {
+    display: flex;
+    align-items: flex-start;
+    flex-flow: column nowrap;
+}
+.container-vert > * {
+    flex-shrink: 0;
+    overflow-wrap: break-word;
+    position: relative;
+}
+.container-vert-reverse {
+    flex-direction: column-reverse;
+}
+.defaultAppmenuSkin{
+    font: normal 400 15px Helvetica;
+    color: #0000EE;
+    background-color: #FFFFFF;
+}

@@ -1,0 +1,8 @@
+font-family: $left-font-family;
+font-size : $left-font-size;
+font-weight : $left-font-weight;
+#if($left-font-style=="italic" || $left-font-style=="normal" || $styleFlag)
+   font-style : $left-font-style;
+#else
+   text-decoration : $left-font-style;
+#end

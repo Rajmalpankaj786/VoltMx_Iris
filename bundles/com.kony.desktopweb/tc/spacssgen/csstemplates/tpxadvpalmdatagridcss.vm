@@ -1,0 +1,254 @@
+#set($s = "." + $skin)
+#set($tb="tb")
+#set($tr="tr")
+#set($td="td")
+#set($bw = "0px")
+#set($lw = "0px")
+#set($rw = "0px")
+#set($tw = "0px")
+#if($forking)
+    #if($border-top-width)
+	#set($tw = $border-top-width + "px")
+    #end
+    #if($border-right-width)
+	#set($rw = $border-right-width + "px")
+    #end
+    #if($border-bottom-width)
+	#set($bw = $border-bottom-width + "px")
+    #end
+    #if($border-left-width)
+	#set($lw = $border-left-width + "px")
+    #end
+
+    $s{
+        #if($rgba_top_border == "true")
+            border-top: $tw solid $border-top-color;
+        #else
+            border-top: $tw solid #$border-top-color;
+        #end
+        #if($rgba_bottom_border == "true")
+            border-bottom: $bw solid $border-bottom-color;
+        #else
+            border-bottom: $bw solid #$border-bottom-color;
+        #end
+
+        #if($background-image == "true")
+            #if($repeat && $verticalrepeat)
+                background: url(./images/$background-image) repeat;
+            #elseif($repeat)
+                background: url(./images/$background-image) repeat-x;
+            #elseif($verticalrepeat)
+                background: url(./images/$background-image) repeat-y;
+            #else
+                background: url(./images/$background-image) no-repeat;
+            #end
+            #if($enable_bg_size == "true")
+                background-size : 100% 100%;
+            #end
+        #elseif ($background-color)
+            #if($rgba == "true")
+                background-color : $background-color;
+            #else
+                background-color : #$background-color;
+            #end
+        #elseif($background-gradient)
+              background-image: url(./images/$background-image);
+                background-repeat: repeat-x;
+                background-color: $bottomcolor;
+        #else
+                  background-color: inherit;
+        #end
+    }
+
+	$s$tb{
+    font-family: $font-family;
+    font-size : $font-size;
+    font-weight : $font-weight;
+    font-style : $font-style;
+    ##color : #$color;
+    #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end
+    padding: 0;
+    margin: 0;
+    #if($background-image == "true")
+        #if($repeat && $verticalrepeat)
+            background: url(./images/$background-image) repeat;
+        #elseif($repeat)
+            background: url(./images/$background-image) repeat-x;
+        #elseif($verticalrepeat)
+            background: url(./images/$background-image) repeat-y;
+        #else
+            background: url(./images/$background-image) no-repeat;
+        #end
+        #if($enable_bg_size == "true")
+            background-size : 100% 100%;
+        #end
+    #elseif ($background-color)
+        #if($rgba == "true")
+            background-color : $background-color;
+        #else
+            background-color : #$background-color;
+        #end
+    #elseif($background-gradient)
+          background-image: url(./images/$background-image);
+            background-repeat: repeat-x;
+            background-color: $bottomcolor;
+    #else
+              background-color: inherit;
+    #end
+    border-collapse:collapse;
+         #if($rgba_top_border == "true")
+              border-top: $tw solid $border-top-color;
+         #else
+             border-top: $tw solid #$border-top-color;
+         #end
+         #if($rgba_left_border == "true")
+            border-left: $lw solid $border-left-color;
+         #else
+            border-left: $lw solid #$border-left-color;
+         #end
+	}
+
+	$s$td {	
+	    font-family: $font-family;
+	    font-size : $font-size;
+	    font-weight : $font-weight;
+	    font-style : $font-style;
+	    color : #$color;
+            #if($background-image == "true")
+                #if($repeat && $verticalrepeat)
+                    background: url(./images/$background-image) repeat;
+                #elseif($repeat)
+                    background: url(./images/$background-image) repeat-x;
+                #elseif($verticalrepeat)
+                    background: url(./images/$background-image) repeat-y;
+                #else
+                    background: url(./images/$background-image) no-repeat;
+                #end
+                #if($enable_bg_size == "true")
+                    background-size : 100% 100%;
+                #end
+	    #elseif ($background-color)
+	        #if($rgba == "true")
+	            background-color : $background-color;
+	        #else
+	            background-color : #$background-color;
+	        #end
+    	#elseif($background-gradient)
+        	background-image: url(./images/$background-image);
+            background-repeat: repeat-x;
+            background-color: $bottomcolor;
+        #else
+            background-color: inherit;
+        #end
+        #if($rgba_right_border == "true")
+            border-right: $rw solid $border-right-color;
+        #else
+            border-right: $rw solid #$border-right-color;
+        #end
+	}
+
+	$s img{
+	    border: none;   
+	}
+#else
+    #if($border-width)
+	#set($bw = $border-width + "px")
+    #end
+
+    $s{
+        #if($rgba_border == "true")
+            border-top: $bw solid $border-color;
+            border-bottom: $bw solid $border-color;
+        #else
+            border-top: $bw solid #$border-color;
+            border-bottom: $bw solid #$border-color;
+       #end
+    }
+
+    $s$tb{
+        font-family: $font-family;
+        font-size : $font-size;
+        font-weight : $font-weight;
+        font-style : $font-style;
+        color : #$color;
+        padding: 0;
+        margin: 0;
+        #if($background-image == "true")
+            #if($repeat && $verticalrepeat)
+                background: url(./images/$background-image) repeat;
+            #elseif($repeat)
+                background: url(./images/$background-image) repeat-x;
+            #elseif($verticalrepeat)
+                background: url(./images/$background-image) repeat-y;
+            #else
+                background: url(./images/$background-image) no-repeat;
+            #end
+        #elseif ($background-color)
+            #if($rgba == "true")
+                 background-color : $background-color;
+             #else
+                background-color : #$background-color;
+             #end
+         #elseif($background-gradient)
+            background-image: url(./images/$background-image);
+            background-repeat: repeat-x;
+            background-color: $bottomcolor;
+         #else
+              background-color: inherit;
+         #end
+         border-collapse:collapse;
+         #if($rgba_border == "true")
+            border-top: $bw solid $border-color;
+            border-left: $bw solid $border-color;
+         #else
+            border-top: $bw solid #$border-color;
+            border-left: $bw solid #$border-color;
+         #end
+      }
+
+    $s$td {
+        font-family: $font-family;
+        font-size : $font-size;
+        font-weight : $font-weight;
+        font-style : $font-style;
+        color : #$color;
+        #if($background-image == "true")
+            #if($repeat && $verticalrepeat)
+                background: url(./images/$background-image) repeat;
+            #elseif($repeat)
+                background: url(./images/$background-image) repeat-x;
+            #elseif($verticalrepeat)
+                background: url(./images/$background-image) repeat-y;
+            #else
+                background: url(./images/$background-image) no-repeat;
+            #end
+        #elseif ($background-color)
+            #if($rgba == "true")
+                background-color : $background-color;
+            #else
+                background-color : #$background-color;
+            #end
+        #elseif($background-gradient)
+        background-image: url(./images/$background-image);
+            background-repeat: repeat-x;
+            background-color: $bottomcolor;
+        #else
+            background-color: inherit;
+        #end
+        #if($rgba_border == "true")
+            border-right: $bw solid $border-color;
+        #else
+            border-right: $bw solid #$border-color;
+        #end
+    }
+
+    $s img{
+        border: none;
+    }
+#end

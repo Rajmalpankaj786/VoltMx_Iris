@@ -1,0 +1,40 @@
+#if($default == false)
+    $skin {
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        margin: 8px 0 0 0;
+        padding: 6px 6px 6px 6px;
+        font-size: $font-size;
+        font-weight: normal;
+        background-color : $bgcolor;
+        color : $color;
+    }
+    #if($focus == "true")
+        $skin:focus {
+        box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            margin: 8px 0 0 0;
+            padding: 6px 6px 6px 6px;
+            font-size: $font-size;
+            font-weight: normal;
+            background-color : $bgcolor;
+            color : $color;
+        }
+    #end
+#else
+    $skin {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    margin: 8px 0 0 0;
+    #if($bottommargin)
+        padding: 6px 6px $bottommargin 44px;
+    #elseif($rightmargin)
+        padding:  6px $rightmargin 6px 44px;
+    #else
+     padding: 6px 6px 6px 44px;
+    #end
+    font-size: $font-size;
+    font-weight: normal;
+    }
+
+#end

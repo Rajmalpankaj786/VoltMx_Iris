@@ -1,0 +1,30 @@
+{
+    "AS_Camera_f8e18a5014db4f6d8abce83b43035ad0": {
+        "id": "AS_Camera_f8e18a5014db4f6d8abce83b43035ad0",
+        "type": "ACTION_SEQUENCE",
+        "params": [{
+            "datatype": "collection",
+            "name": "eventobject"
+        }, {
+            "datatype": "collection",
+            "name": "metadata"
+        }],
+        "contextObj": {
+            "name": "userwidgetmodel",
+            "type": "userwidgets",
+            "KUID": "e732394c25464a37ae94b150aed40581"
+        },
+        "language": "js",
+        "actions": [{
+            "id": "INVOKE_FUNCTION__b70a81f1739f478d85818d1c8d837c90",
+            "type": "INVOKE_FUNCTION",
+            "sequenceKUID": "capturePhoto",
+            "display": "capturePhoto",
+            "inputparams": [],
+            "parentId": null,
+            "callbackType": null,
+            "disabled": null,
+            "source": "controller"
+        }]
+    }
+}

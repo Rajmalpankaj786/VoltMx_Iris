@@ -1,0 +1,40 @@
+/*
+    This is an auto generated file and any modifications to it may result in corrupted data.
+*/
+define([], function() {
+	var mappings = {
+	{{#columns}}
+		"{{name}}": "{{displayName}}",
+	{{/columns}}
+	};
+
+	Object.freeze(mappings);
+
+	var typings = {
+	    {{#columns}}
+		"{{name}}": "{{datatype}}",
+		{{/columns}}
+	}
+
+	Object.freeze(typings);
+
+	var primaryKeys = [
+	{{#primaryKey}}
+					"{{.}}",
+	{{/primaryKey}}
+	];
+
+	Object.freeze(primaryKeys);
+
+	var config = {
+		mappings: mappings,
+		typings: typings,
+		primaryKeys: primaryKeys,
+		serviceName: "{{appId}}",
+		tableName: "{{name}}"
+	};
+
+	Object.freeze(config);
+
+	return config;
+})

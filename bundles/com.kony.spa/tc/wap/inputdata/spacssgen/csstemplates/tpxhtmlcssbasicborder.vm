@@ -1,0 +1,18 @@
+#set($bw = $border-width + "px")
+#if($border-width != "none")
+    border-width : $bw;
+    border-style : $border-style;
+    ##border-color : #$border-color;
+    #if ($border-color)
+        #if($rgba_border == "true")
+             border-color : $border-color;
+        #else
+             border-color : #$border-color;
+        #end
+    #else
+        border-color : none;
+    #end
+#else
+    ##border-width:none;
+border:none;
+#end

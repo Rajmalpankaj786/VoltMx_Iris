@@ -1,0 +1,10 @@
+{
+    "dependencies": [
+        {
+            "name": "MyCommonMA",
+            "useResources": true,
+            "isHidden": false,
+            "excludeFromBuild": false
+        }
+    ]
+}

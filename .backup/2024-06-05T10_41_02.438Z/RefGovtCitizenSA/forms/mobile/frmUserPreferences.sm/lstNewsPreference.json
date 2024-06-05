@@ -1,0 +1,95 @@
+{
+    "@class": "com.kony.gen.viz.model.component.KVizListBox",
+    "DNDConfig": null,
+    "_height_": {
+        "type": "string",
+        "value": "40dp"
+    },
+    "_left_": {
+        "type": "string",
+        "value": "50dp"
+    },
+    "_margin_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_padding_": [
+        3,
+        0,
+        0,
+        0
+    ],
+    "_placeholder_": "Please Select",
+    "_skin_": "s0e9d1832dd746aa90289cdfd4585ab3",
+    "_width_": {
+        "type": "string",
+        "value": "150dp"
+    },
+    "android": {
+        "psp": {
+            "applySkinsToPopup": false
+        }
+    },
+    "canUpdateUI": true,
+    "centery": {
+        "type": "string",
+        "value": "50%"
+    },
+    "containerweight": 100,
+    "contentalignment": 4,
+    "dropdownimage": "",
+    "focusskin": "sd413ea5f4084497b9e2c2a2bb2e5300",
+    "groupcells": false,
+    "id": "lstNewsPreference",
+    "info": null,
+    "inputAccessoryViewType": 1,
+    "iphone": {
+        "psp": {
+            "inputAccessoryViewType": 1
+        }
+    },
+    "iscustomlayout": false,
+    "isvisible": true,
+    "kuid": "c1e4041ab56248328f84b0ce92fa41d7",
+    "masterdata": [
+        [
+            "Technology",
+            "Technology"
+        ],
+        [
+            "World",
+            "World"
+        ],
+        [
+            "Sports",
+            "Sports"
+        ],
+        [
+            "Health",
+            "Health"
+        ]
+    ],
+    "name": "kony.ui.ListBox",
+    "parent": "flxNewsPreference",
+    "pf": "frmUserPreferences",
+    "retaincontentalignment": false,
+    "retainflexpositionproperties": false,
+    "selectedkey": "Technology",
+    "selectedkeys": null,
+    "selectedkeyvalue": [
+        "Technology",
+        "Technology"
+    ],
+    "selectedkeyvalues": null,
+    "size": 18,
+    "viewconfig": {
+        "toggleViewConfig": {
+            "viewStyle": 0
+        }
+    },
+    "viewtype": 0,
+    "wType": "ListBox",
+    "zindex": 1
+}

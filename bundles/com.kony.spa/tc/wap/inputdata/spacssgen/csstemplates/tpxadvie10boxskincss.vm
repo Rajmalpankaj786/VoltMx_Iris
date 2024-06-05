@@ -1,0 +1,86 @@
+#if($focusSkin)
+	#set($s = $skin)
+#else
+	#set($s = "." + $skin)
+#end
+
+#set($imgbg="false")
+$s{
+    #if($forking)
+        #parse("tpxadvie10cssborderspecific.vm")
+    #else
+        #parse("tpxadvie10cssborder.vm")
+    #end
+    #parse("tppalmmojocssfonts.vm")
+    #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end
+    ##padding: 1px;
+    #if($background-color)
+        #if($rgba == "true")
+            background-color : $background-color;
+        #else
+            background-color : #$background-color;
+        #end
+    #elseif($background-image)
+        #parse("tpspagenericbgimage.vm")
+    #else #parse("tpxadvie10backgroundgradientscss.vm")
+    #end
+
+    #if($forking)
+        #parse("tpxadvie10shadowcss.vm")
+    #end
+
+}
+
+#if($pimgexists=="true")
+#if($__isspa__)
+div[progressindicator="true"][progressskin="$skin"]
+#else
+div[progressindctr="true"][kprogressskin="$skin"]
+#end
+{
+    #if($background-color)
+         background-image: url("./images/$pimgname") !important;
+         background-repeat: no-repeat;
+    #elseif($background-gradient)
+        background : url(./images/$pimgname) no-repeat, -ms-gradient(linear, 0% 0%, 0% 100%, from($topcolor), to($bottomcolor));
+        background : url(./images/$pimgname) no-repeat, -ms-linear-gradient(top, $topcolor, $bottomcolor);
+    #elseif($background-split)
+        background : url(./images/$pimgname) no-repeat, -ms-gradient(linear, 0% 49%, 0% 50%, from($topcolor), to($bottomcolor));
+        background : url(./images/$pimgname) no-repeat, -ms-linear-gradient(top, $topcolor 49%, $bottomcolor 50%);
+     #elseif($transparent)
+        background-image : url(./images/$pimgname) !important;
+        background-repeat: no-repeat;
+     #else
+        #set($imgbg="true")
+        #if($repeatimage=="false")
+        background: url(./images/$pimgname) no-repeat, url(./images/$background-image) no-repeat;
+        #else
+        background: url(./images/$pimgname) no-repeat, url(./images/$background-image) repeat-x;
+        #end
+
+    #end
+    #if($imgbg=="true")
+        #if($pimgloc=="left")
+        background-position: left center,left;
+        #elseif($pimgloc=="right")
+        background-position: right center,left;
+        #elseif($pimgloc=="center")
+        background-position: center center,left;
+        #end
+    #else
+        #if($pimgloc=="left")
+        background-position: left center;
+        #elseif($pimgloc=="right")
+        background-position: right center;
+        #elseif($pimgloc=="center")
+        background-position: center center;
+        #end
+    #end
+}
+#end

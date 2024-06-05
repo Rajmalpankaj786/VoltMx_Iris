@@ -1,0 +1,7 @@
+#set($ic = ".palm-menu-icon." + $icon)
+$ic 
+{
+    background-image: url(../$img);
+    background-repeat: no-repeat;
+	-webkit-background-size: 100%;
+}

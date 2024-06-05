@@ -1,0 +1,371 @@
+#set($s = "." + $skin+"basictab")
+
+#if($forking)
+    $s{
+        padding: 3px 0;
+        margin-left: 0;
+        ##font: bold 12px Verdana;
+        #parse("tppalmmojocssfonts.vm")
+        border-bottom: 1px solid gray;
+        list-style-type: none;
+        text-align: left; /*set to left, center, or right to align the menu as desired*/
+
+        #if ($border-bottom-width)
+            #set($bw = $border-bottom-width + "px")
+            border-bottom-width: $bw;
+            border-bottom-style: solid;
+            #if ($border-bottom-color)
+                 #if($rgba_bottom_border == "true")
+                    border-bottom-color : $border-bottom-color;
+                #else
+                    border-bottom-color : #$border-bottom-color;
+                #end
+            #else
+                border-bottom-color : none;
+            #end
+        #end
+    }
+
+    $s li{
+            display: inline;
+            margin: 0;
+    }
+
+    $s li a{
+            text-decoration: none;
+            padding: 3px 7px;
+            margin-right: 3px;
+            border: 1px solid gray;
+            border-bottom: none;
+
+            #if($background-color)
+                #if($rgba == "true")
+                    background-color : $background-color;
+                #else
+                    #set($bc = "#" + $background-color)
+                    background-color: $bc;
+                #end
+            #elseif($background-gradient)
+                background : -webkit-gradient(linear, 0% 0%, 0% 100%, from($topcolor), to($bottomcolor));
+            #elseif($background-split)
+                background : -webkit-gradient(linear, 0% 49%, 0% 50%, from($topcolor), to($bottomcolor));
+            #elseif($background-horizontal-gradient)
+                background : -webkit-gradient(linear, 0% 0%, 100% 50%, from($topcolor), to($bottomcolor));
+            #elseif($background-horizontal-split)
+                background : -webkit-gradient(linear, 49% 0%, 50% 0%, from($topcolor), to($bottomcolor),color-stop(.1,$bottomcolor));
+            #elseif($background-image)
+                #parse("tpspagenericbgimage.vm")
+            #end
+
+          #if($color)
+                #if($rgba_font == "true")
+                    color : $color;
+                #else
+                    color: #$color;
+                #end
+          #end
+
+          ##parse("tpxadviphonecssborderspecific.vm")
+            #if ($border-top-left-style)
+                 -webkit-border-top-left-radius: ${border-top-left-radius}px;
+            #end
+            #if ($border-top-right-style)
+                -webkit-border-top-right-radius: ${border-top-right-radius}px;
+            #end
+            #if ($border-bottom-left-style)
+               -webkit-border-bottom-left-radius: ${border-bottom-left-radius}px;
+            #end
+            #if ($border-bottom-right-style)
+                -webkit-border-bottom-right-radius: ${border-bottom-right-radius}px;
+            #end        
+    }
+
+    $s li a:visited{
+        color: #2d2b2b;
+    }
+
+    $s li a:hover{
+            background-color: #DBFF6C;
+            color: black;
+    }
+
+    $s li a:active{
+        color: black;
+    }
+
+    $s li.selected a{ /*selected tab effect*/
+        position: relative;
+        top: 1px;
+        padding-top: 4px;
+
+        #if($background-color)
+            #if($rgba == "true")
+                background-color : $background-color;
+            #else
+                 #set($bc = "#" + $background-color)
+                background-color: $bc;
+            #end
+        #elseif($background-gradient)
+            background : -webkit-gradient(linear, 0% 0%, 0% 100%, from($topcolor), to($bottomcolor));
+        #elseif($background-split)
+            background : -webkit-gradient(linear, 0% 49%, 0% 50%, from($topcolor), to($bottomcolor));
+        #elseif($background-horizontal-gradient)
+            background : -webkit-gradient(linear, 0% 0%, 100% 50%, from($topcolor), to($bottomcolor));
+        #elseif($background-horizontal-split)
+            background : -webkit-gradient(linear, 49% 0%, 50% 0%, from($topcolor), to($bottomcolor),color-stop(.1,$bottomcolor));
+        #elseif($background-image)
+                #parse("tpspagenericbgimage.vm")
+        #end
+
+        #if($color)
+            #if($rgba_font == "true")
+                color : $color;
+            #else
+                color: #$color;
+            #end
+        #end
+    }
+
+
+    .$skin
+    {
+        font-weight: $font-weight;
+        margin: 0px;
+        padding: 4px;
+
+        #if($background-color)
+            #if($rgba == "true")
+                background-color : $background-color;
+            #else
+                 #set($bc = "#" + $background-color)
+                background-color: $bc;
+            #end
+       #elseif($background-gradient)
+                background : -webkit-gradient(linear, 0% 0%, 0% 100%, from($topcolor), to($bottomcolor));
+       #elseif($background-split)
+                background : -webkit-gradient(linear, 0% 49%, 0% 50%, from($topcolor), to($bottomcolor));
+       #elseif($background-horizontal-gradient)
+               background : -webkit-gradient(linear, 0% 0%, 100% 50%, from($topcolor), to($bottomcolor));
+       #elseif($background-horizontal-split)
+               background : -webkit-gradient(linear, 49% 0%, 50% 0%, from($topcolor), to($bottomcolor),color-stop(.1,$bottomcolor));
+       #elseif($background-image)
+                #parse("tpspagenericbgimage.vm")
+      #end
+    }
+
+    div.$skin
+    {
+        #if($color)
+            #if($rgba_font == "true")
+                color : $color;
+            #else
+                color: #$color;
+            #end
+        #end
+    }
+
+    li[tabinact="$skin"] a
+    {
+        position: relative;
+        top: 1px;
+        padding-top: 4px;
+
+        #if($background-color)
+            #if($rgba == "true")
+                background-color : $background-color;
+            #else
+                 #set($bc = "#" + $background-color)
+                background-color: $bc;
+            #end
+        #elseif($background-gradient)
+            background : -webkit-gradient(linear, 0% 0%, 0% 100%, from($topcolor), to($bottomcolor));
+        #elseif($background-split)
+            background : -webkit-gradient(linear, 0% 49%, 0% 50%, from($topcolor), to($bottomcolor));
+        #elseif($background-horizontal-gradient)
+            background : -webkit-gradient(linear, 0% 0%, 100% 50%, from($topcolor), to($bottomcolor));
+        #elseif($background-horizontal-split)
+            background : -webkit-gradient(linear, 49% 0%, 50% 0%, from($topcolor), to($bottomcolor),color-stop(.1,$bottomcolor));
+        #elseif($background-image)
+                 #parse("tpspagenericbgimage.vm")
+        #end
+
+     #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end
+}
+#else
+   $s{
+        padding: 3px 0;
+        margin-left: 0;
+        font: bold 12px Verdana;
+        border-bottom: 1px solid gray;
+        list-style-type: none;
+        text-align: left; /*set to left, center, or right to align the menu as desired*/
+        #parse("tpxadviphonecssborder.vm")
+        border-top: none;
+        border-left: none;
+        border-right: none;
+    }
+
+    $s li{
+            display: inline;
+            margin: 0;
+    }
+
+    $s li a{
+            text-decoration: none;
+            padding: 3px 7px;
+            margin-right: 3px;
+            border: 1px solid gray;
+            border-bottom: none;
+            #if($background-color)
+                #if($rgba == "true")
+                    background-color : $background-color;
+                #else
+                    #set($bc = "#" + $background-color)
+                    background-color: $bc;
+                #end
+            #elseif($background-gradient)
+                background : -webkit-gradient(linear, 0% 0%, 0% 100%, from($topcolor), to($bottomcolor));
+            #elseif($background-split)
+                background : -webkit-gradient(linear, 0% 49%, 0% 50%, from($topcolor), to($bottomcolor));
+            #elseif($background-horizontal-gradient)
+                background : -webkit-gradient(linear, 0% 0%, 100% 50%, from($topcolor), to($bottomcolor));
+            #elseif($background-horizontal-split)
+                background : -webkit-gradient(linear, 49% 0%, 50% 0%, from($topcolor), to($bottomcolor),color-stop(.1,$bottomcolor));
+            #elseif($background-image)
+                #parse("tpspagenericbgimage.vm")
+            #end
+
+          #if($color)
+                #if($rgba_font == "true")
+                    color : $color;
+                #else
+                    color: #$color;
+                #end
+          #end
+          #parse("tpxadviphonecssborder.vm")
+    }
+
+    $s li a:visited{
+        color: #2d2b2b;
+    }
+
+    $s li a:hover{
+            background-color: #DBFF6C;
+            color: black;
+    }
+
+    $s li a:active{
+        color: black;
+    }
+
+    $s li.selected a{ /*selected tab effect*/
+        position: relative;
+        top: 1px;
+        padding-top: 4px;
+
+        #if($background-color)
+            #if($rgba == "true")
+                background-color : $background-color;
+            #else
+                 #set($bc = "#" + $background-color)
+                background-color: $bc;
+            #end
+        #elseif($background-gradient)
+            background : -webkit-gradient(linear, 0% 0%, 0% 100%, from($topcolor), to($bottomcolor));
+        #elseif($background-split)
+            background : -webkit-gradient(linear, 0% 49%, 0% 50%, from($topcolor), to($bottomcolor));
+        #elseif($background-horizontal-gradient)
+            background : -webkit-gradient(linear, 0% 0%, 100% 50%, from($topcolor), to($bottomcolor));
+        #elseif($background-horizontal-split)
+            background : -webkit-gradient(linear, 49% 0%, 50% 0%, from($topcolor), to($bottomcolor),color-stop(.1,$bottomcolor));
+        #elseif($background-image)
+                #parse("tpspagenericbgimage.vm")
+        #end
+
+        #if($color)
+            #if($rgba_font == "true")
+                color : $color;
+            #else
+                color: #$color;
+            #end
+        #end
+    }
+
+
+    .$skin
+    {
+        font-weight: $font-weight;
+        margin: 0px;
+        padding: 4px;
+
+        #if($background-color)
+            #if($rgba == "true")
+                background-color : $background-color;
+            #else
+                 #set($bc = "#" + $background-color)
+                background-color: $bc;
+            #end
+       #elseif($background-gradient)
+                background : -webkit-gradient(linear, 0% 0%, 0% 100%, from($topcolor), to($bottomcolor));
+       #elseif($background-split)
+                background : -webkit-gradient(linear, 0% 49%, 0% 50%, from($topcolor), to($bottomcolor));
+       #elseif($background-horizontal-gradient)
+                background : -webkit-gradient(linear, 0% 0%, 100% 50%, from($topcolor), to($bottomcolor));
+       #elseif($background-horizontal-split)
+                background : -webkit-gradient(linear, 49% 0%, 50% 0%, from($topcolor), to($bottomcolor),color-stop(.1,$bottomcolor));
+       #elseif($background-image)
+               #parse("tpspagenericbgimage.vm")
+      #end
+    }
+
+    div.$skin
+    {
+        #if($color)
+            #if($rgba_font == "true")
+                color : $color;
+            #else
+                color: #$color;
+            #end
+        #end
+    }
+
+    li[tabinact="$skin"] a
+    {
+        position: relative;
+        top: 1px;
+        padding-top: 4px;
+
+        #if($background-color)
+            #if($rgba == "true")
+                background-color : $background-color;
+            #else
+                 #set($bc = "#" + $background-color)
+                background-color: $bc;
+            #end
+        #elseif($background-gradient)
+            background : -webkit-gradient(linear, 0% 0%, 0% 100%, from($topcolor), to($bottomcolor));
+        #elseif($background-split)
+            background : -webkit-gradient(linear, 0% 49%, 0% 50%, from($topcolor), to($bottomcolor));
+        #elseif($background-horizontal-gradient)
+            background : -webkit-gradient(linear, 0% 0%, 100% 50%, from($topcolor), to($bottomcolor));
+        #elseif($background-horizontal-split)
+            background : -webkit-gradient(linear, 49% 0%, 50% 0%, from($topcolor), to($bottomcolor),color-stop(.1,$bottomcolor));
+        #elseif($background-image)
+                #parse("tpspagenericbgimage.vm")
+        #end
+
+     #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end
+}
+#end

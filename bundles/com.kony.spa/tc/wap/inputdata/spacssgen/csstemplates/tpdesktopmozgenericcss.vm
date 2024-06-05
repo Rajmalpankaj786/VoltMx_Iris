@@ -1,0 +1,68 @@
+#if($focusSkin)
+	#set($s = $skin)
+#else
+	#set($s = "." + $skin)
+#end
+
+$s{
+   #if($forking)
+        #parse("tpdesktopmozcssborderspecific.vm")
+   #else
+        #parse("tpdesktopmozcssborder.vm")
+   #end
+   #parse("tppalmmojocssfonts.vm")
+     #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end
+
+    #if($background-color)
+        #if($rgba == "true")
+            background-color : $background-color;
+        #else
+             #set($bc = "#" + $background-color)
+             background-color: $bc;
+        #end
+    #elseif($bg-grad-split-ms)
+        #parse("tpdesktopmozcssbggradient.vm")
+    #elseif($background-image)
+        #if($repeat && $verticalrepeat)
+            background: url(./images/$background-image) repeat;
+        #elseif($repeat)
+            background: url(./images/$background-image) repeat-x;
+        #elseif($verticalrepeat)
+            background: url(./images/$background-image) repeat-y;
+        #else
+            background: url(./images/$background-image) no-repeat;
+        #end
+        #if($enable_bg_size == "true")
+             background-size : 100% 100%;
+        #end
+    #elseif($transparent)
+        background: inherit;
+    #end
+
+    #if($rounded)
+         -moz-border-radius: 10px;
+    #end
+
+#if($forking)
+   #parse("tpxadvmozshadowcss.vm")
+#end
+
+#* #if($wtype=="TextArea" || $wtype=="TextBox" || $wtype=="Calendar" )
+    -moz-box-sizing: border-box;
+    -moz-appearance: none;
+#end
+#if($wtype=="CheckBoxGroup" || $wtype=="RadioButtonGroup")
+    -moz-box-sizing: border-box;
+#end *#
+
+}
+
+#if($wtype=="TextBox")
+    #parse("tpdesktopmoztextboxskincss.vm")
+#end

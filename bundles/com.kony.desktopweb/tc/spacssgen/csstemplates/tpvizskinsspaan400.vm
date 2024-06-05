@@ -1,0 +1,511 @@
+.kwt0{ width: 0%;} .kwt1{ width: 1%;} .kwt2{ width: 2%;} .kwt3{ width: 3%;} .kwt4{ width: 4%;} .kwt5{ width: 5%;}
+.kwt6{ width: 6%;} .kwt7{ width: 7%;} .kwt8{ width: 8%;} .kwt9{ width: 9%;} .kwt10{ width: 10%;} .kwt11{ width: 11%;}
+.kwt12{ width: 12%;} .kwt13{ width: 13%;} .kwt14{ width: 14%;} .kwt15{ width: 15%;} .kwt16{ width: 16%;} .kwt17{ width: 17%;}
+.kwt18{ width: 18%;} .kwt19{ width: 19%;} .kwt20{ width: 20%;} .kwt21{ width: 21%;} .kwt22{ width: 22%;} .kwt23{ width: 23%;}
+.kwt24{ width: 24%;} .kwt25{ width: 25%;} .kwt26{ width: 26%;} .kwt27{ width: 27%;} .kwt28{ width: 28%;} .kwt29{ width: 29%;}
+.kwt30{ width: 30%;} .kwt31{ width: 31%;} .kwt32{ width: 32%;} .kwt33{ width: 33%;} .kwt34{ width: 34%;} .kwt35{ width: 35%;}
+.kwt36{ width: 36%;} .kwt37{ width: 37%;} .kwt38{ width: 38%;} .kwt39{ width: 39%;} .kwt40{ width: 40%;} .kwt41{ width: 41%;}
+.kwt42{ width: 42%;} .kwt43{ width: 43%;} .kwt44{ width: 44%;} .kwt45{ width: 45%;} .kwt46{ width: 46%;} .kwt47{ width: 47%;}
+.kwt48{ width: 48%;} .kwt49{ width: 49%;} .kwt50{ width: 50%;} .kwt51{ width: 51%;} .kwt52{ width: 52%;} .kwt53{ width: 53%;}
+.kwt54{ width: 54%;} .kwt55{ width: 55%;}.kwt56{ width: 56%;} .kwt57{ width: 57%;} .kwt58{ width: 58%;} .kwt59{ width: 59%;}
+.kwt60{ width: 60%;} .kwt61{ width: 61%;} .kwt62{ width: 62%;} .kwt63{ width: 63%;} .kwt64{ width: 64%;} .kwt65{ width: 65%;}
+.kwt66{ width: 66%;} .kwt67{ width: 67%;} .kwt68{ width: 68%;} .kwt69{ width: 69%;} .kwt70{ width: 70%;} .kwt71{ width: 71%;}
+.kwt72{ width: 72%;} .kwt73{ width: 73%;} .kwt74{ width: 74%;} .kwt75{ width: 75%;} .kwt76{ width: 76%;} .kwt77{ width: 77%;}
+.kwt78{ width: 78%;} .kwt79{ width: 79%;} .kwt80{ width: 80%;} .kwt81{ width: 81%;} .kwt82{ width: 82%;} .kwt83{ width: 83%;}
+.kwt84{ width: 84%;} .kwt85{ width: 85%;} .kwt86{ width: 86%;} .kwt87{ width: 87%;} .kwt88{ width: 88%;} .kwt89{ width: 89%;}
+.kwt90{ width: 90%;} .kwt91{ width: 91%;} .kwt92{ width: 92%;} .kwt93{ width: 93%;} .kwt94{ width: 94%;} .kwt95{ width: 95%;}
+.kwt96{ width: 96%;} .kwt97{ width: 97%;} .kwt98{ width: 98%;} .kwt99{ width: 99%;} .kwt100{ width: 100%;}
+
+   .slPhone, .slTextArea, .popSwitchButtonFocus, .popSwitchButton, .popCloseButtonFocus, .popCloseButton, .sknbtnPostfp, .sknbtnEdit, .sknTrashButton, .sknTrashButtonDisabled, .sknbtnDone, .sknbtnDelete, .slButtonGlossBlue, .slButtonGlossRed, .slComboBox, .notesPopBG, .slForm, .popTitleVbox, .popNotesTitleHbox, .slHbox, .slCamera, .slRadioButtonGroup, .slCalendar, .slCheckBoxGroup, .slLink, .slListBox, .slRichText, .skntxtAddNotefp, .slPopup, .notesPopTitle, .popNotesTimestampLabel, .notesPopNoteContent, .popNotesPersonLabel, .popNotesOptions, .slLabel {
+        -moz-border-radius: 0px;
+        -webkit-border-radius: 0px;
+        border-radius: 0px;
+        font : normal normal 14px Helvetica; 
+        color: #000000;
+        border:none;
+        background:transparent;
+}		
+	
+.voltmxcustomcss {
+    font-size: 14px;
+
+}   .popSwitchButtonFocus
+{
+      font :  normal   normal   14.0px   Helvetica ;
+                       color: #ffffff;
+                        background : #525252;
+        }.notesPopTitle{   
+    font :  normal   normal   15.4px   Helvetica ;
+                         color: #424242;
+                                            background-color : rgba(0,0,0,0.0);
+        }.popSwitchButton
+{
+      font :  normal   normal   14.0px   Helvetica ;
+                       color: #636363;
+                         background : rgba(189,189,189,0.0);
+        }.popCloseButtonFocus
+{
+      font :  normal   normal   17.5px   Helvetica ;
+                       color: #0080ff;
+              background : -webkit-gradient(linear, 0% 0%, 0% 100%, from(#edeef0), to(#d0d1d3));
+   background : -webkit-linear-gradient(top, #edeef0, #d0d1d3);
+                text-shadow: 0px 1px 0px #ffffff;
+        }.popNotesTimestampLabel{   
+                         color: #9e9e9e;
+        }.popNotesTitleHbox{
+    font-size: 0px;
+                      background : -webkit-gradient(linear, 0% 0%, 0% 100%, from(#edeef0), to(#d0d1d3));
+   background : -webkit-linear-gradient(top, #edeef0, #d0d1d3);
+                -webkit-box-shadow: 0px 1px 2px #838383 ;
+}.notesPopBG
+{
+                                background-color: #ffffff;
+       }.popCloseButton
+{
+      font :  normal   normal   17.5px   Helvetica ;
+                text-shadow: 0px 1px 0px #ffffff;
+        }.notesPopNoteContent{   
+                         color: #646464;
+        }.popNotesPersonLabel{   
+    font :  normal   normal   14px   Helvetica-Bold ;
+                         color: #3e3e3e;
+        }.popTitleVbox{
+    font-size: 0px;
+}.segTrans
+    {
+        margin: 0px;
+	        font :  normal   normal   14px   Helvetica ;
+                                    color: #000000;
+                            list-style: none;
+                    background-color: transparent;
+            }
+    .segTransgrp
+    {
+	        font :  normal   normal   14px   Helvetica ;
+                                    color: #000000;
+                                        background-color: transparent;
+            }
+    .segTransul
+    {
+        padding: 0px;
+            }
+    .segTrans:first-child
+    {
+        top: 0;
+        border-top: none;
+    }
+    .segTrans:last-child
+    {
+        border-bottom: none;
+										    }
+    .segTranshdr
+    {
+        margin: 0px;
+														  border-bottom-color : #000000;
+                font :  normal   normal   14px   Helvetica ;
+                                    color: #000000;
+                            list-style: none;
+                    background-color: transparent;
+            }.seg2Header
+    {
+        margin: 0px;
+	        font :  normal   bold   18.2px   Helvetica-Bold ;
+                                    color: #ffffff;
+                            list-style: none;
+                                    background-color: #b7c0c7;
+                        }
+    .seg2Headergrp
+    {
+	        font :  normal   bold   18.2px   Helvetica-Bold ;
+                                    color: #ffffff;
+                                                        background-color: #b7c0c7;
+            }
+    .seg2Headerul
+    {
+        padding: 0px;
+            }
+    .seg2Header:first-child
+    {
+        top: 0;
+        border-top: none;
+    }
+    .seg2Header:last-child
+    {
+        border-bottom: none;
+										    }
+    .seg2Headerhdr
+    {
+        margin: 0px;
+														  border-bottom-color : #000000;
+                font :  normal   bold   18.2px   Helvetica-Bold ;
+                                    color: #ffffff;
+                            list-style: none;
+                    background-color: #b7c0c7;
+            }.segRowTrans
+    {
+        margin: 0px;
+	        font :  normal   normal   14px   Helvetica ;
+                                    color: #000000;
+                            list-style: none;
+                    background-color: transparent;
+            }
+    .segRowTransgrp
+    {
+	        font :  normal   normal   14px   Helvetica ;
+                                    color: #000000;
+                                        background-color: transparent;
+            }
+    .segRowTransul
+    {
+        padding: 0px;
+            }
+    .segRowTrans:first-child
+    {
+        top: 0;
+        border-top: none;
+    }
+    .segRowTrans:last-child
+    {
+        border-bottom: none;
+										    }
+    .segRowTranshdr
+    {
+        margin: 0px;
+														  border-bottom-color : #000000;
+                font :  normal   normal   14px   Helvetica ;
+                                    color: #000000;
+                            list-style: none;
+                    background-color: transparent;
+            }.sknbtnPostfp
+{
+      font :  normal   bold   16.8px   HelveticaNeue ;
+                       color: #808080;
+        }.sknbtnEdit
+{
+      font :  normal   normal   14.0px   Helvetica ;
+                       color: #636363;
+                         background : rgba(189,189,189,0.0);
+        }.sknTrashButton
+{
+      font :  normal   normal   15.4px   Helvetica ;
+                       color: #ffffff;
+                        background : #e83c1e;
+        }.sknTrashButtonDisabled
+{
+      font :  normal   normal   15.4px   Helvetica ;
+                       color: #ffffff;
+                        background : #d3d3d3;
+        }.sknbtnDone
+{
+      font :  normal   normal   14.0px   Helvetica ;
+                       color: #ffffff;
+                        background : #1aa2d9;
+        }.sknbtnDelete
+{
+      font :  normal   normal   13.9px   Helvetica ;
+                       color: #ffffff;
+                        background : #f05670;
+                text-shadow: 0px -1px 0px rgba(0,0,0,0.4);
+                    -webkit-box-shadow: 0px 2px 2px rgba(0,0,0,0.75) ;
+    }.skntxtAddNotefp{
+      font :  normal   normal   16.8px   HelveticaNeue ;
+                         color: #808080;
+        -webkit-appearance: none;
+}.popNotesOptions{   
+    font :  normal   normal   19.6px   HelveticaNeue ;
+                         color: #6ac9e9;
+        }.slTextArea{
+      font :  normal   normal   19.7px   Helvetica ;
+                         color: #555555;
+                                     background-color: #ffffff;
+        -webkit-appearance: none;
+}.slTextBox{
+      font :  normal   normal   17.6px   Helvetica ;
+                         color: #555555;
+                                     background-color: #ffffff;
+}.slHbox{
+    font-size: 0px;
+                                background-color : rgba(0,0,0,0.0);
+}.slLabel{   
+    font :  normal   normal   30.1px   Helvetica ;
+                         color: #424242;
+                                            background-color : rgba(0,0,0,0.0);
+        }.slButtonGlossBlue
+{
+      font :  normal   normal   20.7px   Helvetica ;
+                       color: #ffffff;
+              background-image : -webkit-gradient(linear,0% 100% , 0% 0%,from(#56a9dd),to(#4aa8d1),color-stop(0.5,#3a83a7));
+                text-shadow: 0px -1px 0px #000000;
+        }.slButtonGlossRed
+{
+      font :  normal   normal   20.7px   Helvetica ;
+                       color: #ffffff;
+              background-image : -webkit-gradient(linear,0% 100% , 0% 0%,from(#d62c3a),to(#dd878d),color-stop(0.5,#bd1421));
+                text-shadow: 0px -1px 0px #000000;
+        }.slCheckBoxGroup{
+      font :  normal   normal   21.8px   Helvetica ;
+                              background-color: #ffffff;
+}.slListBox{
+      font :  normal   normal   14.0px   Helvetica ;
+                              background-color: #ffffff;
+}.slRadioButtonGroup{
+      font :  normal   normal   14.0px   Helvetica ;
+                              background-color: #ffffff;
+}.slForm
+{
+                                background-color: #7e7e7e;
+       }.slTitleBar{
+      font :  normal   normal   14.0px   Arial, Helvetica, sans-serif ;
+                         color: #333333;
+                                     background-color: #ffffff;
+}.tabCanvaslia{
+            text-decoration: none;
+            padding: 3px 7px;
+            margin-right: 3px;
+            border: 1px solid gray;
+            border-bottom: none;
+                                                background-color: #ffffff;
+                                              color: #414141;
+                                                                             }
+ .tabCanvasli{
+                  padding: 3px 0;
+                margin-left: 0;
+        font :  normal   normal   18.6px   Helvetica ;
+        border-bottom: 1px solid gray;
+        list-style-type: none;
+        text-align: left; /*set to left, center, or right to align the menu as desired*/
+                    }
+.tabCanvas
+    {
+        font :  normal   normal   18.6px   Helvetica ;
+        margin: 0px;
+        padding: 4px;
+                                    background-color: #ffffff;
+                          color: #414141;
+                    }.tabCanvasInactivelia{
+            text-decoration: none;
+            padding: 3px 7px;
+            margin-right: 3px;
+            border: 1px solid gray;
+            border-bottom: none;
+                                                background-color: #3f96be;
+                                              color: #ffffff;
+                                                                             }
+ .tabCanvasInactiveli{
+                  padding: 3px 0;
+                margin-left: 0;
+        font :  normal   normal   18.6px   Helvetica ;
+        border-bottom: 1px solid gray;
+        list-style-type: none;
+        text-align: left; /*set to left, center, or right to align the menu as desired*/
+                    }
+.tabCanvasInactive
+    {
+        font :  normal   normal   18.6px   Helvetica ;
+        margin: 0px;
+        padding: 4px;
+                                    background-color: #3f96be;
+                          color: #ffffff;
+                    }.slTab{
+      font :  normal   normal   14px   Helvetica ;
+                         color: #000000;
+                                     background-color: #ffffff;
+}.slSliderLeftBlue{
+      font :  normal   normal   16.7px   Helvetica ;
+                         color: #000000;
+                                     background-color: #167efc;
+}.slSliderRightBlue{
+      font :  normal   normal   16.7px   Helvetica ;
+                         color: #000000;
+                                     background-color: #b5b5b6;
+}.slDataGridHead{
+        font : normal normal 21.8px Helvetica ;
+                                            color: #ffffff;
+                            padding: 0;
+        margin: 0;
+                       background : -webkit-gradient(linear, 0% 0%, 0% 100%, from(#44a5cf), to(#337597));
+   background : -webkit-linear-gradient(top, #44a5cf, #337597);
+                  border-collapse:collapse;
+                      border-top: 0px solid #000000;
+                              border-left: 0px solid #000000;
+         	            border-right: 0px solid #000000;
+        	             border-bottom: 0px solid #000000;
+             }.slDataGridRow{
+        font : normal normal 21.8px Helvetica ;
+                                            color: #595959;
+                            padding: 0;
+        margin: 0;
+                                    background-color : #ffffff;
+                               border-collapse:collapse;
+                      border-top: 0px solid #000000;
+                              border-left: 0px solid #000000;
+         	            border-right: 0px solid #000000;
+        	             border-bottom: 0px solid #000000;
+             }.slDataGridFocusedRow{
+        font : normal normal 21.8px Helvetica ;
+                                            color: #34586e;
+                            padding: 0;
+        margin: 0;
+                                    background-color : #ebebeb;
+                               border-collapse:collapse;
+                      border-top: 0px solid #000000;
+                              border-left: 0px solid #000000;
+         	            border-right: 0px solid #000000;
+        	             border-bottom: 0px solid #000000;
+             }.slDataGridAltRow{
+        font : normal normal 21.8px Helvetica ;
+                                            color: #595959;
+                            padding: 0;
+        margin: 0;
+                                    background-color : #ffffff;
+                               border-collapse:collapse;
+                      border-top: 0px solid #000000;
+                              border-left: 0px solid #000000;
+         	            border-right: 0px solid #000000;
+        	             border-bottom: 0px solid #000000;
+             }.slCamera{
+      font :  normal   normal   14.0px   Helvetica ;
+                             background-color : rgba(0,0,0,0.0);
+}.slImageGallery{
+      font :  normal   normal   21.8px   Helvetica ;
+                         color: #000000;
+                                    background-color : rgba(0,0,0,0.0);
+}.slPhone{
+      font :  normal   normal   20.7px   Helvetica ;
+                         color: #ffffff;
+              background-image : -webkit-gradient(linear,0% 100% , 0% 0%,from(#454b53),to(#6d7177),color-stop(0.5,#2b313b),color-stop(0.51,#353d45));
+           text-decoration:none;
+    }.slPickerView{
+      font :  normal   normal   21.8px   Helvetica ;
+                         color: #000000;
+                                    background-color : rgba(0,0,0,0.0);
+}.slSwitchrow
+        {
+            /* switch outer skin */
+                   }
+.slSwitchon{
+     -webkit-transition: margin-left 0.2s ease-in-out;
+     font-family: Helvetica;
+font-size : 12px;
+font-weight : normal;
+   text-decoration : normal;
+                         color : rgba(255,255,255,-1.55);
+                                     background-color: #48d874;
+            text-align: center;
+    margin-left: 0%;
+}
+.slSwitchoff{
+ -webkit-transition: margin-left 0.2s ease-in-out;
+     font-family: Helvetica;
+font-size : 12px;
+font-weight : normal;
+   text-decoration : normal;
+                         color : rgba(255,255,255,-1.55);
+                                    background-color : rgba(255,255,255,0.0);
+            text-align: center;
+    margin-left: 50%;
+}.slScrollBox{
+      font :  normal   normal   14px   Helvetica ;
+                         color: #000000;
+                                     background-color: #868686;
+}.slLine
+{
+                        color: #b3b3b3;
+           }.slLink{
+        font :  normal   normal   25.9px   Helvetica ;
+                         color: #424242;
+                                    background-color : rgba(0,0,0,0.0);
+                   }
+.slLink a:link{
+                       color: #424242;
+           text-decoration:none;
+   }.slRichText{
+      font :  normal   normal   21.8px   Helvetica ;
+                         color: #424242;
+                                    background-color : rgba(0,0,0,0.0);
+           text-decoration:none;
+}.slCalendar{
+      font :  normal   normal   21.8px   Helvetica ;
+                             background-color : rgba(0,0,0,0.0);
+                            }
+.slCalendarcell{
+                             background-color : rgba(0,0,0,0.0) !important;
+            }.slComboBox{   
+      font :  normal   normal   14.0px   Helvetica ;
+                            background-color: #ffffff;
+}.seg2Normal
+    {
+                margin: 0px;
+														 border-bottom-color : #000000;
+        font :  normal   normal   14px   Helvetica ;
+                                    color: #000000;
+                            list-style: none;
+                                    background-color: #ffffff;
+                        }
+    .seg2Normalgrp
+    {
+                                                    background-color: #ffffff;
+		        font : normal normal 12px Helvetica;
+        color : #000000;
+                               }
+    .seg2Normal:first-child
+    {
+        top: 0;
+        border-top: none;
+    }
+    .seg2Normal:last-child
+    {
+        border-bottom: none;
+										    }.seg2Focus
+    {
+                margin: 0px;
+														 border-bottom-color : #000000;
+        font :  normal   normal   14px   Helvetica ;
+                                    color: #000000;
+                            list-style: none;
+                                    background-color : rgba(0,0,0,0.0);
+                        }
+    .seg2Focusgrp
+    {
+                                                    background-color : rgba(0,0,0,0.0);
+		        font : normal normal 12px Helvetica;
+        color : #000000;
+                               }
+    .seg2Focus:first-child
+    {
+        top: 0;
+        border-top: none;
+    }
+    .seg2Focus:last-child
+    {
+        border-bottom: none;
+										    }.sliPhoneSegmentHeader
+    {
+                margin: 0px;
+														 border-bottom-color : #000000;
+        font :  normal   normal   14px   Helvetica ;
+                                    color: #000000;
+                            list-style: none;
+                                    background-color: #a7a7a7;
+                        }
+    .sliPhoneSegmentHeadergrp
+    {
+                                                    background-color: #a7a7a7;
+		        font : normal normal 12px Helvetica;
+        color : #000000;
+                               }
+    .sliPhoneSegmentHeader:first-child
+    {
+        top: 0;
+        border-top: none;
+    }
+    .sliPhoneSegmentHeader:last-child
+    {
+        border-bottom: none;
+										    }.Borderskin{
+      font :  normal   normal   21.8px   Helvetica ;
+                         color: #000000;
+                                    background-color : rgba(0,0,0,0.0);
+}.slPopup{
+                              background-color: #7e7e7e;
+}

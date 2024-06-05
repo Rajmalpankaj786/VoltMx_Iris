@@ -1,0 +1,35 @@
+#if($default == "true")
+$skin {
+    font-family: $font-family;
+    font-size : $font-size;
+    font-weight : $font-weight;
+    font-style : $font-style;
+    color : #$color;
+    round : false;
+    #parse("tpxhtmlcssmargins.vm")
+     #set($bw = $border-width + "px")
+    border-width : $bw;
+    border-style : $border-style;
+    border-color : #$border-color;
+    background-color : inherit;
+}
+#else
+$skin {
+    font-family: $font-family;
+    font-size : $font-size;
+    font-weight : $font-weight;
+    font-style : $font-style;
+    color : #$color;
+    round : false;
+    #parse("tpxhtmlcssmargins.vm")
+     #set($bw = $border-width + "px")
+    border-width : $bw;
+    border-style : $border-style;
+    border-color : #$border-color;
+    #if($background-color)
+        background-color: #$background-color;
+    #else
+        background-color: inherit;
+    #end
+}
+#end

@@ -1,0 +1,1001 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ==================================================== -->
+<!-- SPA Build file                                       -->
+<!-- build.xml, May 27, 2013                              -->
+<!-- Author: Imran Khan Mohammed                          -->
+<!-- ==================================================== -->
+<project name="SPABuild" basedir=".">
+    <import file="common-build.xml" optional="true"/>
+    <import file="${webcommons.plugin.loc}/common/wap/common-build.xml" optional="true"/>
+
+    <target name="init">
+        <property file="tc-build.properties" />
+        <property file="${project.loc}/custombuild/spadw.properties" />
+
+        <property name="common.images" location="${res.folder}/common" />
+        <echo message="common.images : ${common.images}" />
+
+        <if>
+            <equals arg1="${resources.new.structure}" arg2="true" />
+            <then>
+                <property name="web.common.images" location="${res.folder}/web" />
+            </then>
+        </if>
+        <if>
+            <equals arg1="${resources.new.structure}" arg2="true" />
+            <then>
+                <property name="mobile.common.images" location="${res.folder}/mobile/common" />
+            </then>
+        </if>
+
+        <if>
+            <equals arg1="${resources.new.structure}" arg2="true" />
+            <then>
+                <property name="mobile.web.images" location="${res.folder}/mobile/web" />
+            </then>
+            <else>
+                <property name="mobile.web.images" location="${res.folder}/mobilethinclient" />
+            </else>
+        </if>
+
+        <if>
+            <equals arg1="${resources.new.structure}" arg2="true" />
+            <then>
+                <property name="tablet.common.images" location="${res.folder}/tablet/common" />
+            </then>
+        </if>
+
+        <if>
+            <equals arg1="${resources.new.structure}" arg2="true" />
+            <then>
+                <property name="tablet.web.images" location="${res.folder}/tablet/web" />
+            </then>
+            <else>
+                <property name="tablet.web.images" location="${res.folder}/tabletthinclient" />
+            </else>
+        </if>
+
+
+    </target>
+    <target name="clean">
+
+    </target>
+
+
+    <target name="copyresources" depends="copyCommonResources,preparespaiphone,preparespaandroid,preparespablackberry,preparespawindows,preparespawinphone8,preparespaipad,preparespaandroidtablet,preparespawindowstablet">
+        <echo message="java.home : ${java.home}" />
+        <echo message="java.class.path : ${java.class.path}" />
+        <echo message="java.library.path : ${java.library.path}" />
+        <echo message="java.ext.dirs : ${java.ext.dirs}" />
+    </target>
+
+    <target name="copyCommonResources" depends="">
+        <createJSLib />
+        <!-- Start of Common tasks -->
+        <concat fixlastline="yes" destfile="${buildweb}/version.html" append="false">Application Version=${appversion}</concat>
+        <if>
+            <available file="${build.output}/${dev.language}/customError.jsp"/>
+            <then>
+                <copy file="${build.output}/${dev.language}/customError.jsp" tofile="${buildweb}/error.jsp" failonerror="false"/>
+            </then>
+                <else>
+                    <if>
+                        <available file="${build.output}/${dev.language}/tablet/customError.jsp"/>
+                        <then>
+                            <copy file="${build.output}/${dev.language}/tablet/customError.jsp" tofile="${buildweb}/error.jsp" failonerror="false"/>
+                        </then>
+                    </if>
+                </else>
+        </if>
+        <copy todir="${buildweb}">
+            <fileset dir="${res.folder}/common" includes="favicon.ico,apple-touch-icon.png" />
+        </copy>
+        <copy file="${res.folder}/mobile/web/spaiphone/apple-touch-icon.png" tofile="${buildweb}/apple-touch-icon.png" failonerror="false"/>
+
+        <!-- End of Common tasks -->
+    </target>
+
+    <target name="createWEBINFFolders" depends="">
+    </target>
+
+    <macrodef name="createJSLib">
+        <sequential>
+            <!--<property file="${project.loc}/custombuild/spadw.properties" /> -->
+            <var name="enginecodebase" value="${spa.plugin.loc}/tc/wap/inputdata/webfiles/legacy/jslib" />
+            <for list="spaiphone,spaandroid,spablackberry,spawindows,spawinphone8,spaipad,spaandroidtablet,spawindowstablet" param="cat">
+            <sequential>
+                <if>
+                    <equals arg1="${@{cat}.selected}" arg2="true" />
+                    <then>
+                        <mkdir dir="${buildweb}/@{cat}/jslib" />
+                        <if>
+                            <equals arg1="${enableAutomation}" arg2="true" />
+                            <then>
+                                <copy todir="${buildweb}/@{cat}/jslib" includeemptydirs="true" >
+                                   <fileset dir="${enginecodebase}" includes="**/*.*" excludes="**/publish/**,**/classes/**,**/*.jar" />
+                                </copy>
+                            </then>
+                            <else>
+                                <copy todir="${buildweb}/@{cat}/jslib" includeemptydirs="true" >
+                                   <fileset dir="${enginecodebase}" includes="**/*.*" excludes="**/publish/**,**/classes/**,**/automation/**,**/*.jar" />
+                                </copy>
+                            </else>
+                        </if>
+                        <!-- to set print level stub from preferences-->
+                        <setprint fileloc="${buildweb}/@{cat}/jslib/voltmxinit.js" />
+                    </then>
+                    <else>
+                        <delete dir="${buildweb}/@{cat}" />
+                        <delete dir="${buildweb}/WEB-INF/@{cat}" />
+                    </else>
+                </if>
+            </sequential>
+        </for>
+        </sequential>
+    </macrodef>
+
+    <macrodef name="copywebfiles">
+        <attribute name="category" />
+        <sequential>
+            <if>
+                <available file="${project.loc}/web" type="dir" />
+                <then>
+                    <mkdir dir="${buildweb}/@{category}/web"/>
+                    <copy todir="${buildweb}/@{category}/web" overwrite="true">
+                        <fileset dir="${project.loc}/web/"/>
+                    </copy>
+                </then>
+            </if>
+        </sequential>
+    </macrodef>
+
+    <macrodef name="copywebworkerjs">
+        <attribute name="category" />
+        <sequential>
+            <if>
+                <equals arg1="js" arg2="${dev.language}" />
+                <then>
+                    <if>
+                        <available file="${project.loc}/jssrc/@{category}/nongenerated/workerthreads" type="dir" />
+                        <then>
+                            <copy todir="${buildweb}/@{category}/appjs/worker/" overwrite="true">
+                                <fileset dir="${project.loc}/jssrc/@{category}/nongenerated/workerthreads"  includes="**/*.js"/>
+                            </copy>
+                            <copy todir="${build.output}/@{category}/workerthreads" overwrite="true">
+                                <fileset dir="${project.loc}/jssrc/@{category}/nongenerated/workerthreads"  includes="**/*.js"/>
+                            </copy>
+                        </then>
+                    </if>
+                    <if>
+                        <available file="${project.loc}/jssrc/@{category}/workerthreads" type="dir" />
+                        <then>
+                            <copy todir="${buildweb}/@{category}/appjs/worker/" overwrite="true">
+                                <fileset dir="${project.loc}/jssrc/@{category}/workerthreads"  includes="**/*.js"/>
+                            </copy>
+                            <copy todir="${build.output}/@{category}/workerthreads" overwrite="true">
+                                <fileset dir="${project.loc}/jssrc/@{category}/workerthreads"  includes="**/*.js"/>
+                            </copy>
+                        </then>
+                    </if>
+                </then>
+            </if>
+        </sequential>
+    </macrodef>
+
+    <macrodef name="copysplashimage">
+        <attribute name="category" default="" />
+        <attribute name="idecat" default="@{category}" />
+        <attribute name="imagecats" default="" />
+        <attribute name="typeofclient" default="" />
+        <attribute name="splashimage"  default="" />
+
+        <sequential>
+        <if>
+            <not><equals arg1="@{splashimage}" arg2="" /> </not>
+            <then>
+            <if> <!-- Special case for spaiphone -->
+                <equals arg1="@{category}" arg2="spaiphone" />
+                <then>
+                    <echo message="Copying Splash Image for iphone category" />
+                    <propertyregex  property="splashimage2x"  input="@{splashimage}"  regexp="\."  replace="@2x." />
+                    <propertyregex  property="splashimage3x"  input="@{splashimage}"  regexp="\."  replace="@3x." />
+                    <for list="${locales}" param="locale">
+                        <sequential>
+                            <copy todir="${buildweb}/@{category}/images/@{locale}" overwrite="true" failonerror="false">
+                                <filelist dir="${buildweb}/@{category}/images"  files="@{splashimage},${splashimage2x},${splashimage3x}"  />
+                            </copy>
+                            <copy todir="${buildweb}/@{category}/images/@{locale}" overwrite="true" failonerror="false">
+                                <filelist dir="${common.images}/@{locale}"  files="@{splashimage},${splashimage2x},${splashimage3x}"  />
+                            </copy>
+                            <copy todir="${buildweb}/@{category}/images/@{locale}" overwrite="true" failonerror="false">
+                                <filelist dir="${mobile.common.images}/@{locale}"  files="@{splashimage},${splashimage2x},${splashimage3x}"  />
+                            </copy>
+                            <copy todir="${buildweb}/@{category}/images/@{locale}" overwrite="true" failonerror="false">
+                                <filelist dir="${mobile.web.images}/@{idecat}/@{locale}"  files="@{splashimage},${splashimage2x},${splashimage3x}"  />
+                            </copy>
+                        </sequential>
+                    </for>
+                </then>
+                <else>
+                    <for list="${locales}" param="locale">
+                        <sequential>
+                            <if>
+                            <equals arg1="@{imagecats}" arg2="" />
+                            <then>
+                                <copy todir="${buildweb}/@{category}/images/@{locale}" failonerror="false" overwrite="false" >
+                                    <filelist dir="${buildweb}/@{category}/images" files="@{splashimage}"  />
+                                </copy>
+                                <if>
+                                    <equals arg1="@{typeofclient}" arg2="tabletthinclient" />
+                                    <then>
+                                        <splashimagecopydir todir="${buildweb}/@{category}/images/@{locale}" commondir="${common.images}/@{locale}" categorycommondir="${tablet.common.images}/@{locale}"  categoryspecificdir="${tablet.web.images}/@{idecat}/@{locale}" splashimage="@{splashimage}"  />
+                                    </then>
+                                    <else>
+                                        <splashimagecopydir todir="${buildweb}/@{category}/images/@{locale}" commondir="${common.images}/@{locale}" categorycommondir="${mobile.common.images}/@{locale}"  categoryspecificdir="${mobile.web.images}/@{idecat}/@{locale}" splashimage="@{splashimage}"  />
+
+                                    </else>
+                                </if>
+                            </then>
+                            <else>
+                                <for list="@{imagecats}" param="imagecat">
+                                    <sequential>
+                                        <if>
+                                            <available file="${buildweb}/@{category}/images/@{imagecat}" type="dir" />
+                                            <then>
+                                                <copy todir="${buildweb}/@{category}/images/@{imagecat}/@{locale}" failonerror="false" overwrite="false" >
+                                                    <filelist dir="${buildweb}/@{category}/images/@{imagecat}" files="@{splashimage}"  />
+                                                </copy>
+                                            </then>
+                                        </if>
+                                        <if>
+                                            <equals arg1="@{typeofclient}" arg2="tabletthinclient" />
+                                            <then>
+                                                <splashimagecopydir todir="${buildweb}/@{category}/images/@{imagecat}/@{locale}" commondir="${common.images}/@{locale}" categorycommondir="${tablet.common.images}/@{locale}"  categoryspecificdir="${tablet.web.images}/@{idecat}/@{locale}" splashimage="@{splashimage}" categoryspecificimagecatdir="${tablet.web.images}/@{idecat}/@{locale}/@{imagecat}"  />
+                                            </then>
+                                            <else>
+                                                 <splashimagecopydir todir="${buildweb}/@{category}/images/@{imagecat}/@{locale}" commondir="${common.images}/@{locale}" categorycommondir="${mobile.common.images}/@{locale}"  categoryspecificdir="${mobile.web.images}/@{idecat}/@{locale}" splashimage="@{splashimage}" categoryspecificimagecatdir="${mobile.web.images}/@{idecat}/@{locale}/@{imagecat}"  />
+                                            </else>
+                                        </if>
+                                    </sequential>
+                                </for>
+                            </else>
+                            </if>
+                        </sequential>
+                    </for>
+                </else>
+            </if>
+            </then>
+        </if>
+        </sequential>
+    </macrodef>
+
+    <macrodef name="splashimagecopydir">
+        <attribute name="todir" default="" />
+        <attribute name="commondir" default="" />
+        <attribute name="categorycommondir" default="" />
+        <attribute name="categoryspecificdir" default="" />
+        <attribute name="splashimage" default="" />
+        <attribute name="categoryspecificimagecatdir" default="" />
+        <sequential>
+            <copy todir="@{todir}" failonerror="false" overwrite="true" >
+                <filelist dir="@{commondir}" files="@{splashimage}"  />
+            </copy>
+            <copy todir="@{todir}" failonerror="false" overwrite="true" >
+                <filelist dir="@{categorycommondir}" files="@{splashimage}"  />
+            </copy>
+            <copy todir="@{todir}" failonerror="false" overwrite="true" >
+                <filelist dir="@{categoryspecificdir}" files="@{splashimage}"  />
+            </copy>
+            <if>
+                <not> <equals arg1="@{categoryspecificimagecatdir}" arg2="" /> </not>
+                <then>
+                    <if>
+                        <available file="@{categoryspecificimagecatdir}" type="dir" />
+                        <then>
+                            <copy todir="@{todir}" failonerror="false" overwrite="true" >
+                                <filelist dir="@{categoryspecificimagecatdir}" files="@{splashimage}"  />
+                            </copy>
+                        </then>
+                    </if>
+                </then>
+            </if>
+        </sequential>
+    </macrodef>
+
+    <target name="preparespaandroid" >
+        <if>
+            <equals arg1="${spaandroid.selected}" arg2="true" />
+            <then>
+                <copyImages category="spaandroid" imagecats="320,360,400,440,480" />
+                <copysplashimage splashimage="${spaansplash}" category="spaandroid" imagecats="320,360,400,440,480" />
+                <prepareThemesResource category="spaandroid" fontsfolder="${spaandroid.fonts.folder}" imagecats="320,360,400,440,480"/>
+                <copyOtherResources category="spaandroid" fontsfolder="${spaandroid.fonts.folder}" />
+                <prepareappjs category="spaandroid" devlang="${dev.language}" />
+                <copywebworkerjs category="spaandroid"/>
+                <copywebfiles category="spaandroid"/>
+            </then>
+        </if>
+    </target>
+
+    <target name="preparespabbnth" >
+        <if>
+            <equals arg1="${spabbnth.selected}" arg2="true" />
+            <then>
+                <copyImages category="spabbnth" imagecats="320,360,400,440,480" />
+                <copysplashimage splashimage="${spabbsplash}"  category="spabbnth" imagecats="320,360,400,440,480" />
+                <prepareThemesResource category="spabbnth" fontsfolder="${spablackberry.fonts.folder}" imagecats="320,360,400,440,480"/>
+                <copyOtherResources category="spabbnth" fontsfolder="${spablackberry.fonts.folder}" />
+                <prepareappjs category="spabbnth" devlang="${dev.language}" />
+                <copywebworkerjs category="spabbnth"/>
+                <copywebfiles category="spabbnth"/>
+            </then>
+        </if>
+    </target>
+
+    <target name="preparespablackberry" >
+        <if>
+            <equals arg1="${spablackberry.selected}" arg2="true" />
+            <then>
+                <copyImages category="spablackberry" imagecats="320,360,400,440,480" />
+                <copysplashimage splashimage="${spabbsplash}" category="spablackberry" imagecats="320,360,400,440,480" />
+                <prepareThemesResource category="spablackberry" fontsfolder="${spablackberry.fonts.folder}" imagecats="320,360,400,440,480"/>
+                <copyOtherResources category="spablackberry" fontsfolder="${spablackberry.fonts.folder}" />
+                <prepareappjs category="spablackberry" devlang="${dev.language}" />
+                <copywebworkerjs category="spablackberry"/>
+                <copywebfiles category="spablackberry"/>
+            </then>
+        </if>
+    </target>
+
+    <target name="preparespaiphone" >
+        <if>
+            <equals arg1="${spaiphone.selected}" arg2="true" />
+            <then>
+                <copyImages category="spaiphone" />
+                <copysplashimage splashimage="${spaipsplash}"   category="spaiphone" />
+                <prepareThemesResource category="spaiphone" fontsfolder="${spaiphone.fonts.folder}" />
+                <copyOtherResources category="spaiphone" fontsfolder="${spaiphone.fonts.folder}" />
+                <prepareappjs category="spaiphone" devlang="${dev.language}" />
+                <copywebworkerjs category="spaiphone"/>
+                <copywebfiles category="spaiphone"/>
+            </then>
+        </if>
+    </target>
+
+    <target name="preparespawindows" >
+        <if>
+            <equals arg1="${spawindows.selected}" arg2="true" />
+            <then>
+                <copyImages category="spawindows" imagecats="320,480" />
+                <copysplashimage splashimage="${spawinphone8splash}"   category="spawindows" imagecats="320,480" />
+                <prepareThemesResource category="spawindows" fontsfolder="${spawindows.fonts.folder}" imagecats="320,480"/>
+                <copyOtherResources category="spawindows" fontsfolder="${spawindows.fonts.folder}" />
+                <prepareappjs category="spawindows" devlang="${dev.language}" />
+                <copywebworkerjs category="spawindows"/>
+                <copywebfiles category="spawindows"/>
+            </then>
+        </if>
+    </target>
+
+    <target name="preparespawinphone8" >
+        <if>
+            <equals arg1="${spawinphone8.selected}" arg2="true" />
+            <then>
+                <copyImages category="spawinphone8" imagecats="320,480" />
+                <copysplashimage splashimage="${spawinphone8splash}" category="spawinphone8" imagecats="320,480" />
+                <prepareThemesResource category="spawinphone8" fontsfolder="${spawindows.fonts.folder}" imagecats="320,480"/>
+                <copyOtherResources category="spawinphone8" fontsfolder="${spawindows.fonts.folder}" />
+                <prepareappjs category="spawinphone8" devlang="${dev.language}" />
+                <copywebworkerjs category="spawinphone8"/>
+                <copywebfiles category="spawinphone8"/>
+            </then>
+        </if>
+    </target>
+
+    <target name="preparespaipad">
+        <if>
+            <equals arg1="${spaipad.selected}" arg2="true" />
+            <then>
+                <copyImages category="spaipad" typeofclient="tabletthinclient" />
+                <copysplashimage splashimage="${spaipadsplash}" category="spaipad" typeofclient="tabletthinclient" />
+                <prepareThemesResource category="spaipad" fontsfolder="${spaipad.fonts.folder}"  />
+                <copyOtherResources category="spaipad" fontsfolder="${spaipad.fonts.folder}" />
+                <prepareappjs category="spaipad" devlang="${dev.language}" />
+                <copywebworkerjs category="spaipad"/>
+                <copywebfiles category="spaipad"/>
+            </then>
+        </if>
+    </target>
+
+    <target name="preparespaandroidtablet" >
+        <if>
+            <equals arg1="${spaandroidtablet.selected}" arg2="true" />
+            <then>
+                <var name="androidtabpath" value="spaandroidtablet"/>
+                <if>
+                    <equals arg1="${isvizintegration}" arg2="true" />
+                    <then>
+                        <var name="androidtabpath" value="spaandroidtab"/>
+                    </then>
+                </if>
+                <copyImages idecat="${androidtabpath}" category="spaandroidtablet" typeofclient="tabletthinclient" imagecats="ldpi,mdpi,hdpi,xhdpi" />
+                <copysplashimage splashimage="${spaandroidtabletsplash}" idecat="${androidtabpath}" category="spaandroidtablet" typeofclient="tabletthinclient" imagecats="ldpi,mdpi,hdpi,xhdpi" />
+                <prepareThemesResource idecat="${androidtabpath}" category="spaandroidtablet" fontsfolder="${spaandroidtablet.fonts.folder}"  imagecats="ldpi,mdpi,hdpi,xhdpi"/>
+                <copyOtherResources category="spaandroidtablet" fontsfolder="${spaandroidtablet.fonts.folder}" />
+                <prepareappjs category="spaandroidtablet" devlang="${dev.language}" />
+                <copywebworkerjs category="spaandroidtablet"/>
+                <copywebfiles category="spaandroidtablet"/>
+            </then>
+        </if>
+    </target>
+
+    <target name="preparespawindowstablet" >
+        <if>
+            <equals arg1="${spawindowstablet.selected}" arg2="true" />
+            <then>
+                <copyImages category="spawindowstablet" typeofclient="tabletthinclient" />
+                <copysplashimage splashimage="${spawindowstabletsplash}"  category="spawindowstablet" typeofclient="tabletthinclient" />
+                <prepareThemesResource category="spawindowstablet"  fontsfolder="${spawindowstablet.fonts.folder}"  />
+                <copyOtherResources category="spawindowstablet"  fontsfolder="${spawindowstablet.fonts.folder}"   />
+                <prepareappjs category="spawindowstablet" devlang="${dev.language}" />
+                <copywebworkerjs category="spawindowstablet"/>
+                <copywebfiles category="spawindowstablet"/>
+            </then>
+        </if>
+    </target>
+
+    <macrodef name="copyOtherResources">
+        <attribute name="category" default="" />
+        <attribute name="fontsfolder" default="" />
+        <sequential>
+            <copy todir="${buildweb}/@{category}" overwrite="yes">
+                <fileset dir="${build.output}/@{category}" excludes="*.jsp,**/jslib/**,**/appjs/**"/>
+            </copy>
+            <mkdir dir="${buildweb}/WEB-INF/@{category}" />
+            <copy todir="${buildweb}/WEB-INF/@{category}" overwrite="yes">
+                <fileset dir="${build.output}/@{category}" includes="*.jsp,*.js" />
+            </copy>
+
+            <available file="${build.output}/@{category}/jslib/tparty/libraries" type="dir" property="customlibrariesdirpresentinoutput"/>
+            <available file="${build.output}/@{category}/jslib/tparty/widgets" type="dir" property="customwidgetsdirpresentinoutput"/>
+
+            <if>
+                <equals arg1="${customlibrariesdirpresentinoutput}" arg2="true" />
+                <then>
+                    <echo message="copying third party library Files from output" />
+                    <copy todir="${buildweb}/@{category}/jslib/tparty/libraries">
+                        <fileset dir="${build.output}/@{category}/jslib/tparty/libraries"/>
+                    </copy>
+                </then>
+            </if>
+            <if>
+                <equals arg1="${customwidgetsdirpresentinoutput}" arg2="true" />
+                <then>
+                    <echo message="copying third party widgets Files from output" />
+                    <copy todir="${buildweb}/@{category}/jslib/tparty/widgets">
+                        <fileset dir="${build.output}/@{category}/jslib/tparty/widgets"/>
+                    </copy>
+                </then>
+            </if>
+
+            <!-- Copying fonts from resources folder to web folder -->
+             <copy todir="${buildweb}/@{category}">
+              <fileset dir="${res.folder}/fonts" includes="*.eot,*.ttf,*.otf"/>
+             </copy>
+             <copy todir="${buildweb}/@{category}">
+              <fileset dir="${res.folder}/fonts/@{fontsfolder}" includes="*.eot,*.ttf,*.otf"/>
+            </copy>
+            <if>
+                <equals arg1="${isvizintegration}" arg2="true" />
+                <then>
+                    <if>
+                        <available file="${resfolder}/i18n/spa" />
+                        <then>
+                            <echo message="isvizintegration: ${isvizintegration}, copying i18n files generated from Iris: ${resfolder}/i18n/spa"/>
+                            <delete dir="${buildweb}/@{category}/resources/strings" />
+                            <mkdir dir="${buildweb}/@{category}/resources/strings"/>
+                            <copy todir="${buildweb}/@{category}/resources/strings">
+                                <fileset dir="${resfolder}/i18n/spa" includes="*.js" />
+                            </copy>
+                        </then>
+                    </if>
+                </then>
+                <else>
+                    <prepareI18nJSResources category="@{category}" />
+                </else>
+            </if>
+
+        </sequential>
+    </macrodef>
+    <macrodef name="prepareI18nJSResources" >
+        <attribute name="category" default="" />
+        <sequential>
+            <echo message="Copying localization for @{platform}" />
+            <delete dir="${buildweb}/@{category}/resources/strings"/>
+            <mkdir dir="${buildweb}/@{category}/resources/strings"/>
+            <path id = "classpath_minifyspa">
+                <fileset dir = "${thirdparty.loc}" includes = "MINIFY_SPA.jar,minifyspatemplates.jar,velocity-dep-1.5.jar" />
+            </path >
+             <java fork="true" classname="com.kony.test.Processi18nFile" >
+                  <arg value = "${res.folder}/i18n/iphone_properties"/>
+                  <arg value = "${buildweb}/@{category}/resources/strings"/>
+                  <classpath>
+                      <path refid = "classpath_minifyspa"/>
+                  </classpath>
+            </java>
+        </sequential>
+    </macrodef>
+
+    <macrodef name="prepareThemesResource">
+        <attribute name="category" default="" />
+        <attribute name="idecat" default="@{category}" />
+        <attribute name="imagecats" default="@{category}" />
+        <attribute name="fontsfolder" default="" />
+        <sequential>
+            <for list="${theme.names}" param="themename">
+                <sequential>
+                    <echo message="Theme name @{themename} in category @{category}" />
+                    <if>
+                    <equals arg1="@{imagecats}" arg2="@{category}" />
+                    <then>
+                        <echo message="I am in theme of @{category}"/>
+                        <copy todir="${buildweb}/@{category}/@{themename}/images" overwrite="true">
+                            <fileset dir="${buildweb}/@{category}/images" includes="**/*.*"/>
+                        </copy>
+                    </then>
+                    <else>
+                        <for list="@{imagecats}" param="imagecat">
+                            <sequential>
+                                <copy todir="${buildweb}/@{category}/@{themename}/images/@{imagecat}" overwrite="true">
+                                    <fileset dir="${buildweb}/@{category}/images/@{imagecat}" includes="**/*.*"/>
+                                </copy>
+                            </sequential>
+                        </for>
+                    </else>
+                    </if>
+                    <copy todir="${buildweb}/@{category}/@{themename}">
+                      <fileset dir="${res.folder}/fonts" includes="*.eot,*.ttf,*.otf"/>
+                    </copy>
+                    <copy todir="${buildweb}/@{category}/@{themename}">
+                      <fileset dir="${res.folder}/fonts/@{fontsfolder}" includes="*.eot,*.ttf,*.otf"/>
+                    </copy>
+                </sequential>
+            </for>
+        </sequential>
+    </macrodef>
+
+
+    <macrodef name="copyImages">
+        <attribute name="category" default="" />
+        <attribute name="idecat" default="@{category}" />
+        <attribute name="imagecats" default="" />
+        <attribute name="typeofclient" default="" />
+
+        <sequential>
+            <var name="imagesDirs" value="" />
+            <if>
+                <equals arg1="@{imagecats}" arg2="" />
+                <then>
+                    <var name="imagesDirs" value="images" />
+                </then>
+                <else>
+                    <for list="@{imagecats}" param="cat">
+                        <sequential>
+                            <if>
+                                <equals arg1="${imagesDirs}" arg2="" />
+                                <then>
+                                    <var name="imagesDirs" value="images/@{cat}" />
+                                </then>
+                                <else>
+                                    <var name="imagesDirs" value="${imagesDirs},images/@{cat}" />
+                                </else>
+                            </if>
+                        </sequential>
+                    </for>
+                </else>
+            </if>
+
+            <!--
+
+            Resources
+              common    <property name="common.images" location="${res.folder}/common" />
+              mobile
+                common    <property name="mobile.common.images" location="${res.folder}/mobile/common" />
+                web    <property name="mobile.web.images" location="${res.folder}/mobile/web" />
+                    spaiphone
+                    spaandroid
+                    spablackberry
+                    spawindows
+                    spabbnth
+                    spawindowsphone8
+
+              tablet
+                common <property name="tablet.common.images" location="${res.folder}/tablet/common" />
+                web    <property name="tablet.web.images" location="${res.folder}/tablet/web" />
+                    spaipad
+                    spaandroidtablet
+                    spawindowstablet
+
+            -->
+            <echo message=" imagesDirs : ${imagesDirs}" />
+            <!-- Copy platform common images -->
+            <echo message=" Copy platform common images from : ${webfiles}/iphone  to  ${buildweb}/@{category}" />
+            <copyDirWithSubDir fromdir="${webfiles}/iphone" todir="${buildweb}/@{category}" subdirs="${imagesDirs}" includes="**/*.png,**/*.gif,**/*.jpg,**/*.jpeg" />
+
+            <!-- Copy common images -->
+            <echo message=" Copy common images from : ${common.images}  to  ${buildweb}/@{category}" />
+
+            <copyDirWithSubDir fromdir="${common.images}" todir="${buildweb}/@{category}" subdirs="${imagesDirs}" includes="**/*.png,**/*.gif,**/*.jpg,**/*.jpeg" />
+            <if>
+                <available file="${common.images}/web/Vector" type="dir"/>
+                    <then>
+                        <copyDirWithSubDir fromdir="${common.images}/web/Vector" todir="${buildweb}/@{category}" subdirs="${imagesDirs}" includes="*.svg" />
+                    </then>
+            </if>
+            <if>
+                <isset property="${web.common.images}" />
+                <then>
+                    <copyDirWithSubDir fromdir="${web.common.images}" todir="${buildweb}/@{category}" subdirs="${imagesDirs}" includes="**/*.png,**/*.gif,**/*.jpg,**/*.jpeg" />
+                </then>
+            </if>
+            <!-- Copy tablet/mobile common images -->
+            <if>
+                <equals arg1="@{typeofclient}" arg2="tabletthinclient" />
+                <then>
+                    <echo message=" Copy tablet common images from : ${tablet.common.images}  to  ${buildweb}/@{category}" />
+                    <copyDirWithSubDir fromdir="${tablet.common.images}" todir="${buildweb}/@{category}" subdirs="${imagesDirs}" includes="**/*.png,**/*.gif,**/*.jpg,**/*.jpeg" />
+                </then>
+                <else>
+                    <echo message=" Copy mobile common images from : ${mobile.common.images}  to  ${buildweb}/@{category}" />
+                    <copyDirWithSubDir fromdir="${mobile.common.images}" todir="${buildweb}/@{category}" subdirs="${imagesDirs}" includes="**/*.png,**/*.gif,**/*.jpg,**/*.jpeg" />
+                </else>
+            </if>
+            <!-- Copy tablet/mobile web images ouside category-->
+            <if>
+                <equals arg1="@{typeofclient}" arg2="tabletthinclient" />
+                <then>
+                    <echo message=" copying web images which are outside category from :${tablet.web.images}/@{idecat} to  ${buildweb}/@{category}" />
+                    <copyDirWithSubDir fromdir="${tablet.web.images}/@{idecat}" todir="${buildweb}/@{category}" subdirs="${imagesDirs}" includes="*.png,*.gif,*.jpg,*.jpeg" />
+                    <if>
+                        <available file="${tablet.web.images}/@{idecat}/VectorDrawables" type="dir"/>
+                        <then>
+                            <copyDirWithSubDir fromdir="${tablet.web.images}/@{idecat}/VectorDrawables" todir="${buildweb}/@{category}" subdirs="${imagesDirs}" includes="*.svg" />
+                        </then>
+                    </if>
+                </then>
+                <else>
+                <echo message=" copying web images which are outside category from : ${mobile.web.images}/@{idecat} to  ${buildweb}/@{category}" />
+                    <copyDirWithSubDir fromdir="${mobile.web.images}/@{idecat}" todir="${buildweb}/@{category}" subdirs="${imagesDirs}" includes="*.png,*.gif,*.jpg,*.jpeg" />
+                    <if>
+                        <available file="${mobile.web.images}/@{idecat}/VectorDrawables" type="dir"/>
+                        <then>
+                            <copyDirWithSubDir fromdir="${mobile.web.images}/@{idecat}/VectorDrawables" todir="${buildweb}/@{category}" subdirs="${imagesDirs}" includes="*.svg" />
+                        </then>
+                    </if>
+                </else>
+            </if>
+            <!-- Copy tablet/mobile web images -->
+            <if>
+                <equals arg1="@{typeofclient}" arg2="tabletthinclient" />
+                <then>
+                    <echo message=" Copy tablet web images from : ${tablet.web.images}  to  ${buildweb}/@{category}" />
+                    <copyDirWithMapper fromdir="${tablet.web.images}/@{idecat}" todir="${buildweb}/@{category}" mapperfrom="^images(.*)" mapperto="images/\1" includes="**/*.png,**/*.gif,**/*.jpg,**/*.jpeg" />
+                </then>
+                <else>
+                    <echo message=" Copy mobile web images from : ${mobile.web.images}  to  ${buildweb}/@{category}" />
+                    <copyDirWithMapper fromdir="${mobile.web.images}/@{idecat}" todir="${buildweb}/@{category}" mapperfrom="^images(.*)" mapperto="images/\1" includes="**/*.png,**/*.gif,**/*.jpg,**/*.jpeg" />
+                </else>
+            </if>
+
+            <!-- Special case for spaiphone -->
+            <if>
+                <equals arg1="@{category}" arg2="spaiphone" />
+                <then>
+                    <echo message=" Copying retina files from ${buildweb}/@{category}/images to  ${buildweb}/@{category}/images/retina" />
+                    <copy todir="${buildweb}/@{category}/images/retina" overwrite="yes">
+                        <fileset dir="${buildweb}/@{category}/images" excludes="**/retina/**" />
+                    </copy>
+                </then>
+            </if>
+        </sequential>
+    </macrodef>
+
+    <target name="-js-project" depends="init,clean,copyresources"/>
+
+    <target name="runminify" depends="init">
+
+        <!--  Tasks:
+            1) Minify user js module files for include js functionality in thin.
+            2) Minify app.js file in appjs folder for SPA
+            3) Perform selective inclution for already minified files in plugin related to Volt MX framework.
+            4) Copy min JSPs to normal JSP's.
+            5)
+            -->
+        <minifyfiles category="spaiphone" />
+        <minifyfiles category="spaandroid" subcats="320,360,400,440,480" />
+        <minifyfiles category="spablackberry" subcats="320,360,400,440,480" tocssfile="voltmxspabb" />
+        <!--<minifyfiles category="spabbnth" subcats="320,360,400,440,480" />-->
+        <minifyfiles category="spawindows" subcats="320,480" />
+        <minifyfiles category="spawinphone8" subcats="320,480" tocssfile="voltmxspawindows" />
+        <minifyfiles category="spaipad" tocssfile="voltmxspatabletiphone"/>
+        <minifyfiles category="spaandroidtablet" subcats="240,320,480,640" />
+        <minifyfiles category="spawindowstablet" />
+    </target>
+
+    <macrodef name="minifyfiles" description="Minify css/js files by category">
+        <attribute name="category" default="" />
+        <attribute name="subcats" default="@{category}"/>
+        <attribute name="tocssfile" default="voltmx@{category}" />
+        <sequential>
+            <!-- <echo message="Thirdparty location: ${thirdparty.loc}"/> -->
+            <var name="category.available" value="false"/>
+            <property file="${buildweb}/tc.properties" />
+
+            <!-- ${spatargetplatforms} is defined in webapps\<appname>\tc.properties. Comma separated values are generate for every time we build"/> -->
+            <for list="${spatargetplatforms}" param="catintcpropfile">
+                <sequential>
+                    <if>
+                        <equals arg1="@{catintcpropfile}" arg2="@{category}" />
+                        <then>
+                            <var name="category.available" value="true"/>
+                        </then>
+                    </if>
+                </sequential>
+            </for>
+
+            <if>
+                <and>
+                    <available file="${buildweb}/@{category}/appjs/app.js" type="file" />
+                    <equals arg1="${category.available}" arg2="true" />
+                </and>
+                <then>
+
+                    <mkdir dir="${buildweb}/temp/@{category}/appjs/"/>
+
+                    <if>
+                    <or>
+                        <equals arg1="${build.option}" arg2="debug" />
+                        <equals arg1="${minify}" arg2="false" />
+                        <equals arg1="${protectedmodeenabled.web}" arg2="true" />
+                    </or>
+                    <then>
+                        <echo message="ignoring appjs minification" />
+                        <copy todir="${buildweb}/temp/@{category}/appjs">
+                            <!--fileset dir="${buildweb}/@{category}/appjs" includes="app.js,*_kfm.js,voltmxworkerinit.js" /-->
+                            <fileset dir="${buildweb}/@{category}/appjs" includes="**/*.js" />
+                        </copy>
+                    </then>
+                    <else>
+                        <echo message="************************ Minifying spa js files to: ${buildweb}/@{category} ************************" />
+                        <minifydir srcdir="${buildweb}/@{category}/appjs" todir="${buildweb}/temp/@{category}/appjs/" includes="**/*.js" mapperfrom="*.js" mapperto="*.js" />
+                    </else>
+                    </if>
+                <!--<property file="${project.loc}/custombuild/spadw.properties" /> -->
+                <var name="enginecodebase" value="${spa.plugin.loc}/tc/wap/inputdata/webfiles/legacy" />
+                <echo message="build option selected from IDE: ${build.option}"/>
+                <if>
+                    <or>
+                        <equals arg1="${build.option}" arg2="debug" />
+                        <equals arg1="${minify}" arg2="false" />
+                        <equals arg1="${protectedmodeenabled.web}" arg2="true" />
+                    </or>
+                    <then>
+                        <copy todir="${buildweb}/temp/@{category}/jslib" file="${enginecodebase}/publish/voltmxframework.js"/>
+                        <copy file="${enginecodebase}/publish/voltmxwebworkermin.js" tofile="${buildweb}/@{category}/temp/voltmxwebworkermin.js"/>
+                        <copy todir="${buildweb}/temp/@{category}/jslib" file="${enginecodebase}/jslib/voltmxworkerinit.js"/>
+                        <replace file="${buildweb}/temp/@{category}/jslib/voltmxworkerinit.js" token="PUBLISH = false;" value="PUBLISH = true;"/>
+                        <copy file="${enginecodebase}/jslib/tparty/googlemaps/infobox.js"
+                              tofile="${buildweb}/temp/@{category}/jslib/tparty/googlemaps/infobox.js" overwrite="true"/>
+                        <if>
+                            <equals arg1="${enableAutomation}" arg2="true" />
+                            <then>
+                                <for  delimiter="," param="extrafiles" list="voltmxautomationutils.js,voltmxautomationwidgets.js,voltmxautomationtouchevents.js,voltmxautomationrecorder.js"  trim="true">
+                                    <sequential>
+                                        <concat fixlastline="yes" destfile="${buildweb}/temp/@{category}/jslib/voltmxframework.js" append="yes">
+                                            <fileset file="${enginecodebase}/jslib/automation/@{extrafiles}" />
+                                        </concat>
+                                    </sequential>
+                                </for>
+                            </then>
+                        </if>
+                        <concat  destfile="${buildweb}/temp/@{category}/jslib/voltmxframework.js" append="yes" fixlastline="yes">
+                            <fileset file="${enginecodebase}/jslib/voltmxcop.js"/>
+                        </concat>
+                        <echo message="Copying css files of @{category}"/>
+                        <copy todir="${buildweb}/temp/@{category}" flatten="true" >
+                            <fileset dir="${buildweb}/@{category}" includes="*.css" />
+                        </copy>
+                        <for list="${theme.names}" param="themename">
+                            <sequential>
+                                <mkdir dir="${buildweb}/temp/@{category}/@{themename}" />
+                                <copy todir="${buildweb}/temp/@{category}/@{themename}" flatten="true" >
+                                    <fileset dir="${buildweb}/@{category}/@{themename}" includes="*.css" />
+                                </copy>
+                            </sequential>
+                        </for>
+                        <echo message="copying js files for web workers API import"/>
+                        <copy todir="${buildweb}/@{category}/temp/" flatten="true" >
+                            <fileset dir="${buildweb}/@{category}/appjs" includes="voltmxlibrary.js" />
+                        </copy>
+                        <if>
+                            <available file="${build.output}/@{category}/workerthreads" type="dir" />
+                            <then>
+                                <copy todir="${buildweb}/temp/@{category}/appjs/worker/" flatten="true" >
+                                    <fileset dir="${build.output}/@{category}/workerthreads" includes="**/*.js" />
+                                </copy>
+                            </then>
+                        </if>
+                    </then>
+                    <else>
+                        <copy tofile="${buildweb}/temp/@{category}/jslib/voltmxframework.js" file="${enginecodebase}/publish/voltmxframeworkmin.js"/>
+                        <copy file="${enginecodebase}/jslib/tparty/googlemaps/infobox-min.js"
+                                      tofile="${buildweb}/temp/@{category}/jslib/tparty/googlemaps/infobox.js" overwrite="true"/>
+                        <echo message="Minify css files of @{category}"/>
+                        <minify srcdir="${buildweb}/@{category}" todir="${buildweb}/temp/@{category}"  includes="*.css" mapperfrom="*.css" mapperto="*.css" />
+
+                        <for list="${theme.names}" param="themename">
+                            <sequential>
+                                <mkdir dir="${buildweb}/temp/@{category}/@{themename}" />
+                                <minify srcdir="${buildweb}/@{category}/@{themename}" todir="${buildweb}/temp/@{category}/@{themename}" includes="*.css" mapperfrom="*.css" mapperto="*.css" />
+                            </sequential>
+                        </for>
+                        <if>
+                            <available file="${build.output}/@{category}/workerthreads" type="dir" />
+                            <then>
+                                <echo message="minifying js files for web workers API import"/>
+                                <copy file="${enginecodebase}/publish/voltmxwebworkermin.js" todir="${buildweb}/temp/@{category}/minifytemp"/>
+                                <copy todir="${buildweb}/temp/@{category}/minifytemp">
+                                    <fileset dir="${enginecodebase}/jslib" includes="voltmxworkerinit.js" />
+                                </copy>
+                                <replace file="${buildweb}/temp/@{category}/minifytemp/voltmxworkerinit.js" token="PUBLISH = false;" value="PUBLISH = true;"/>
+                                <minifydir srcdir="${buildweb}/temp/@{category}/minifytemp" todir="${buildweb}/temp/@{category}/jslib/"  includes="*.js" mapperfrom="*.js" mapperto="*.js" />
+                                <delete dir="${buildweb}/temp/@{category}/minifytemp" includeemptydirs="true" />
+                                <copy todir="${buildweb}/temp/@{category}/minifytemp">
+                                    <fileset dir="${buildweb}/@{category}/appjs" includes="voltmxlibrary.js" />
+                                </copy>
+                                <minifydir  srcdir="${buildweb}/temp/@{category}/minifytemp" todir="${buildweb}/@{category}/temp/"  includes="voltmxlibrary.js" mapperfrom="*.js" mapperto="*.js" />
+                                <delete dir="${buildweb}/temp/@{category}/minifytemp" includeemptydirs="true" />
+                                <minifydir  srcdir="${build.output}/@{category}/workerthreads" todir="${buildweb}/temp/@{category}/appjs/worker/"  includes="**/*.js" mapperfrom="*.js" mapperto="*.js" />
+                            </then>
+                        </if>
+                    </else>
+                </if>
+
+                <!-- to set print level stub from preferences-->
+                <setprint fileloc="${buildweb}/temp/@{category}/jslib/voltmxframework.js" />
+
+                <if>
+                    <available file="${build.output}/@{category}/workerthreads" type="dir" />
+                    <then>
+                        <concat fixlastline="yes" destfile="${buildweb}/@{category}/temp/voltmxwebworkermin.js" append="yes">
+                            <fileset file="${buildweb}/@{category}/temp/voltmxlibrary.js"/>
+                        </concat>
+                         <copy file="${buildweb}/@{category}/temp/voltmxwebworkermin.js" todir="${buildweb}/temp/@{category}/jslib"/>
+                        <if>
+                            <available file="${appfolder}/${outputdir}/voltmxFunctionalModules.properties"/>
+                            <then>
+                                <echo message="Concating - Functional module to web worker"/>
+                                <concat fixlastline="yes" destfile="${buildweb}/temp/@{category}/jslib/voltmxwebworkermin.js" append="yes">
+                                    <fileset file="${buildweb}/@{category}/temp/voltmxmodule.js" />
+                                </concat>
+                                <concat fixlastline="yes" destfile="${buildweb}/temp/@{category}/jslib/voltmxwebworkermin.js" append="yes">
+                                    <fileset file="${buildweb}/@{category}/appjs/voltmxFunctionalModules.js" />
+                                </concat>
+                                <concat fixlastline="yes" destfile="${buildweb}/temp/@{category}/jslib/voltmxwebworkermin.js" append="yes">
+                                    <fileset file="${buildweb}/@{category}/temp/require-min.js" />
+                                </concat>
+                            </then>
+                        </if>
+                    </then>
+                </if>
+
+                    <available file="${buildweb}/@{category}/jslib/tparty/libraries" type="dir" property="customlibrariesdirpresent"/>
+                    <available file="${buildweb}/@{category}/jslib/tparty/widgets" type="dir" property="customwidgetsdirpresent"/>
+                    <available file="${buildweb}/@{category}/resources" type="dir" property="resourcesdirpresent"/>
+                    <available file="${buildweb}/@{category}/web" type="dir" property="webfilesdirpresent"/>
+
+                    <if>
+                        <equals arg1="${customlibrariesdirpresent}" arg2="true" />
+                        <then>
+                            <echo message="copying third party library Files" />
+                            <copy todir="${buildweb}/temp/@{category}/jslib/tparty/libraries">
+                                <fileset dir="${buildweb}/@{category}/jslib/tparty/libraries"/>
+                            </copy>
+                        </then>
+                    </if>
+
+                    <if>
+                        <equals arg1="${customwidgetsdirpresent}" arg2="true" />
+                        <then>
+                            <if>
+                            <or>
+                                <equals arg1="${build.option}" arg2="debug" />
+                                <equals arg1="${minify}" arg2="false" />
+                                <equals arg1="${protectedmodeenabled.web}" arg2="true" />
+                            </or>
+                            <then>
+                                <echo message="Copying third party widget files" />
+                                <copy todir="${buildweb}/temp/@{category}/jslib/tparty/widgets">
+                                    <fileset dir="${buildweb}/@{category}/jslib/tparty/widgets"/>
+                                </copy>
+                            </then>
+                            <else>
+                                <echo message="Minifying third party widget wrapper files"/>
+                                <minifydir  srcdir="${buildweb}/@{category}/jslib/tparty/widgets" todir="${buildweb}/temp/@{category}/jslib/tparty/widgets"  includes="*.js" mapperfrom="*.js" mapperto="*.js" />
+                            </else>
+                        </if>
+                        </then>
+                    </if>
+
+                    <if>
+                        <equals arg1="${resourcesdirpresent}" arg2="true" />
+                        <then>
+                            <echo message="copying i18n resources Files" />
+                            <copy todir="${buildweb}/temp/@{category}/resources">
+                                <fileset dir="${buildweb}/@{category}/resources"/>
+                            </copy>
+                        </then>
+                    </if>
+                    <if>
+                        <equals arg1="${webfilesdirpresent}" arg2="true" />
+                        <then>
+                            <echo message="copying web enhanced related files" />
+                            <copy todir="${buildweb}/temp/@{category}/web">
+                                <fileset dir="${buildweb}/@{category}/web"/>
+                            </copy>
+                        </then>
+                    </if>
+
+                    <available file="${buildweb}/@{category}/voltmx.manifest_min" type="file" property="manifest.present"/>
+                    <if>
+                        <equals arg1="${manifest.present}" arg2="true" />
+                    <then>
+                         <move file="${buildweb}/@{category}/voltmx.manifest_min" tofile="${buildweb}/temp/@{category}/voltmx.manifest" overwrite="true"/>
+                    </then>
+                    </if>
+                    <if>
+                        <equals arg1="${buildtype}" arg2="zip"/>
+                        <then>
+                            <replace file="${buildweb}/temp/@{category}/voltmx.manifest" token="jslib" value="../../${web.cacheid}/@{category}/jslib" />
+                            <replace file="${buildweb}/temp/@{category}/voltmx.manifest" token="appjs" value="../../${web.cacheid}/@{category}/appjs" />
+                        </then>
+                    </if>
+                    <available file="${buildweb}/WEB-INF/@{category}/index_min.jsp" type="file" property="index.present"/>
+                    <if>
+                        <equals arg1="${index.present}" arg2="true" />
+                    <then>
+                         <move file="${buildweb}/WEB-INF/@{category}/index_min.jsp" tofile="${buildweb}/temp/WEB-INF/@{category}/index.jsp" overwrite="true"/>
+                    </then>
+                    </if>
+
+
+                    <if>
+                        <available file="${buildweb}/WEB-INF/@{category}/webmanifest.js"/>
+                    <then>
+                         <move file="${buildweb}/WEB-INF/@{category}/webmanifest.js" tofile="${buildweb}/temp/@{category}/webmanifest.js" overwrite="true"/>
+                    </then>
+                    </if>
+
+
+                    <delete dir="${buildweb}/@{category}/temp"/>
+
+                </then>
+                <else>
+                    <echo message="Ignoring minification for ${buildweb}/@{category}" />
+                </else>
+            </if>
+        </sequential>
+    </macrodef>
+
+	<macrodef name="setprint" description="Handle voltmx.print if stub enabled">
+		<attribute name="fileloc" default="" />
+		<sequential>
+			<if>
+				<equals arg1="${setprintlevel}" arg2="false" />
+				<then>
+					<replace file="@{fileloc}" token="@printlevel" value="true"  />
+				</then>
+			</if>
+		</sequential>
+    </macrodef>
+</project>

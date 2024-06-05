@@ -1,0 +1,16 @@
+{
+  "background_image": "camera.png",
+  "bg_type": "image",
+  "border_color": "000000ff",
+  "border_style": "plain",
+  "border_type": 0,
+  "border_width": 0,
+  "font_color": "000000ff",
+  "font_name": "iphoneSystem",
+  "font_size": 100,
+  "font_style": "normal",
+  "font_weight": "400",
+  "isDefaultSkin": false,
+  "kuid": "s320b2fe503e4ef189e791d77e91836b",
+  "wType": "Camera"
+}

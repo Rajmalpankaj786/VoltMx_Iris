@@ -1,0 +1,37 @@
+{
+    "AS_UWI_f6ebef8695694c05b8c3f96e8b6a310b": {
+        "id": "AS_UWI_f6ebef8695694c05b8c3f96e8b6a310b",
+        "type": "ACTION_SEQUENCE",
+        "params": [{
+            "datatype": "collection",
+            "name": "eventobject"
+        }, {
+            "datatype": "string",
+            "name": "x"
+        }, {
+            "datatype": "string",
+            "name": "y"
+        }],
+        "contextObj": {
+            "name": "frmERequestsDashboard",
+            "type": "forms",
+            "platform": "",
+            "KUID": "f4b558b9954c4827a0c787dd5ca87fbf"
+        },
+        "language": "js",
+        "actions": [{
+            "id": "NAVIGATE_TO_FORM__g97aaa0a546f436397c624b4767a70a4",
+            "type": "NAVIGATE_TO_FORM",
+            "formId": "frmERequestsFetch",
+            "formKUID": "ab688e7f3d64437aaf58aeda499928d0",
+            "projectName": "RefERequestsMA",
+            "mappings": {},
+            "mappingsOrder": [],
+            "parentId": null,
+            "callbackType": null,
+            "enableMappingEditor": true,
+            "package": "",
+            "isCustomInput": false
+        }]
+    }
+}

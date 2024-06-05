@@ -1,0 +1,110 @@
+{
+    "AS_Form_g18e135d74bd404b82a73d7fc136d534": {
+        "id": "AS_Form_g18e135d74bd404b82a73d7fc136d534",
+        "type": "ACTION_SEQUENCE",
+        "params": [{
+            "datatype": "collection",
+            "name": "eventobject"
+        }],
+        "contextObj": {
+            "name": "frmEComplaintsFetch",
+            "type": "forms",
+            "platform": "",
+            "KUID": "aa29ac2e27804ffc8569cc83b4c9a43d"
+        },
+        "language": "js",
+        "actions": [{
+            "id": "LOADING_INDICATOR_fb48a364249c465b98aca98d64785955",
+            "selectedOption": "show",
+            "parentId": null,
+            "type": "LOADING_INDICATOR",
+            "callbackType": null,
+            "skin": "none",
+            "position": "constants.LOADING_SCREEN_POSITION_FULL_SCREEN",
+            "isBlocked": "true",
+            "showProgressIndicator": "true",
+            "text": "Fetching your list of complaints ..."
+        }, {
+            "id": "INVOKE_SERVICE_ceb1915e3b6e41efb67d0073ea0d7890",
+            "type": "INVOKE_OBJECT_SERVICE",
+            "inputparams": {
+                "$filter": "\"(SoftDeleteFlag ne true) or (SoftDeleteFlag eq null) and (CreatedBy eq \"+gblLoggedInUserID+\")\""
+            },
+            "httpheaders": null,
+            "httpconfigs": null,
+            "isasynchronous": null,
+            "isoffline": null,
+            "isobject": true,
+            "mappings": {},
+            "mappingsOrder": [],
+            "serviceconfig": {
+                "servicename": "EComplaints",
+                "type": "objectsvcs",
+                "objectname": "Complaint",
+                "serviceid": "2c9170eb-4220-4768-b5e3-01216b681cde",
+                "methodname": "get"
+            },
+            "parentId": null,
+            "callbackType": null,
+            "enableMappingEditor": true
+        }, {
+            "id": "LOADING_INDICATOR_a5b3a75caadc415c90a787576843dc85",
+            "selectedOption": "dismiss",
+            "parentId": "INVOKE_SERVICE_ceb1915e3b6e41efb67d0073ea0d7890",
+            "type": "LOADING_INDICATOR",
+            "callbackType": "Callback",
+            "skin": "none",
+            "position": "constants.LOADING_SCREEN_POSITION_FULL_SCREEN",
+            "isBlocked": "true",
+            "showProgressIndicator": "true"
+        }, {
+            "id": "ADD_SNIPPET_f9671dab153849a6b02f9aa774f87c39",
+            "type": "ADD_SNIPPET",
+            "codeSnippet": "self.view.segPreviousComplaints.widgetDataMap = {\n  \"lblIDValue\":\"ComplaintID\",\n  \"lblCategoryValue\":\"CategoryID\",\n  \"lblDescriptionValue\":\"Description\",\n  \"lblAddressValue\":\"Location\",\n  \"lblCreateDateTimeValue\":\"CreatedDateTime\",\n  \"lblStatusValue\":\"Status\",\n  \"lblAssignedToValue\":\"AssignedTo\",\n  \"lblCreatedByValue\":\"CreatedBy\",\n  \"lblID\":\"lblID\",\n  \"lblCategory\":\"lblCategory\",\n  \"lblDescription\":\"lblDescription\",\n  \"lblAddress\":\"lblAddress\",\n  \"lblCreateDateTime\":\"lblCreateDateTime\",\n  \"lblStatus\":\"lblStatus\",\n  \"lblAssignedTo\":\"lblAssignedTo\",\n  \"lblCreatedBy\":\"lblCreatedBy\"\n};\nfor (i=0; i<Complaint.records.length; i++) {\n  Complaint.records[i].lblID = \"ID\";\n  Complaint.records[i].lblCategory = \"Category\";\n  Complaint.records[i].lblDescription = \"Description\";\n  Complaint.records[i].lblAddress = \"Address\";\n  Complaint.records[i].lblCreateDateTime = \"CreateDateTime\";\n  Complaint.records[i].lblStatus = \"Status\";\n  Complaint.records[i].lblAssignedTo = \"AssignedTo\";\n  Complaint.records[i].lblCreatedBy = \"CreatedBy\";\n}",
+            "parentId": "INVOKE_SERVICE_ceb1915e3b6e41efb67d0073ea0d7890",
+            "callbackType": "Callback"
+        }, {
+            "id": "ADD_MAPPING_i47515700e09450dbf204a4501d461cc",
+            "type": "ADD_MAPPING",
+            "mappings": {
+                "ME_Mapping_b209f11fda5243e083c0f6129bd0baf6": {
+                    "channel": "mobile",
+                    "id": "ME_Mapping_b209f11fda5243e083c0f6129bd0baf6",
+                    "type": "MAPPING",
+                    "callbackType": null,
+                    "rectified": true,
+                    "source": {
+                        "type": "Services",
+                        "propertyName": "records",
+                        "dataType": "collection",
+                        "forkedPlatform": "all",
+                        "serviceconfig": {
+                            "servicename": "EComplaints",
+                            "type": "objectsvcs",
+                            "objectname": "Complaint",
+                            "serviceid": "2c9170eb-4220-4768-b5e3-01216b681cde",
+                            "methodname": "get"
+                        }
+                    },
+                    "target": {
+                        "type": "Forms",
+                        "propertyName": "rowData",
+                        "widgetId": "segPreviousComplaints",
+                        "widgetPath": "this.view.segPreviousComplaints",
+                        "widgetType": "Segment",
+                        "dataType": "collection",
+                        "itemId": "frmEComplaintsFetch",
+                        "collectionId": "masterdata",
+                        "widgetKUID": "f3a5d95750e945699e111e81a6bb78be",
+                        "itemKUID": "aa29ac2e27804ffc8569cc83b4c9a43d",
+                        "forkedPlatform": "all"
+                    }
+                }
+            },
+            "mappingsOrder": ["ME_Mapping_b209f11fda5243e083c0f6129bd0baf6"],
+            "parentId": "INVOKE_SERVICE_ceb1915e3b6e41efb67d0073ea0d7890",
+            "callbackType": "Callback",
+            "enableMappingEditor": true
+        }]
+    }
+}

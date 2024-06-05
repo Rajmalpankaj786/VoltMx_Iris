@@ -1,0 +1,95 @@
+#if($focusSkin)
+	#set($s = $skin)
+#else
+	#set($s = "." + $skin)
+#end
+
+$s{
+   #if($forking)
+        #parse("tpxadviphonecssborderspecific.vm")
+   #else
+        #parse("tpxadviphonecssborder.vm")
+   #end
+   #parse("tppalmmojocssfonts.vm")
+     #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end
+    #if($background-color)
+        #if($rgba == "true")
+            background-color : $background-color;
+        #else
+             #set($bc = "#" + $background-color)
+             background-color: $bc;
+        #end
+    #elseif($background-gradient)
+        background : -webkit-gradient(linear, 0% 0%, 0% 100%, from($topcolor), to($bottomcolor));
+    #elseif($background-split)
+        background : -webkit-gradient(linear, 0% 49%, 0% 50%, from($topcolor), to($bottomcolor));
+    #elseif($background-horizontal-gradient)
+        background : -webkit-gradient(linear, 0% 0%, 100% 50%, from($topcolor), to($bottomcolor));
+    #elseif($background-horizontal-split)
+        background : -webkit-gradient(linear, 49% 0%, 49% 0%, from($topcolor), to($bottomcolor));
+    #elseif($background-image)
+        #if($repeat && $verticalrepeat)
+            background: url(./images/$background-image) repeat;
+        #elseif($repeat)
+            background: url(./images/$background-image) repeat-x;
+        #elseif($verticalrepeat)
+            background: url(./images/$background-image) repeat-y;
+        #else
+            background: url(./images/$background-image) no-repeat;
+        #end
+        #if($enable_bg_size == "true")
+                  background-size : 100% 100%;
+        #end
+    #elseif($transparent)
+        background: inherit;
+    #end
+}
+#set($c = $s + "cell")
+
+$c{
+     #if($color)
+        #if($rgba_font == "true")
+            color : $color !important;
+        #else
+            color: #$color !important;
+        #end
+    #end
+    #if($background-color)
+        #if($rgba == "true")
+            background-color : $background-color !important;
+        #else
+             #set($bc = "#" + $background-color)
+             background-color: $bc !important;
+        #end
+    #elseif($background-gradient)
+        background : -webkit-gradient(linear, 0% 0%, 0% 100%, from($topcolor), to($bottomcolor)) !important;
+    #elseif($background-split)
+        background : -webkit-gradient(linear, 0% 49%, 0% 50%, from($topcolor), to($bottomcolor)) !important;
+    #elseif($background-horizontal-gradient)
+        background : -webkit-gradient(linear, 0% 0%, 100% 50%, from($topcolor), to($bottomcolor)) !important;
+    #elseif($background-horizontal-split)
+        background : -webkit-gradient(linear, 49% 0%, 49% 0%, from($topcolor), to($bottomcolor)) !important;
+    #elseif($background-image)
+        #if($repeat && $verticalrepeat)
+            background: url(./images/$background-image) repeat !important;
+        #elseif($repeat)
+            background: url(./images/$background-image) repeat-x !important;
+        #elseif($verticalrepeat)
+            background: url(./images/$background-image) repeat-y !important;
+        #else
+            background: url(./images/$background-image) no-repeat !important;
+        #end
+        #if($enable_bg_size == "true")
+                  background-size : 100% 100%;
+        #end
+    #elseif($transparent)
+        background: inherit !important;
+    #end
+}
+   

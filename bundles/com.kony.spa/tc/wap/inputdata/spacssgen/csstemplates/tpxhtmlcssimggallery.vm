@@ -1,0 +1,99 @@
+#set($skul = $skin +"ul")
+#set($skli = $skin +"li")
+#set($skimg = $skin +"img")
+#set($ska = $skin +"a")
+
+#if($default == "true")
+$skin{
+    background: #fff;
+    padding: 0;
+    margin: 0 -10px 0 -35px;
+}
+
+$skul{
+    margin: 4px 4px 4px 0;
+    border: 0px;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+
+$skli {
+    border: 1px solid #C0D5DD;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    width: 65px;
+    height: 65px;
+    margin: 0 0 4px 4px;
+    padding: 0;
+    list-style-type: none;	
+}
+
+$skimg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+$ska {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+#else
+
+$skin{
+    background: #fff;   
+    padding: 0;
+    margin: 0 -10px 0 -35px;
+}
+
+$skul {
+    margin: 4px 4px 4px 0;
+    border: 0px;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+
+$skli {
+    #if ($border-color)
+        border-color : #$border-color;
+    #else
+        border-color : #C0D5DD;;
+    #end
+    #if ($border-width)
+        border-width: $border-width;
+    #else
+        border-width: 1px;
+    #end
+    border-style: solid;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    width: 65px;
+    height: 65px;
+    margin: 0 0 4px 4px;
+    padding: 0;
+    list-style-type: none;	
+}
+
+$skimg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 2px;
+    padding: 2px;
+}
+
+$ska {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 2px;
+    padding: 2px;
+}
+#end
+ 
+ 

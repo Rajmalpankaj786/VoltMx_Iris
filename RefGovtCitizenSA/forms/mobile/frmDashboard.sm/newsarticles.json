@@ -1,0 +1,90 @@
+{
+    "@class": "com.kony.gen.viz.model.component.KVizUserWidget",
+    "DNDConfig": null,
+    "_children_": [],
+    "_height_": {
+        "type": "string",
+        "value": "220dp"
+    },
+    "_left_": {
+        "type": "string",
+        "value": "40dp"
+    },
+    "_margin_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_orientation_": 1,
+    "_padding_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_percent_": true,
+    "_skin_": "sc0288ea4a1f45d8a6166ab73c18f45b",
+    "_top_": {
+        "type": "string",
+        "value": "10dp"
+    },
+    "_width_": {
+        "type": "string",
+        "value": "80%"
+    },
+    "areflexpropsreferenced": false,
+    "canUpdateUI": true,
+    "clipbounds": false,
+    "containerweight": 0,
+    "dataDiffs": {
+        "lblNewsAdvisor": {
+            "__events__": {},
+            "__info__": {
+                "kuid": "fc7720996b2e46f0acb5f9fd882764f5",
+                "srcKUID": "b825d7fe45af411cb712ac57708534d9",
+                "wType": "Label"
+            },
+            "text": "Technology News"
+        },
+        "newsarticles": {
+            "__events__": {},
+            "__info__": {
+                "isRoot": true,
+                "kuid": "aa8dc6347c5b404db1c79025e69edec5",
+                "srcKUID": "b00e532f382e44bcb2576f6fbbbff20c",
+                "wType": "FlexContainer"
+            },
+            "isVisible": true
+        },
+        "segLatestNews": {
+            "__events__": {},
+            "__info__": {
+                "kuid": "je220b52692b492aa0d5b68da4b86e67",
+                "srcKUID": "e6785efdb35d4a6a8e0a8184deb7e394",
+                "wType": "Segment"
+            },
+            "isVisible": true
+        }
+    },
+    "enablescrolling": true,
+    "id": "newsarticles",
+    "info": null,
+    "iscustomlayout": false,
+    "isdatareferenced": false,
+    "isvisible": true,
+    "kuid": "aa8dc6347c5b404db1c79025e69edec5",
+    "layouttype": 2,
+    "masterType": 0,
+    "name": "kony.ui.UserWidgetInstance",
+    "parent": "flxMainContent",
+    "pf": "frmDashboard",
+    "retaincontentalignment": false,
+    "retainflexpositionproperties": false,
+    "retainflowhorizontalalignment": false,
+    "snapgridsize": 10,
+    "snaptogrid": true,
+    "sourceUserWidget": "b00e532f382e44bcb2576f6fbbbff20c",
+    "wType": "UserWidgetInstance",
+    "zindex": 1
+}

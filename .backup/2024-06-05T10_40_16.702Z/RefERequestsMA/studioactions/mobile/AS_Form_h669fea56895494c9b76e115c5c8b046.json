@@ -1,0 +1,110 @@
+{
+    "AS_Form_h669fea56895494c9b76e115c5c8b046": {
+        "id": "AS_Form_h669fea56895494c9b76e115c5c8b046",
+        "type": "ACTION_SEQUENCE",
+        "params": [{
+            "datatype": "collection",
+            "name": "eventobject"
+        }],
+        "contextObj": {
+            "name": "frmERequestsFetch",
+            "type": "forms",
+            "platform": "",
+            "KUID": "ab688e7f3d64437aaf58aeda499928d0"
+        },
+        "language": "js",
+        "actions": [{
+            "id": "LOADING_INDICATOR_b9a35c7f10124b3d8d19be4cd42a54ac",
+            "selectedOption": "show",
+            "parentId": null,
+            "type": "LOADING_INDICATOR",
+            "callbackType": null,
+            "skin": "none",
+            "position": "constants.LOADING_SCREEN_POSITION_FULL_SCREEN",
+            "isBlocked": "true",
+            "showProgressIndicator": "true",
+            "text": "Fetching your list of requests ..."
+        }, {
+            "id": "INVOKE_SERVICE_cf9ac559f1464fe3934ff8ac8180fe7d",
+            "type": "INVOKE_OBJECT_SERVICE",
+            "inputparams": {
+                "$filter": "\"(SoftDeleteFlag ne true) or (SoftDeleteFlag eq null) and (CreatedBy eq \"+gblLoggedInUserID+\")\""
+            },
+            "httpheaders": null,
+            "httpconfigs": null,
+            "isasynchronous": null,
+            "isoffline": null,
+            "isobject": true,
+            "mappings": {},
+            "mappingsOrder": [],
+            "serviceconfig": {
+                "servicename": "ERequests",
+                "type": "objectsvcs",
+                "objectname": "Request",
+                "serviceid": "34d19364-b680-47b0-8c3b-291d517a9243",
+                "methodname": "get"
+            },
+            "parentId": null,
+            "callbackType": null,
+            "enableMappingEditor": true
+        }, {
+            "id": "LOADING_INDICATOR_f8a0ac22f8274db0899536fb07fcb6a4",
+            "selectedOption": "dismiss",
+            "parentId": "INVOKE_SERVICE_cf9ac559f1464fe3934ff8ac8180fe7d",
+            "type": "LOADING_INDICATOR",
+            "callbackType": "Callback",
+            "skin": "none",
+            "position": "constants.LOADING_SCREEN_POSITION_FULL_SCREEN",
+            "isBlocked": "true",
+            "showProgressIndicator": "true"
+        }, {
+            "id": "ADD_SNIPPET_ccc6e92abc7f4f09bed6d7824ca3aed7",
+            "type": "ADD_SNIPPET",
+            "codeSnippet": "self.view.segPreviousRequests.widgetDataMap = {\n  \"lblIDValue\":\"RequestID\",\n  \"lblCategoryValue\":\"CategoryID\",\n  \"lblDescriptionValue\":\"Description\",\n  \"lblAddressValue\":\"Location\",\n  \"lblCreateDateTimeValue\":\"CreatedDateTime\",\n  \"lblStatusValue\":\"Status\",\n  \"lblAssignedToValue\":\"AssignedTo\",\n  \"lblCreatedByValue\":\"CreatedBy\",\n  \"lblID\":\"lblID\",\n  \"lblCategory\":\"lblCategory\",\n  \"lblDescription\":\"lblDescription\",\n  \"lblAddress\":\"lblAddress\",\n  \"lblCreateDateTime\":\"lblCreateDateTime\",\n  \"lblStatus\":\"lblStatus\",\n  \"lblAssignedTo\":\"lblAssignedTo\",\n  \"lblCreatedBy\":\"lblCreatedBy\"\n};\nfor (i=0; i<Request.records.length; i++) {\n  Request.records[i].lblID = \"ID\";\n  Request.records[i].lblCategory = \"Category\";\n  Request.records[i].lblDescription = \"Description\";\n  Request.records[i].lblAddress = \"Address\";\n  Request.records[i].lblCreateDateTime = \"CreateDateTime\";\n  Request.records[i].lblStatus = \"Status\";\n  Request.records[i].lblAssignedTo = \"AssignedTo\";\n  Request.records[i].lblCreatedBy = \"CreatedBy\";\n}",
+            "parentId": "INVOKE_SERVICE_cf9ac559f1464fe3934ff8ac8180fe7d",
+            "callbackType": "Callback"
+        }, {
+            "id": "ADD_MAPPING_e6132922724645a5ac123215ed1100ed",
+            "type": "ADD_MAPPING",
+            "mappings": {
+                "ME_Mapping_cb01d5c55f484bb59ceeecd5d2a31d86": {
+                    "channel": "mobile",
+                    "id": "ME_Mapping_cb01d5c55f484bb59ceeecd5d2a31d86",
+                    "type": "MAPPING",
+                    "callbackType": null,
+                    "rectified": true,
+                    "source": {
+                        "type": "Services",
+                        "propertyName": "records",
+                        "dataType": "collection",
+                        "forkedPlatform": "all",
+                        "serviceconfig": {
+                            "servicename": "ERequests",
+                            "type": "objectsvcs",
+                            "objectname": "Request",
+                            "serviceid": "34d19364-b680-47b0-8c3b-291d517a9243",
+                            "methodname": "get"
+                        }
+                    },
+                    "target": {
+                        "type": "Forms",
+                        "propertyName": "rowData",
+                        "widgetId": "segPreviousRequests",
+                        "widgetPath": "this.view.segPreviousRequests",
+                        "widgetType": "Segment",
+                        "dataType": "collection",
+                        "itemId": "frmERequestsFetch",
+                        "collectionId": "masterdata",
+                        "widgetKUID": "f9fb549595424d7e8d12c1f312d270f2",
+                        "itemKUID": "ab688e7f3d64437aaf58aeda499928d0",
+                        "forkedPlatform": "all"
+                    }
+                }
+            },
+            "mappingsOrder": ["ME_Mapping_cb01d5c55f484bb59ceeecd5d2a31d86"],
+            "parentId": "INVOKE_SERVICE_cf9ac559f1464fe3934ff8ac8180fe7d",
+            "callbackType": "Callback",
+            "enableMappingEditor": true
+        }]
+    }
+}

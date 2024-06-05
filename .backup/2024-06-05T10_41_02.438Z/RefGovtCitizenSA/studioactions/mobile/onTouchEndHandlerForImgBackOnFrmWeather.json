@@ -1,0 +1,36 @@
+{
+    "AS_Image_e128e7c13c0f44acb9192986b9abebd3": {
+        "id": "AS_Image_e128e7c13c0f44acb9192986b9abebd3",
+        "type": "ACTION_SEQUENCE",
+        "name": "onTouchEndHandlerForImgBackOnFrmWeather",
+        "params": [{
+            "datatype": "collection",
+            "name": "eventobject"
+        }, {
+            "datatype": "string",
+            "name": "x"
+        }, {
+            "datatype": "string",
+            "name": "y"
+        }],
+        "contextObj": {
+            "name": "frmWeather",
+            "type": "forms",
+            "platform": "",
+            "KUID": "e0e62c55c46744abbf8df19b5749c8ae"
+        },
+        "language": "js",
+        "actions": [{
+            "id": "NAVIGATE_TO_FORM__fec3c03e95174452b3198bd3b18a2cbe",
+            "type": "NAVIGATE_TO_FORM",
+            "formId": "frmDashboard",
+            "formKUID": "fcbc1ed742fd42bfba1f4b347c731809",
+            "projectName": "RefGovtCitizenSA",
+            "mappings": {},
+            "mappingsOrder": [],
+            "enableMappingEditor": true,
+            "package": "",
+            "isCustomInput": false
+        }]
+    }
+}

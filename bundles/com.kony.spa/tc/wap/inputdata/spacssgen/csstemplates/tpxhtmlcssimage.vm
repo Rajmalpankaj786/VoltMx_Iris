@@ -1,0 +1,10 @@
+$skin {
+   font-family: $font-family;
+    font-size : $font-size;
+    font-weight : $font-weight;
+    font-style : $font-style;
+    color : #$color;
+    round : false;
+    border : none;
+    padding : 1px;
+}

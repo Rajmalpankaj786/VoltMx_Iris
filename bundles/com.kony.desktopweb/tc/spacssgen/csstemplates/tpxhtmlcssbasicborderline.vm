@@ -1,0 +1,9 @@
+#if($border)
+    border:$border;
+#end
+#if($border-top)
+    border-top:$border-top;
+#end
+#if($border-bottom)
+    border-bottom:$border-bottom;
+#end

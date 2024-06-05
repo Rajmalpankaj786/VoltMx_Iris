@@ -1,0 +1,67 @@
+#if($focusSkin)
+	#set($s = $skin)
+#else
+	#set($s = "." + $skin)
+#end
+$s{
+
+    #if($forking)
+        #parse("tpxadvoperamobilecssborderspecific.vm")
+    #else
+        #parse("tpxadvoperamobilecssborder.vm")
+    #end
+    #parse("tppalmmojocssfonts.vm")
+     #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end
+
+    #if($background-color)
+        #if($rgba == "true")
+                background-color : $background-color;
+        #else
+                #set($bc = "#" + $background-color)
+                background-color: $bc;
+        #end
+    #elseif($bg-grad-split-ms)
+            #parse("tpdesktopoperacssbggradient.vm")
+    #elseif($background-image)
+        #if($repeat && $verticalrepeat)
+            background: url(./images/$background-image) repeat;
+        #elseif($repeat)
+            background: url(./images/$background-image) repeat-x;
+        #elseif($verticalrepeat)
+            background: url(./images/$background-image) repeat-y;
+        #else
+            background: url(./images/$background-image) no-repeat;
+        #end
+        #if($enable_bg_size == "true")
+                  background-size : 100% 100%;
+        #end
+    #end
+
+
+
+#if($wtype =="RichText")
+#if($forking)
+    #parse("tpdesktopoperashadowtextcss.vm")
+#end
+#if($forking)
+    #parse("tpdesktopoperashadowcss.vm")
+#end
+#end
+
+#* commenting this code box model added for entire application
+#if($wtype=="TextArea" || $wtype=="TextBox" || $wtype=="Calendar" )
+    box-sizing: border-box;
+#end
+*#
+
+}
+
+#if($wtype=="TextBox")
+    #parse("tpxadviphonetextboxskincss.vm")
+#end

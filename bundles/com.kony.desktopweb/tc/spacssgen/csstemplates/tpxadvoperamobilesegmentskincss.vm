@@ -1,0 +1,299 @@
+#if($focusSkin)
+    #set($s =  $skin)
+    #set($u = $s + "ul")
+    #set($g = $s + "grp")
+    #set($l = $s + "lst")
+    #set($h = $s + "hdr")
+#else
+    #set($s = "." + $skin)
+    #set($u = $s + "ul")
+    #set($g = $s + "grp")
+    #set($l = $s + "lst")
+    #set($h = $s + "hdr")   
+#end
+#if($forking)
+    $g
+    {
+        #if($background-image)
+            background: url(./images/$background-image) repeat;
+        #elseif ($background-color)
+            #if($rgba == "true")
+                background-color : $background-color;
+            #else
+                #set($bc = "#" + $background-color)
+                background-color: $bc;
+            #end
+        #else
+            background-color: inherit;
+        #end     
+        #parse("tpxadvoperamobilecssborderspecific.vm")
+        
+        ##font : normal normal 12px ;
+        #* font-family:;
+        font-size : 12px;
+        font-weight : normal;
+        font-style : normal; *#
+        color : #000000;
+        #if($forking)
+            #parse("tpdesktopoperashadowcss.vm")
+        #end
+    }
+
+    $u
+    {
+        padding: 0px;        
+    }
+
+    $s
+    {
+        
+        margin: 0px;
+        #if($border-bottom-color)
+            #if($rgba_bottom_border == "true")
+                 border-bottom-color : $border-bottom-color;
+            #else
+                 border-bottom-color : #$border-bottom-color;
+            #end
+        #end
+        #if ($border-bottom-width)
+            #set($bw = $border-bottom-width + "px")
+            border-bottom-width: $bw;
+            border-bottom-style: solid;
+        #end        
+        font : $font-style $font-weight $font-size $font-family;
+        #*       font-family: $font-family;
+        font-size : $font-size;
+        font-weight : $font-weight;
+        font-style : $font-style;*#
+        #if($color)
+            #if($rgba_font == "true")
+                color : $color;
+            #else
+                color: #$color;
+            #end
+        #end
+        list-style: none;
+        #if($background-image)
+            background: url(./images/$background-image) repeat;
+        #elseif ($background-color)
+           #if($rgba == "true")
+                background-color : $background-color;
+           #else
+                #set($bc = "#" + $background-color)
+                background-color: $bc;
+           #end
+        #else
+            background-color: inherit;
+        #end
+    }
+
+    $s:first-child
+    {
+        top: 0;
+        border-top: none;        
+        #if ($border-top-left-style)
+            border-top-left-radius: ${child_border-top-left-radius}px;
+        #end
+        #if ($border-top-right-style)
+            border-top-right-radius: ${child_border-top-right-radius}px;
+        #end
+    }
+
+    $s:last-child
+    {
+        border-bottom: none;        
+        #if ($border-bottom-left-style)
+            border-bottom-left-radius: ${child_border-bottom-left-radius}px;
+        #end
+        #if ($border-bottom-right-style)
+            border-bottom-right-radius: ${child_border-bottom-right-radius}px;
+        #end
+    }
+
+    $s > a
+    {
+        display: block; 
+        text-decoration: none;
+        color: inherit;
+    }
+
+    $h
+    {
+        margin: 0px;
+        #if($border-color)
+            #if($rgba_border == "true")
+                  border-bottom :  1px solid $border-color;
+            #else
+                  border-bottom :  1px solid #$border-color;
+            #end
+        #else
+            border-bottom: 1px solid #E0E0E0;
+        #end        
+        font : $font-style $font-weight $font-size $font-family;
+        #*       font-family: $font-family;
+        font-size : $font-size;
+        font-weight : $font-weight;
+        font-style : $font-style;*#
+        #if($color)
+            #if($rgba_font == "true")
+                color : $color;
+            #else
+                color: #$color;
+            #end
+        #end
+        list-style: none;
+        #if($background-image)
+            background: url(./images/$background-image) repeat;
+        #elseif ($background-color)
+            #set($bc = "#" + $background-color)
+            background-color: $bc;
+        #else
+            background-color: inherit;
+        #end
+    }
+#else
+    $g
+    {        
+        #if($background-image)
+            background: url(./images/$background-image) repeat;
+        #elseif ($background-color)
+            #if($rgba == "true")
+                background-color : $background-color;
+            #else
+                #set($bc = "#" + $background-color)
+                background-color: $bc;
+            #end
+        #else
+            background-color: inherit;
+        #end        
+        #parse("tpxadvoperamobilecssborder.vm")
+        ##font : normal normal 12px;
+        #* font-family: Helvetica;
+        font-size : 12px;
+        font-weight : normal;
+        font-style : normal; *#
+        color : #000000;
+    }
+
+    $u
+    {
+        padding: 0px;       
+    }
+
+    $s
+    {        
+        margin: 0px;
+        #if($border-color)
+            #if($rgba_border == "true")
+                 border-bottom :  1px solid $border-color;
+            #else
+                 border-bottom :  1px solid #$border-color;
+            #end
+        #else
+            border-bottom: 1px solid #E0E0E0;
+        #end        
+        font : $font-style $font-weight $font-size $font-family;
+        #*       font-family: $font-family;
+        font-size : $font-size;
+        font-weight : $font-weight;
+        font-style : $font-style;*#
+        #if($color)
+            #if($rgba_font == "true")
+                color : $color;
+            #else
+                color: #$color;
+            #end
+        #end
+        list-style: none;
+        #if($background-image)
+            background: url(./images/$background-image) repeat;
+        #elseif ($background-color)
+           #if($rgba == "true")
+                background-color : $background-color;
+           #else
+                #set($bc = "#" + $background-color)
+                background-color: $bc;
+           #end
+        #else
+            background-color: inherit;
+        #end
+    }
+
+    $s:first-child
+    {
+        top: 0;
+        border-top: none;        
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    $s:last-child
+    {
+        border-bottom: none;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    $s > a
+    {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    $h
+    {
+        margin: 0px;
+        #if($border-color)
+            #if($rgba_border == "true")
+                  border-bottom :  1px solid $border-color;
+            #else
+                  border-bottom :  1px solid #$border-color;
+            #end
+        #else
+            border-bottom: 1px solid #E0E0E0;
+        #end        
+        font : $font-style $font-weight $font-size $font-family;
+        #*       font-family: $font-family;
+        font-size : $font-size;
+        font-weight : $font-weight;
+        font-style : $font-style;*#
+        #if($color)
+            #if($rgba_font == "true")
+                color : $color;
+            #else
+                color: #$color;
+            #end
+        #end
+        list-style: none;
+        #if($background-image)
+            background: url(./images/$background-image) repeat;
+        #elseif ($background-color)
+            #set($bc = "#" + $background-color)
+            background-color: $bc;
+        #else
+            background-color: inherit;
+        #end
+    }
+#end
+
+#* Name:R.Venkat Rajeshwar Rao
+   Date:15/06/2011
+   Reason: Added this because we have included the skin for progress indicator
+*#
+#if($pimgexists=="true")
+div[selected="progressindtr"][kprogressskin="$skin"]
+{
+    background-image: url(./images/$pimgname) !important;
+    background-repeat: no-repeat;
+    background-color:  transparent;
+    #if($pimgloc=="left")
+    background-position: left center;
+    #elseif($pimgloc=="right")
+    background-position: right center;
+    #elseif($pimgloc=="center")
+    background-position: center center;
+    #end
+}
+#end
+

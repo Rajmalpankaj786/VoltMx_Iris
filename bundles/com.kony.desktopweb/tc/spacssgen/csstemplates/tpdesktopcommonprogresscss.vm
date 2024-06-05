@@ -1,0 +1,33 @@
+#if($pimgexists=="true")
+input[selected="progress"][kprogressskin="$skin"]
+{
+    #if($background-color)
+         #if($rgba == "true")
+         background: url(./images/$pimgname) no-repeat, -webkit-gradient(linear, 0% 49%, 0% 50%, from($background-color), to($background-color));
+         background: url(./images/$pimgname) no-repeat,  -moz-linear-gradient(46% 0% 270deg, $background-color, $background-color);
+         #else
+         background: url(./images/$pimgname) no-repeat, -webkit-gradient(linear, 0% 49%, 0% 50%, from(#$background-color), to(#$background-color));
+         background: url(./images/$pimgname) no-repeat, -moz-linear-gradient(50% 0% 180deg,#$background-color, #$background-color, #$background-color 0%);
+         #end
+    #elseif($background-gradient)
+        background : url(./images/$pimgname) no-repeat, -webkit-gradient(linear, 0% 0%, 0% 100%, from($topcolor), to($bottomcolor));
+        background : url(./images/$pimgname) no-repeat, -moz-linear-gradient(46% 0% 270deg, $topcolor,  $bottomcolor);
+    #elseif($background-split)
+        background : url(./images/$pimgname) no-repeat, -webkit-gradient(linear, 0% 49%, 0% 50%, from($topcolor), to($bottomcolor));
+        background : url(./images/$pimgname) no-repeat, background : -moz-linear-gradient(50% 0% 180deg,$topcolor, $bottomcolor,$bottomcolor 0%);
+     #elseif($transparent)
+        background-image : url(./images/$pimgname) !important;
+        background-repeat: no-repeat;
+     #else
+        background: url(./images/$pimgname) no-repeat, url(./images/$background-image);
+    #end
+
+    #if($pimgloc=="top")
+    background-position: left center;
+    #elseif($pimgloc=="bottom")
+    background-position: right center;
+    #elseif($pimgloc=="middle")
+    background-position: center center;
+    #end
+}
+#end

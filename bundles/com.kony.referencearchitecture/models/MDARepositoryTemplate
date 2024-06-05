@@ -1,0 +1,21 @@
+define([], function(){
+	var BaseRepository = voltmx.mvc.Data.BaseRepository;
+
+	//Create the Repository Class
+	function {{name}}Repository(modelDefinition, config, defaultAppMode, dataSourceFactory, injectedDataSource) {
+		BaseRepository.call(this, modelDefinition, config, defaultAppMode, dataSourceFactory, injectedDataSource);
+	};
+
+	//Setting BaseRepository as Parent to this Repository
+	{{name}}Repository.prototype = Object.create(BaseRepository.prototype);
+	{{name}}Repository.prototype.constructor = {{name}}Repository;
+
+{{#verbs}}
+	//For Operation '{{operation}}' with service id '{{serviceid}}'
+	{{name}}Repository.prototype.{{operation}} = function(params, onCompletion){
+		return {{name}}Repository.prototype.customVerb('{{operation}}', params, onCompletion);
+	};
+
+{{/verbs}}
+	return {{name}}Repository;
+})

@@ -1,0 +1,6 @@
+{
+  "name" : "default",
+  "type" : "SAAS",
+  "encryptSecureInfo" : false,
+  "jsonpath" : false
+}

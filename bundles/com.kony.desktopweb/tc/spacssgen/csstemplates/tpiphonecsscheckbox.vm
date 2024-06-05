@@ -1,0 +1,45 @@
+#if($default == "true")
+$skin {
+    #if($width)
+        width: $width%;
+    #else
+        width: auto;
+    #end
+    ##margin: 4px 0 0 0;
+     #parse("tpxhtmlcssmargins.vm")
+    padding: 1px;
+    font-size: $font-size;
+    font-weight: normal;
+     #if($align)
+        text-align: $align;
+    #end
+}
+#else
+ $skin {
+    #if($width)
+        width: $width%;
+    #else
+        width: auto;
+    #end
+    ##margin: 4px 0 0 0;
+     #parse("tpxhtmlcssmargins.vm")
+    #if($bottom-padding)
+        padding: 1px 1px $bottom-padding 1px;
+    #else
+        padding: 1px;
+    #end
+    font-family: $font-family;
+    font-size : $font-size;
+    font-weight : $font-weight;
+    font-style : $font-style;
+    color : #$color;
+    #if($align)
+        text-align: $align;
+    #end
+    #if($background-color)
+        background-color : #$background-color;
+  
+    #end
+
+        }
+    #end

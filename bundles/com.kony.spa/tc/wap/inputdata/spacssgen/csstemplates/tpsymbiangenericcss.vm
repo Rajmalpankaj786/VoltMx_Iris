@@ -1,0 +1,39 @@
+$wcategory[skinid = "$skin"] 
+{
+    #parse("tpxadviphonecssborder.vm")
+    #parse("tppalmmojocssfonts.vm")
+    #if($color)
+        #if($rgba == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end
+ 
+    #if($background-color)
+        #if($rgba == "true")
+            background-color : $background-color;
+        #else
+            background-color : #$background-color;
+        #end
+    #elseif($background-gradient)
+        background : qlineargradient(x1:0, y1:0, x2:1, y2:1,stop:0 $topcolor, stop:1 $bottomcolor);
+    #elseif($background-split)
+        background : qlineargradient(x1:0, y1:0, x2:1, y2:1,stop:0 $topcolor, stop:0.5 $topcolor, stop:0.6 $bottomcolor,  stop:1 $bottomcolor);
+    #elseif($background-image)
+        #if($repeat)
+            border-image: url(:/images/$background-image);
+            background-repeat: repeat-x;
+        #else
+            border-image: url(:/images/$background-image);
+        #end
+     #else
+        background-color: transparent; 
+    #end
+    
+    #if($rounded)
+            border-radius: 10px;
+    #end
+
+}
+

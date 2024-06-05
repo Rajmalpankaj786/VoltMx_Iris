@@ -1,0 +1,174 @@
+CACHE MANIFEST
+#Time stamp $timestamp
+#Version $version
+CACHE:
+jslib/voltmxinit.js
+jslib/voltmxcore.js
+jslib/voltmxsystem.js
+jslib/voltmxapi.js
+jslib/voltmxtableapi.js
+jslib/voltmxosapi.js
+jslib/voltmxtimerapi.js
+jslib/voltmxphoneapi.js
+jslib/voltmxgeolocationapi.js
+jslib/voltmxhybridapi.js
+jslib/voltmxstringapi.js
+jslib/voltmxmathapi.js
+jslib/voltmxutils.js
+jslib/voltmxwidgets.js
+jslib/voltmxtouchwidgets.js
+jslib/voltmxformwidget.js
+jslib/voltmxappmenu.js
+jslib/voltmxnetwork.js
+jslib/voltmxlabelwidget.js
+jslib/voltmxbuttonwidget.js
+jslib/voltmxtextfieldwidget.js
+jslib/voltmxtextfieldpassword.js
+jslib/voltmxtextfieldautocomplete.js
+jslib/voltmxcomboboxgroup.js
+jslib/voltmxradiobuttongroup.js
+jslib/voltmxlistboxgroup.js
+jslib/voltmxtextareawidget.js
+jslib/voltmxcheckboxgroup.js
+jslib/voltmxlinkwidget.js
+jslib/voltmxboxwidget.js
+jslib/voltmxvboxwidget.js
+jslib/voltmxlinewidget.js
+jslib/voltmxsegmentwidget.js
+jslib/voltmximagewidget.js
+jslib/voltmxHorizontalImagewidget.js
+jslib/voltmxHorizontalImageGallerywidget.js
+jslib/voltmxslotviewwidget.js
+jslib/voltmxbrowserwidget.js
+jslib/voltmxdatagridwidget.js
+jslib/voltmxdatabaseapi.js
+jslib/voltmxdatastoreapi.js
+jslib/voltmxmapwidget.js
+jslib/voltmxtabwidget.js
+jslib/voltmxmodel.js
+jslib/voltmxpopup.js
+jslib/voltmxphone.js
+jslib/voltmxi18n.js
+jslib/voltmxscrollerwidget.js
+jslib/voltmxscrollboxwidget.js
+jslib/voltmxrichtextwidget.js
+jslib/voltmxswitchwidget.js
+jslib/voltmxmediawidget.js
+jslib/voltmxthemesapi.js
+jslib/voltmxconstants.js
+jslib/voltmxconstcommon.js
+jslib/voltmxcrypto.js
+jslib/voltmxpickerview.js
+jslib/voltmxpickerwidget.js
+jslib/voltmxsliderwidget.js
+jslib/voltmxcalendarwidget.js
+##jslib/cryptojslib-min.js
+
+appjs/app.js
+appjs/kvmodules.js
+
+#*
+appjs/appmodel.js
+jslib/tparty/cal/container.css
+jslib/tparty/cal/calendar.css
+jslib/voltmxcalendarwidget.js
+jslib/tparty/cal/container-min.js
+jslib/tparty/cal/element-min.js
+jslib/tparty/cal/calendar-min.js
+jslib/tparty/cal/yahoo-dom-event.js
+jslib/tparty/crypto/cryptojslib-min.js
+*#
+
+jslib/tparty/picker/mobiscroll-1.6.css
+#if($indexjl == "js")
+jslib/voltmxJSLib/core/voltmxJSMapping.js
+jslib/voltmxJSLib/core/voltmxJSUtils.js
+jslib/voltmxJSLib/core/voltmxapplication.js
+jslib/voltmxJSLib/ui/voltmxuiBaseClasses.js
+jslib/voltmxJSLib/ui/voltmxuiBasicWidgets.js
+jslib/voltmxJSLib/ui/voltmxuiBox.js
+jslib/voltmxJSLib/ui/voltmxuiBrowser.js
+jslib/voltmxJSLib/ui/voltmxuiCalendar.js
+jslib/voltmxJSLib/ui/voltmxuiDataGrid.js
+jslib/voltmxJSLib/ui/voltmxuiForm.js
+jslib/voltmxJSLib/ui/voltmxuiGroupWidgets.js
+jslib/voltmxJSLib/ui/voltmxuiHorizontalImageStrip.js
+jslib/voltmxJSLib/ui/voltmxuiImage.js
+jslib/voltmxJSLib/ui/voltmxuiImageGallery.js
+jslib/voltmxJSLib/ui/voltmxuiMap.js
+jslib/voltmxJSLib/ui/voltmxuiPopup.js
+jslib/voltmxJSLib/ui/voltmxuiRichText.js
+jslib/voltmxJSLib/ui/voltmxuiScrollBox.js
+jslib/voltmxJSLib/ui/voltmxuiSegmentedUI.js
+jslib/voltmxJSLib/ui/voltmxuiSlider.js
+jslib/voltmxJSLib/ui/voltmxuiTabPane.js
+jslib/voltmxJSLib/ui/voltmxuiText.js
+jslib/voltmxJSLib/ui/voltmxuiVideo.js
+##jslib/voltmxJSLib/ui/voltmxuiWebWidget.js
+#else
+jslib/voltmxLuaLib/ui/voltmxWidgetNativeMapping.js
+jslib/voltmxLuaLib/ui/windowBaseClasses.js
+jslib/voltmxLuaLib/ui/windowBasicWidgets.js
+jslib/voltmxLuaLib/ui/windowBox.js
+jslib/voltmxLuaLib/ui/windowBrowser.js
+jslib/voltmxLuaLib/ui/windowCalendar.js
+jslib/voltmxLuaLib/ui/windowDataGrid.js
+jslib/voltmxLuaLib/ui/windowForm.js
+jslib/voltmxLuaLib/ui/windowGallery.js
+jslib/voltmxLuaLib/ui/windowGroupWidgets.js
+jslib/voltmxLuaLib/ui/windowHorizontalImageStrip.js
+jslib/voltmxLuaLib/ui/windowImage.js
+jslib/voltmxLuaLib/ui/windowMap.js
+jslib/voltmxLuaLib/ui/windowPopup.js
+jslib/voltmxLuaLib/ui/windowRichText.js
+jslib/voltmxLuaLib/ui/windowScrollBox.js
+jslib/voltmxLuaLib/ui/windowSegmentedUI.js
+jslib/voltmxLuaLib/ui/windowSlider.js
+jslib/voltmxLuaLib/ui/windowTabPane.js
+jslib/voltmxLuaLib/ui/windowText.js
+jslib/voltmxLuaLib/ui/windowVideo.js
+#end
+
+
+#if($platform == "desktopweb")
+jslib/voltmxgridlayout.js
+jslib/voltmxmenucontainerwidget.js
+jslib/voltmxJSLib/ui/voltmxuiMenuContainer.js
+
+#end
+
+#*
+    #if($platform == "spaip" || $platform == "ipwrapper" || $platform == "iphybrid" || $platform == "ipadwrapper" || $platform == "ipadhybrid")
+        voltmxspaiphone.css
+    #elseif($platform == "spaan" || $platform == "anwrapper" || $platform == "anhybrid" || $platform == "tabandroidwrapper" || $platform == "tabandroidhybrid")
+        voltmxspaandroid.css
+        voltmxspaandroid240.css
+        voltmxspaandroid320.css
+        voltmxspaandroid480.css
+        voltmxspaandroid640.css
+    #elseif($platform == "spabb" || $platform == "bbwrapper" || $platform == "bbhybrid")
+        voltmxspabb.css
+        voltmxspabb240.css
+        voltmxspabb320.css
+        voltmxspabb480.css
+        voltmxspabb640.css
+    #elseif($platform == "spaipad")
+        voltmxspatabletiphone.css
+    #elseif($platform == "spaandroidtablet")
+        voltmxspatabletandroid.css
+    #elseif($platform == "spawindowstablet")
+        voltmxspatabletwindows.css
+    #elseif($platform == "spaplaybook")
+        voltmxspatabletbb.css
+    #elseif($platform == "spabbnth" || $platform == "spawindows")
+        voltmx${platform}240.css
+        voltmx${platform}320.css
+        voltmx${platform}480.css
+    #elseif($platform == "spawinphone8")
+        voltmxspawindows320.css
+        voltmxspawindows480.css
+    #end
+*#
+
+NETWORK:
+*

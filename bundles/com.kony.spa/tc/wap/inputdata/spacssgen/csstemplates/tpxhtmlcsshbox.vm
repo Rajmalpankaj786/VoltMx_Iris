@@ -1,0 +1,83 @@
+#if($default == "true")
+    $skin 
+    {    
+    font-family: $font-family;
+    font-size : $font-size;
+    font-weight : $font-weight;
+    font-style : $font-style;
+    color : #$color;
+    round : false;
+    #set($bw = $border-width + "px")
+    border-width : $bw;
+    border-style : $border-style;
+    border-color : #$border-color;
+    background-color : inherit;
+    padding : 1px;
+    #if($align)
+        text-align: $align;
+    #end
+    #if ($width)
+        #set($wd = $width + "%")
+        width: $wd;
+    #end
+     #parse("tpxhtmlcssmargins.vm")
+    }
+#else
+    $skin 
+    {
+    
+    font-family: $font-family;
+    font-size : $font-size;
+    font-weight : $font-weight;
+    font-style : $font-style;
+    color : #$color;
+    round : false;
+    padding : 1px;
+   #if($background-color)
+                background-color: #$background-color;
+            #elseif ($background-image)
+                background-image: url("./images/$background-image");
+                background-repeat: repeat;
+            #else
+                background-color: inherit;
+            #end
+    #set($bw = $border-width + "px")
+    border-width : $bw;
+    border-style : $border-style;
+    border-color : #$border-color;
+    #if($align)
+        text-align: $align;
+    #end
+    #if ($width)
+        #set($wd = $width + "%")
+        width: $wd;
+    #end
+     #parse("tpxhtmlcssmargins.vm")
+    }
+#end
+#if ($boxBorderStyle == "rc")
+#if($background-color)
+    #set($bg1 = "#" +$background-color)
+#else
+    #set($bg1 = "inherit")
+#end
+#set($roundbox = $skin+"rbx")
+$roundbox .b1, $roundbox .b2, $roundbox .b3, $roundbox .b4, $roundbox .b1b, $roundbox .b2b, $roundbox .b3b, $roundbox .b4b {display:block; overflow:hidden; font-size:1px;}
+$roundbox .b1, $roundbox .b2, $roundbox .b3, $roundbox .b1b, $roundbox .b2b, $roundbox .b3b {height:1px;}
+$roundbox .b2 {background:$bg1; border-left:1px solid #$border-color; border-right:1px solid #$border-color;}
+$roundbox .b3 {background:$bg1; border-left:1px solid #$border-color; border-right:1px solid #$border-color;}
+$roundbox .b4 {background:$bg1; border-left:1px solid #$border-color; border-right:1px solid #$border-color;}
+$roundbox .b4b {background:$bg1; border-left:1px solid #$border-color; border-right:1px solid #$border-color;}
+$roundbox .b3b {background:$bg1; border-left:1px solid #$border-color; border-right:1px solid #$border-color;}
+$roundbox .b2b {background:$bg1; border-left:1px solid #$border-color; border-right:1px solid #$border-color;}
+
+
+$roundbox .b1 {margin:0 5px; background:$bg1;}
+$roundbox .b2, $roundbox .b2b {margin:0 3px; border-width:0 2px;}
+$roundbox .b3, $roundbox .b3b {margin:0 2px;}
+$roundbox .b4, $roundbox .b4b {height:2px; margin:0 1px;}
+$roundbox .b1b {margin:0 5px; background:$bg1;}
+$roundbox .boxcontent {display:block;  background:$bg1; border-left:1px solid #$border-color; border-right:1px solid #$border-color;}
+#end
+
+

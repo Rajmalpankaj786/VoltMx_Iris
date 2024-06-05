@@ -1,0 +1,405 @@
+ a:hover{
+ background-color:#C0D1E8;
+ }
+
+img 
+{
+	vertical-align: bottom;
+    border: none;
+}
+
+#*
+/*
+input[type="checkbox"]
+{
+height:24px !important;
+width:24px !important;
+}
+
+input[type="radio"]
+{
+height:20px !important;
+width:20px !important;
+}
+*/
+*#
+
+optgroup > option {
+	padding-left: 10px;
+}
+
+*[kdisabled=true]{
+  cursor: default;
+ }
+ 
+div[kwidgettype="Label"] {
+
+white-space:pre-wrap;
+word-wrap:break-word; 
+}
+
+.hide
+{
+	display : none !important;
+}
+table, tr, th, td  {
+    border-collapse: collapse;
+    border : 0px solid black;
+    border-spacing: 0;
+    padding:0px;
+}
+
+ /* Popup css */
+.popupcontainer
+{
+	position:fixed;   
+	width: 100%;
+	height:100%;
+	z-index: 8;
+	bottom : 0;
+	top : 0;  
+}
+.popuplayer 
+{
+    position:fixed;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    filter: alpha(opacity=50);  
+}
+.popupcontrols
+{
+    position: absolute;
+    right: 1px;
+    top: 2px;
+    cursor: pointer;
+}
+
+
+.KMenu li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    list-style: none;
+}
+.KClear {
+    float: none;
+    clear: both;
+    font-size: 0px;
+    line-height:0px;
+    height: 0px;
+}
+.auto
+{
+	width: auto;
+}
+
+/* Layout classes */
+.kheight
+{
+    min-height: 28px;
+    line-height: 28px;
+}
+
+/* Alignment classes */
+.topleftalign
+{
+    text-align:left;
+    vertical-align: top;
+}
+.toprightalign
+{
+    text-align:right;
+    vertical-align: top;
+}
+.topcenteralign
+{
+    text-align:center;
+    vertical-align: top;
+}
+.middleleftalign
+{
+    text-align:left;
+    vertical-align: middle;
+}
+.middlerightalign
+{
+    text-align:right;
+    vertical-align: middle;
+}
+.middlecenteralign
+{
+    text-align:center;
+    vertical-align: middle;
+}
+.bottomleftalign
+{
+    text-align:left;
+    vertical-align: bottom;
+}
+.bottomrightalign
+{
+    text-align:right;
+    vertical-align: bottom;
+}
+.bottomcenteralign
+{
+    text-align:center;
+    vertical-align: bottom;
+}
+
+* html ul li {height:1em; vertical-align:bottom;}
+
+
+ul{
+margin: 0px;
+padding: 0px;
+}
+li{
+padding: 0px !important;
+}
+.voltmxplaceholder {
+    color: #aaa !important;
+}
+
+/* calendar css */
+.-voltmx-w-c-day-label-cell{            
+       height:100%;
+       font-size:smaller;
+       color:gray;
+       font-weight:bold
+       
+}
+.-voltmx-w-c-cell{
+       display:table-cell; 
+       vertical-align:middle; 
+       text-align:center; 
+       height:100%;
+       
+}
+.-voltmx-w-c-row{
+       display:table-row;
+}
+.-voltmx-w-c-table{
+       display:table;
+       table-layout:fixed;
+}
+.-voltmx-w-c-day-table{
+       height:16.66%;
+       width:100%;
+}
+.voltmx-w-c-actualDates{
+       height:80%;
+       width:100%;
+       
+}
+
+.-voltmx-w-c-day-{         
+       height:100%;
+}
+.-voltmx-w-c-day-skin{         
+       height:100%;
+       border:1px solid #F2F2F2;
+       background-color:White;
+       font-weight:bold;
+}
+.-voltmx-w-c-day-:hover{            
+       background-color:#426FD9;
+       color:White;
+       cursor:pointer;
+       border:1px solid White;
+}
+.-voltmx-w-c-day-:active{            
+       background-color:#B3D4FF;
+       color:Black;
+       cursor:pointer;
+       border:1px solid White;
+}
+
+.-voltmx-w-c-weekend-{         
+       height:100%;
+       border:1px solid #DEDEDE;
+       background-color:White;
+       font-weight:bold;
+       color:Green;
+}
+.-voltmx-w-c-weekend-:hover{            
+       background-color:#426FD9;
+       color:White;
+       cursor:pointer;
+       border:1px solid White;
+}
+.-voltmx-w-c-weekend-:active{            
+       background-color:#B3D4FF;
+       color:Black;
+       cursor:pointer;
+       border:1px solid White;
+}
+
+.-voltmx-w-c-selected-{         
+       height:100%;
+       border:1px solid #F2F2F2;
+       background-color:#B3D4FF;
+       cursor:pointer;
+}
+.-voltmx-w-c-selected-:hover{ 
+       color:Black;
+       cursor:pointer;
+       border:1px solid White;
+}
+
+.-voltmx-w-c-today-{         
+       height:100%;
+       border:1px solid Black;
+       background-color:White;
+}
+.-voltmx-w-c-today-:hover{            
+       background-color:#426FD9;
+       color:White;
+       cursor:pointer;
+       border:1px solid White;
+}
+.-voltmx-w-c-today-:active{            
+       background-color:#B3D4FF;
+       color:Black;
+       cursor:pointer;
+       border:1px solid White;
+}
+
+.-voltmx-w-c-popup-container{
+       width:300px;
+       height:300px;
+       font-size: small;
+}
+.-voltmx-w-c-topSection{            
+       border:1px solid #F2F2F2;
+       height:20%;
+       width:100%;
+}
+.-voltmx-w-c-title{
+       height:auto;
+       width:100%;
+}
+.-k-w-c-inactive{
+       height:100%;
+       background-color:#F8F8F8;
+}
+
+.-k-w-c-left-nav-img, .-k-w-c-right-nav-img{
+       height:50%;
+       width:50%
+}
+
+.-voltmx-w-c-yemo-skin{
+       font-weight:bold;
+       font-size:Normal;
+       cursor:pointer;      
+}
+.-k-w-c-datepicker-holder-main{
+       background-color:White;
+}
+.-voltmx-w-c-prev-nav, .-voltmx-w-c-next-nav{
+       cursor:pointer;
+}
+
+.-voltmx-w-c-navigator-month, .-voltmx-w-c-navigator-year{
+       border:1px solid #F2F2F2;
+       background-color:White;
+       font-size:smaller;
+       color: gray;
+       font-weight: bold;
+}
+.-voltmx-w-c-navigator-month:hover, .-voltmx-w-c-navigator-year:hover{            
+       background-color:#426FD9;
+       color:White;
+       cursor:pointer;
+       border:1px solid White;
+       font-size:smaller;
+}
+.-k-w-c-datepicker-navigator{
+       border:1px solid #FAFAFA;
+}
+.-voltmx-w-c-navigator-month-selected, .-voltmx-w-c-navigator-year-selected{
+       background-color:#B3D4FF;
+       color:Black;
+       cursor:pointer;
+       border:1px solid White;
+}
+.-k-w-c-nav-selected-ym{
+       font-size:smaller;
+       color: Green;
+       font-weight:bold
+}
+.-k-w-c-cal-title{
+       text-align:center;
+       width:100%;
+       line-height:30px;
+       height:30px;
+       font-size:small;
+}
+div[kwidgettype="Link"]:hover
+{
+ cursor: pointer
+}
+
+/* for supporting dockable headers and footers */
+.absoluteContainer
+{
+    position :absolute;
+    height: 100%;
+    width: 100%;
+}
+.form_scroller
+{
+    position: absolute;
+    z-index: 1;
+    /*
+    left: 0;
+    right: 0;
+    */
+    width: 100%;
+    overflow: hidden;
+}
+
+.header_scroller
+{
+    z-index: 6;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.footer_scroller
+{
+    z-index: 6;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.appmenu_scroller
+{
+    z-index: 8;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.form_nativeScroller
+{
+    z-index: 1;
+    position: relative;
+}
+
+.main_container
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.relativePos
+{
+    position: relative;
+}
+.fixedPos
+{
+    position: fixed;
+}

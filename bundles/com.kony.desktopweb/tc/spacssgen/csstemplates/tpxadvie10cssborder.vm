@@ -1,0 +1,79 @@
+#if ($border-width)
+        #set($bw = $border-width + "px")
+        #if ($border-color)
+            #if($rgba_border == "true")
+                #set($bc = $border-color)
+            #else
+                #set($bc = "#"+$border-color)
+            #end
+       #else
+           #set($bc = "#000000")
+       #end
+
+       border: $bw solid $bc;
+
+       #if ($border-style == "rc")
+            border-radius: 10px;
+       #end
+       #if ($border-style == "custom")
+           #set($br= $border-radius + "px")
+            border-radius: $br;
+       #end
+#else
+    #if($wtype == "TextBox" || $wtype == "Calendar" )
+        appearance: none;
+    #end
+#end
+
+
+#*
+#if ($border-width)
+         #set($bw = $border-width + "px")
+         border-width: $bw;
+         ## In the case of iPhone border style of individual widgets are not required to be specified. But are needed for layouts.
+
+         #if($wtype == "layout")
+             border-style: solid;
+         #end
+         #if($wtype == "HImageStrip")
+               border-style: solid;
+          #end
+         #if($wtype == "ImageGallery")
+              border-style: solid;
+         #end
+    
+         #if($wtype == "TextBox")
+              border-style: solid;
+         #end
+    
+        #if($wtype == "label")
+             border-style: solid;
+        #end
+    
+        border-style: solid;
+
+        #if ($border-color)
+            #if($rgba_border == "true")
+                border-color : $border-color;
+            #else
+                border-color : #$border-color;
+            #end
+       #else
+            border-color : none;
+        #end
+
+        #if ($border-style == "rc")
+            border-radius: 10px;
+        #else
+            border-radius: 0px;
+        #end
+
+#else
+    #if($wtype == "TextBox")
+        appearance: none;
+    #end
+    #if($wtype == "Calendar")
+        appearance: none;
+    #end
+#end
+*#

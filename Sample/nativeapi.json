@@ -1,0 +1,11 @@
+{
+    "NativeFunctionAPI": {
+        "Android": {},
+        "iOS": {}
+    },
+    "Metadata": {
+        "Version": {
+            "iOS": "3.0"
+        }
+    }
+}

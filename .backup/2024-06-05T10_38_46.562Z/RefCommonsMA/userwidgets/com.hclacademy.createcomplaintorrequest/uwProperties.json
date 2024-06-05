@@ -1,0 +1,122 @@
+{
+    "classname": "createcomplaintorrequest",
+    "definitions": {
+        "apis": {
+            "custom": [],
+            "passthrough": []
+        },
+        "events": {
+            "custom": [],
+            "passthrough": []
+        },
+        "groups": {
+            "apis": [],
+            "events": [],
+            "properties": [],
+            "widgets": []
+        },
+        "properties": {
+            "custom": [
+                {
+                    "access": "Write",
+                    "defaultValue": "Complaint",
+                    "group": "General",
+                    "kuid": "ee3edbfa6ed2479fb2ec4a6cc35acce4",
+                    "originalPropertyKey": "createComplaintOrRequest",
+                    "propertyIndex": 1,
+                    "propertyKey": "createComplaintOrRequest",
+                    "pw": {
+                        "dependencyConditions": {},
+                        "displayName": "Create complaint or request?",
+                        "toolTip": "Specify whether you want to create complaint or request?",
+                        "uiRepresentation": "Label-Combobox"
+                    },
+                    "srcWgtKUID": "fbbfb53027744f0991b8f1d70ee7a460",
+                    "type": "list selector",
+                    "value": [
+                        "Complaint",
+                        "Request"
+                    ]
+                },
+                {
+                    "access": "Write",
+                    "defaultValue": "{\n  \"CategoryID\":\"\",\n  \"Name\":\"\",\n  \"Phone\":\"\",\n  \"Location\":\"\",\n  \"Description\":\"\",\n  \"Photo\":\"\",\n  \"Status\":\"\",\n  \"CreatedBy\":\"\",\n  \"AssignedTo\":\"\"\n}",
+                    "group": "General",
+                    "kuid": "c264d503f81747409a04e4dc8dc14404",
+                    "originalPropertyKey": "complaintOrRequestObject",
+                    "propertyIndex": 2,
+                    "propertyKey": "complaintOrRequestObject",
+                    "pw": {
+                        "dependencyConditions": {},
+                        "displayName": "Complaint Or Request Object",
+                        "toolTip": "JSON object representing complaint Or request",
+                        "uiConfig": {
+                            "Button": {
+                                "dataRetrieverId": "jsonEditor-Retriever",
+                                "dataUpdaterId": "jsonEditor-Updater",
+                                "popupId": "jsonEditor-Popup",
+                                "type": "jsonEditor"
+                            }
+                        },
+                        "uiRepresentation": "Label-Button"
+                    },
+                    "srcWgtKUID": "fbbfb53027744f0991b8f1d70ee7a460",
+                    "type": "json",
+                    "value": ""
+                }
+            ],
+            "passthrough": [
+                {
+                    "access": "Enable",
+                    "group": "General",
+                    "kuid": "a242eed87cfe4cac8204d3bad6e23ecc",
+                    "originalPropertyKey": "text",
+                    "propertyIndex": 3,
+                    "propertyKey": "lblTitleText",
+                    "pw": {
+                        "access": "readwrite",
+                        "category": "look",
+                        "dependencyConditions": {},
+                        "dependentKeysKUIDs": null,
+                        "displayName": "Title",
+                        "isHiddenInTool": false,
+                        "srcWidget": "lblTitle",
+                        "toolTip": "Set the heading",
+                        "type": "string",
+                        "uiRepresentation": "Label-Textbox",
+                        "wType": "Label"
+                    },
+                    "srcWgtKUID": "ef327c55bf3e4304a06fa9ff32ee1de1"
+                },
+                {
+                    "access": "Enable",
+                    "group": "General",
+                    "kuid": "ff37538b787b496588f48bd665f80c62",
+                    "originalPropertyKey": "text",
+                    "propertyIndex": 4,
+                    "propertyKey": "lblCapturePhotoText",
+                    "pw": {
+                        "access": "readwrite",
+                        "category": "look",
+                        "dependencyConditions": {},
+                        "dependentKeysKUIDs": null,
+                        "displayName": "Photo Title",
+                        "isHiddenInTool": false,
+                        "srcWidget": "lblCapturePhoto",
+                        "toolTip": "Set text to photo capture title",
+                        "type": "string",
+                        "uiRepresentation": "Label-Textbox",
+                        "wType": "Label"
+                    },
+                    "srcWgtKUID": "ec7cb5d3fe5e44e58a479561fab008db"
+                }
+            ]
+        },
+        "widgets": {
+            "expose": [],
+            "passthrough": []
+        }
+    },
+    "namespace": "com.hclacademy",
+    "version": "1.0.0"
+}

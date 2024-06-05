@@ -1,0 +1,59 @@
+{
+    "@class": "com.kony.gen.viz.model.component.KVizImage2",
+    "DNDConfig": null,
+    "_base64_": null,
+    "_blur_": {
+        "enabled": false,
+        "value": 100
+    },
+    "_height_": {
+        "type": "ref",
+        "value": "preferred"
+    },
+    "_left_": {
+        "type": "number",
+        "value": "10"
+    },
+    "_margin_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_padding_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_skin_": "sba79326ae474755b555169f5ad91f3f",
+    "_src_": "imagedrag.png",
+    "_top_": {
+        "type": "number",
+        "value": "5"
+    },
+    "_width_": {
+        "type": "string",
+        "value": "95%"
+    },
+    "canUpdateUI": true,
+    "containerId": true,
+    "containerweight": 100,
+    "id": "imgDisplayPic",
+    "imagescalemode": 1,
+    "info": null,
+    "iscustomlayout": false,
+    "isvisible": true,
+    "kuid": "e9cb40228e6047abbc389781f36fa754",
+    "name": "kony.ui.Image2",
+    "parent": "flxSegWithImageAndLabel",
+    "pf": "tplSegWithImageAndLabel",
+    "retaincontentalignment": false,
+    "retainflexpositionproperties": false,
+    "srcType": 1,
+    "wType": "Image",
+    "widgetalignment": 5,
+    "zindex": 1,
+    "zoomenabled": false,
+    "zoomvalue": 5
+}

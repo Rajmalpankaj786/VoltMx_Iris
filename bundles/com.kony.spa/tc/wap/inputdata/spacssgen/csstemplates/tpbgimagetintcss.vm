@@ -1,0 +1,29 @@
+#if($enable_bg_size == "true")
+        background: linear-gradient($tint_color,$tint_color ),url(./images/$background-image) no-repeat;
+        #if($formwidget)
+        -webkit-background-size : 100% 100%;
+        #end
+        background-size : 100% 100%;   
+#elseif($repeat && $verticalrepeat)
+        background: linear-gradient($tint_color,$tint_color ),url(./images/$background-image) repeat;
+#elseif($repeat)
+        background: linear-gradient($tint_color,$tint_color ),url(./images/$background-image) repeat-x;
+#elseif($verticalrepeat)
+        background: linear-gradient($tint_color,$tint_color ),url(./images/$background-image) repeat-y;
+#else
+        background: linear-gradient($tint_color,$tint_color ),url(./images/$background-image) no-repeat;   
+        #if($buttonwidget)
+            #if($width)
+                #set($wd = $width + "px !important;")
+                width: $wd
+            #end
+            #if($height)
+                #set($hd = $height + "px !important;")
+                height: $hd
+            #end
+            #if($spaip)
+                #set($whd = $width + "px " + $height + "px !important" )            
+                background-size : $whd;
+            #end
+        #end
+#end

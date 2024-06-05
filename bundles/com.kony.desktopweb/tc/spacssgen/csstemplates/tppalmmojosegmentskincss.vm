@@ -1,0 +1,89 @@
+#if($focusSkin)
+	#set($s = $skin + ".selected")
+	#set($f = $skin + ".first.selected")
+	#set($l = $skin + ".last.selected")
+#else
+	#set($s = "." + $skin)
+	#set($f = $s + ".first")
+	#set($l = $s + ".last")
+#end
+
+#set($gs = ".grouped" + $skin)
+#set($gl = ".groupedlist" + $skin)
+
+#if(!$focusSkin)
+$gl {
+    position: relative;
+    background: white;
+    -webkit-border-radius: 12px;
+    border: 1px solid #999999;    
+    margin: 0px;
+    #if($background-color)
+        #if($bg_rgba == "true")
+            background-color : $background-color;
+        #else
+            background-color : #$background-color;
+        #end
+	#end
+}
+
+$gs {
+
+	#if($border-color && $border-width)
+		#set($bw = $border-width + "px")
+        #if($rgba == "true")
+             border : $bw solid $border-color;
+        #else
+              border :  $bw solid #$border-color;
+        #end
+        -webkit-border-radius: 15px;
+    #else
+        border : none;
+    #end
+}
+#end
+
+$s{
+     #if($background-color)
+        #if($rgba == "true")
+            background-color : $background-color;
+        #else
+            background-color : #$background-color;
+        #end
+	#end
+    -webkit-border-image: url(../none.png) 24 20 24 20 repeat repeat;
+}
+
+$f{
+     #if($background-color)
+        #if($rgba == "true")
+            background-color : $background-color;
+        #else
+            background-color : #$background-color;
+        #end
+	#end
+    #if($groupCells && $focusSkin)
+		-webkit-border-radius: 0px;
+                border-radius: 0px;
+	#else
+		-webkit-border-top-left-radius: 12px;
+		-webkit-border-top-right-radius: 12px;
+	#end
+}
+
+$l{
+    #if($background-color)
+		#if($rgba == "true")
+            background-color : $background-color;
+        #else
+            background-color : #$background-color;
+        #end
+	#end
+    #if($groupCells && $focusSkin)
+		-webkit-border-radius: 0px;
+                border-radius: 0px;
+	#else   
+        -webkit-border-bottom-right-radius: 12px;
+        -webkit-border-bottom-left-radius: 12px;
+	#end	
+ }

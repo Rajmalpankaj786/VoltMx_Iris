@@ -1,0 +1,99 @@
+#if($layout == "vertical")
+    #if($default == "true")
+    $skin {
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+        display: block;
+        margin: -8px 0 -8px -10px;
+        padding: 8px 32px 8px 10px;
+        text-decoration: none;
+        color: inherit;
+        background: url(./images/listArrow.png) no-repeat right center; 
+         #if($align)
+        text-align: $align;
+    #end
+    }
+    #else
+     $skin {
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+        display: block;
+        margin: -8px 0 -8px -10px;
+
+        #if($bottom-padding)
+            padding: 8px 32px $bottom-padding 10px;
+        #else
+            padding: 8px 32px 8px 10px;
+        #end
+        text-decoration: none;
+        #if($color)
+            color: #$color;
+        #else
+            color: inherit;
+        #end
+        background: url(./images/listArrow.png) no-repeat right center; 
+         #if($align)
+        text-align: $align;
+    #end
+
+            }
+     #end
+#elseif($layout == "horizontal")
+
+#if($default == "true")
+$skin {
+    #if($width)
+        width: $width%;
+    #else
+        width: auto;
+    #end
+    margin: 4px 0 0 0;
+    padding: 1px;
+    font-size: $font-size;
+    font-weight: normal;
+    text-decoration: none;
+     #if($align)
+        text-align: $align;
+    #end
+
+}
+#else
+ $skin {
+     text-decoration: none;
+    #if($width)
+        width: $width%;
+    #else
+        width: auto;
+    #end
+    margin: 4px 0 0 0;
+    #if($bottom-padding)
+        padding: 1px 1px $bottom-padding 1px;
+    #else
+        padding: 1px;
+    #end
+    #if($font-size)
+        font-size: $font-size ;
+    #else
+        font-size: $font-size;
+    #end
+    #if($font-weight)
+        font-weight: $font-weight;
+    #else
+        font-weight: normal;
+    #end
+    #if(!$segment)
+        float:left;
+    #end
+    #if($color)
+        color:#$color;
+    #else
+        color:black;
+    #end
+    #if($align)
+        text-align: $align;
+    #end
+        }
+    #end
+
+
+#end

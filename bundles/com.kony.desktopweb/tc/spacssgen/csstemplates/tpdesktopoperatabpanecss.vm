@@ -1,0 +1,166 @@
+#if($focusSkin)
+
+#else
+    #set($li = "." + $skin + "li")
+    #set($lia = "." + $skin + "lia")
+#end
+
+$lia{
+            text-decoration: none;
+            padding: 3px 7px;
+            margin-right: 3px;
+            border: 1px solid gray;
+            border-bottom: none;
+
+            #if($background-color)
+                #if($rgba == "true")
+                    background-color : $background-color;
+                #else
+                    #set($bc = "#" + $background-color)
+                    background-color: $bc;
+                #end
+            #elseif($bg-grad-split-ms)
+                #parse("tpdesktopoperacssbggradient.vm")
+            #elseif($background-image)
+                #if($repeat && $verticalrepeat)
+                    background-image: url(./images/$background-image);
+                    background-repeat : repeat;
+                #elseif($repeat)
+                    background-image: url(./images/$background-image);
+                    background-repeat : repeat-x;
+                #elseif($verticalrepeat )
+                    background-image: url(./images/$background-image);
+                    background-repeat : repeat-y;
+                #else
+                    background-image: url(./images/$background-image);
+                    background-repeat : no-repeat;
+                #end
+                #if($enable_bg_size == "true")
+                          background-size : 100% 100%;
+                #end
+            #end
+
+          #if($color)
+                #if($rgba_font == "true")
+                    color : $color;
+                #else
+                    color: #$color;
+                #end
+          #end
+		
+	#if($forking) 	
+	    #parse("tpxadvoperamobilecssborderspecific.vm")
+        #else
+	    #parse("tpxadvoperamobilecssborder.vm")
+	#end	 
+    }
+	
+ $li{
+        padding: 3px 0;
+        margin-left: 0;
+        #parse("tppalmmojocssfonts.vm")
+        border-bottom: 1px solid gray;
+        list-style-type: none;
+        text-align: left; /*set to left, center, or right to align the menu as desired*/
+		#if($forking)
+			 #if ($border-bottom-width)
+                            #set($bw = $border-bottom-width + "px")
+                            border-bottom-width: $bw;
+                            border-bottom-style: solid;
+                            #if ($border-bottom-color)
+                                 #if($rgba_bottom_border == "true")
+                                    border-bottom-color : $border-bottom-color;
+                                #else
+                                    border-bottom-color : #$border-bottom-color;
+                                #end
+                            #else
+                                border-bottom-color : none;
+                            #end
+                        #end
+		#else
+                    #if ($border-width)
+                            #set($bw = $border-width + "px")
+                            #if ($border-color)
+                                #if($rgba_border == "true")
+                                    #set($bc = $border-color)
+                                #else
+                                    #set($bc = "#"+$border-color)
+                                #end
+                           #else
+                                #set($bc = "#000000")
+                           #end
+
+                            border-bottom: $bw solid $bc;
+                           #*  border-top: none;
+                             border-left: none;
+                             border-right: none;
+                            *#
+                    #end
+		#end
+    }
+
+#if($focusSkin)
+$skin
+#else
+.$skin
+#end
+    {
+        #parse("tppalmmojocssfonts.vm")
+        margin: 0px;
+        padding: 4px;
+
+        #if($background-color)
+            #if($rgba == "true")
+                background-color : $background-color;
+            #else
+                 #set($bc = "#" + $background-color)
+                background-color: $bc;
+            #end
+        #elseif($bg-grad-split-ms)
+            #parse("tpdesktopoperacssbggradient.vm")
+        #elseif($background-image)
+                #if($repeat && $verticalrepeat)
+                    background-image: url(./images/$background-image);
+                    background-repeat : repeat;
+                #elseif($repeat)
+                    background-image: url(./images/$background-image);
+                    background-repeat : repeat-x;
+                #elseif($verticalrepeat )
+                    background-image: url(./images/$background-image);
+                    background-repeat : repeat-y;
+                #else
+                    background-image: url(./images/$background-image);
+                    background-repeat : no-repeat;
+                #end
+                #if($enable_bg_size == "true")
+                          background-size : 100% 100%;
+                #end
+      #end
+
+               #if($forking)
+			 #if ($border-bottom-width)
+                            #set($bw = $border-bottom-width + "px")
+                            border-bottom-width: $bw;
+                            border-bottom-style: solid;
+                            #if ($border-bottom-color)
+                                #if($rgba_bottom_border == "true")
+                                    border-bottom-color : $border-bottom-color;
+                                #else
+                                    border-bottom-color : #$border-bottom-color;
+                                #end
+                            #else
+                                border-bottom-color : none;
+                            #end
+                        #end
+		#else
+			 #parse("tpxadvoperamobilecssborder.vm")
+		#end
+
+      #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+      #end
+   }

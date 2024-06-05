@@ -1,0 +1,10 @@
+#if($background-color)
+        background-color : #$background-color;
+#elseif($background-image)
+        #if($repeat)
+            background-image: url(./images/$background-image) repeat;
+        #else
+            background-image: url(./images/$background-image);
+        #end
+
+#end

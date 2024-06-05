@@ -1,0 +1,17 @@
+{
+  "background_color": "295963ff",
+  "bg_type": "one",
+  "border_color": "000000ff",
+  "border_style": "plain",
+  "border_type": 0,
+  "border_width": 0,
+  "constants": {
+    "background_color": {
+      "key": "color",
+      "value": "${themes.thirdColorShade1}"
+    }
+  },
+  "isDefaultSkin": false,
+  "kuid": "s967ff60e025449bad99b7dc413d0d38",
+  "wType": "FlexContainer"
+}

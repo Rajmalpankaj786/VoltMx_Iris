@@ -1,0 +1,16 @@
+$skin {
+    #if($height)
+        #set($h = $height + "px")
+        height: $h;
+    #else
+        height: 1px;
+    #end
+    #if($color)
+        color: #$color;
+        background-color: #$color;
+        border:#$color;
+    #else
+        color: black;
+        background-color: black;
+    #end
+}

@@ -1,0 +1,127 @@
+#if($focusSkin)
+	#set($son = $skin+ "on")
+        #set($soff = $skin+ "off")
+        #set($row =  $skin+ "row")
+#else
+	#set($son = "." + $skin+ "on")
+        #set($soff = "." + $skin+ "off")
+        #set($row = "." + $skin+ "row")
+#end
+$row {
+   #if($forking)
+        #parse("tpxadviecssborderspecific.vm")
+   #else
+        #parse("tpxadviecssborder.vm")
+   #end
+}
+
+$son{
+     -webkit-transition: margin-left 0.2s ease-in-out;
+     #parse("tppalmmojocssswitchleftfonts.vm")
+     #if($leftcolor)
+        #if($rgba_left_font == "true")
+            color : $leftcolor;
+        #else
+            color: #$leftcolor;
+        #end
+    #end
+    #if($left-background-color)
+        #if($left_rgba == "true")
+            background-color : $left-background-color;
+        #else
+             #set($bc = "#" + $left-background-color)
+             background-color: $bc;
+        #end
+    #elseif($bg-grad-split-ms)
+        ##parse("tpxspaiecssbggradient.vm")
+        #if($left-background-gradient)
+             filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$lefttopcolor', endColorstr='$leftbottomcolor'); 
+        #elseif($left-background-split)
+             filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$lefttopcolor', endColorstr='$leftbottomcolor'); 
+        #elseif($left-background-horizontal-gradient)
+             filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$lefttopcolor', endColorstr='$leftbottomcolor'); 
+        #elseif($left-background-horizontal-split)
+            filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$lefttopcolor', endColorstr='$leftbottomcolor'); 
+        #elseif($background-ms-gradient)
+           background-image : -webkit-gradient(linear,$background-ms-color);
+        #end
+    #elseif($left-background-image)
+        #if($repeat && $verticalrepeat)
+            background: url(./images/$left-background-image) repeat;
+        #elseif($repeat)
+            background: url(./images/$left-background-image) repeat-x;
+        #elseif($verticalrepeat)
+            background: url(./images/$left-background-image) repeat-y;
+        #else
+            background: url(./images/$left-background-image) no-repeat;
+        #end
+    #else
+        background: inherit;
+    #end
+
+    #if ($border-top-left-style)
+        border-top-left-radius: ${border-top-left-radius}px;
+    #end
+    #if ($border-top-right-style)
+        border-top-right-radius: ${border-top-right-radius}px;
+    #end
+    text-align: center;
+    margin-left: 0%;
+}
+
+$soff{
+
+ -webkit-transition: margin-left 0.2s ease-in-out;
+     #parse("tppalmmojocssswitchrightfonts.vm")
+     #if($rightcolor)
+        #if($rgba_right_font == "true")
+            color : $rightcolor;
+        #else
+            color: #$rightcolor;
+        #end
+    #end
+    #if($right-background-color)
+        #if($right_rgba == "true")
+            background-color : $right-background-color;
+        #else
+             #set($bc = "#" + $right-background-color)
+             background-color: $bc;
+        #end
+    #elseif($bg-grad-split-ms)
+        ##parse("tpxspaiecssbggradient.vm")
+        #if($right-background-gradient)
+            filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$righttopcolor', endColorstr='$rightbottomcolor');  
+        #elseif($right-background-split)
+          filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$righttopcolor', endColorstr='$rightbottomcolor');  
+        #elseif($right-background-horizontal-gradient)
+            filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr='$righttopcolor', endColorstr='$rightbottomcolor');  
+        #elseif($right-background-horizontal-split)
+            filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr='$righttopcolor', endColorstr='$rightbottomcolor');  
+        #elseif($background-ms-gradient)
+           background-image : -webkit-gradient(linear,$background-ms-color);
+        #end
+    #elseif($right-background-image)
+        #if($repeat && $verticalrepeat)
+            background: url(./images/$right-background-image) repeat;
+        #elseif($repeat)
+            background: url(./images/$right-background-image) repeat-x;
+        #elseif($verticalrepeat)
+            background: url(./images/$right-background-image) repeat-y;
+        #else
+            background: url(./images/$right-background-image) no-repeat;
+        #end
+    #else
+        background: inherit;
+    #end
+
+    #if ($border-bottom-left-style)
+       border-bottom-left-radius: ${border-bottom-left-radius}px;
+    #end
+    #if ($border-bottom-right-style)
+       border-bottom-right-radius: ${border-bottom-right-radius}px;
+    #end
+    text-align: center;
+    margin-left: 50%;
+}
+
+    

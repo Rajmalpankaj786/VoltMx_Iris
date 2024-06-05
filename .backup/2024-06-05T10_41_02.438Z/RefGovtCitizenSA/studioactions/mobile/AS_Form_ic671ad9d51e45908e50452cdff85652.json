@@ -1,0 +1,198 @@
+{
+    "AS_Form_ic671ad9d51e45908e50452cdff85652": {
+        "id": "AS_Form_ic671ad9d51e45908e50452cdff85652",
+        "type": "ACTION_SEQUENCE",
+        "params": [{
+            "datatype": "collection",
+            "name": "eventobject"
+        }],
+        "contextObj": {
+            "name": "frmDashboard",
+            "type": "forms",
+            "platform": "",
+            "KUID": "fcbc1ed742fd42bfba1f4b347c731809"
+        },
+        "language": "js",
+        "actions": [{
+            "id": "LOADING_INDICATOR_d7488e3df1674a80a541a2260e790ae4",
+            "selectedOption": "show",
+            "parentId": null,
+            "type": "LOADING_INDICATOR",
+            "callbackType": null,
+            "skin": "none",
+            "position": "constants.LOADING_SCREEN_POSITION_FULL_SCREEN",
+            "isBlocked": "true",
+            "showProgressIndicator": "true",
+            "text": "Fetching news articles ..."
+        }, {
+            "id": "INVOKE_SERVICE_c8258f312a43488c82d524aee0d59a6f",
+            "type": "INVOKE_ASYNC_SERVICE",
+            "inputparams": null,
+            "httpheaders": null,
+            "httpconfigs": null,
+            "isasynchronous": true,
+            "mappings": {
+                "ME_Mapping_f6085362acc04b42bd152c62214e7714": {
+                    "channel": "mobile",
+                    "id": "ME_Mapping_f6085362acc04b42bd152c62214e7714",
+                    "type": "MAPPING",
+                    "callbackType": null,
+                    "rectified": true,
+                    "source": {
+                        "type": "Variables",
+                        "propertyName": "gblNewsPreference",
+                        "dataType": "string",
+                        "forkedPlatform": "all"
+                    },
+                    "target": {
+                        "type": "Services",
+                        "propertyName": "newsType",
+                        "dataType": "string",
+                        "forkedPlatform": "all",
+                        "serviceconfig": {
+                            "servicename": "VMXBootcampNewsFeed",
+                            "serviceid": "86c1d9ea-dc5f-44c9-a273-433239ebce0d",
+                            "type": "integration",
+                            "operationname": "getNews",
+                            "operationid": "68809"
+                        }
+                    }
+                }
+            },
+            "mappingsOrder": ["ME_Mapping_f6085362acc04b42bd152c62214e7714"],
+            "serviceconfig": {
+                "servicename": "VMXBootcampNewsFeed",
+                "serviceid": "86c1d9ea-dc5f-44c9-a273-433239ebce0d",
+                "type": "integration",
+                "operationname": "getNews",
+                "operationid": "68809"
+            },
+            "parentId": null,
+            "callbackType": null,
+            "enableMappingEditor": true
+        }, {
+            "id": "LOADING_INDICATOR_beae8f2adc0e4adfa41b150d227be8ba",
+            "selectedOption": "dismiss",
+            "parentId": "INVOKE_SERVICE_c8258f312a43488c82d524aee0d59a6f",
+            "type": "LOADING_INDICATOR",
+            "callbackType": "Callback",
+            "skin": "none",
+            "position": "constants.LOADING_SCREEN_POSITION_FULL_SCREEN",
+            "isBlocked": "true",
+            "showProgressIndicator": "true"
+        }, {
+            "id": "_j2af21c5803e418caf77ec50709c9bea",
+            "type": "IF_CONDITION",
+            "conditions": [{
+                "leftValueType": "expression",
+                "leftValue": "getNews !== null"
+            }, {
+                "leftValueType": "expression",
+                "leftValue": "getNews.opstatus === 0"
+            }],
+            "parentId": "INVOKE_SERVICE_c8258f312a43488c82d524aee0d59a6f",
+            "callbackType": "Callback",
+            "criteria": "all"
+        }, {
+            "id": "_b2cad9d0ae3441118a86eb21bbeb569f",
+            "type": "ELSE_CONDITION",
+            "conditions": [{
+                "leftValueType": "widgetprop",
+                "leftValue": "",
+                "operator": "===",
+                "rightValueType": "widgetprop",
+                "rightValue": ""
+            }],
+            "parentId": "INVOKE_SERVICE_c8258f312a43488c82d524aee0d59a6f",
+            "callbackType": "Callback",
+            "criteria": "all"
+        }, {
+            "id": "ADD_SNIPPET_i58cca0cea844c9e83522b9aa4d0da8c",
+            "type": "ADD_SNIPPET",
+            "codeSnippet": "voltmx.print(\"### Error occurred in Foundry layer while fetching news. OPSTATUS: \"+getNews.opstatus);",
+            "parentId": "_b2cad9d0ae3441118a86eb21bbeb569f",
+            "callbackType": null
+        }, {
+            "id": "_h178659c04f844e58d5d3ce69b8232cd",
+            "type": "IF_CONDITION",
+            "conditions": [{
+                "leftValueType": "expression",
+                "leftValue": "getNews.channel !== null"
+            }, {
+                "leftValueType": "expression",
+                "leftValue": "getNews.channel.length > 0"
+            }],
+            "parentId": "_j2af21c5803e418caf77ec50709c9bea",
+            "callbackType": null,
+            "criteria": "all"
+        }, {
+            "id": "ADD_SNIPPET_jb786c3ea2f34eb996fd9809e60215d4",
+            "type": "ADD_SNIPPET",
+            "codeSnippet": "self.view.newsarticles.segLatestNews.widgetDataMap = \n  {\"lblTitle\":\"title\",\"imgDisplayPic\":\"media\"};\n",
+            "parentId": "_h178659c04f844e58d5d3ce69b8232cd",
+            "callbackType": null
+        }, {
+            "id": "_fe4101ec97984d0c96a4878713bd3981",
+            "type": "ELSE_CONDITION",
+            "conditions": [{
+                "leftValueType": "widgetprop",
+                "leftValue": "",
+                "operator": "===",
+                "rightValueType": "widgetprop",
+                "rightValue": ""
+            }],
+            "parentId": "_j2af21c5803e418caf77ec50709c9bea",
+            "callbackType": null,
+            "criteria": "all"
+        }, {
+            "id": "ADD_SNIPPET_c4fb1ebdf1744476861d26b36434f4e6",
+            "type": "ADD_SNIPPET",
+            "codeSnippet": "voltmx.print(\"### No news articles returned.\");",
+            "parentId": "_fe4101ec97984d0c96a4878713bd3981",
+            "callbackType": null
+        }, {
+            "id": "ADD_MAPPING_fbbf6a676da147458d87d497600e22fb",
+            "type": "ADD_MAPPING",
+            "mappings": {
+                "ME_Mapping_i8b66a18427245c5a91a1ce31e19c6ea": {
+                    "channel": "mobile",
+                    "id": "ME_Mapping_i8b66a18427245c5a91a1ce31e19c6ea",
+                    "type": "MAPPING",
+                    "callbackType": null,
+                    "rectified": true,
+                    "source": {
+                        "type": "Services",
+                        "propertyName": "channel",
+                        "dataType": "collection",
+                        "forkedPlatform": "all",
+                        "serviceconfig": {
+                            "servicename": "VMXBootcampNewsFeed",
+                            "serviceid": "86c1d9ea-dc5f-44c9-a273-433239ebce0d",
+                            "type": "integration",
+                            "operationname": "getNews",
+                            "operationid": "68809"
+                        }
+                    },
+                    "target": {
+                        "type": "Forms",
+                        "propertyName": "rowData",
+                        "widgetId": "segLatestNews",
+                        "widgetPath": "this.view.newsarticles.segLatestNews",
+                        "widgetType": "Segment",
+                        "dataType": "collection",
+                        "itemId": "frmDashboard",
+                        "collectionId": "masterdata",
+                        "widgetKUID": "je220b52692b492aa0d5b68da4b86e67",
+                        "itemKUID": "fcbc1ed742fd42bfba1f4b347c731809",
+                        "forkedPlatform": "all",
+                        "instanceKUID": "aa8dc6347c5b404db1c79025e69edec5"
+                    }
+                }
+            },
+            "mappingsOrder": ["ME_Mapping_i8b66a18427245c5a91a1ce31e19c6ea"],
+            "parentId": "_h178659c04f844e58d5d3ce69b8232cd",
+            "callbackType": null,
+            "enableMappingEditor": true
+        }]
+    }
+}

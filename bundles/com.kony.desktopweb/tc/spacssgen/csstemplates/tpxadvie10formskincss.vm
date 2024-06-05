@@ -1,0 +1,36 @@
+#if($focusSkin)
+	#set($s = $skin)
+#else
+	#set($s = "." + $skin)
+#end
+
+$s
+{
+    #*box-sizing: border-box;
+    -ms-box-sizing: border-box;
+	box-sizing: border-box;
+    padding: 0px*#
+    #parse("tppalmmojocssfonts.vm")
+    #if($background-color)
+            #if($rgba == "true")
+                background-color : $background-color;
+            #else
+                #set($bc = "#" + $background-color)
+                background-color: $bc;
+            #end
+    #elseif($background-image)
+        #set($formwidget = "true")
+        #parse("tpspagenericbgimage.vm")
+    #else
+        background: inherit;
+        #parse("tpxadvie10formbackgroundgradientscss.vm")
+    #end
+   #if($forking)
+        #parse("tpxadvie10cssborderspecific.vm")
+   #else
+        #parse("tpxadvie10cssborder.vm")
+   #end
+    #if($forking)
+        #parse("tpxadvie10shadowcss.vm")
+    #end
+}

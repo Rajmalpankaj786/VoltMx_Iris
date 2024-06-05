@@ -1,0 +1,2112 @@
+{
+  "!name": "voltmx-sdk",
+  "!define": {
+    "voltmx.sdk.prototype.getConfigurationService.!ret": "+ConfigurationService",
+    "voltmx.sdk.prototype.getIdentityService.!ret": "+IdentityService",
+    "voltmx.sdk.prototype.getLogicService.!ret": "+voltmx.sdk.LogicService",
+    "voltmx.sdk.prototype.getObjectService.!ret": "+voltmx.sdk.OfflineObjectService",
+    "voltmx.sdk.prototype.getIntegrationService.!ret": "+IntegrationService",
+    "voltmx.sdk.prototype.getMessagingService.!ret": "+MessagingService",
+    "voltmx.sdk.prototype.getMetricsService.!ret": "+MetricsService",
+    "voltmx.sdk.prototype.getSyncService.!ret": "+voltmxSdkSyncService",
+    "voltmx.sdk.dto.SelectQuery.prototype.addColumn.!ret": "[?]",
+    "voltmx.sdk.dto.SelectQuery.prototype.addCriteria.!ret": "[?]",
+    "voltmx.sdk.dto.SelectQuery.prototype.getTables.!ret": "[?]",
+    "voltmx.sdk.dto.SelectQuery.prototype.getColumns.!ret": "[?]",
+    "voltmx.sdk.dto.SelectQuery.prototype.getCriterias.!ret": "[?]",
+    "voltmx.sdk.dto.SelectQuery.prototype.getGroups.!ret": "[?]",
+    "voltmx.sdk.dto.SelectQuery.prototype.getJoins.!ret": "[?]",
+    "voltmx.sdk.dto.SelectQuery.prototype.getOrders.!ret": "[?]"
+  },
+  "ConfigurationService": {
+    "prototype": {
+      "getAllClientAppProperties": {
+        "!type": "fn(successCallback: ?, failureCallback: ?) -> ?",
+        "!span": "5715[180:31]-5740[180:56]",
+        "!doc": "Configuration svc method to get all the client app properties which is configured in admin console.\n@successCallback this is called on successfull retrieval of properties\n@failureCallback this is called on failure in retrieving properties\n@returns {json} key value pair of all client app properties"
+      }
+    },
+    "!type": "fn(voltmxRef: string)",
+    "!span": "5322[172:9]-5342[172:29]",
+    "!doc": "Should not be called by the developer.\n@class\n@classdesc Configuration service instance for fetching client app properties."
+  },
+  "IdentityService": {
+    "prototype": {
+      "register": {
+        "!type": "fn(params: ?, successCallback: ?, failureCallback: ?, options: ?)",
+        "!span": "6121[195:26]-6129[195:34]"
+      },
+      "login": {
+        "!type": "fn(options: ?, successCallback: ?, failureCallback: ?)",
+        "!span": "6223[196:26]-6228[196:31]"
+      },
+      "validateMfa": {
+        "!type": "fn(mfaParams: ?, successCallback: ?, failureCallback: ?, options: ?)",
+        "!span": "6314[197:26]-6325[197:37]"
+      },
+      "getMfaDetails": {
+        "!type": "fn()",
+        "!span": "6423[198:26]-6436[198:39]"
+      },
+      "usePersistedLogin": {
+        "!type": "fn()",
+        "!span": "6483[199:26]-6500[199:43]"
+      },
+      "logout": {
+        "!type": "fn(successCallback: ?, failureCallback: ?, options: ?)",
+        "!span": "6544[200:26]-6550[200:32]"
+      },
+      "getBackendToken": {
+        "!type": "fn(fromserver: ?, options: ?, successCallback: ?, failureCallback: ?)",
+        "!span": "6636[201:26]-6651[201:41]"
+      },
+      "getProfile": {
+        "!type": "fn(fromserver: ?, successCallback: ?, failureCallback: ?)",
+        "!span": "6749[202:26]-6759[202:36]"
+      },
+      "getProviderName": {
+        "!type": "fn() -> string",
+        "!span": "6848[203:26]-6863[203:41]"
+      },
+      "getProviderType": {
+        "!type": "fn()",
+        "!span": "6920[204:26]-6935[204:41]"
+      },
+      "getUserData": {
+        "!type": "fn(successCallback: ?, failureCallback: ?)",
+        "!span": "6981[205:26]-6992[205:37]"
+      },
+      "getUserAttributes": {
+        "!type": "fn(successCallback: ?, failureCallback: ?)",
+        "!span": "7071[207:26]-7088[207:43]"
+      },
+      "getSecurityAttributes": {
+        "!type": "fn(successCallback: ?, failureCallback: ?)",
+        "!span": "7167[209:26]-7188[209:47]"
+      }
+    },
+    "!type": "fn(voltmxRef: string, rec: string)",
+    "!span": "6058[193:9]-6073[193:24]",
+    "!doc": "Should not be called by the developer.\n@class\n@classdesc Identity service instance for handling login/logout calls."
+  },
+  "voltmxSdkLogger": {
+    "prototype": {
+      "INDIRECTIONLEVEL": {
+        "!type": "number",
+        "!span": "7413[217:24]-7429[217:40]"
+      },
+      "trace": {
+        "!type": "fn(msg: ?, params: ?)",
+        "!span": "7460[218:24]-7465[218:29]"
+      },
+      "debug": {
+        "!type": "fn(msg: ?, params: ?)",
+        "!span": "7565[221:24]-7570[221:29]"
+      },
+      "info": {
+        "!type": "fn(msg: ?, params: ?)",
+        "!span": "7670[224:24]-7674[224:28]"
+      },
+      "warn": {
+        "!type": "fn(msg: ?, params: ?)",
+        "!span": "7773[227:24]-7777[227:28]"
+      },
+      "error": {
+        "!type": "fn(msg: ?, params: ?)",
+        "!span": "7876[230:24]-7881[230:29]"
+      },
+      "fatal": {
+        "!type": "fn(msg: ?, params: ?)",
+        "!span": "7981[233:24]-7986[233:29]"
+      }
+    },
+    "!type": "fn()",
+    "!span": "7368[216:9]-7381[216:22]",
+    "!doc": "=================================== LOGGER SERVICE ======================================================="
+  },
+  "voltmxLogger": {
+    "prototype": {
+      "log": {
+        "!type": "fn(text: ?)",
+        "!span": "53649[1880:21]-53652[1880:24]"
+      }
+    },
+    "!type": "fn()",
+    "!span": "53608[1878:9]-53618[1878:19]",
+    "!doc": "==================================================================================================================="
+  },
+  "IntegrationService": {
+    "prototype": {
+      "getUrl": {
+        "!type": "fn() -> string",
+        "!span": "59052[2057:29]-59058[2057:35]"
+      },
+      "invokeOperation": {
+        "!type": "fn(operationName: ?, headers: ?, data: ?, successCallback: ?, failureCallback: ?, options: ?)",
+        "!span": "59126[2061:29]-59141[2061:44]"
+      },
+      "uploadBinaryData": {
+        "!type": "fn(operationName: ?, uploadParams: ?, fileUploadStartedCallback: ?, chunkUploadCompletedCallback: ?, fileUploadCompletedCallback: ?, fileUploadFailureCallback: ?, options: ?)",
+        "!span": "59319[2064:29]-59335[2064:45]"
+      },
+      "getBinaryData": {
+        "!type": "fn(operationName: ?, fileparams: ?, streaming: ?, headers: ?, fileDownloadStartedCallback: ?, chunkDownloadCompletedCallback: ?, fileDownloadCompletedCallback: ?, downloadFailureCallback: ?, options: ?)",
+        "!span": "59650[2068:29]-59663[2068:42]"
+      }
+    },
+    "!type": "fn(voltmxRef: ?, serviceName: ?)",
+    "!span": "58975[2055:9]-58993[2055:27]"
+  },
+  "MessagingService": {
+    "prototype": {
+      "getUrl": {
+        "!type": "fn()",
+        "!span": "60569[2092:27]-60575[2092:33]"
+      },
+      "setKSID": {
+        "!type": "fn(ksid: ?)",
+        "!span": "60625[2095:27]-60632[2095:34]"
+      },
+      "getKSID": {
+        "!type": "fn()",
+        "!span": "60686[2098:27]-60693[2098:34]"
+      },
+      "setAuthToken": {
+        "!type": "fn(authToken: ?)",
+        "!span": "60743[2101:27]-60755[2101:39]"
+      },
+      "getAuthToken": {
+        "!type": "fn(options: ?)",
+        "!span": "60815[2104:27]-60827[2104:39]"
+      },
+      "setKmsAppId": {
+        "!type": "fn(id: ?)",
+        "!span": "60884[2107:27]-60895[2107:38]"
+      },
+      "getKmsAppId": {
+        "!type": "fn()",
+        "!span": "60947[2110:27]-60958[2110:38]"
+      },
+      "register": {
+        "!type": "fn(osType: string, deviceId: string, pnsToken: string, email: string, successCallback: ?, failureCallback: ?)",
+        "!span": "61362[2122:27]-61370[2122:35]",
+        "!doc": "register to messaging service\n@param {string} osType - Type of the operating system\n@param {string} deviceId - Device Id\n@param {string} pnsToken - Token value\n@param {string} email - email\n@param {function} successCallback - Callback method on success\n@param {function} failureCallback - Callback method on failure"
+      },
+      "registerWithAuthToken": {
+        "!type": "fn(osType: string, deviceId: string, pnsToken: string, email: string, authToken: string, successCallback: ?, failureCallback: ?)",
+        "!span": "61893[2135:27]-61914[2135:48]",
+        "!doc": "register to messaging service\n@param {string} osType - Type of the operating system\n@param {string} deviceId - Device Id\n@param {string} authToken - Authorization Token\n@param {string} pnsToken - Token value\n@param {string} email - email\n@param {function} successCallback - Callback method on success\n@param {function} failureCallback - Callback method on failure"
+      },
+      "unregister": {
+        "!type": "fn(successCallback: ?, failureCallback: ?)",
+        "!span": "62283[2144:27]-62293[2144:37]",
+        "!doc": "unregister to messaging service\n@param {function} successCallback - Callback method on success\n@param {function} failureCallback - Callback method on failure"
+      },
+      "unregisterWithAuthToken": {
+        "!type": "fn(authToken: string, successCallback: ?, failureCallback: ?)",
+        "!span": "62607[2153:27]-62630[2153:50]",
+        "!doc": "unregister to messaging service\n@param {string} authToken - Authorization Token\n@param {function} successCallback - Callback method on success\n@param {function} failureCallback - Callback method on failure"
+      },
+      "fetchAllMessages": {
+        "!type": "fn(startIndex: number, pageSize: number, successCallback: ?, failureCallback: ?, options: ?)",
+        "!span": "63039[2164:27]-63055[2164:43]",
+        "!doc": "Fetch all messages\n@param {number} startIndex - starting index\n@param {number} pageSize - page size\n@param {function} successCallback - Callback method on success\n@param {function} failureCallback - Callback method on failure\n@param {dictionary} options - {authToken: <Auth Token>}"
+      },
+      "updateGeoLocation": {
+        "!type": "fn(latitude: string, longitude: string, locationName: string, successCallback: ?, failureCallback: ?)",
+        "!span": "63535[2176:27]-63552[2176:44]",
+        "!doc": "Update the location\n@param {string} latitude - Latitude value\n@param {string} longitude - Longitude value\n@param {string} locationName - Location name\n@param {function} successCallback - Callback method on success\n@param {function} failureCallback - Callback method on failure"
+      },
+      "updateGeoLocationWithAuthToken": {
+        "!type": "fn(latitude: string, longitude: string, locationName: string, authToken: string, successCallback: ?, failureCallback: ?)",
+        "!span": "64089[2189:27]-64119[2189:57]",
+        "!doc": "Update the location\n@param {string} latitude - Latitude value\n@param {string} longitude - Longitude value\n@param {string} locationName - Location name\n@param {string} authToken - Authorization Token\n@param {function} successCallback - Callback method on success\n@param {function} failureCallback - Callback method on failure"
+      },
+      "markMessageRead": {
+        "!type": "fn(fetchId: string, successCallback: ?, failureCallback: ?, options: ?)",
+        "!span": "64614[2200:27]-64629[2200:42]",
+        "!doc": "Mark the message as read for a given message id\n@param {string} fetchId - Message id\n@param {function} successCallback - Callback method on success\n@param {function} failureCallback - Callback method on failure\n@param {dictionary} options - {authToken: <Auth Token>}"
+      },
+      "fetchMessageContent": {
+        "!type": "fn(fetchId: string, successCallback: ?, failureCallback: ?, options: ?)",
+        "!span": "65030[2210:27]-65049[2210:46]",
+        "!doc": "Fetches the message conetent for a given message id\n@param {string} fetchId - Message id\n@param {function} successCallback - Callback method on success\n@param {function} failureCallback - Callback method on failure\n@param {dictionary} options - {authToken: <Auth Token>}"
+      },
+      "registerGeoBoundaries": {
+        "!type": "fn(options: ?, successCallback: ?, failureCallback: ?)",
+        "!span": "65499[2219:27]-65520[2219:48]",
+        "!doc": "Register for registerGeoBoundaries with given radius\n@param {object} options - JSON Object with radius, pageSize, tags and customLogicCallback\n@param {function} successCallback - Callback method on success\n@param {function} failureCallback - Callback method on failure of registerGeoBoundary and refreshGeoBoundariesFailure"
+      },
+      "subscribeAudience": {
+        "!type": "fn(firstName: string, lastName: string, emailId: string, mobileNumber: string, country: string, state: string, successCallback: ?, failureCallback: ?, options: ?)",
+        "!span": "66195[2233:27]-66212[2233:44]",
+        "!doc": "subscribeAudience to create a audience for subscribed device\n@param {string} firstName - audience firstName\n@param {string} lastName - audience lastName\n@param {string} emailId - audience emailId\n@param {string} mobileNumber - audience mobileNumber\n@param {string} country - country\n@param {string} state - state\n@param {Object] options - {authToken: <Auth Token>} and user defined attributes like PAN no,SSN.\n@param {function} successCallback - Callback method on success\n@param {function} failureCallback - Callback method on failure"
+      },
+      "unSubscribeAudience": {
+        "!type": "fn(successCallback: ?, failureCallback: ?, options: ?)",
+        "!span": "66656[2243:27]-66675[2243:46]",
+        "!doc": "delete subscribed audience\n@param {function} successCallback - Callback method on success\n@param {function} failureCallback - Callback method on failure\n@param {dictionary} options - {authToken: <Auth Token>}"
+      },
+      "getSubscribedAudienceDetails": {
+        "!type": "fn(successCallback: ?, failureCallback: ?, options: ?)",
+        "!span": "67021[2252:27]-67049[2252:55]",
+        "!doc": "get subscribed audience details\n@param {function} successCallback - Callback method on success\n@param {function} failureCallback - Callback method on failure\n@param {dictionary} options - {authToken: <Auth Token>}"
+      },
+      "getRichPushContent": {
+        "!type": "fn(pushId: ?, successCallback: ?, failureCallback: ?, options: ?)",
+        "!span": "67515[2263:27]-67533[2263:45]",
+        "!doc": "get rich push content\n@param pushId {string} - pushId for getting rich push content.Which we get after registering\nfor push notifications.\n@param {function} successCallback - Callback method on success\n@param {function} failureCallback - Callback method on failure\n@param {dictionary} options - {authToken: <Auth Token>}"
+      },
+      "updateListOfBeacons": {
+        "!type": "fn(uuId: string, major: string, minor: string, successCallback: ?, failureCallback: ?, options: ?)",
+        "!span": "68237[2275:27]-68256[2275:46]",
+        "!doc": "   * Update the list of beacons\n   * @param {string} uuId - Universally Unique Identifier to identify a beacon in a network\n   * @param {string} major - major id to identity and distinguish a group\n   * @param {string} minor - distinguishing individual beacons within a group of beacons assigned a major value.\n\t* @param {function} successCallback - Callback method called on success.\n\t* @param {function} failureCallback - Callback method called on failure.\n\t* @param {object} options - options which accepts optional parameters such as ufid,appid and {authToken: <Auth Token>}"
+      },
+      "manageGeoBoundariesCallback": {
+        "!type": "fn(data: ?)",
+        "!span": "68426[2279:27]-68453[2279:54]"
+      }
+    },
+    "!type": "fn(voltmxRef: +voltmx.sdk)",
+    "!span": "60509[2090:9]-60525[2090:25]",
+    "!doc": "Should not be called by the developer.\n@class\n@classdesc Messaging service instance for invoking the Messaging services.\n@param voltmxRef - reference to voltmx object"
+  },
+  "MetricsService": {
+    "prototype": {
+      "getUserId": {
+        "!type": "fn(userId: ?)",
+        "!span": "69100[2302:25]-69109[2302:34]"
+      },
+      "setFlowTag": {
+        "!type": "fn(flowTag: string)",
+        "!span": "69322[2308:25]-69332[2308:35]",
+        "!doc": "This method will take the a String to set a Flow Tag for the reported events.\n@param {string} flowTag - sets flow tag for reporting the events."
+      },
+      "clearFlowTag": {
+        "!type": "fn()",
+        "!span": "69465[2314:25]-69477[2314:37]",
+        "!doc": "This method will clear the flow tag set by the user previously."
+      },
+      "getFlowTag": {
+        "!type": "fn() -> string",
+        "!span": "69701[2321:25]-69711[2321:35]",
+        "!doc": "This method will return the a String to set a Flow Tag for the reported events.\n@return {string} flowTag - flow tag set by the user for reporting the events."
+      },
+      "setEventConfig": {
+        "!type": "fn(confType: string, eventBufferAutoFlushCount: number, eventBufferMaxCount: number)",
+        "!span": "70304[2335:25]-70318[2335:39]",
+        "!doc": "This method will take the required values to set the event Configuration values.\n@param {string} confType - sets the Current Configuration Type\n\t\t\t\t\tpossible values BUFFER or INSTANT.\n@param {number} eventBufferAutoFlushCount - event buffer count to auto flush the events\n\t\t\t\t\t\t\t\tpossible values any positive integer\n\t\t\t\t\t\t\t\tDefault value 15\n@param {number} eventBufferMaxCount - Maximum event buffer count to store the events\n\t\t\t\t\t\t\t\tpossible values any positive integer\n\t\t\t\t\t\t\t\tDefault value 1000"
+      },
+      "sendEvent": {
+        "!type": "fn(evttype: string, evtSubType: string, formID: string, widgetID: string, flowTag: string, metaData: string)",
+        "!span": "71035[2349:25]-71044[2349:34]",
+        "!doc": "This method takes the event details from the developer and schedule it for sending to server as per Configuration values set by the developer.\n@param {string} evttype - Event Type for the reported event.\n@param {string} evtSubType - string literal for eventSubType(max 256 Chars)\n@param {string} formID -   string literal for formID(max 256 Chars)\n@param {string} widgetID - string literal for widgetID(max 256 Chars)\n@param {string} flowTag - string literal to override flow tag (max 256 Chars)\n@param {string} metaData - string to describe metaData\n@throws Exception"
+      },
+      "flushEvents": {
+        "!type": "fn()",
+        "!span": "71229[2356:25]-71240[2356:36]",
+        "!doc": "This method will send the buffered events to the server at once."
+      },
+      "sendCustomMetrics": {
+        "!type": "fn(reportingGroupID: string, metrics: ?)",
+        "!span": "71454[2365:25]-71471[2365:42]",
+        "!doc": "invoke the sendCustomMetrics operation\n@param {string} reportingGroupID - reporting Group ID\n@param {object} metrics - metrics being reported"
+      },
+      "reportError": {
+        "!type": "fn(errorCode: string, errorType: string, errorMessage: string, errorDetails: ?)",
+        "!span": "72232[2378:25]-72243[2378:36]",
+        "!doc": "* This method takes the event details from the developer and schedule it for sending to server as per Configuration values set by the developer.\n* @param {string} errorCode - errorCode of the reported error. Can be empty if not applicable\n* @param {string} errorType -   errorType of the reported error. Can be empty if not applicable\n* @param {string} errorMessage - errorMessage of the reported error. Can be empty if not applicable\n* @param {json} errorDetails - errorDetails of the reported error as a json string that can have key-value pairs for the following\nkeys errfile, errmethod, errline, errstacktrace, formID, widgetID, flowTag.\n* @throws Exception"
+      },
+      "reportHandledException": {
+        "!type": "fn(exceptionCode: string, exceptionType: string, exceptionMessage: string, exceptionDetails: ?)",
+        "!span": "73085[2393:25]-73107[2393:47]",
+        "!doc": "* This method takes the event details from the developer and schedule it for sending to server as per Configuration values set by the developer.\n* @param {string} exceptionCode - Code for the reported exception. Can be empty if not applicable\n* @param {string} exceptionType -   Type of the reported exception. Can be empty if not applicable\n* @param {string} exceptionMessage - Message of the reported exception. Can be empty if not applicable\n* @param {json}   exceptionDetails - Details of the reported exception as a JSON string that can have key-value pairs for the\nfollowing keys exceptioncode, exceptionfile, exceptionmethod, exceptionline,\nexceptionstacktrace, formID, widgetID, flowTag.\n* @throws Exception"
+      },
+      "setEventTracking": {
+        "!type": "fn(eventTypes: ?)",
+        "!span": "73333[2401:25]-73349[2401:41]",
+        "!doc": "stub method used for event tracking"
+      }
+    },
+    "!type": "fn(voltmxRef: ?)",
+    "!span": "69044[2300:9]-69058[2300:23]",
+    "!doc": "Should not be called by the developer.\n@class\n@classdesc Metrics service instance for invoking the Metrics services."
+  },
+  "voltmxSdkSyncService": {
+    "prototype": {
+      "init": {
+        "!type": "fn(initSuccess: ?, initFailure: ?)",
+        "!span": "73863[2421:29]-73867[2421:33]",
+        "!doc": "generic apis"
+      },
+      "reset": {
+        "!type": "fn(resetSuccess: ?, resetFailure: ?)",
+        "!span": "73943[2424:29]-73948[2424:34]"
+      },
+      "cancelPendingChunkRequests": {
+        "!type": "fn(successCallback: ?, errorCallback: ?)",
+        "!span": "74026[2427:29]-74052[2427:55]"
+      },
+      "stopSession": {
+        "!type": "fn(successCallback: ?)",
+        "!span": "74134[2430:29]-74145[2430:40]"
+      },
+      "rollbackPendingLocalChanges": {
+        "!type": "fn(successCallback: ?, errorCallback: ?)",
+        "!span": "74212[2433:29]-74239[2433:56]"
+      },
+      "getPendingAcknowledgement": {
+        "!type": "fn(successCallback: ?, errorCallback: ?)",
+        "!span": "74321[2436:29]-74346[2436:54]"
+      },
+      "getPendingUpload": {
+        "!type": "fn(successCallback: ?, errorCallback: ?)",
+        "!span": "74428[2439:29]-74444[2439:45]"
+      },
+      "getDeferredUpload": {
+        "!type": "fn(successCallback: ?, errorCallback: ?)",
+        "!span": "74526[2442:29]-74543[2442:46]"
+      },
+      "getAllPendingUploadInstances": {
+        "!type": "fn(retrieveOnlyCount: ?, successcallback: ?, errorcallback: ?)",
+        "!span": "74625[2445:29]-74653[2445:57]"
+      },
+      "executeSelectQuery": {
+        "!type": "fn(query: ?, successcallback: ?, errorcallback: ?)",
+        "!span": "74824[2449:29]-74842[2449:47]"
+      },
+      "getFailedBinaryRecords": {
+        "!type": "fn(isDownload: ?, tablename: ?, columnname: ?, successCallback: ?, errorCallback: ?)",
+        "!span": "74957[2453:29]-74979[2453:51]",
+        "!doc": "adding the binary apis"
+      },
+      "getStatusForBinary": {
+        "!type": "fn(tbname: ?, columnName: ?, pks: ?, successCallback: ?, errorCallback: ?)",
+        "!span": "75160[2457:29]-75178[2457:47]"
+      },
+      "getBinaryBase64": {
+        "!type": "fn(tbname: ?, columnName: ?, pks: ?, config: ?, successCallback: ?, errorCallback: ?)",
+        "!span": "75345[2461:29]-75360[2461:44]"
+      },
+      "getBinaryFilepath": {
+        "!type": "fn(tbname: ?, columnName: ?, pks: ?, config: ?, successCallback: ?, errorCallback: ?)",
+        "!span": "75532[2465:29]-75549[2465:46]"
+      },
+      "createDownloadTask": {
+        "!type": "fn(tbname: ?, columnName: ?, pks: ?, config: ?, successCallback: ?, errorCallback: ?)",
+        "!span": "75745[2469:29]-75763[2469:47]",
+        "!doc": "binary chunking apis"
+      },
+      "startDownload": {
+        "!type": "fn(downloadID: ?, successCallback: ?, errorCallback: ?)",
+        "!span": "75938[2473:29]-75951[2473:42]"
+      },
+      "pauseDownload": {
+        "!type": "fn(downloadID: ?, successCallback: ?, errorCallback: ?)",
+        "!span": "76045[2476:29]-76058[2476:42]"
+      },
+      "resumeDownload": {
+        "!type": "fn(downloadID: ?, successCallback: ?, errorCallback: ?)",
+        "!span": "76152[2479:29]-76166[2479:43]"
+      },
+      "getBinaryDataFilePath": {
+        "!type": "fn(tbname: ?, columnName: ?, pks: ?, successCallback: ?, errorCallback: ?)",
+        "!span": "76260[2482:29]-76281[2482:50]"
+      },
+      "getBinary": {
+        "!type": "fn(tableName: ?, binaryColumnName: ?, primaryKeyTable: ?, config: ?, successCallback: ?, errorCallback: ?)",
+        "!span": "76451[2486:29]-76460[2486:38]"
+      },
+      "deleteBinaryObject": {
+        "!type": "fn(tableName: ?, binaryColumnName: ?, primaryKeyTable: ?, options: ?, successCallback: ?, errorCallback: ?)",
+        "!span": "76647[2490:29]-76665[2490:47]"
+      },
+      "startSession": {
+        "!type": "fn(config: ?)",
+        "!span": "76878[2495:29]-76890[2495:41]",
+        "!doc": "modified api"
+      },
+      "performUpgrade": {
+        "!type": "fn(config: ?)",
+        "!span": "76948[2498:29]-76962[2498:43]"
+      },
+      "isUpgradeRequired": {
+        "!type": "fn(config: ?)",
+        "!span": "77020[2501:29]-77037[2501:46]"
+      },
+      "startReconciliation": {
+        "!type": "fn(config: ?)",
+        "!span": "77095[2504:29]-77114[2504:48]"
+      }
+    },
+    "!type": "fn(voltmxRef: +voltmx.sdk)",
+    "!span": "73721[2416:9]-73739[2416:27]"
+  },
+  "voltmx": {
+    "sdk": {
+      "prototype": {
+        "globalRequestParams": {
+          "!span": "225[11:19]-244[11:38]"
+        },
+        "getDataStore": {
+          "!type": "fn()",
+          "!span": "535[21:19]-547[21:31]"
+        },
+        "setDataStore": {
+          "!type": "fn(dataStore: ?)",
+          "!span": "615[24:19]-627[24:31]"
+        },
+        "getUserId": {
+          "!type": "fn()",
+          "!span": "711[28:19]-720[28:28]"
+        },
+        "setCurrentUserId": {
+          "!type": "fn(newUserID: ?)",
+          "!span": "780[31:19]-796[31:35]"
+        },
+        "setClientParams": {
+          "!type": "fn(clientParamsMap: ?)",
+          "!span": "872[35:19]-887[35:34]"
+        },
+        "getClientParams": {
+          "!type": "fn()",
+          "!span": "981[39:19]-996[39:34]"
+        },
+        "globalRequestParamType": {
+          "headers": {
+            "!type": "string",
+            "!span": "1096[44:4]-1103[44:11]"
+          },
+          "queryParams": {
+            "!type": "string",
+            "!span": "1120[45:4]-1131[45:15]"
+          },
+          "bodyParams": {
+            "!type": "string",
+            "!span": "1152[46:4]-1162[46:14]"
+          },
+          "!span": "1064[43:19]-1086[43:41]"
+        },
+        "getGlobalRequestParams": {
+          "!type": "fn(paramType: ?) -> !this.globalRequestParams",
+          "!span": "1202[49:19]-1224[49:41]"
+        },
+        "setGlobalRequestParam": {
+          "!type": "fn(paramName: ?, paramValue: ?, paramType: ?)",
+          "!span": "1798[62:19]-1819[62:40]"
+        },
+        "removeGlobalRequestParam": {
+          "!type": "fn(paramName: ?, paramType: ?)",
+          "!span": "1893[65:19]-1917[65:43]"
+        },
+        "resetGlobalRequestParams": {
+          "!type": "fn()",
+          "!span": "1978[68:19]-2002[68:43]"
+        },
+        "appendGlobalHeaders": {
+          "!type": "fn(headers: ?)",
+          "!span": "2043[71:19]-2062[71:38]"
+        },
+        "appendGlobalBodyParams": {
+          "!type": "fn(params: ?)",
+          "!span": "2110[74:19]-2132[74:41]"
+        },
+        "appendGlobalQueryParams": {
+          "!type": "fn(url: ?) -> !0",
+          "!span": "2179[77:19]-2202[77:42]"
+        },
+        "appendGlobalParams": {
+          "!type": "fn(url: ?, headers: ?, params: ?)",
+          "!span": "2263[81:19]-2281[81:37]"
+        },
+        "init": {
+          "!type": "fn(appKey: string, appSecret: string, serviceUrl: string, successCallback: ?, failureCallback: ?)",
+          "!span": "3255[106:19]-3259[106:23]",
+          "!doc": "Initialization method for the voltmx SDK.\nThis method will fetch the app configuration from the voltmx server and stores in memory.\nThis method has to be invoked before invoking any other SDK methods.\n@param {string} appKey - Appkey of the voltmx application\n@param {string} appSecret - App Secret of the voltmx application\n@param {string} serviceUrl - URL of the voltmx Server\n@param {initSuccessCallback} successCallback  - Callback method on success\n@param {initFailureCallback} failureCallback - Callback method on failure"
+        },
+        "initWithServiceDoc": {
+          "!type": "fn(appKey: ?, appSecret: ?, serviceDoc: ?)",
+          "!span": "3364[109:19]-3382[109:37]"
+        },
+        "publishServerEvents": {
+          "!type": "fn(events: ?, publishOptions: ?)",
+          "!span": "3879[124:19]-3898[124:38]",
+          "!doc": "* Publish events to the server.\n*\n* example : [{\"topic\" : \"transaction/deposit\",\n                      \"data\" : { \"amount\": \"1500\",\n                      \"user\": \"clientevents\",\n                      \"account\": \"1000\",\n                      \"transaction\": \"deposit\" }}]\n* @param events         events string to be published to the server\n* @param publishOptions additional options for publishing"
+        },
+        "subscribeServerEvents": {
+          "!type": "fn(events: ?, subscribeOptions: ?)",
+          "!span": "4216[135:19]-4237[135:40]",
+          "!doc": "Subscribe to server events.\n\nexample : [\"transaction/deposit\",\n           \"transaction/withdraw\"]\n@param events            events string to be sent to the server\n@param subscribeOptions additional options for subscribing"
+        },
+        "unSubscribeServerEvents": {
+          "!type": "fn(events: ?, unSubscribeOptions: ?)",
+          "!span": "4554[146:19]-4577[146:42]",
+          "!doc": "Unsubscribe from server events.\n\nexample : [\"transaction/deposit\",\n           \"transaction/withdraw\"]\n@param events             events string to unsubscribe\n@param unSubscribeOptions additional options to unsubscribe"
+        },
+        "getConfigurationService": {
+          "!type": "fn() -> +ConfigurationService",
+          "!span": "5080[164:19]-5103[164:42]",
+          "!doc": "Method to create the configuration service instance\n@returns {ConfigurationService} Configuration service instance"
+        },
+        "getIdentityService": {
+          "!type": "fn(providerName: ?) -> +IdentityService",
+          "!span": "5817[185:19]-5835[185:37]"
+        },
+        "getLogicService": {
+          "!type": "fn(serviceName: ?) -> +voltmx.sdk.LogicService",
+          "!span": "8195[239:19]-8210[239:34]",
+          "!doc": "=================================== LOGIC SERVICE ========================================================"
+        },
+        "registerObjectService": {
+          "!type": "fn(objectServiceType: ?, objectServiceClass: ?)",
+          "!span": "8842[256:19]-8863[256:40]"
+        },
+        "getObjectService": {
+          "!type": "fn(serviceName: ?, options: ?) -> ?",
+          "!span": "8942[259:19]-8958[259:35]"
+        },
+        "enableDebug": {
+          "!type": "fn()",
+          "!span": "47154[1624:19]-47165[1624:30]",
+          "!doc": "================================================================================================================"
+        },
+        "disableDebug": {
+          "!type": "fn()",
+          "!span": "47207[1627:19]-47219[1627:31]"
+        },
+        "getIntegrationService": {
+          "!type": "fn(serviceName: string) -> +IntegrationService",
+          "!span": "58907[2050:19]-58928[2050:40]",
+          "!doc": "Method to create the integration service instance with the provided service name.\n@param {string} serviceName - Name of the service\n@returns {IntegrationService} Integration service instance"
+        },
+        "getMessagingService": {
+          "!type": "fn() -> +MessagingService",
+          "!span": "60229[2080:19]-60248[2080:38]",
+          "!doc": "Method to create the messaging service instance.\n@returns {MessagingService} Messaging service instance"
+        },
+        "getMetricsService": {
+          "!type": "fn() -> !this.metricsServiceObject",
+          "!span": "68768[2289:19]-68785[2289:36]",
+          "!doc": "Method to create the Metrics service instance with the provided service name.\n@returns {MetricsService} Metrics service instance"
+        },
+        "getSyncService": {
+          "!type": "fn() -> +voltmxSdkSyncService",
+          "!span": "73508[2408:19]-73522[2408:33]",
+          "!doc": "Method to create the sync service instance.\n@returns {SyncService} sync service instance"
+        }
+      },
+      "version": {
+        "!type": "string",
+        "!span": "2427[86:9]-2434[86:16]"
+      },
+      "getDefaultInstance": {
+        "!type": "fn() -> +voltmx.sdk",
+        "!span": "2488[89:9]-2506[89:27]"
+      },
+      "skipAnonymousLoginCall": {
+        "!type": "fn(state: ?)",
+        "!span": "2627[93:9]-2649[93:31]",
+        "!doc": "This is to be set by client to skip anonymous login calls."
+      },
+      "ClientCache": {
+        "prototype": {
+          "get": {
+            "!type": "fn(key: ?)",
+            "!span": "4705[152:31]-4708[152:34]"
+          },
+          "has": {
+            "!type": "fn(key: ?)",
+            "!span": "4763[154:31]-4766[154:34]"
+          },
+          "remove": {
+            "!type": "fn(key: ?)",
+            "!span": "4821[156:31]-4827[156:37]"
+          },
+          "add": {
+            "!type": "fn(key: ?, value: ?, expiryTime: ?)",
+            "!span": "4882[158:31]-4885[158:34]"
+          }
+        },
+        "!type": "fn(size: ?)",
+        "!span": "4638[150:9]-4649[150:20]"
+      },
+      "LogicService": {
+        "prototype": {
+          "getLogicServiceUrl": {
+            "!type": "fn()",
+            "!span": "8566[249:32]-8584[249:50]"
+          },
+          "invokeOperation": {
+            "!type": "fn(serviceName: ?, path: ?, methodType: ?, headers: ?, data: ?, successCallback: ?, failureCallback: ?, options: ?)",
+            "!span": "8638[252:32]-8653[252:47]"
+          }
+        },
+        "!type": "fn(voltmxRef: +voltmx.sdk, serviceName: ?)",
+        "!span": "8311[243:9]-8323[243:21]"
+      },
+      "OnlineObjectService": {
+        "prototype": {
+          "create": {
+            "!type": "fn(options: ?, successCallback: ?, failureCallback: ?)",
+            "!span": "10241[292:39]-10247[292:45]",
+            "!doc": "This method is used to create a record on the object\n@param {map} options - includes {\"dataObject\":(@link voltmx.sdk.dto.DataObject),\"headers\":<map of http headers>}\n@param successCallback\n@param failureCallback"
+          },
+          "fetch": {
+            "!type": "fn(options: ?, successCallback: ?, failureCallback: ?)",
+            "!span": "10585[301:39]-10590[301:44]",
+            "!doc": "This method is used to fetch a record on the object\n@param {map} options - includes {\"dataObject\":(@link voltmx.sdk.dto.DataObject),\"headers\":<map of http headers>}\n@param successCallback\n@param failureCallback"
+          },
+          "update": {
+            "!type": "fn(options: ?, successCallback: ?, failureCallback: ?)",
+            "!span": "10929[310:39]-10935[310:45]",
+            "!doc": "This method is used to update a record on the object\n@param {map} options - includes {\"dataObject\":(@link voltmx.sdk.dto.DataObject),\"headers\":<map of http headers>}\n@param successCallback\n@param failureCallback"
+          },
+          "partialUpdate": {
+            "!type": "fn(options: ?, successCallback: ?, failureCallback: ?)",
+            "!span": "11282[319:39]-11295[319:52]",
+            "!doc": "This method is used to partial update a record on the object\n@param {map} options - includes {\"dataObject\":(@link voltmx.sdk.dto.DataObject),\"headers\":<map of http headers>}\n@param successCallback\n@param failureCallback"
+          },
+          "deleteRecord": {
+            "!type": "fn(options: ?, successCallback: ?, failureCallback: ?)",
+            "!span": "11634[328:39]-11646[328:51]",
+            "!doc": "This method is used to delete a record on the object\n@param {map} options - includes {\"dataObject\":(@link voltmx.sdk.dto.DataObject),\"headers\":<map of http headers>}\n@param successCallback\n@param failureCallback"
+          },
+          "customVerb": {
+            "!type": "fn(verbName: string, options: ?, successCallback: ?, failureCallback: ?)",
+            "!span": "12042[338:39]-12052[338:49]",
+            "!doc": "This method is used to for performing custom operation\n@param {string} verbName -  custom verb identifier\n@param {map} options - includes {\"dataObject\":(@link voltmx.sdk.dto.DataObject),\"headers\":<map of http headers>}\n@param successCallback\n@param failureCallback"
+          },
+          "getMetadataOfAllObjects": {
+            "!type": "fn(options: ?, successCallback: ?, failureCallback: ?)",
+            "!span": "12381[347:39]-12404[347:62]",
+            "!doc": "This method is used to retrive metadata of all objects\n@param {map} options - includes {\"getFromServer\":boolean,\"headers\":<map of http headers>}\n@param successCallback\n@param failureCallback"
+          },
+          "getMetadataOfObject": {
+            "!type": "fn(objectName: ?, options: ?, successCallback: ?, failureCallback: ?)",
+            "!span": "12752[357:39]-12771[357:58]",
+            "!doc": "This method is used to retrive metadata of a specific object\n@param objectName\n@param {map} options - includes {\"getFromServer\":boolean,\"headers\":<map of http headers>}\n@param successCallback\n@param failureCallback"
+          },
+          "getDataUrl": {
+            "!type": "fn()",
+            "!span": "12957[361:39]-12967[361:49]"
+          },
+          "getBinaryUrl": {
+            "!type": "fn()",
+            "!span": "13029[364:39]-13041[364:51]"
+          },
+          "getOperationsUrl": {
+            "!type": "fn()",
+            "!span": "13103[367:39]-13119[367:55]"
+          },
+          "getMetadataUrl": {
+            "!type": "fn()",
+            "!span": "13181[370:39]-13195[370:53]"
+          },
+          "getVersion": {
+            "!type": "fn()",
+            "!span": "13257[373:39]-13267[373:49]"
+          },
+          "getBinaryData": {
+            "!type": "fn(options: ?, arg1: ?, arg2: ?, arg3: ?, arg4: ?, arg5: ?)",
+            "!span": "13329[376:39]-13342[376:52]"
+          },
+          "getBinaryContent": {
+            "!type": "fn(options: ?, successCallback: ?, failureCallback: ?)",
+            "!span": "13691[385:39]-13707[385:55]",
+            "!doc": "Helps to get the binary content of the specified column on the Object\n@param {map} options - includes {\"dataObject\":{@link voltmx.sdk.dto.DataObject}, \"binaryAttrName\":columnName}\n@param successCallback\n@param failureCallback"
+          },
+          "createBinaryContent": {
+            "!type": "fn(options: ?, successCallback: ?, failureCallback: ?)",
+            "!span": "14064[394:39]-14083[394:58]",
+            "!doc": "Helps to create the binary content of the specified column on the Object\n@param {map} options - includes {\"dataObject\": {@link voltmx.sdk.dto.DataObject}, \"binaryAttrName\":columnName}\n@param successCallback\n@param failureCallback"
+          },
+          "updateBinaryContent": {
+            "!type": "fn(options: ?, successCallback: ?, failureCallback: ?)",
+            "!span": "14440[403:39]-14459[403:58]",
+            "!doc": "Helps to update the binary content of the specified column on the Object\n@param {map} options - includes {\"dataObject\": {@link voltmx.sdk.dto.DataObject}, \"binaryAttrName\":columnName}\n@param successCallback\n@param failureCallback"
+          }
+        },
+        "!type": "fn(voltmxRef: +voltmx.sdk, serviceName: ?)",
+        "!span": "9486[276:9]-9505[276:28]",
+        "!doc": "Method which returns the online ObjectService object\n@param voltmxRef\n@param serviceName\n@constructor"
+      },
+      "IObjectService": {
+        "prototype": {
+          "create": {
+            "!type": "fn(options: ?, successCallback: ?, failureCallback: ?)",
+            "!span": "14853[411:34]-14859[411:40]"
+          },
+          "fetch": {
+            "!type": "fn(options: ?, successCallback: ?, failureCallback: ?)",
+            "!span": "14957[414:34]-14962[414:39]",
+            "!doc": "This method is used to fetch records from the object\n@param {map} options - includes {\"dataObject\":(@link voltmx.sdk.dto.DataObject)}\n@param successCallback\n@param failureCallback"
+          },
+          "update": {
+            "!type": "fn(options: ?, successCallback: ?, failureCallback: ?)",
+            "!span": "15060[417:34]-15066[417:40]",
+            "!doc": "This method is used to update a record in the object\n@param {map} options - includes {\"dataObject\":(@link voltmx.sdk.dto.DataObject)}\n@param successCallback\n@param failureCallback"
+          },
+          "deleteRecord": {
+            "!type": "fn(options: ?, successCallback: ?, failureCallback: ?)",
+            "!span": "15164[420:34]-15176[420:46]",
+            "!doc": "This method is used to delete a record in the object\n@param {map} options - includes {\"dataObject\":(@link voltmx.sdk.dto.DataObject)}\n@param successCallback\n@param failureCallback"
+          },
+          "getMetadataOfAllObjects": {
+            "!type": "fn(options: ?, successCallback: ?, failureCallback: ?)",
+            "!span": "15274[423:34]-15297[423:57]",
+            "!doc": "This method is used to retrieve metadata of all objects\n@param options\n@param successCallback\n@param failureCallback"
+          },
+          "getMetadataOfObject": {
+            "!type": "fn(objectName: ?, options: ?, successCallback: ?, failureCallback: ?)",
+            "!span": "15395[426:34]-15414[426:53]",
+            "!doc": "This method is used to retrive metadata of a specific object\n@param objectName\n@param options\n@param successCallback\n@param failureCallback"
+          },
+          "executeSelectQuery": {
+            "!type": "fn(queryStr: ?, successCallback: ?, failureCallback: ?)",
+            "!span": "17836[500:34]-17854[500:52]",
+            "!doc": "This method is used to execute an sql query\n@param queryStr\n@param successCallback\n@param failureCallback"
+          },
+          "getBinaryContent": {
+            "!type": "fn(options: ?, successCallback: ?, failureCallback: ?)",
+            "!span": "18252[509:34]-18268[509:50]",
+            "!doc": "Helps to get the binary content of the specified column on the Object\n@param {map} options - includes {\"dataObject\":(@link voltmx.sdk.dto.DataObject), \"responsetype\":\"base64string/filepath(Default)\", \"binaryAttrName\":columnName}\n@param successCallback\n@param failureCallback"
+          }
+        },
+        "!type": "fn(voltmxRef: ?, serviceName: ?)",
+        "!span": "14650[408:9]-14664[408:23]",
+        "!doc": "================================================================================================================"
+      },
+      "OfflineObjectService": {
+        "prototype": {
+          "voltmxRef": {
+            "!type": "+voltmx.sdk",
+            "!span": "15902[439:41]-15909[439:48]"
+          },
+          "create": {
+            "!type": "fn(options: ?, successCallback: ?, failureCallback: ?)",
+            "!span": "16042[444:40]-16048[444:46]"
+          }
+        },
+        "!type": "fn(voltmxRef: +voltmx.sdk, serviceName: ?)",
+        "!span": "15804[438:9]-15824[438:29]",
+        "!doc": "Method which returns the offline ObjectService object\n@param voltmxRef\n@param serviceName\n@constructor"
+      },
+      "dto": {
+        "DataObject": {
+          "prototype": {
+            "addField": {
+              "!type": "fn(fieldName: ?, value: ?)",
+              "!span": "19417[546:34]-19425[546:42]",
+              "!doc": "This function is used to add fields and their values to the dataobject\n@param fieldName\n@param value"
+            },
+            "setRecord": {
+              "!type": "fn(fieldValuesMap: ?)",
+              "!span": "19603[553:34]-19612[553:43]",
+              "!doc": "This function is used to set a map of records to the dataobject\n@param fieldValuesMap"
+            },
+            "getRecord": {
+              "!type": "fn() -> JSON",
+              "!span": "19799[560:34]-19808[560:43]",
+              "!doc": "This function is used to get the map of records present in the DataObject\n@returns {JSON} record"
+            },
+            "addChildDataObject": {
+              "!type": "fn(childDataObject: ?)",
+              "!span": "20009[567:34]-20027[567:52]",
+              "!doc": "This function is used to add a child Dataobject into the data object\n@param  childDataObject {@link voltmx.sdk.dto.DataObject}"
+            },
+            "setOdataUrl": {
+              "!type": "fn(odataUrl: ?)",
+              "!span": "20186[574:34]-20197[574:45]",
+              "!doc": "This function is used to set the odata url to query\n@param odataUrl"
+            },
+            "getOdataUrl": {
+              "!type": "fn()",
+              "!span": "20349[581:34]-20360[581:45]",
+              "!doc": "This function is used to get the odata url to query\n@returns {null}"
+            },
+            "setSelectQueryObject": {
+              "!type": "fn(selectQueryObject: ?)",
+              "!span": "20576[588:34]-20596[588:54]",
+              "!doc": "This function is used to set a SelectQueryObject {@link voltmx.sdk.dto.SelectQuery}\n@param selectQueryObject {@link voltmx.sdk.dto.SelectQuery}"
+            },
+            "getSelectQueryObject": {
+              "!type": "fn()",
+              "!span": "20831[595:34]-20851[595:54]",
+              "!doc": "This function is used to get a SelectQueryObject {@link voltmx.sdk.dto.SelectQuery}\n@returns selectQueryObject {@link voltmx.sdk.dto.SelectQuery}"
+            },
+            "getObjectName": {
+              "!type": "fn() -> !this.objectName",
+              "!span": "21001[602:34]-21014[602:47]",
+              "!doc": "This function is used to get the object name\n@returns objectName {string}"
+            }
+          },
+          "!type": "fn(objectName: ?, record: ?)",
+          "!span": "18849[529:13]-18859[529:23]",
+          "!doc": "An object used to perform CRUD operations on objects\n@param objectName\n@param record\n@constructor"
+        },
+        "PickList": {
+          "prototype": {
+            "setId": {
+              "!type": "fn(id: ?)",
+              "!span": "21673[624:32]-21678[624:37]"
+            },
+            "getId": {
+              "!type": "fn()",
+              "!span": "21733[626:32]-21738[626:37]"
+            },
+            "setActive": {
+              "!type": "fn(active: ?)",
+              "!span": "21791[628:32]-21800[628:41]"
+            },
+            "isActive": {
+              "!type": "fn()",
+              "!span": "21859[630:32]-21867[630:40]"
+            },
+            "setLabel": {
+              "!type": "fn(label: ?)",
+              "!span": "21920[632:32]-21928[632:40]"
+            },
+            "getLabel": {
+              "!type": "fn()",
+              "!span": "21986[634:32]-21994[634:40]"
+            },
+            "setValue": {
+              "!type": "fn(value: ?)",
+              "!span": "22047[636:32]-22055[636:40]"
+            },
+            "getValue": {
+              "!type": "fn()",
+              "!span": "22113[638:32]-22121[638:40]"
+            },
+            "setValidFor": {
+              "!type": "fn(validFor: ?)",
+              "!span": "22174[640:32]-22185[640:43]"
+            },
+            "getValidFor": {
+              "!type": "fn()",
+              "!span": "22246[642:32]-22257[642:43]"
+            },
+            "setDefaultValue": {
+              "!type": "fn(defaultValue: ?)",
+              "!span": "22310[644:32]-22325[644:47]"
+            },
+            "getDefaultValue": {
+              "!type": "fn()",
+              "!span": "22390[646:32]-22405[646:47]"
+            },
+            "setFieldMappingId": {
+              "!type": "fn(fieldMappingId: ?)",
+              "!span": "22458[648:32]-22475[648:49]"
+            },
+            "getFieldMappingId": {
+              "!type": "fn()",
+              "!span": "22542[650:32]-22559[650:49]"
+            }
+          },
+          "!type": "fn()",
+          "!span": "21263[614:13]-21271[614:21]",
+          "!doc": "This Object represent picklist values\n@constructor"
+        },
+        "ObjectMetadata": {
+          "!type": "fn()",
+          "!span": "22794[659:13]-22808[659:27]",
+          "!doc": "The structure of Object Metadata obtained from server\n@constructor"
+        },
+        "FieldMetadata": {
+          "!type": "fn()",
+          "!span": "23708[682:13]-23721[682:26]",
+          "!doc": "The structure of Field Metadata obtained from server\n@constructor"
+        },
+        "ObjectRelationship": {
+          "!type": "fn()",
+          "!span": "24963[712:13]-24981[712:31]",
+          "!doc": "The structure of Object Relationship in metadata obtained from server\n@constructor"
+        },
+        "SelectQuery": {
+          "prototype": {
+            "tables": {
+              "!type": "[?]",
+              "!span": "25974[736:35]-25980[736:41]"
+            },
+            "columnList": {
+              "!type": "[?]",
+              "!span": "26023[737:35]-26033[737:45]"
+            },
+            "criteriaList": {
+              "!type": "[?]",
+              "!span": "26076[738:35]-26088[738:47]"
+            },
+            "isDistinct": {
+              "!type": "bool",
+              "!span": "26131[739:35]-26141[739:45]"
+            },
+            "orderList": {
+              "!type": "[?]",
+              "!span": "26187[740:35]-26196[740:44]"
+            },
+            "joinList": {
+              "!type": "[?]",
+              "!span": "26239[741:35]-26247[741:43]"
+            },
+            "groupList": {
+              "!type": "[?]",
+              "!span": "26290[742:35]-26299[742:44]"
+            },
+            "setLimit": {
+              "!type": "fn(val: ?)",
+              "!span": "26570[751:35]-26578[751:43]",
+              "!doc": "This function is used to set Limit value\n@param val"
+            },
+            "setSkip": {
+              "!type": "fn(val: ?)",
+              "!span": "26709[758:35]-26716[758:42]",
+              "!doc": "This function is used to set Skip value\n@param val"
+            },
+            "getLimit": {
+              "!type": "fn() -> number",
+              "!span": "26866[765:35]-26874[765:43]",
+              "!doc": "This function is used to get the Limit Value\n@returns {integer} limit"
+            },
+            "getSkip": {
+              "!type": "fn() -> number",
+              "!span": "27019[772:35]-27026[772:42]",
+              "!doc": "This function is used to get the Skip Value\n@returns {integer} skip"
+            },
+            "addColumn": {
+              "!type": "fn(columnObj: ?) -> [?]",
+              "!span": "27236[780:35]-27245[780:44]",
+              "!doc": "This function is used to add a column object into the select query\n@param columnObj {@Link voltmx.sdk.dto.Column}\n@returns {Array}"
+            },
+            "addCriteria": {
+              "!type": "fn(criteriaObj: ?) -> [?]",
+              "!span": "27438[788:35]-27449[788:46]",
+              "!doc": "This function is used to add a criteria object to the select query\n@param criteriaObj\n@returns {Array}"
+            },
+            "addGroup": {
+              "!type": "fn(groupObj: ?)",
+              "!span": "27613[795:35]-27621[795:43]",
+              "!doc": "This function is used to add a group object to select query\n@param groupObj"
+            },
+            "addJoin": {
+              "!type": "fn(joinObj: ?)",
+              "!span": "27764[802:35]-27771[802:42]",
+              "!doc": "This function is used to add a join object\n@param joinObj"
+            },
+            "addOrder": {
+              "!type": "fn(orderObj: ?)",
+              "!span": "27931[809:35]-27939[809:43]",
+              "!doc": "This function is used to add order object to a select query\n@param orderObj"
+            },
+            "getTables": {
+              "!type": "fn() -> [?]",
+              "!span": "28103[816:35]-28112[816:44]",
+              "!doc": "This function is used to return tables in select query\n@returns {Array} Tables"
+            },
+            "getDistinct": {
+              "!type": "fn() -> bool",
+              "!span": "28253[823:35]-28264[823:46]",
+              "!doc": "This function is used to get isDistinct flag\n@returns {boolean}"
+            },
+            "getColumns": {
+              "!type": "fn() -> [?]",
+              "!span": "28422[830:35]-28432[830:45]",
+              "!doc": "This function is used to return columns in select query\n@returns {Array} Columns"
+            },
+            "getCriterias": {
+              "!type": "fn() -> [?]",
+              "!span": "28602[837:35]-28614[837:47]",
+              "!doc": "This function is used to get criteria objects in the select query\n@returns {Array} Criterias"
+            },
+            "getGroups": {
+              "!type": "fn() -> [?]",
+              "!span": "28785[844:35]-28794[844:44]",
+              "!doc": "This function is used to get the group objects in the select query\n@returns {Array} GroupObjs"
+            },
+            "getJoins": {
+              "!type": "fn() -> [?]",
+              "!span": "28960[851:35]-28968[851:43]",
+              "!doc": "This function is used to get the Join objects in the select query\n@returns {Array} Joins"
+            },
+            "getOrders": {
+              "!type": "fn() -> [?]",
+              "!span": "29139[858:35]-29148[858:44]",
+              "!doc": "This function is used to get the Order Objects in the select query\n@returns {Array} OrderObjs"
+            },
+            "removeColumn": {
+              "!type": "fn(columnObj: ?)",
+              "!span": "29335[865:35]-29347[865:47]",
+              "!doc": "This function is used to remove columnobject set in select query\n@param columnObj {@link voltmx.sdk.dto.Column}"
+            },
+            "removeCriteria": {
+              "!type": "fn(criteriaObj: ?)",
+              "!span": "29517[872:35]-29531[872:49]",
+              "!doc": "This function is used to remove criteriaObject from select query\n@param criteriaObj"
+            },
+            "removeGroup": {
+              "!type": "fn(groupObj: ?)",
+              "!span": "29695[879:35]-29706[879:46]",
+              "!doc": "This function is used to remove group set from select query\n@param groupObj"
+            },
+            "removeJoin": {
+              "!type": "fn(joinObj: ?)",
+              "!span": "29863[886:35]-29873[886:45]",
+              "!doc": "This function is used to remove Join set in select query\n@param joinObj"
+            },
+            "removeOrder": {
+              "!type": "fn(orderObj: ?)",
+              "!span": "30033[893:35]-30044[893:46]",
+              "!doc": "This function is used to remove OrderObj set in SelectQuery\n@param orderObj"
+            },
+            "setDistinct": {
+              "!type": "fn(isDistinct: ?)",
+              "!span": "30187[900:35]-30198[900:46]",
+              "!doc": "This function is used to set isDistinct\n@param isDistinct"
+            },
+            "toString": {
+              "!type": "fn() -> string",
+              "!span": "30373[907:35]-30381[907:43]",
+              "!doc": "This function is used to get the select query in the form of a string\n@returns {string}"
+            },
+            "appendListToQuery": {
+              "!type": "fn(objectList: ?, seperator: ?, mode: ?) -> string",
+              "!span": "30440[910:35]-30457[910:52]"
+            }
+          },
+          "!type": "fn(serviceName: ?, tableObj: ?)",
+          "!span": "25885[734:13]-25896[734:24]",
+          "!doc": "The Object used to define select query object, in order to fetch data\n@param serviceName\n@param tableObj {@link voltmx.sdk.dto.Table}\n@constructor"
+        },
+        "RecordObject": {
+          "prototype": {
+            "tableName": {
+              "!type": "string",
+              "!span": "30853[923:36]-30862[923:45]"
+            },
+            "childRecords": {
+              "!type": "[?]",
+              "!span": "30962[925:36]-30974[925:48]"
+            }
+          },
+          "!type": "fn()",
+          "!span": "30785[922:13]-30797[922:25]",
+          "!doc": "This object is used to define a record object used in Offline CRUD\n@constructor"
+        },
+        "Table": {
+          "prototype": {
+            "getAlias": {
+              "!type": "fn()",
+              "!span": "31501[945:29]-31509[945:37]"
+            },
+            "setAlias": {
+              "!type": "fn(alias: ?)",
+              "!span": "31631[952:29]-31639[952:37]",
+              "!doc": "This function is used to set alias.\n\n@param alias"
+            },
+            "getName": {
+              "!type": "fn()",
+              "!span": "31695[954:29]-31702[954:36]"
+            },
+            "setName": {
+              "!type": "fn(name: ?)",
+              "!span": "31822[961:29]-31829[961:36]",
+              "!doc": "This function is used to set name.\n\n@param name"
+            },
+            "equals": {
+              "!type": "fn(obj: ?)",
+              "!span": "31985[969:29]-31991[969:35]",
+              "!doc": "This function is used to check object equality.\n\n@param obj\n@return Boolean"
+            },
+            "getColumn": {
+              "!type": "fn(columnName: ?)",
+              "!span": "32047[972:29]-32056[972:38]"
+            },
+            "hasAlias": {
+              "!type": "fn()",
+              "!span": "32214[979:29]-32222[979:37]",
+              "!doc": "This function is used to check if alias is present or not.\n\n@return Boolean"
+            },
+            "toString": {
+              "!type": "fn()",
+              "!span": "32354[986:29]-32362[986:37]",
+              "!doc": "This function is used to convert to String.\n\n@return string"
+            },
+            "isJunction": {
+              "!type": "fn()",
+              "!span": "32517[993:29]-32527[993:39]",
+              "!doc": "This function is used to return if the table is a junction table.\n\n@return boolean"
+            },
+            "setJunction": {
+              "!type": "fn(junctionType: ?)",
+              "!span": "32696[1000:29]-32707[1000:40]",
+              "!doc": "This function is used to set the type of table junction/non-junction table.\n\n@param junctionType"
+            }
+          },
+          "!type": "fn(tableName: ?, tableAlias: ?, junctionType: ?)",
+          "!span": "31248[938:13]-31253[938:18]",
+          "!doc": "This function is the Table constructor.\n@param tableName\n@param tableAlias\n@param junctionType\n@constructor"
+        },
+        "Column": {
+          "prototype": {
+            "getAggregation": {
+              "!type": "fn()",
+              "!span": "33180[1019:30]-33194[1019:44]"
+            },
+            "setAggregation": {
+              "!type": "fn(aggregation: ?)",
+              "!span": "33246[1021:30]-33260[1021:44]"
+            },
+            "getAlias": {
+              "!type": "fn()",
+              "!span": "33323[1023:30]-33331[1023:38]"
+            },
+            "setAlias": {
+              "!type": "fn(alias: ?)",
+              "!span": "33383[1025:30]-33391[1025:38]"
+            },
+            "getDataType": {
+              "!type": "fn()",
+              "!span": "33448[1027:30]-33459[1027:41]"
+            },
+            "setDataType": {
+              "!type": "fn(dataType: ?)",
+              "!span": "33511[1029:30]-33522[1029:41]"
+            },
+            "isComputedField": {
+              "!type": "fn()",
+              "!span": "33582[1031:30]-33597[1031:45]"
+            },
+            "setComputedField": {
+              "!type": "fn(fieldComputed: ?)",
+              "!span": "33649[1033:30]-33665[1033:46]"
+            },
+            "getName": {
+              "!type": "fn()",
+              "!span": "33730[1035:30]-33737[1035:37]"
+            },
+            "setName": {
+              "!type": "fn(name: ?)",
+              "!span": "33789[1037:30]-33796[1037:37]"
+            },
+            "getTable": {
+              "!type": "fn()",
+              "!span": "33852[1039:30]-33860[1039:38]"
+            },
+            "setTable": {
+              "!type": "fn(table: ?)",
+              "!span": "33912[1041:30]-33920[1041:38]"
+            },
+            "toStringByMode": {
+              "!type": "fn(mode: ?)",
+              "!span": "33977[1043:30]-33991[1043:44]"
+            },
+            "toString": {
+              "!type": "fn()",
+              "!span": "34047[1045:30]-34055[1045:38]"
+            },
+            "toStringByTablePrefix": {
+              "!type": "fn(includeTablePrefix: ?)",
+              "!span": "34109[1048:30]-34130[1048:51]"
+            }
+          },
+          "!type": "fn(tableObj: ?, colName: ?)",
+          "!span": "33003[1013:13]-33009[1013:19]",
+          "!doc": "This function is a Column constructor\n@param tableObj {@link voltmx.sdk.dto.Table}\n@param colName\n@constructor"
+        },
+        "Group": {
+          "prototype": {
+            "getColumn": {
+              "!type": "fn()",
+              "!span": "34621[1067:29]-34630[1067:38]"
+            },
+            "setColumn": {
+              "!type": "fn(column: ?)",
+              "!span": "34681[1069:29]-34690[1069:38]"
+            },
+            "toString": {
+              "!type": "fn()",
+              "!span": "34747[1071:29]-34755[1071:37]"
+            }
+          },
+          "!type": "fn(columnObj: ?)",
+          "!span": "34554[1064:13]-34559[1064:18]",
+          "!doc": "This Object represents a groupby clause in select query\n@param columnObj {@link voltmx.sdk.dto.Column}\n@constructor"
+        },
+        "Join": {
+          "prototype": {
+            "getCriteria": {
+              "!type": "fn()",
+              "!span": "35180[1087:28]-35191[1087:39]"
+            },
+            "setCriteria": {
+              "!type": "fn(criteria: ?)",
+              "!span": "35243[1090:28]-35254[1090:39]"
+            },
+            "getTable": {
+              "!type": "fn()",
+              "!span": "35314[1093:28]-35322[1093:36]"
+            },
+            "setTable": {
+              "!type": "fn(table: ?)",
+              "!span": "35374[1096:28]-35382[1096:36]"
+            },
+            "getJoinType": {
+              "!type": "fn()",
+              "!span": "35439[1099:28]-35450[1099:39]"
+            },
+            "setJoinType": {
+              "!type": "fn(joinType: ?)",
+              "!span": "35502[1102:28]-35513[1102:39]"
+            },
+            "initCriteria": {
+              "!type": "fn(srcColumn: ?, destColumn: ?)",
+              "!span": "35573[1105:28]-35585[1105:40]"
+            },
+            "toString": {
+              "!type": "fn() -> string",
+              "!span": "35658[1108:28]-35666[1108:36]"
+            }
+          },
+          "!type": "fn()",
+          "!span": "35006[1081:13]-35010[1081:17]",
+          "!doc": "This Object represents JOINS used in voltmx.sdk.dto.SelectQuery\n@constructor"
+        },
+        "Order": {
+          "prototype": {
+            "getColumn": {
+              "!type": "fn() -> !this.column",
+              "!span": "36132[1126:29]-36141[1126:38]"
+            },
+            "setColumn": {
+              "!type": "fn(column: ?)",
+              "!span": "36292[1135:29]-36301[1135:38]",
+              "!doc": "This function is used to set column.\n\n@param column"
+            },
+            "getType": {
+              "!type": "fn()",
+              "!span": "36360[1138:29]-36367[1138:36]"
+            },
+            "setType": {
+              "!type": "fn(type: ?)",
+              "!span": "36489[1146:29]-36496[1146:36]",
+              "!doc": "This function is used to set type.\n\n@param type"
+            },
+            "toString": {
+              "!type": "fn() -> string",
+              "!span": "36634[1154:29]-36642[1154:37]",
+              "!doc": "This function is used to convert to String.\n\n@return string"
+            }
+          },
+          "!type": "fn(columnObj: ?, orderTypeObj: ?)",
+          "!span": "35939[1120:13]-35944[1120:18]",
+          "!doc": "This function is the Order constructor.\n@param columnObj\n@param orderTypeObj"
+        },
+        "Between": {
+          "prototype": {
+            "quote": {
+              "!type": "fn(str: ?)",
+              "!span": "37060[1171:31]-37065[1171:36]"
+            },
+            "setColumn": {
+              "!type": "fn(column: ?)",
+              "!span": "37123[1174:31]-37132[1174:40]"
+            },
+            "setRange": {
+              "!type": "fn(range: ?)",
+              "!span": "37193[1177:31]-37201[1177:39]"
+            },
+            "getColumn": {
+              "!type": "fn()",
+              "!span": "37259[1179:31]-37268[1179:40]"
+            },
+            "getRange": {
+              "!type": "fn()",
+              "!span": "37321[1181:31]-37329[1181:39]"
+            },
+            "toString": {
+              "!type": "fn()",
+              "!span": "37382[1183:31]-37390[1183:39]"
+            }
+          },
+          "!type": "fn(columnObj: ?, colRange: ?)",
+          "!span": "36977[1167:13]-36984[1167:20]",
+          "!doc": "This function is used to check the range of values of columnObj\n@param columnObj {@link voltmx.sdk.dto.Column}\n@param colRange\n@constructor"
+        },
+        "DateRange": {
+          "prototype": {
+            "getEnd": {
+              "!type": "fn()",
+              "!span": "37708[1197:33]-37714[1197:39]"
+            },
+            "setEnd": {
+              "!type": "fn(end: ?)",
+              "!span": "37844[1205:33]-37850[1205:39]",
+              "!doc": "This function is used to set End value.\n\n@param end"
+            },
+            "getStart": {
+              "!type": "fn()",
+              "!span": "37910[1208:33]-37918[1208:41]"
+            },
+            "setStart": {
+              "!type": "fn(start: ?)",
+              "!span": "38052[1216:33]-38060[1216:41]",
+              "!doc": "This function is used to set start value.\n\n@param start"
+            },
+            "toString": {
+              "!type": "fn()",
+              "!span": "38203[1224:33]-38211[1224:41]",
+              "!doc": "This function is used to convert to String.\n\n@return string"
+            }
+          },
+          "!type": "fn()",
+          "!span": "37642[1194:13]-37651[1194:22]",
+          "!doc": "This function is the DateRange constructor.\n@param startDate\n@param endDate"
+        },
+        "DecimalRange": {
+          "prototype": {
+            "getEnd": {
+              "!type": "fn()",
+              "!span": "38564[1239:36]-38570[1239:42]"
+            },
+            "setEnd": {
+              "!type": "fn(end: ?)",
+              "!span": "38703[1247:36]-38709[1247:42]",
+              "!doc": "This function is used to set End value.\n\n@param end"
+            },
+            "getStart": {
+              "!type": "fn()",
+              "!span": "38774[1251:36]-38782[1251:44]"
+            },
+            "setStart": {
+              "!type": "fn(start: ?)",
+              "!span": "38919[1259:36]-38927[1259:44]",
+              "!doc": "This function is used to set start value.\n\n@param start"
+            },
+            "toString": {
+              "!type": "fn()",
+              "!span": "39073[1267:36]-39081[1267:44]",
+              "!doc": "This function is used to convert to String.\n\n@return string"
+            }
+          },
+          "!type": "fn(startDecimal: ?, endDecimal: ?)",
+          "!span": "38466[1235:13]-38478[1235:25]",
+          "!doc": "This function is the DecimalRange constructor.\n@param startDecimal\n@param endDecimal"
+        },
+        "FloatRange": {
+          "prototype": {
+            "getEnd": {
+              "!type": "fn()",
+              "!span": "39424[1280:34]-39430[1280:40]"
+            },
+            "setEnd": {
+              "!type": "fn(end: ?)",
+              "!span": "39561[1288:34]-39567[1288:40]",
+              "!doc": "This function is used to set End value.\n\n@param end"
+            },
+            "getStart": {
+              "!type": "fn()",
+              "!span": "39628[1291:34]-39636[1291:42]"
+            },
+            "setStart": {
+              "!type": "fn(start: ?)",
+              "!span": "39771[1299:34]-39779[1299:42]",
+              "!doc": "This function is used to set start value.\n\n@param start"
+            },
+            "toString": {
+              "!type": "fn()",
+              "!span": "39923[1307:34]-39931[1307:42]",
+              "!doc": "This function is used to convert to String.\n\n@return string"
+            }
+          },
+          "!type": "fn(startFloat: ?, endFloat: ?)",
+          "!span": "39338[1278:13]-39348[1278:23]",
+          "!doc": "This function is the FloatRange constructor.\n@param startFloat\n@param endFloat"
+        },
+        "IntegerRange": {
+          "prototype": {
+            "getEnd": {
+              "!type": "fn()",
+              "!span": "40262[1322:36]-40268[1322:42]"
+            },
+            "setEnd": {
+              "!type": "fn(end: ?)",
+              "!span": "40401[1330:36]-40407[1330:42]",
+              "!doc": "This function is used to set End value.\n\n@param end"
+            },
+            "getStart": {
+              "!type": "fn()",
+              "!span": "40470[1333:36]-40478[1333:44]"
+            },
+            "setStart": {
+              "!type": "fn(start: ?)",
+              "!span": "40615[1341:36]-40623[1341:44]",
+              "!doc": "This function is used to set start value.\n\n@param start"
+            },
+            "toString": {
+              "!type": "fn()",
+              "!span": "40769[1349:36]-40777[1349:44]",
+              "!doc": "This function is used to convert to String.\n\n@return string"
+            }
+          },
+          "!type": "fn(startInt: ?, endInt: ?)",
+          "!span": "40172[1318:13]-40184[1318:25]",
+          "!doc": "This function is the IntegerRange constructor.\n@param startInt\n@param endInt"
+        },
+        "StringRange": {
+          "prototype": {
+            "getEnd": {
+              "!type": "fn()",
+              "!span": "41118[1363:35]-41124[1363:41]"
+            },
+            "setEnd": {
+              "!type": "fn(end: ?)",
+              "!span": "41256[1371:35]-41262[1371:41]",
+              "!doc": "This function is used to set End value.\n\n@param end"
+            },
+            "getStart": {
+              "!type": "fn()",
+              "!span": "41324[1374:35]-41332[1374:43]"
+            },
+            "setStart": {
+              "!type": "fn(start: ?)",
+              "!span": "41468[1382:35]-41476[1382:43]",
+              "!doc": "This function is used to set start value.\n\n@param start"
+            },
+            "toString": {
+              "!type": "fn()",
+              "!span": "41621[1390:35]-41629[1390:43]",
+              "!doc": "This function is used to convert to String.\n\n@return string"
+            }
+          },
+          "!type": "fn(startString: ?, endString: ?)",
+          "!span": "41026[1360:13]-41037[1360:24]",
+          "!doc": "This function is the StringRange constructor.\n@param startString\n@param endString"
+        },
+        "LogicGroup": {
+          "prototype": {
+            "initializeLogicGroup": {
+              "!type": "fn(operator: ?, left: ?, right: ?)",
+              "!span": "42193[1412:34]-42213[1412:54]",
+              "!doc": "This function is used to initialize LogicGroup.\n\n@param operator\n@param left\n@param right"
+            },
+            "getLeft": {
+              "!type": "fn()",
+              "!span": "42292[1415:34]-42299[1415:41]"
+            },
+            "setLeft": {
+              "!type": "fn(val: ?)",
+              "!span": "42425[1423:34]-42432[1423:41]",
+              "!doc": "This function is used to set left.\n\n@param val"
+            },
+            "getOperator": {
+              "!type": "fn()",
+              "!span": "42491[1425:34]-42502[1425:45]"
+            },
+            "setOperator": {
+              "!type": "fn(val: ?)",
+              "!span": "42632[1433:34]-42643[1433:45]",
+              "!doc": "This function is used to set Operator.\n\n@param val"
+            },
+            "getRight": {
+              "!type": "fn()",
+              "!span": "42702[1435:34]-42710[1435:42]"
+            },
+            "setRight": {
+              "!type": "fn(val: ?)",
+              "!span": "42837[1443:34]-42845[1443:42]",
+              "!doc": "This function is used to set Right.\n\n@param val"
+            },
+            "toString": {
+              "!type": "fn()",
+              "!span": "42987[1451:34]-42995[1451:42]",
+              "!doc": "This function is used to convert to String.\n\n@return string"
+            }
+          },
+          "!type": "fn(operatorLg: ?, leftOp: ?, rightOp: ?)",
+          "!span": "41981[1403:13]-41991[1403:23]",
+          "!doc": "This function helps in preparing And {@link voltmx.sdk.dto.And} and Or {@Link voltmx.sdk.dto.Or} clauses\n@param operatorLg\n@param leftOp\n@param rightOp\n@constructor"
+        },
+        "And": {
+          "prototype": {
+            "initializeAnd": {
+              "!type": "fn(left: ?, right: ?)",
+              "!span": "43300[1467:27]-43313[1467:40]"
+            }
+          },
+          "!type": "fn(left: ?, right: ?)",
+          "!span": "43233[1463:13]-43236[1463:16]",
+          "!doc": "This function is the And constructor.\n\n@param left\n@param right"
+        },
+        "Or": {
+          "prototype": {
+            "initializeOr": {
+              "!type": "fn(left: ?, right: ?)",
+              "!span": "43631[1483:26]-43643[1483:38]"
+            }
+          },
+          "!type": "fn(left: ?, right: ?)",
+          "!span": "43568[1480:13]-43570[1480:15]",
+          "!doc": "This function is the Or constructor.\n\n@param left\n@param right"
+        },
+        "Not": {
+          "prototype": {
+            "initializeNot": {
+              "!type": "fn(right: ?)",
+              "!span": "43926[1498:27]-43939[1498:40]"
+            }
+          },
+          "!type": "fn(right: ?)",
+          "!span": "43867[1495:13]-43870[1495:16]",
+          "!doc": "This function is the Not constructor.\n\n@param right"
+        },
+        "Expression": {
+          "prototype": {
+            "getTerm": {
+              "!type": "fn()",
+              "!span": "44378[1514:34]-44385[1514:41]"
+            },
+            "getOperator": {
+              "!type": "fn()",
+              "!span": "44441[1516:34]-44452[1516:45]"
+            },
+            "getExpression": {
+              "!type": "fn()",
+              "!span": "44508[1518:34]-44521[1518:47]"
+            },
+            "toString": {
+              "!type": "fn()",
+              "!span": "44577[1520:34]-44585[1520:42]"
+            }
+          },
+          "!type": "fn()",
+          "!span": "44177[1508:13]-44187[1508:23]",
+          "!doc": "This function is a constructor for Expression Object\n@constructor"
+        },
+        "InCriteria": {
+          "prototype": {
+            "getColumnForTable": {
+              "!type": "fn(table: ?, columnName: ?)",
+              "!span": "44965[1534:34]-44982[1534:51]"
+            },
+            "getColumn": {
+              "!type": "fn()",
+              "!span": "45057[1537:34]-45066[1537:43]"
+            },
+            "setColumn": {
+              "!type": "fn(column: ?)",
+              "!span": "45124[1540:34]-45133[1540:43]"
+            },
+            "setValues": {
+              "!type": "fn(valuesCollection: ?)",
+              "!span": "45197[1543:34]-45206[1543:43]"
+            },
+            "getValues": {
+              "!type": "fn()",
+              "!span": "45280[1546:34]-45289[1546:43]"
+            },
+            "toString": {
+              "!type": "fn()",
+              "!span": "45347[1549:34]-45355[1549:42]"
+            }
+          },
+          "!type": "fn()",
+          "!span": "44811[1529:13]-44821[1529:23]",
+          "!doc": "This function is a constructor for InCriteria Object\n@constructor"
+        },
+        "Exists": {
+          "prototype": {
+            "getSubSelect": {
+              "!type": "fn()",
+              "!span": "45729[1563:30]-45741[1563:42]"
+            },
+            "setSubSelect": {
+              "!type": "fn(subSelect: ?)",
+              "!span": "45793[1565:30]-45805[1565:42]"
+            },
+            "toString": {
+              "!type": "fn()",
+              "!span": "45866[1567:30]-45874[1567:38]"
+            }
+          },
+          "!type": "fn(subSelectQuery: ?)",
+          "!span": "45655[1560:13]-45661[1560:19]",
+          "!doc": "This function is used to in set Exists param in select query\n@param subSelectQuery {@link voltmx.sdk.dto.SelectQuery}\n@constructor"
+        },
+        "Criteria": {
+          "prototype": {
+            "quote": {
+              "!type": "fn(str: ?)",
+              "!span": "46155[1580:32]-46160[1580:37]"
+            }
+          },
+          "!type": "fn()",
+          "!span": "46093[1578:13]-46101[1578:21]",
+          "!doc": "This is Interface to define where clauses\n@constructor"
+        },
+        "Match": {
+          "prototype": {
+            "getColumn": {
+              "!type": "fn()",
+              "!span": "46560[1596:29]-46569[1596:38]"
+            },
+            "getMatchType": {
+              "!type": "fn()",
+              "!span": "46622[1599:29]-46634[1599:41]"
+            },
+            "setMatchType": {
+              "!type": "fn(matchType: ?)",
+              "!span": "46767[1607:29]-46779[1607:41]",
+              "!doc": "This function is used to set match type.\n\n@param matchType"
+            },
+            "getValue": {
+              "!type": "fn()",
+              "!span": "46841[1610:29]-46849[1610:37]"
+            },
+            "toString": {
+              "!type": "fn()",
+              "!span": "46983[1618:29]-46991[1618:37]",
+              "!doc": "This function is used to convert to String.\n\n@return string"
+            }
+          },
+          "!type": "fn()",
+          "!span": "46386[1590:13]-46391[1590:18]",
+          "!doc": "This function is used to define where clause\n@constructor"
+        },
+        "!span": "18559[518:9]-18562[518:12]"
+      },
+      "verifyAndCallClosure": {
+        "!type": "fn(closure: ?, params: ?)",
+        "!span": "47251[1630:9]-47271[1630:29]"
+      },
+      "KNYObj": {
+        "prototype": {
+          "getSdkObjectSync": {
+            "!type": "fn()",
+            "!span": "47540[1640:26]-47556[1640:42]"
+          },
+          "startSync": {
+            "!type": "fn(syncConfig: ?, successCallback: ?, failureCallback: ?, progressCallback: ?)",
+            "!span": "47604[1643:26]-47613[1643:35]"
+          },
+          "create": {
+            "!type": "fn(record: ?, options: ?, successCallback: ?, failureCallback: ?)",
+            "!span": "47723[1646:26]-47729[1646:32]"
+          },
+          "updateByPK": {
+            "!type": "fn(record: ?, options: ?, successCallback: ?, failureCallback: ?)",
+            "!span": "47826[1649:26]-47836[1649:36]"
+          },
+          "deleteByPK": {
+            "!type": "fn(options: ?, successCallback: ?, failureCallback: ?)",
+            "!span": "47933[1652:26]-47943[1652:36]"
+          },
+          "get": {
+            "!type": "fn(options: ?, successCallback: ?, failureCallback: ?)",
+            "!span": "48032[1655:26]-48035[1655:29]"
+          },
+          "rollback": {
+            "!type": "fn(primaryKeyValueMap: ?, successCallback: ?, failureCallback: ?)",
+            "!span": "48124[1658:26]-48132[1658:34]"
+          }
+        },
+        "createSDKObjectSync": {
+          "!type": "fn(name: ?)",
+          "!span": "54733[1916:16]-54752[1916:35]"
+        },
+        "startSync": {
+          "!type": "fn(knyObj: ?, syncConfig: ?, successCallback: ?, failureCallback: ?, progressCallback: ?)",
+          "!span": "54795[1919:16]-54804[1919:25]"
+        },
+        "create": {
+          "!type": "fn(knyObj: ?, record: ?, options: ?, successCallback: ?, failureCallback: ?)",
+          "!span": "54913[1922:16]-54919[1922:22]"
+        },
+        "updateByPK": {
+          "!type": "fn(knyObj: ?, record: ?, options: ?, successCallback: ?, failureCallback: ?)",
+          "!span": "55015[1925:16]-55025[1925:26]"
+        },
+        "deleteByPK": {
+          "!type": "fn(knyObj: ?, options: ?, successCallback: ?, failureCallback: ?)",
+          "!span": "55121[1928:16]-55131[1928:26]"
+        },
+        "get": {
+          "!type": "fn(knyObj: ?, options: ?, successCallback: ?, failureCallback: ?)",
+          "!span": "55219[1931:16]-55222[1931:19]"
+        },
+        "rollback": {
+          "!type": "fn(knyObj: ?, primaryKeyValueMap: ?, successCallback: ?, failureCallback: ?)",
+          "!span": "55310[1934:16]-55318[1934:24]"
+        },
+        "!type": "fn(name: ?)",
+        "!span": "47441[1636:9]-47447[1636:15]",
+        "!doc": "==================================================================================================================="
+      },
+      "KNYObjSvc": {
+        "prototype": {
+          "getSdkObjectServiceSync": {
+            "!type": "fn()",
+            "!span": "48450[1668:29]-48473[1668:52]"
+          },
+          "getSdkObjectByName": {
+            "!type": "fn(name: ?)",
+            "!span": "48524[1671:29]-48542[1671:47]"
+          },
+          "startSync": {
+            "!type": "fn(syncConfig: ?, successCallback: ?, failureCallback: ?, progressCallback: ?)",
+            "!span": "48597[1674:29]-48606[1674:38]"
+          },
+          "rollback": {
+            "!type": "fn(successCallback: ?, failureCallback: ?)",
+            "!span": "48719[1677:29]-48727[1677:37]"
+          }
+        },
+        "createSDKObjectServiceSync": {
+          "!type": "fn(name: ?)",
+          "!span": "55420[1937:19]-55446[1937:45]"
+        },
+        "startSync": {
+          "!type": "fn(knyObjSvc: ?, syncConfig: ?, successCallback: ?, failureCallback: ?, progressCallback: ?)",
+          "!span": "55492[1940:19]-55501[1940:28]"
+        },
+        "rollback": {
+          "!type": "fn(knyObjSvc: ?, successCallback: ?, failureCallback: ?)",
+          "!span": "55616[1943:19]-55624[1943:27]"
+        },
+        "!type": "fn(name: ?)",
+        "!span": "48342[1664:9]-48351[1664:18]",
+        "!doc": "======================================================================================================================="
+      },
+      "OfflineObjects": {
+        "prototype": {
+          "setup": {
+            "!type": "fn(successCallback: ?, failureCallback: ?)",
+            "!span": "53132[1863:34]-53137[1863:39]"
+          },
+          "drop": {
+            "!type": "fn(successCallback: ?, failureCallback: ?)",
+            "!span": "53226[1866:34]-53230[1866:38]"
+          },
+          "reset": {
+            "!type": "fn(successCallback: ?, failureCallback: ?)",
+            "!span": "53319[1869:34]-53324[1869:39]"
+          },
+          "rollback": {
+            "!type": "fn(successCallback: ?, failureCallback: ?)",
+            "!span": "53413[1872:34]-53421[1872:42]"
+          }
+        },
+        "setToken": {
+          "!type": "fn(token: ?)",
+          "!span": "53825[1886:24]-53833[1886:32]",
+          "!doc": "=================================================================================================================="
+        },
+        "setReportingParams": {
+          "!type": "fn(reportingParams: ?)",
+          "!span": "53885[1889:24]-53903[1889:42]"
+        },
+        "createSyncCallback": {
+          "!type": "fn(successLog: ?, successCallback: ?, failureLog: ?, failureCallback: ?)",
+          "!span": "53965[1892:24]-53983[1892:42]"
+        },
+        "createVoltmxSyncProgressCallback": {
+          "!type": "fn(progressLog: ?, progressCallback: ?)",
+          "!span": "54086[1895:24]-54116[1895:54]"
+        },
+        "createHashMapFromJSONObject": {
+          "!type": "fn(json: ?, logPrefix: ?)",
+          "!span": "54192[1898:24]-54219[1898:51]"
+        },
+        "createJSONObjectFromHashMap": {
+          "!type": "fn(hashMap: ?, logPrefix: ?)",
+          "!span": "54281[1901:24]-54308[1901:51]"
+        },
+        "setup": {
+          "!type": "fn(objServiceList: ?, successCallback: ?, failureCallback: ?)",
+          "!span": "54373[1904:24]-54378[1904:29]"
+        },
+        "reset": {
+          "!type": "fn(objServiceList: ?, successCallback: ?, failureCallback: ?)",
+          "!span": "54473[1907:24]-54478[1907:29]"
+        },
+        "drop": {
+          "!type": "fn(successCallback: ?, failureCallback: ?)",
+          "!span": "54573[1910:24]-54577[1910:28]"
+        },
+        "rollback": {
+          "!type": "fn(successCallback: ?, failureCallback: ?)",
+          "!span": "54655[1913:24]-54663[1913:32]"
+        },
+        "!type": "fn(objServiceList: ?)",
+        "!span": "53049[1861:9]-53063[1861:23]",
+        "!doc": "==================================================================================================================="
+      },
+      "metric": {
+        "eventConfig": {
+          "confType": {
+            "!type": "string",
+            "!span": "55923[1954:1]-55933[1954:11]"
+          },
+          "!span": "55905[1953:16]-55916[1953:27]"
+        },
+        "eventTypeMap": {
+          "formentry": {
+            "!type": "string",
+            "!span": "56123[1959:4]-56134[1959:15]"
+          },
+          "formexit": {
+            "!type": "string",
+            "!span": "56154[1960:4]-56164[1960:14]"
+          },
+          "touch": {
+            "!type": "string",
+            "!span": "56183[1961:4]-56190[1961:11]"
+          },
+          "servicerequest": {
+            "!type": "string",
+            "!span": "56206[1962:4]-56222[1962:20]"
+          },
+          "serviceresponse": {
+            "!type": "string",
+            "!span": "56247[1963:4]-56264[1963:21]"
+          },
+          "gesture": {
+            "!type": "string",
+            "!span": "56290[1964:4]-56299[1964:13]"
+          },
+          "orientation": {
+            "!type": "string",
+            "!span": "56317[1965:4]-56330[1965:17]"
+          },
+          "error": {
+            "!type": "string",
+            "!span": "56352[1966:4]-56359[1966:11]"
+          },
+          "exception": {
+            "!type": "string",
+            "!span": "56375[1967:4]-56386[1967:15]"
+          },
+          "crash": {
+            "!type": "string",
+            "!span": "56406[1968:4]-56413[1968:11]"
+          },
+          "custom": {
+            "!type": "string",
+            "!span": "56429[1969:4]-56437[1969:12]"
+          },
+          "servicecall": {
+            "!type": "string",
+            "!span": "56454[1970:4]-56467[1970:17]"
+          },
+          "apptransition": {
+            "!type": "string",
+            "!span": "56489[1971:4]-56504[1971:19]"
+          },
+          "appload": {
+            "!type": "string",
+            "!span": "56528[1972:4]-56537[1972:13]"
+          },
+          "component": {
+            "!type": "string",
+            "!span": "56555[1973:4]-56566[1973:15]"
+          },
+          "!span": "56101[1958:16]-56113[1958:28]"
+        },
+        "errorCodeMap": {
+          "<i>": {
+            "!type": "bool",
+            "!span": "56620[1976:1]-56626[1976:7]"
+          },
+          "!span": "56601[1975:16]-56613[1975:28]"
+        },
+        "!span": "55870[1950:10]-55876[1950:16]"
+      },
+      "!type": "fn()",
+      "!span": "184[10:5]-187[10:8]",
+      "!doc": "Constructor for creating the voltmx client instance.\n@class\n@classdesc voltmx Class\n@memberof voltmx"
+    },
+    "logger": {
+      "appLoggerInitialisation": {
+        "!type": "fn() -> ?",
+        "!span": "48923[1684:1]-48946[1684:24]"
+      },
+      "networkPersistorUrlEndpoint": {
+        "!type": "string",
+        "!span": "49111[1689:4]-49138[1689:31]"
+      },
+      "deviceLogLevelHeader": {
+        "!type": "string",
+        "!span": "49160[1690:4]-49180[1690:24]"
+      },
+      "isNativeLoggerAvailable": {
+        "!type": "fn() -> bool",
+        "!span": "49215[1691:4]-49238[1691:27]"
+      },
+      "logLevel": {
+        "NONE": {
+          "value": {
+            "!type": "number",
+            "!span": "49398[1699:10]-49403[1699:15]"
+          },
+          "name": {
+            "!type": "string",
+            "!span": "49421[1700:10]-49425[1700:14]"
+          },
+          "code": {
+            "!type": "string",
+            "!span": "49447[1701:10]-49451[1701:14]"
+          },
+          "!span": "49378[1698:8]-49382[1698:12]"
+        },
+        "FATAL": {
+          "value": {
+            "!type": "number",
+            "!span": "49499[1704:10]-49504[1704:15]"
+          },
+          "name": {
+            "!type": "string",
+            "!span": "49522[1705:10]-49526[1705:14]"
+          },
+          "code": {
+            "!type": "string",
+            "!span": "49549[1706:10]-49553[1706:14]"
+          },
+          "!span": "49478[1703:6]-49483[1703:11]"
+        },
+        "ERROR": {
+          "value": {
+            "!type": "number",
+            "!span": "49602[1709:10]-49607[1709:15]"
+          },
+          "name": {
+            "!type": "string",
+            "!span": "49625[1710:10]-49629[1710:14]"
+          },
+          "code": {
+            "!type": "string",
+            "!span": "49652[1711:10]-49656[1711:14]"
+          },
+          "!span": "49581[1708:6]-49586[1708:11]"
+        },
+        "WARN": {
+          "value": {
+            "!type": "number",
+            "!span": "49704[1714:10]-49709[1714:15]"
+          },
+          "name": {
+            "!type": "string",
+            "!span": "49726[1715:10]-49730[1715:14]"
+          },
+          "code": {
+            "!type": "string",
+            "!span": "49752[1716:10]-49756[1716:14]"
+          },
+          "!span": "49684[1713:6]-49688[1713:10]"
+        },
+        "INFO": {
+          "value": {
+            "!type": "number",
+            "!span": "49803[1719:10]-49808[1719:15]"
+          },
+          "name": {
+            "!type": "string",
+            "!span": "49824[1720:10]-49828[1720:14]"
+          },
+          "code": {
+            "!type": "string",
+            "!span": "49850[1721:10]-49854[1721:14]"
+          },
+          "!span": "49783[1718:6]-49787[1718:10]"
+        },
+        "DEBUG": {
+          "value": {
+            "!type": "number",
+            "!span": "49902[1724:10]-49907[1724:15]"
+          },
+          "name": {
+            "!type": "string",
+            "!span": "49924[1725:10]-49928[1725:14]"
+          },
+          "code": {
+            "!type": "string",
+            "!span": "49951[1726:10]-49955[1726:14]"
+          },
+          "!span": "49881[1723:6]-49886[1723:11]"
+        },
+        "TRACE": {
+          "value": {
+            "!type": "number",
+            "!span": "50004[1729:10]-50009[1729:15]"
+          },
+          "name": {
+            "!type": "string",
+            "!span": "50026[1730:10]-50030[1730:14]"
+          },
+          "code": {
+            "!type": "string",
+            "!span": "50053[1731:10]-50057[1731:14]"
+          },
+          "!span": "49983[1728:6]-49988[1728:11]"
+        },
+        "ALL": {
+          "value": {
+            "!type": "number",
+            "!span": "50104[1734:10]-50109[1734:15]"
+          },
+          "name": {
+            "!type": "string",
+            "!span": "50126[1735:10]-50130[1735:14]"
+          },
+          "code": {
+            "!type": "string",
+            "!span": "50151[1736:10]-50155[1736:14]"
+          },
+          "!span": "50085[1733:6]-50088[1733:9]"
+        },
+        "!span": "49356[1697:4]-49364[1697:12]"
+      },
+      "setClaimsToken": {
+        "!type": "fn()",
+        "!span": "50226[1741:3]-50240[1741:17]",
+        "!doc": "setting claims token after referesh"
+      },
+      "flush": {
+        "!type": "fn()",
+        "!span": "50666[1758:3]-50671[1758:8]"
+      },
+      "filePersistor": {
+        "!type": "number",
+        "!span": "50778[1763:7]-50791[1763:20]"
+      },
+      "consolePersistor": {
+        "!type": "number",
+        "!span": "50827[1767:7]-50843[1767:23]"
+      },
+      "networkPersistor": {
+        "!type": "number",
+        "!span": "50879[1771:7]-50895[1771:23]"
+      },
+      "activatePersistors": {
+        "!type": "fn(activatedList: ?)",
+        "!span": "50927[1775:3]-50945[1775:21]"
+      },
+      "deactivatePersistors": {
+        "!type": "fn(deactivatedList: ?)",
+        "!span": "51084[1780:3]-51104[1780:23]"
+      },
+      "setConfig": {
+        "!type": "fn(loggerConfig: ?)",
+        "!span": "51251[1786:3]-51260[1786:12]"
+      },
+      "setPersistorConfig": {
+        "!type": "fn(persistor: ?)",
+        "!span": "51435[1794:3]-51453[1794:21]"
+      },
+      "createLoggerConfig": {
+        "!type": "fn()",
+        "!span": "51638[1802:3]-51656[1802:21]"
+      },
+      "!span": "48910[1683:5]-48916[1683:11]",
+      "!doc": "===================================================================================================================="
+    },
+    "!span": "41[1:4]-45[1:8]"
+  }
+}

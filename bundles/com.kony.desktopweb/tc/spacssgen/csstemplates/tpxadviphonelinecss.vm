@@ -1,0 +1,10 @@
+#set($s = "." + $skin)
+$s{
+    #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end
+}

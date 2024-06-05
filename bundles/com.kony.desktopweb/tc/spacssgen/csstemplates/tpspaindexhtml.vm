@@ -1,0 +1,530 @@
+#if($jspgeneration=="true")
+  <%@ page import="com.kony.web.WEBConstants,com.kony.web.KonyAppConfig,java.util.*" %>
+    <%
+    response.setDateHeader("Expires", (new Date(0)).getTime());
+    response.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0");
+    response.setHeader("Pragma", "no-cache");
+    %>
+  <%
+	KonyAppConfig appConfig = (KonyAppConfig) application.getAttribute(WEBConstants.KONY_APP_CONFIG);
+	String propertiesJSON = (String) application.getAttribute(appConfig.getAppID() + WEBConstants.THINCLIENT_PROPERTIES + "_JSON");
+	String headersJSON = (String) request.getAttribute("headersJSON");
+	String paramsJSON = (String) request.getAttribute("paramsJSON");
+  %>
+#end
+
+<!DOCTYPE HTML>
+<html #if($isDebug=="true") manifest="${category}voltmx.manifest" #end>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        #if($platform == "spaan")
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        #else
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+        #end
+        #if($disableTelephoneDetection)
+        	<meta name="format-detection" content="telephone=no" />
+        #end
+        #if($disableAddressDetection)
+            <meta name="format-detection" content="address=no" />
+        #end
+        #if($platform == "spawindows" || $platform == "spawinphone8"  || $platform == "spawindowstablet")
+            <meta name="msapplication-tap-highlight" content="no" />
+        #end
+        #if($appleicon)
+        #if(($platform == "spawindows") || $platform == "spawinphone8" || $platform == "spawindowstablet")
+            <meta name="msapplication-TileImage" content="$appleicon">
+        #end
+        #end
+        #if($metatags)
+            $metatags
+        #end
+        #if($favicon)
+            <link rel="SHORTCUT ICON" href="$favicon" />
+        #end
+        #if(($platform == "spaip" || $platform == "spaipad") && $appleicon)
+            <link rel="apple-touch-icon" href="$appleicon" />
+        #end
+        #if(($platform == "spaan") && $webmanifest)
+            <link rel="manifest" href="spaandroid/webmanifest.js">
+        #end
+        #if(($platform == "spaandroidtablet") && $webmanifest)
+            <link rel="manifest" href="spaandroidtablet/webmanifest.js">
+        #end
+        #if($appleicon)
+        #if(($platform == "spaan")|| ($platform == "spaandroidtablet"))
+            <link rel="icon" href="$appleicon">
+        #end
+        #end
+        #parse("tpwebfiles.vm")
+        #parse("tpxhtmljspxfsbuster.vm")
+        #if($minified=="true")
+            <script type= "text/javascript">
+             #if($indexjl == "lua")
+                    IndexJL = 1;
+             #elseif($indexjl == "js")
+                    IndexJL = 0;
+             #end
+            </script>
+        #end
+        ## adding custom widgets(js and css files)
+        #parse("tpcustomwidget.vm")
+
+        #if($platform == "spaip" || $platform == "spaan" || $platform == "spabb" || $platform == "spabbnth" || $platform == "spawindows" || $platform == "spawinphone8" || $platform == "spaipad" || $platform == "spaandroidtablet" || $platform == "spaplaybook" || $platform == "spawindowstablet")
+		<script type="text/javascript">
+		    #if($platform == "spabbnth")
+                        bbnth = true;
+                    #end
+                </script>
+                <style>
+                    #if($platform == "spawindows" || $platform == "spawinphone8"  || $platform == "spawindowstablet")
+                    @-ms-keyframes FadeIn { 0% { opacity:0; } 100% { opacity:1; } }
+                    #else
+                    @-webkit-keyframes FadeIn { 0% { opacity:0; } 100% { opacity:1; } }
+                    #end
+
+                   .splashscreen
+                   {
+                        position: fixed !important;
+                        position: absolute;
+                        top: 0px;
+                        right: 0px;
+                        left: 0px;
+                        bottom: 0px;
+                        #if($bgcolor)
+                        background-color: $bgcolor;
+                        #else
+                        background-color: #ffffff;
+                        #end
+                    }
+                    .splashscreen2
+                    {
+                        text-align: center;
+                        height:100%;
+                    }
+                    .splashscreen-image
+                    {
+                        #if($enableSplashAnimation)
+                            #if($platform == "spawindows" || $platform == "spawinphone8"  || $platform == "spawindowstablet")
+                                -ms-animation-name: FadeIn;
+                                -ms-animation-timing-function: ease-in;
+                                -ms-animation-duration: 1.5s;
+                            #else
+                                -webkit-animation-name: FadeIn;
+                                -webkit-animation-timing-function: ease-in;
+                                -webkit-animation-duration: 1.5s;
+                            #end
+                        #end
+                        width:100%;
+                        height:100%;
+                    }
+           </style>
+            #*
+               #if($splashImage && $platform == "spaan")
+                   <script type="text/javascript" >
+                     function appendSplashImage() {
+                     var splashImageTag=document.createElement('img');
+                     splashImageTag.setAttribute("class","splashscreen-image");
+                     splashImageTag.setAttribute("src","${category}images/$splashImage");
+                     var ss=document.getElementById("splashScreen");
+                     ss.appendChild(splashImageTag);
+                    }
+                    setTimeout("appendSplashImage()",1000);
+                    </script>
+                #end
+            *#
+        #end
+        #* Commenting below code as we are handling in the javascript
+           Because during publish when minification is true... Loading just the js files in debug loading the javascript dynamically
+        *#
+
+		#if($platform == "spaan" || $platform == "spaanwrapper" || $platform == "spaanmixed")
+                <meta name="apple-mobile-web-app-capable" content="yes"/>
+		<script>
+			(function ()
+			{
+				// load voltmx css
+				var dpratio = window.devicePixelRatio;
+				var category;
+				if (dpratio <= 1) {
+				  category = 320;
+				} else if(dpratio <= 1.5){
+				  category = 360;
+				} else if(dpratio <= 2) {
+				  category = 400;
+				} else if(dpratio>2){
+				  category = 440;
+				}
+				var filename = "spaandroid/voltmxspaandroid" + category + ".css?ver=$version";
+				var link = document.createElement("link");
+				link.setAttribute("rel", "stylesheet");
+				link.setAttribute("type", "text/css");
+				link.setAttribute("href", filename);
+				document.getElementsByTagName("head")[0].appendChild(link);
+                                #if($splashImage && $platform == "spaan")
+                                    setTimeout(function(){appendSplashImage(category)},100);
+                                #end
+			})();
+                       #parse("tpspacommonlocale.vm");
+		</script>
+		#end
+
+       #*
+        tablets index generation
+       *#
+       #if($platform == "spaipad")
+            <meta name="apple-mobile-web-app-capable" content="yes"/>
+            <link rel="stylesheet" type="text/css" href="${category}voltmxspatabletiphone.css?ver=$version" media="screen" />
+            #if($locales)
+                 <script type="text/javascript">
+                    #parse("tpspacommonlocale.vm");
+                 </script>
+            #end
+       #elseif($platform == "spaandroidtablet" )
+            <meta name="apple-mobile-web-app-capable" content="yes"/>
+            <script type="text/javascript" >
+                (function ()
+                {
+                         var dpratio = window.devicePixelRatio;
+                         var category;
+                          if (dpratio <= 1) {
+                             category = "mdpi";
+                           } else if(dpratio <= 1.5){
+                               category = "hdpi";
+                           } else if(dpratio > 1.5) {
+                               category = "xhdpi";
+                           }
+                        var filename = "spaandroidtablet/voltmxspatabletandroid" + category + ".css?ver=$version";
+                        var link = document.createElement("link");
+                        link.setAttribute("rel", "stylesheet");
+                        link.setAttribute("type", "text/css");
+                        link.setAttribute("href", filename);
+                        document.getElementsByTagName("head")[0].appendChild(link);
+								#if($splashImage && $platform == "spaandroidtablet")
+                                    setTimeout(function(){appendSplashImage(category)},1000);
+                                #end
+                    })();
+                   #parse("tpspacommonlocale.vm");
+            </script>
+        #elseif($platform == "spaplaybook" )
+            <link rel="stylesheet" type="text/css" href="${category}voltmxspatabletbb.css?ver=$version" media="screen" />
+        #elseif($platform == "playbook" )
+            <link rel="stylesheet" type="text/css" href="${category}voltmxnativetabletplaybook.css" media="screen" />
+        #elseif($platform == "spawindowstablet")
+            <link rel="stylesheet" type="text/css" href="${category}voltmxspawindowstablet.css?ver=$version" media="screen" />
+            #if($locales)
+                 <script type="text/javascript">
+                    #parse("tpspacommonlocale.vm");
+                 </script>
+            #end
+        #end
+
+        #if($platform == "spaip" || $platform == "spaipwrapper" || $platform == "spaipmixed")
+         <meta name="apple-mobile-web-app-capable" content="yes"/>
+         <script>
+		var category = '';
+		if(window.matchMedia){
+		if(window.matchMedia('(min-device-width:321px) and (max-device-width:375px)').matches)
+				category = '375';
+		else if(window.matchMedia('(min-device-width:376px) and (max-device-width:414px)').matches)
+				category = '414';
+		else if(window.matchMedia('(min-device-width:415px)').matches)  
+				category = '414';             
+		}
+		var filename = "spaiphone/voltmxspaiphone" +category + ".css?ver=$version";
+		var link = document.createElement("link");
+		link.setAttribute("rel", "stylesheet");
+		link.setAttribute("type", "text/css");
+		link.setAttribute("href", filename);
+		document.getElementsByTagName("head")[0].appendChild(link);
+		if(!category){
+			var link = document.createElement("link");
+			link.setAttribute("rel", "stylesheet");
+			link.setAttribute("type", "text/css");
+			var retfilename =  "spaiphone/voltmxspaiphoneretina.css?ver=$version";
+			link.setAttribute("href", retfilename);
+			document.getElementsByTagName("head")[0].appendChild(link);
+		}
+                #if($platform == "spaip")
+                    #parse("tpspacommonlocale.vm");
+                #end
+	</script>
+
+        #elseif($platform == "spabbwrapper" || $platform == "spabbmixed")
+                <link rel="stylesheet" type="text/css" href="${category}voltmx${platform}240.css" media="screen and (max-device-width:319px)" />
+                <link rel="stylesheet" type="text/css" href="${category}voltmx${platform}320.css" media="screen and (min-device-width:320px) and (max-device-width:479px)" />
+                <link rel="stylesheet" type="text/css" href="${category}voltmx${platform}480.css" media="screen and (min-device-width:480px) and (max-device-width:639px)" />
+                <link rel="stylesheet" type="text/css" href="${category}voltmx${platform}640.css" media="screen and (min-device-width:640px)" />
+        #elseif($platform == "spawindows" || $platform == "spawinphone8")
+                <link rel="stylesheet" type="text/css" href="${category}voltmxspawindows320.css?ver=$version" />
+                 <script type="text/javascript">
+                    #parse("tpspacommonlocale.vm");
+                 </script>
+        #end
+
+        ##code as we are handling in the javascript
+        #* Commenting below code as we are no longer including third party css files for calendar(removed yui calendar)
+            #if($minified!="true")
+            <link rel="stylesheet" type="text/css" href="${category}jslib/tparty/cal/container.css" />
+            <link rel="stylesheet" type="text/css" href="${category}jslib/tparty/cal/calendar.css" />
+            #end
+        *#
+        #if($minified!="true" && $hascustomlistview == "true")
+            <link rel="stylesheet" type="text/css" href="${category}jslib/tparty/picker/mobiscroll-1.6.css" />
+        #end
+
+        #if($indexjl == "lua")
+        #set($jscount = $importjsfiles.size())
+            #if($jscount > 0)
+                #foreach ($jsfile in $importjsfiles)
+                  <script src="$jsfile"></script>
+                #end
+            #end
+        #end
+       #if($apptitle)
+            <title>$apptitle</title>
+       #end
+    </head>
+
+    <body>
+		<DIV id="splashDiv">
+        #if($jspgeneration=="true")
+             <input type="hidden" name="_voltmxAppProperties" value='<%=propertiesJSON%>' >
+             <input type="hidden" name="_reqHeaders" value='<%=headersJSON%>' >
+             <input type="hidden" name="_reqParams" value='<%=paramsJSON%>'>
+             <% Object sessionObj = request.getSession(false); %>
+             <%
+                if(sessionObj == null || session.getAttribute("spa") == null){
+                        %>
+                        <div id="isnewsession" style="display:none">true</div>
+                        <%
+                        session = request.getSession();
+                        session.setAttribute("spa","spa");
+                }else{
+                        %>
+                        <div id="isnewsession" style="display:none">false</div>
+                        <%
+                }
+             %>
+        #end
+
+        #if($splashImage && ($platform == "spaip" || $platform == "spaan" || $platform == "spabb" || $platform == "spabbnth" ||
+        $platform == "spaipad" || $platform == "spaandroidtablet" || $platform == "spaplaybook" || $platform == "spawindows" || $platform == "spawinphone8"  || $platform == "spawindowstablet"))
+                <div id="splashScreen_main" class="splashscreen">
+                    <div id="splashScreen" class="splashscreen2">
+                        #if($platform == "spaip" || $platform == "spaipad" ||$platform == "spawindowstablet" || $platform == "spaplaybook" )
+                            <img id="splashScreenImage" class="splashscreen-image" src="${category}images/$splashImage" >
+                        #end
+                        #if($platform == "spabb" || $platform == "spabbnth" ||$platform == "spawindows" || $platform == "spawinphone8" )
+                            <img id="splashScreenImage" class="splashscreen-image" src="${category}images/320/$splashImage" >
+                        #end
+
+                    </div>
+                </div>
+        #end
+		## noscript alone doesn't work on BB Torch
+
+
+
+		<noscript style="position:absolute;background:white;">$noscriptmessage</noscript>
+
+
+
+                <style>
+			#__JSDisabledErrorMsg{display:none;}
+		</style>
+		<noscript>
+			<style>
+				#__JSDisabledErrorMsg{display:block;}
+				#splashScreen_main{display:none;}
+			</style>
+		</noscript>
+		<div id="__JSDisabledErrorMsg" style="position:absolute;background:white;">$noscriptmessage</div>
+
+        <script type="text/javascript" >
+                #if($platform == "spabbnth" || $platform == "spabb")
+                    var orientation = window.orientation;
+                    var category = window.innerWidth;
+                    if(orientation) {
+                      category = Math.min(window.innerWidth, window.innerHeight);
+                    }
+                    if(orientation && parseInt(category, 10) > 250) {
+                      category = 360
+                    } else if( orientation || parseInt(category, 10) < 340) {
+                       category = 320;
+                    } else {
+                      category = 360;
+                    }
+                    if(window.devicePixelRatio > 2)
+                       category = 440;
+
+                    var filename = "${category}voltmx${platform}" + category + ".css?ver=$version";
+                    var link = document.createElement("link");
+                    link.setAttribute("rel", "stylesheet");
+                    link.setAttribute("type", "text/css");
+                    link.setAttribute("href", filename);
+                    document.getElementsByTagName("head")[0].appendChild(link);
+
+                    #parse("tpspacommonlocale.vm");
+
+                #end
+
+                #if($hascustomlistview == "true")
+                    kcustpicker = true;
+                #end
+                ##Adding IndexJL here to know if the project is of type lua or js
+                #if($indexjl == "lua")
+                    IndexJL = 1;
+                #elseif($indexjl == "js")
+                    IndexJL = 0;
+    		#end
+    		var spaMarkup = "${category}"; spaMarkup = spaMarkup.substring(0,spaMarkup.length-1);
+                #if($minified!="true")
+                    function initappcache() {
+                            $KG["version"] = "$version";
+                            $KG["staticContentPath"] =  "";
+                            voltmx.appinit.initappcache();
+                    }
+                    var head = document.getElementsByTagName('head')[0];
+                    var script = document.createElement('script');
+                    appStartTime = new Date().getTime();
+                    script.src = "${category}jslib/voltmxinit.js";
+                    script.onload = initappcache;
+                    head.appendChild(script);
+                #else
+                    ##voltmx.appinit.initappcache();
+                    initappcache ();
+                    function initappcache ()
+                    {
+                        isWindowsPhone= (/Windows Phone/gi).test(navigator.userAgent);
+                        isWindowsTouch =(/Windows/gi).test(navigator.userAgent) && (/Touch/gi).test(navigator.userAgent);
+                        isWindowsTablet = (/Windows NT/gi).test(navigator.userAgent) && (/Touch/gi).test(navigator.userAgent);
+
+                        if (document.documentElement.getAttribute("manifest") && !! window.applicationCache) {
+                                var a = ["checking", "downloading", "progress", "cached", "noupdate", "updateready", "obsolete", "error"];
+                                for (var d = 0; d < a.length; d++) {
+                                        window.applicationCache.addEventListener(a[d],appcacheeventhndlr, false)
+                                }
+                        } else {
+                                //voltmx.appinit.loadlibrarysync();
+
+                        }
+                        loadVoltmxframework();
+
+                    }
+
+                    function appcacheeventhndlr(event)
+                    {
+                        if(!event)
+                                event = window.event;
+
+                        switch (event.type) {
+                                case "checking":
+                                        console.log("Checking for Manifest Version");
+                                        break;
+
+                                case "downloading":
+                                        console.log("Downloading of Manifest Resources");
+                                        break;
+
+                                case "progress":
+                                        break;
+
+                                case "cached":
+                                        console.log("Manifest Resources loading done");
+                                       // loadVoltmxframework();
+                                        break;
+
+                                case "noupdate":
+                                        console.log("No Change in Manifest File");
+                                        //loadVoltmxframework();
+                                        break;
+
+                                case "updateready":
+                                        console.log("New manifest resources downloaded,swap the cache");
+                                        try{
+                                            window.applicationCache.swapCache();
+                                            //loadVoltmxframework();
+                                            window.location.reload();
+                                        }catch (e) {
+                                            console.log("invalid state: swapping the cache");
+                                        }
+                                        break;
+
+                                case "obsolete":
+                                        console.log("Cache Manifest file not found. So deleting app cache");
+                                        break;
+
+                                case "error":
+                                        console.log("Error while loading app cache");
+                                       // loadVoltmxframework();
+                                        break;
+
+                                default:
+                                        console.log("Appcache Event not supported");
+                        }
+                    }
+
+                    function initializeframework()
+                    {
+                        voltmx.appinit.prepareHttpHeaders();
+                        voltmx.appinit.setPlatformName();
+                        voltmx.appinit.mergeDownloadLists();
+                        $KG["version"] = "$version";
+                        $KG["staticContentPath"] =  "";
+                        $KG["skipproxy"] = true;
+                        voltmx.appinit.verifyhref(true);
+                    }
+
+                    function loadVoltmxframework()
+                    {
+                        appStartTime = new Date().getTime();
+                        addScript("jslib/voltmxframework.js");
+                    }
+
+                    function loadappjs()
+                    {
+                        addScript("appjs/app.js");
+                    }
+                    function addScript (src)
+                    {
+                        var head =  document.getElementsByTagName('head')[0];
+                        var	script = document.createElement('script');
+                        //	if(voltmx.appinit.isIE7 || voltmx.appinit.isIE8 || voltmx.appinit.isIE9 || (voltmx.appinit.isWindowsPhone && !voltmx.appinit.isIE10))
+                        //	script.src = $KG["platformver"] + src +"?ver="+ $KG["version"];
+                        //else
+                        //script.src = $KG["platformver"] + srcs[i];// +"?ver="+ $KG["version"];
+
+                        script.src = "$category" + src;
+
+                        script.type = "text/javascript";
+                       if(src ==="appjs/app.js" ){
+                            if(!script.addEventListener) {
+                                script.onreadystatechange = function(){
+                                        (this.readyState == 'complete' || this.readyState == 'loaded') && initializeframework();
+                                };
+                            }
+                            else {
+                                script.onload = initializeframework;
+                            }
+                        }
+                        else{
+                            if(!script.addEventListener) {
+                                script.onreadystatechange = function(){
+                                        (this.readyState == 'complete' || this.readyState == 'loaded') && loadappjs();
+                                };
+                            }
+                            else {
+                                script.onload = loadappjs;
+                            }
+                        }
+
+                        head.appendChild(script);
+                    }
+
+                #end
+
+        </script>
+		</DIV>
+    </body>
+</html>

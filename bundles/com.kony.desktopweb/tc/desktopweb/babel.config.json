@@ -1,0 +1,6 @@
+{
+    "presets": [
+        ["--workspace--/@babel/preset-env"]
+    ],
+    "sourceType": "script"
+}

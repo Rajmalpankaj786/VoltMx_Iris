@@ -1,0 +1,15 @@
+#set($inputskinwebkit = "input[kplaceholderskin = '$classname']::-webkit-input-placeholder")
+#set($phskinwebkit = $inputskinwebkit)
+$phskinwebkit{
+   #parse("tpxplaceholdergenericcss.vm")
+}
+#set($inputskinmoz = "input[kplaceholderskin = '$classname']::-moz-placeholder")
+#set($phskinmoz = $inputskinmoz)
+$phskinmoz{
+   #parse("tpxplaceholdergenericcss.vm")
+}
+#set($inputskinie = "input[kplaceholderskin = '$classname']:-ms-input-placeholder")
+#set($phskinie = $inputskinie)
+$phskinie{
+   #parse("tpxplaceholdergenericcss.vm")
+}

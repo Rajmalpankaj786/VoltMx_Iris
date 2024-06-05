@@ -1,0 +1,58 @@
+#if($default == "true")
+$skin
+{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    #if($width)
+        width: $width%;
+    #else
+        width: auto;
+    #end
+    ##margin: 1px 0 0 0;
+     #parse("tpxhtmlcssmargins.vm")
+    padding: 6px 6px 6px 6px;
+    font-size: $font-size;
+    font-weight: normal;
+    #if($align)
+        text-align: $align;
+    #end
+}
+#else
+$skin
+{
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        #if($width)
+            width: $width%;
+        #else
+            width: auto;
+        #end
+        
+        ##margin: 1px 0 0 0;
+         #parse("tpxhtmlcssmargins.vm")
+        #if($bottom-padding)
+        padding: 6px 6px $bottom-padding 6px;
+        #else
+        padding: 6px 6px 6px 6px;
+        #end
+       font-family: $font-family;
+        font-size : $font-size;
+        font-weight : $font-weight;
+        font-style : $font-style;
+        color : #$color;
+        #if($background-color)
+            background-color : #$background-color;
+        #else
+            background-color : white;
+        #end
+         #if($border-color)
+            border-color : #$border-color;
+        #else
+            border-color : black;
+        #end
+        #if($align)
+            text-align: $align;
+        #end
+        
+}
+#end

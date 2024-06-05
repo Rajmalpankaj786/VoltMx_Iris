@@ -1,0 +1,156 @@
+{
+    "AS_TextField_f4d9f1a21dd44c5d80c90cb911f81882": {
+        "id": "AS_TextField_f4d9f1a21dd44c5d80c90cb911f81882",
+        "type": "ACTION_SEQUENCE",
+        "name": "onTextChangeHandlerForTbxUsername",
+        "params": [{
+            "datatype": "collection",
+            "name": "eventobject"
+        }, {
+            "datatype": "string",
+            "name": "changedtext"
+        }],
+        "contextObj": {
+            "name": "frmLogin",
+            "type": "forms",
+            "platform": "",
+            "KUID": "id61e65640e8422fbd585e98ed70503a"
+        },
+        "language": "js",
+        "actions": [{
+            "id": "ADD_LOCAL_VARIABLE_f44b8e703dc6402e88b465926b4e4fe5",
+            "type": "ADD_LOCAL_VARIABLE",
+            "name": "userName",
+            "isGlobal": false,
+            "valuetype": "constant",
+            "datatype": "string",
+            "value": "\"\"",
+            "parentId": null,
+            "callbackType": null
+        }, {
+            "id": "ADD_LOCAL_VARIABLE_d2276ee14edc43dd8ad514f98ffce6d0",
+            "type": "ADD_LOCAL_VARIABLE",
+            "name": "password",
+            "isGlobal": false,
+            "valuetype": "constant",
+            "datatype": "string",
+            "value": "\"\"\t",
+            "parentId": null,
+            "callbackType": null
+        }, {
+            "id": "ADD_MAPPING_afd93ce4645b465c86aabc7465b21e11",
+            "type": "ADD_MAPPING",
+            "mappings": {
+                "ME_Mapping_abb313442a2a4fb3bc2858c927d7fe59": {
+                    "channel": "mobile",
+                    "id": "ME_Mapping_abb313442a2a4fb3bc2858c927d7fe59",
+                    "type": "MAPPING",
+                    "callbackType": null,
+                    "rectified": true,
+                    "source": {
+                        "type": "Forms",
+                        "propertyName": "text",
+                        "widgetId": "tbxUserName",
+                        "widgetPath": "this.view.tbxUserName",
+                        "widgetType": "TextField",
+                        "dataType": "string",
+                        "itemId": "frmLogin",
+                        "widgetKUID": "febc8a061f2d4f7692ff6dcc5e65b2b7",
+                        "itemKUID": "id61e65640e8422fbd585e98ed70503a",
+                        "forkedPlatform": "all"
+                    },
+                    "target": {
+                        "type": "Variables",
+                        "propertyName": "userName",
+                        "dataType": "string",
+                        "forkedPlatform": "all"
+                    }
+                },
+                "ME_Mapping_c7024ea512fb430fb212d2fd0f24dfd2": {
+                    "channel": "mobile",
+                    "id": "ME_Mapping_c7024ea512fb430fb212d2fd0f24dfd2",
+                    "type": "MAPPING",
+                    "callbackType": null,
+                    "rectified": true,
+                    "source": {
+                        "type": "Forms",
+                        "propertyName": "text",
+                        "widgetId": "tbxPassword",
+                        "widgetPath": "this.view.tbxPassword",
+                        "widgetType": "TextField",
+                        "dataType": "string",
+                        "itemId": "frmLogin",
+                        "widgetKUID": "h5c23913ae5943299d4095675764924d",
+                        "itemKUID": "id61e65640e8422fbd585e98ed70503a",
+                        "forkedPlatform": "all"
+                    },
+                    "target": {
+                        "type": "Variables",
+                        "propertyName": "password",
+                        "dataType": "string",
+                        "forkedPlatform": "all"
+                    }
+                }
+            },
+            "mappingsOrder": ["ME_Mapping_abb313442a2a4fb3bc2858c927d7fe59", "ME_Mapping_c7024ea512fb430fb212d2fd0f24dfd2"],
+            "parentId": null,
+            "callbackType": null,
+            "enableMappingEditor": true
+        }, {
+            "id": "_aa18875ddf2d43e286aec238a4e2f03e",
+            "type": "IF_CONDITION",
+            "conditions": [{
+                "leftValueType": "varvalue",
+                "leftValue": "userName",
+                "operator": "===",
+                "rightValueType": "value",
+                "rightValue": "\"\""
+            }, {
+                "leftValueType": "varvalue",
+                "leftValue": "userName",
+                "operator": "===",
+                "rightValueType": "value",
+                "rightValue": "undefined"
+            }, {
+                "leftValueType": "varvalue",
+                "leftValue": "password",
+                "operator": "===",
+                "rightValueType": "value",
+                "rightValue": "\"\""
+            }, {
+                "leftValueType": "varvalue",
+                "leftValue": "password",
+                "operator": "===",
+                "rightValueType": "value",
+                "rightValue": "undefined"
+            }],
+            "parentId": null,
+            "callbackType": null,
+            "criteria": "all"
+        }, {
+            "id": "_f48cd399bbc64c0c8687594b31e046ca",
+            "type": "ELSE_CONDITION",
+            "conditions": [{
+                "leftValueType": "widgetprop",
+                "leftValue": "",
+                "operator": "===",
+                "rightValueType": "widgetprop",
+                "rightValue": ""
+            }],
+            "parentId": null,
+            "callbackType": null,
+            "criteria": "all"
+        }, {
+            "id": "ADD_SNIPPET_gf6e9fb80f554036b2c53b470e62c361",
+            "type": "ADD_SNIPPET",
+            "codeSnippet": "this.view.btnLogin.setEnabled(false);",
+            "parentId": "_aa18875ddf2d43e286aec238a4e2f03e",
+            "callbackType": null
+        }, {
+            "id": "ADD_SNIPPET_jd3d38d78b7f415c89bde6251413508a",
+            "type": "ADD_SNIPPET",
+            "codeSnippet": "this.view.btnLogin.setEnabled(true);",
+            "parentId": "_f48cd399bbc64c0c8687594b31e046ca"
+        }]
+    }
+}

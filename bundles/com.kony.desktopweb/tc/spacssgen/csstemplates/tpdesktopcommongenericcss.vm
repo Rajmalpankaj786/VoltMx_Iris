@@ -1,0 +1,84 @@
+#if($focusSkin)
+	#set($s = $skin)
+#else
+	#set($s = "." + $skin)
+#end
+#if($wtype != "Line")
+    $s{
+           
+            #parse("tpdesktopcommonbordercss.vm")
+            
+            #parse("tpdesktopcommonfontcss.vm")
+
+            #if($wtype=="Appmenu")
+              padding: 1px;
+            #end
+
+            #parse("tpdesktopcommonbackgroundcss.vm")
+            #parse("tpdesktopcommonshadowcss.vm")
+            #parse("tpdesktopcommoncursorcss.vm")
+            
+
+            #if($wtype=="TextArea" || $wtype=="TextBox" || $wtype=="Calendar" || $wtype=="TextArea2" || $wtype=="TextBox2"  )
+             -webkit-appearance: none;
+             #end
+
+             #if($wtype=="RichText" )
+                #if($font-style=="underline")
+                     text-decoration:underline;
+                #elseif($font-style=="overline")
+                     text-decoration:overline;
+                #elseif($font-style=="line-through")
+                     text-decoration:line-through;
+                #elseif($font-style=="italic")
+                     font-style: italic;
+                     text-decoration:none;
+                #else
+                     text-decoration:none;
+                #end
+             #end
+         }
+#end
+#if($wtype == "Line")
+    #parse("tpxdesktoplinecss.vm")
+#end
+
+#parse("tpdesktopcommonprogresscss.vm")
+
+#if($wtype=="ComboBox" || $wtype=="ListBox" )
+    #parse("tpdesktopcommonoptioncss.vm")
+#end
+
+#if($wtype == "Link")
+    #parse("tpdesktopcommonlinkcss.vm")
+#end
+
+#if(($wtype == "layout" && !$formwidget) || $wtype == "Link" )
+    #parse("tpdesktopcommonlayoutprogresscss.vm")
+#end
+
+#if($wtype=="Grid Calendar Cell Skin")
+   #set($c = $s + "cell")
+
+$c{
+     #if($color)
+        #if($rgba_font == "true")
+            color : $color !important;
+        #else
+            color: #$color !important;
+        #end
+    #end
+    #parse("tpdesktopcommonbackgroundcss.vm")
+   }
+#end
+#if($wtype == "Image")
+      #parse("tpimagewidgettintcss.vm")
+#end
+#if(!$focusSkin)
+    #if($wtype == "TextBox2")
+         #parse("tpspatextboxplaceholderskincss.vm")
+    #end
+    #if($wtype == "TextArea")
+         #parse("tpspatextareaplaceholderskincss.vm")
+    #end
+#end

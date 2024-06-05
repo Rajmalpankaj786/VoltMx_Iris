@@ -1,0 +1,762 @@
+*{
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;   
+}
+
+body
+{
+    background: #FFFFFF;
+    color: #000000;
+    overflow-x: hidden;
+   ## -moz-user-select: none;
+    ##-moz-text-size-adjust: none;
+	width: 100%;
+}
+
+/* Layout classes */
+.kbasemargin
+{
+    margin: 0px;
+}
+.kbasepadding
+{
+    padding: 0px;
+}
+.kheight
+{
+	min-height: 28px;
+}
+.kselect
+{
+	height: 28px;
+}
+.kwt100
+{
+    width: 100%;
+}
+.ktable
+{
+    display:table;
+    table-layout: fixed;
+}
+.krow
+{
+    display:table-row;
+    height: 40%;
+}
+.kcell
+{
+    display:table-cell;
+}
+.hide
+{
+	display : none !important;
+}
+.hidden
+{
+	visibility:hidden;
+}
+.show 
+{
+    display:block;
+}
+.auto
+{
+	width: auto;
+}
+
+/* Alignment classes */
+.topleftalign
+{
+    text-align:left;
+    vertical-align: top;
+}
+.toprightalign
+{
+    text-align:right;
+    vertical-align: top;
+}
+.topcenteralign
+{
+    text-align:center;
+    vertical-align: top;
+}
+.middleleftalign
+{
+    text-align:left;
+    vertical-align: middle;
+}
+.middlerightalign
+{
+    text-align:right;
+    vertical-align: middle;
+}
+.middlecenteralign
+{
+    text-align:center;
+    vertical-align: middle;
+}
+.bottomleftalign
+{
+    text-align:left;
+    vertical-align: bottom;
+}
+.bottomrightalign
+{
+    text-align:right;
+    vertical-align: bottom;
+}
+.bottomcenteralign
+{
+    text-align:center;
+    vertical-align: bottom;
+}
+.centerctln{
+    text-align:center;
+}
+.leftctln{
+    text-align:left;
+}
+.rightctln{
+    text-align:right;
+}
+.cntbottomcenteralign
+{
+    display:flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    display: -ms-flexbox;
+    -ms-flex-pack: center;
+    -ms-flex-align: end;
+}
+.cntbottomleftalign
+{
+    display:flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+
+    display: -ms-flexbox;
+   -ms-flex-pack: start
+   -ms-flex-align: end;
+}
+.cntbottomrightalign
+{
+    display:flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    display: -ms-flexbox;
+    -ms-flex-pack: end;
+    -ms-flex-align: end;
+}
+.cntmiddlecenteralign
+{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    display: -ms-flexbox;
+   -ms-flex-pack: center;
+   -ms-flex-align: center;
+}
+.cntmiddleleftalign
+{
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    display: -ms-flexbox;
+    -ms-flex-pack: start;
+    -ms-flex-align: center;
+}
+.cntmiddlerightalign
+{
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+
+
+    display: -ms-flexbox;
+    -ms-flex-pack: end;
+    -ms-flex-align: center;
+}
+.cnttopcenteralign
+{
+    display:flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    display: -ms-flexbox;
+    -ms-flex-pack: center;
+    -ms-flex-align: start;
+}
+.cnttopleftalign
+{
+    display:flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    display: -ms-flexbox;
+    -ms-flex-pack: start;
+    -ms-flex-align: start;
+}
+.cnttoprightalign
+{
+    display:flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+
+    display: -ms-flexbox;
+    -ms-flex-pack: end;
+    -ms-flex-align: start;
+}
+
+
+/* Widget classes */
+input[type="radio"]
+{
+	
+	height:20px !important;
+	width:20px !important;
+}
+input[type="checkbox"]
+{
+	height:24px !important;
+	width:24px !important;
+}
+img 
+{
+	vertical-align: middle;
+	-moz-user-drag: none;
+	-moz-user-select: none;
+}
+div[kwidgettype="Label"] 
+{
+	white-space:pre-wrap;
+	word-wrap:break-word; 
+}
+
+div[kwidgettype="Link"]:hover
+{
+ cursor: pointer
+}
+
+
+optgroup > option {
+	padding-left: 10px;
+}
+
+.voltmxlink
+{
+    text-decoration: none;
+}
+.voltmxsliderleft
+{
+    background-color : grey;
+}
+.voltmxsliderright
+{
+    background-color : black;
+}
+.kstripcontainer
+{
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.kstrip
+{
+    float: left;
+    display: inline;
+    padding: 0px;
+    margin: 0px;
+    -moz-transition-property: -moz-transform;
+    -moz-transition-duration: 0.5s;
+    -moz-transition-timing-function: ease-out;
+    -moz-transform: translate3d(0px, 0px, 0px);
+}
+
+/* switch css */
+.switch 
+{
+	display: -moz-box;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	-moz-user-select: none;
+	overflow: hidden;
+	text-align: center;
+	line-height: 25px;
+}
+.switch .thumb
+{
+	position: relative;
+	-moz-border-radius: 7px;
+	border-radius: 7px;
+	z-index: 3;
+	border: solid 1px #919191;
+}
+.switch .thumb span
+{
+	display: block;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+        background : -moz-linear-gradient(46% 0% 270deg, #cecece, #fbfbfb);
+	//background-image: -moz-gradient(linear, left top, left bottom, from(#cecece), to(#fbfbfb));
+	min-height: 25px;
+}
+.switch .on
+{
+	color: #fff;
+	min-height: 27px;
+        background : -moz-linear-gradient(46% 0% 270deg, #295ab2, #76adfc);
+	//background-image: -moz-gradient(linear, left top, left bottom, from(#295ab2), to(#76adfc));
+	-moz-border-top-left-radius: 6px;
+	-moz-border-bottom-left-radius: 6px;
+	border-top-left-radius: 6px;
+	border-bottom-left-radius: 6px;
+	border: solid 1px #093889;
+	padding-right: 4px;
+	margin-right: -6px;
+}
+.switch .off
+{
+	color: #666;
+	min-height: 27px;
+        background : -moz-linear-gradient(46% 0% 270deg, #b5b5b5, #ffffff);
+	//background-image: -moz-gradient(linear, left top, left bottom, from(#b5b5b5), color-stop(0.50, #fff));
+	-moz-border-top-right-radius: 6px;
+	-moz-border-bottom-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+	border-top-right-radius: 6px;
+	border: solid 1px #a1a1a1;
+	padding-left: 4px;
+	margin-left: -6px;
+}
+
+/* Popup css */
+.popupcontainer
+{
+	position:fixed !important;	
+	position:absolute;
+	width: 100%;
+	height:100%;
+	z-index: 8;
+    bottom : 0;
+    top : 0;
+}
+.popuplayer 
+{
+    position:fixed !important;
+    position: absolute;
+	width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.5;   
+}
+.popupcontrols
+{
+    position: absolute;
+    right: 1px;
+    top: 2px;
+    cursor: pointer;
+}
+
+/* fade css */
+.scroll_fades
+{
+    position: absolute;
+    z-index: 100;
+}
+.scroll_view
+{
+    position: absolute !important;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 100%;
+}.scrollerX {
+    overflow: hidden;
+    position: relative;
+}
+.scrolleeX
+{
+    white-space: nowrap;
+}
+.scroll_fades {
+    position: absolute;
+    z-index: 100;
+}
+.leftfade
+{
+    top: 50%;
+    left: 0;
+}
+.rightfade
+{
+    top: 50%;
+    right: 0;
+}
+.topfade
+{
+    top: 0;
+    left: 50%;
+}
+.bottomfade
+{
+    bottom: 0;
+    left: 50%;
+}
+
+/* Transitions */
+@-moz-keyframes slidetopout
+{
+    from { -moz-transform: translateY(0%); }
+    to { -moz-transform: translateY(-100%); }
+}
+@-moz-keyframes slidetopin
+{
+	from { -moz-transform: translateY(100%); }
+    to { -moz-transform: translateY(0); }
+}
+
+@-moz-keyframes slidebottomout
+{
+    from { -moz-transform: translateY(0%); }
+    to { -moz-transform: translateY(100%); }
+}
+@-moz-keyframes slidebottomin
+{
+    from { -moz-transform: translateY(-100%); }
+    to { -moz-transform: translateY(0); }
+}
+
+@-moz-keyframes slideleftout
+{
+    from { -moz-transform: translateX(0); }
+    to { -moz-transform: translateX(-100%); }
+}
+@-moz-keyframes slideleftin
+{
+    from { -moz-transform: translateX(100%); }
+    to { -moz-transform: translateX(0); }
+}
+
+@-moz-keyframes sliderightout
+{
+    from { -moz-transform: translateX(0); }
+    to { -moz-transform: translateX(100%); }
+}
+@-moz-keyframes sliderightin
+{
+    from { -moz-transform: translateX(-100%); }
+    to { -moz-transform: translateX(0); }
+}
+
+@-moz-keyframes fadeout
+{
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+@-moz-keyframes fadein
+{
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+/* Misc */
+
+ *[kdisabled=true]{
+  cursor: default;
+ }
+ 
+div[name="SelectOption"]:hover{
+ background-color : #3169C6;
+ color: #FFFFFF;
+}
+.voltmxplaceholder {
+    color: #aaa !important;
+}
+
+.klistbox {
+    height: 26px;
+    line-height: 26px;
+    padding-left: 4px;
+    border: 1px solid #555555;
+    -moz-border-radius: 5px;
+	border-radius: 5px;
+    background-color:#FAFAFA;
+}
+.kddicon {
+    background-image: url('./images/listboxIcon.png');
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+.resizearea{
+	background: transparent url(./images/resize.gif) bottom right no-repeat;
+	float: right;
+	width: 13px;
+	height: 13px;
+	cursor: nw-resize;
+}
+.KMenu li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    list-style: none;
+}
+
+.KClear {
+    float: none;
+    clear: both;
+    font-size: 0px;
+    line-height:0px;
+    height: 0px;
+}
+/* cal css */
+.-voltmx-w-c-day-label-cell{            
+       height:100%;
+       font-size:smaller;
+       color:gray;
+       font-weight:bold
+       
+}
+.-voltmx-w-c-cell{
+       display:table-cell; 
+       vertical-align:middle; 
+       text-align:center; 
+       height:100%;
+       
+}
+
+.-voltmx-w-c-row{
+       display:table-row;
+}
+.-voltmx-w-c-table{
+       display:table;
+       table-layout:fixed;
+}
+.-voltmx-w-c-day-table{
+       height:16.66%;
+       width:100%;
+}
+.voltmx-w-c-actualDates{
+       height:80%;
+       width:100%;
+       
+}
+
+.-voltmx-w-c-day-{         
+       height:100%;
+}
+.-voltmx-w-c-day-skin{         
+       height:100%;
+       border:1px solid #F2F2F2;
+       background-color:White;
+       font-weight:bold;
+}
+.-voltmx-w-c-day-:hover{            
+       background-color:#426FD9;
+       color:White;
+       cursor:pointer;
+       border:1px solid White;
+}
+.-voltmx-w-c-day-:active{            
+       background-color:#B3D4FF;
+       color:Black;
+       cursor:pointer;
+       border:1px solid White;
+}
+
+.-voltmx-w-c-weekend-{         
+       height:100%;
+       border:1px solid #DEDEDE;
+       background-color:White;
+       font-weight:bold;
+       color:Green;
+}
+.-voltmx-w-c-weekend-:hover{            
+       background-color:#426FD9;
+       color:White;
+       cursor:pointer;
+       border:1px solid White;
+}
+.-voltmx-w-c-weekend-:active{            
+       background-color:#B3D4FF;
+       color:Black;
+       cursor:pointer;
+       border:1px solid White;
+}
+
+.-voltmx-w-c-selected-{         
+       height:100%;
+       border:1px solid #F2F2F2;
+       background-color:#B3D4FF;
+       cursor:pointer;
+}
+.-voltmx-w-c-selected-:hover{ 
+       color:Black;
+       cursor:pointer;
+       border:1px solid White;
+}
+
+.-voltmx-w-c-today-{         
+       height:100%;
+       border:1px solid Black;
+       background-color:White;
+}
+.-voltmx-w-c-today-:hover{            
+       background-color:#426FD9;
+       color:White;
+       cursor:pointer;
+       border:1px solid White;
+}
+.-voltmx-w-c-today-:active{            
+       background-color:#B3D4FF;
+       color:Black;
+       cursor:pointer;
+       border:1px solid White;
+}
+
+.-voltmx-w-c-popup-container{
+       width:300px;
+       height:300px;
+       font-size: small;
+}
+.-voltmx-w-c-topSection{            
+       border:1px solid #F2F2F2;
+       height:20%;
+       width:100%;
+}
+.-voltmx-w-c-title{
+       height:auto;
+       width:100%;
+}
+.-k-w-c-inactive{
+       height:100%;
+       background-color:#F8F8F8;
+}
+
+.-k-w-c-left-nav-img, .-k-w-c-right-nav-img{
+       height:50%;
+       width:50%
+}
+
+.-voltmx-w-c-yemo-skin{
+       font-weight:bold;
+       font-size:Normal;
+       cursor:pointer;      
+}
+.-k-w-c-datepicker-holder-main{
+       background-color:White;
+}
+.-voltmx-w-c-prev-nav, .-voltmx-w-c-next-nav{
+       cursor:pointer;
+}
+
+.-voltmx-w-c-navigator-month, .-voltmx-w-c-navigator-year{
+       border:1px solid #F2F2F2;
+       background-color:White;
+       font-size:smaller;
+       color: gray;
+       font-weight: bold;
+}
+.-voltmx-w-c-navigator-month:hover, .-voltmx-w-c-navigator-year:hover{            
+       background-color:#426FD9;
+       color:White;
+       cursor:pointer;
+       border:1px solid White;
+       font-size:smaller;
+}
+.-k-w-c-datepicker-navigator{
+       border:1px solid #FAFAFA;
+}
+.-voltmx-w-c-navigator-month-selected, .-voltmx-w-c-navigator-year-selected{
+       background-color:#B3D4FF;
+       color:Black;
+       cursor:pointer;
+       border:1px solid White;
+}
+.-k-w-c-nav-selected-ym{
+       font-size:smaller;
+       color: Green;
+       font-weight:bold
+}
+.-k-w-c-cal-title{
+       text-align:center;
+       width:100%;
+       line-height:30px;
+       height:30px;
+       font-size:small;
+}
+/*for dockable headers,footers*/
+.absoluteContainer
+{
+    position :absolute;
+    height: 100%;
+    width: 100%;
+}
+.form_scroller
+{
+    position: absolute;
+    z-index: 1;
+    /*
+    left: 0;
+    right: 0;
+    */
+    width: 100%;
+    overflow: hidden;
+}
+
+.header_scroller
+{
+    z-index: 6;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.footer_scroller
+{
+    z-index: 6;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.appmenu_scroller
+{
+    z-index: 8;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.form_nativeScroller
+{
+    z-index: 1;
+    position: relative;
+}
+
+.main_container
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.relativePos
+{
+    position: relative;
+}
+.fixedPos
+{
+    position: fixed;
+}
+##JSPFQA7256: group widgets are overalpping in scrollbox, if width is not sufficient
+div[kwidgettype="RadioButtonGroup"], div[kwidgettype="CheckBoxGroup"]
+{
+ white-space: pre-wrap;
+}

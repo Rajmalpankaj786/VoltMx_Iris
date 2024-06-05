@@ -1,0 +1,99 @@
+{
+    "@class": "com.kony.gen.viz.model.component.KVizListBox",
+    "DNDConfig": null,
+    "_height_": {
+        "type": "string",
+        "value": "40dp"
+    },
+    "_margin_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_padding_": [
+        2,
+        0,
+        2,
+        0
+    ],
+    "_placeholder_": "Please Select",
+    "_right_": {
+        "type": "number",
+        "value": "10"
+    },
+    "_skin_": "s0e9d1832dd746aa90289cdfd4585ab3",
+    "_top_": {
+        "type": "string",
+        "value": "15dp"
+    },
+    "_width_": {
+        "type": "string",
+        "value": "150dp"
+    },
+    "android": {
+        "psp": {
+            "applySkinsToPopup": false
+        }
+    },
+    "applyskinstopopup": false,
+    "canUpdateUI": true,
+    "containerweight": 100,
+    "contentalignment": 4,
+    "dropdownimage": "",
+    "focusskin": "sd413ea5f4084497b9e2c2a2bb2e5300",
+    "groupcells": false,
+    "id": "lstLanguage",
+    "info": null,
+    "inputAccessoryViewType": 3,
+    "iphone": {
+        "dropDownImage": "listboxarw.png",
+        "psp": {
+            "inputAccessoryViewType": 1
+        }
+    },
+    "iscustomlayout": false,
+    "isvisible": true,
+    "kuid": "c1026e533ac24a4483e2cb6edf3f131f",
+    "masterdata": [
+        [
+            "en",
+            "English",
+            "english"
+        ],
+        [
+            "fr",
+            "French",
+            "french"
+        ],
+        [
+            "es",
+            "Spanish",
+            "spanish"
+        ]
+    ],
+    "name": "kony.ui.ListBox",
+    "paddinginpixel": false,
+    "parent": "frmLogin",
+    "pf": "frmLogin",
+    "retaincontentalignment": false,
+    "retainflexpositionproperties": false,
+    "selectedkey": "en",
+    "selectedkeys": null,
+    "selectedkeyvalue": [
+        "en",
+        "English"
+    ],
+    "selectedkeyvalues": null,
+    "size": 18,
+    "tickedimage": "",
+    "untickedimage": "",
+    "viewconfig": {
+        "toggleViewConfig": {
+            "viewStyle": 0
+        }
+    },
+    "viewtype": 0,
+    "wType": "ListBox",
+    "zindex": 1
+}

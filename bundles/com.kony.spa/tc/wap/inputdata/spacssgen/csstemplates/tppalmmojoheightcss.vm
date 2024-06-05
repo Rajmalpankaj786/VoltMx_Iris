@@ -1,0 +1,7 @@
+#set($s = "." + $skin)
+#set($ht = $weight + "%")
+
+$s
+{
+    height: $ht;
+}

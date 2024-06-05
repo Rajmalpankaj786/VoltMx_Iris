@@ -1,0 +1,144 @@
+#if($default == "true")
+.appmenuskin{
+    position: relative;
+    margin: 1px;
+    border-top-width: 0px;
+    border-bottom-width: 1px;
+    border-right-width: 0px;
+    border-left-width: 0px;
+    border-top-style: none;
+    border-bottom-style: solid;
+    border-right-style: none;
+    border-left-style: none;
+    border-color: #E0E0E0;
+    font-family: $font-family;
+    font-size : $font-size;
+    font-weight : $font-weight;
+    font-style : $font-style;
+    color : #$color;
+    background-color: inherit;
+    }
+
+.appmenulabel
+{
+    font-family: $font-family;
+    font-size : $font-size;
+    font-weight : $font-weight;
+    font-style : $font-style;
+    color : #$color;
+    background-color: inherit;
+}
+##body {background:#5a8ae2;}
+
+appraised { }
+
+.appraised .b1, .appraised .b2, .appraised .b3, .appraised .b4, .appraised .b1b, .appraised .b2b, .appraised .b3b, .appraised .b4b {display:block; overflow:hidden; font-size:1px;}
+.appraised .b1, .appraised .b2, .appraised .b3, .appraised .b1b, .appraised .b2b, .appraised .b3b {height:1px;}
+.appraised .b2 {background:inherit; border-left:1px solid #fff; border-right:1px solid #eee;}
+.appraised .b3 {background:inherit; border-left:1px solid #fff; border-right:1px solid #ddd;}
+.appraised .b4 {background:inherit; border-left:1px solid #fff; border-right:1px solid #aaa;}
+.appraised .b4b {background:inherit; border-left:1px solid #eee; border-right:1px solid #999;}
+.appraised .b3b {background:inherit; border-left:1px solid #ddd; border-right:1px solid #999;}
+.appraised .b2b {background:inherit; border-left:1px solid #aaa; border-right:1px solid #999;}
+
+
+.appraised .b1 {margin:0 5px; background:#fff;}
+.appraised .b2, .appraised .b2b {margin:0 3px; border-width:0 2px;}
+.appraised .b3, .appraised .b3b {margin:0 2px;}
+.appraised .b4, .appraised .b4b {height:2px; margin:0 1px;}
+.appraised .b1b {margin:0 5px; background:#999;}
+.appraised .boxcontent {display:block;  background:inherit; border-left:1px solid #fff; border-right:1px solid #999;}
+
+#else
+   .appmenuskin{
+   position: relative;
+    margin: 1px;
+    #set($bw = $border-width + "px")
+    border-top-width : 0px;
+    border-bottom-width: 1px;
+    border-right-width: 0px;
+    border-left-width: 0px;
+    border-top-style: none;
+    border-bottom-style: solid;
+    border-right-style: none;
+    border-left-style: none;
+    border-color : #$border-color;
+    font-family: $font-family;
+    font-size : $font-size;
+    font-weight : $font-weight;
+    font-style : $font-style;
+    color : #$color;
+    #if($background-color)
+        background-color: #$background-color;
+    #elseif ($background-image)
+        background-image: url("./images/$background-image");
+        background-repeat: repeat;
+    #else
+        background-color: inherit;
+    #end
+
+    }
+
+    .appmenulabel
+    {
+        font-family: $font-family;
+        font-size : $font-size;
+        font-weight : $font-weight;
+        font-style : $font-style;
+        color : #$color;
+        background-color: inherit;
+    }
+##body {background:#5a8ae2;}
+
+#if($background-color)
+    #set($bgc = "#" + $background-color)
+#else
+    #set($bgc = "inherit")
+#end
+.appmenuskin2{
+   position: relative;
+    margin: 1px;
+    #set($bw = $border-width + "px")
+    border-top-width : 0px;
+    border-bottom-width: 1px;
+    border-right-width: 0px;
+    border-left-width: 0px;
+    border-top-style: none;
+    border-bottom-style: solid;
+    border-right-style: none;
+    border-left-style: none;
+    border-color : $bgc;
+    font-family: $font-family;
+    font-size : $font-size;
+    font-weight : $font-weight;
+    font-style : $font-style;
+    color : #$color;
+    #if($background-color)
+        background-color: #$background-color;
+    #elseif ($background-image)
+        background-image: url("./images/$background-image");
+        background-repeat: repeat;
+    #else
+        background-color: inherit;
+    #end
+
+    }
+appraised { }
+
+.appraised .b1, .appraised .b2, .appraised .b3, .appraised .b4, .appraised .b1b, .appraised .b2b, .appraised .b3b, .appraised .b4b {display:block; overflow:hidden; font-size:1px;}
+.appraised .b1, .appraised .b2, .appraised .b3, .appraised .b1b, .appraised .b2b, .appraised .b3b {height:1px;}
+.appraised .b2 {background:$bgc; }
+.appraised .b3 {background:$bgc; }
+.appraised .b4 {background:$bgc; }
+.appraised .b4b {background:$bgc; }
+.appraised .b3b {background:$bgc;}
+.appraised .b2b {background:$bgc;}
+
+
+.appraised .b1 {margin:0 5px; background:$bgc;}
+.appraised .b2, .appraised .b2b {margin:0 3px; border-width:0 2px;}
+.appraised .b3, .appraised .b3b {margin:0 2px;}
+.appraised .b4, .appraised .b4b {height:2px; margin:0 1px;}
+.appraised .b1b {margin:0 5px; background:$bgc;}
+.appraised .boxcontent {display:block;  background:$bgc;}
+#end

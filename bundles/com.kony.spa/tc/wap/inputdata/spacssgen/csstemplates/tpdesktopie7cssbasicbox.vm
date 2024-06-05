@@ -1,0 +1,44 @@
+#if($focusSkin)
+	#set($sk = $skin)
+#else
+	#set($sk = "." + $skin)
+#end
+#set($bjsversn = "./images/"+ $bjsVersion+"/$background-image")
+$sk
+{
+    ##color : #$color;
+    #if($color)
+        #if($rgba_font == "true")
+            color : $color;
+        #else
+            color: #$color;
+        #end
+    #end
+    #parse("tpxhtmlcssbasicfont.vm")
+    #if($forking)
+        #parse("tpxhtmlcssbasicborderspecific.vm")
+    #else
+        #parse("tpxhtmlcssbasicborder.vm")
+        #parse("tpxhtmlcssbasicborderline.vm")
+    #end
+
+    #if($background-color)
+        #if($rgba == "true")
+            #parse("tpdesktopie7transparency.vm")
+        #else
+            #set($bc = "#" + $background-color)
+            background-color: $bc;
+        #end
+    #elseif($background-gradient)
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$topcolor', endColorstr='$bottomcolor');
+    #elseif($background-split)
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='$topcolor', endColorstr='$bottomcolor');
+    #elseif($background-image)
+        #parse("tpspagenericbgimage.vm")
+        #if($bjsVersion)
+            background-image: url("$bjsversn");
+        #end
+    #else
+        background-color: inherit;
+    #end
+}

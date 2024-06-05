@@ -1,0 +1,72 @@
+#if($default == "true")
+    $skin 
+    {    
+    position: relative;
+    ##margin: 1px 0 1px 0;
+    #parse("tpxhtmlcssmargins.vm")
+    padding: 1px;
+    background: inherit;
+    #if($width)
+        width: $width%;
+    #else
+        width: 97%;
+    #end
+    border: 0px solid #999999;
+    font-size: $font-size;
+    min-height: 20px;
+    height:auto !important;
+    overflow:auto;
+    #if($align)
+        text-align: $align;
+    #else
+        text-align: left;
+    #end
+    float: left clear;
+    }
+#else
+    $skin 
+    {
+    position: relative;
+    ##margin: 1px 0 1px 0;
+    #parse("tpxhtmlcssmargins.vm")
+    padding: 1px;
+     #if($width)
+        width: $width%;
+    #else
+        width: 97%;
+    #end
+    #if($background-color)
+        background: #$background-color;
+    #else
+        background: none;
+    #end
+    #if ($border-width)
+        #set($bw = $border-width + "px")
+        border-width: $bw;
+        border-style: solid;
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+    #else
+        border: 0;
+    #end
+    #if ($border-color)
+        border-color : #$border-color;
+    #else
+        border-color : none;
+    #end
+    font-size: $font-size;
+    min-height: 20px;
+    height:auto !important;
+    overflow:auto;
+    #if($align)
+        text-align: $align;
+    #else
+        text-align: left;
+    #end
+    #if($webkit-border-radius)
+        -webkit-border-radius : 10px;
+        border-radius : 10px;
+    #end
+    float: left clear;
+    }
+#end

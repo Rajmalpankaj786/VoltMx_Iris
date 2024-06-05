@@ -1,0 +1,36 @@
+{
+    "AS_UWI_c730aafe837a4a73b75f8bb0bb8eaca9": {
+        "id": "AS_UWI_c730aafe837a4a73b75f8bb0bb8eaca9",
+        "type": "ACTION_SEQUENCE",
+        "name": "onTouchEndHandlerForBtnWeatherAlertOnFrmDashboard",
+        "params": [{
+            "datatype": "collection",
+            "name": "eventobject"
+        }, {
+            "datatype": "string",
+            "name": "x"
+        }, {
+            "datatype": "string",
+            "name": "y"
+        }],
+        "contextObj": {
+            "name": "frmDashboard",
+            "type": "forms",
+            "platform": "",
+            "KUID": "fcbc1ed742fd42bfba1f4b347c731809"
+        },
+        "language": "js",
+        "actions": [{
+            "id": "NAVIGATE_TO_FORM__c7c96f75d7df48d1b085e4802ee897e4",
+            "type": "NAVIGATE_TO_FORM",
+            "formId": "frmWeather",
+            "formKUID": "e0e62c55c46744abbf8df19b5749c8ae",
+            "projectName": "RefGovtCitizenSA",
+            "mappings": {},
+            "mappingsOrder": [],
+            "enableMappingEditor": true,
+            "package": "",
+            "isCustomInput": false
+        }]
+    }
+}

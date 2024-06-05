@@ -1,0 +1,53 @@
+{
+    "AS_Image_j45ac57fa47449d69b91c8610a75ce30": {
+        "id": "AS_Image_j45ac57fa47449d69b91c8610a75ce30",
+        "type": "ACTION_SEQUENCE",
+        "name": "onTouchEndHandlerForImgMenuOnFrmWeather",
+        "params": [{
+            "datatype": "collection",
+            "name": "eventobject"
+        }, {
+            "datatype": "string",
+            "name": "x"
+        }, {
+            "datatype": "string",
+            "name": "y"
+        }],
+        "contextObj": {
+            "name": "frmWeather",
+            "type": "forms",
+            "platform": "",
+            "KUID": "e0e62c55c46744abbf8df19b5749c8ae"
+        },
+        "language": "js",
+        "actions": [{
+            "id": "_fb151c6f0a894facb573e7ba3a7ef4f0",
+            "type": "MOVE_ACTION",
+            "itemType": "FORM",
+            "itemId": "frmDashboard",
+            "widgetId": "hamburgermenu",
+            "itemKUID": "fcbc1ed742fd42bfba1f4b347c731809",
+            "widgetKUID": "b1cfba85584d4fc78628f8340ae82242",
+            "wType": "UserWidgetInstance",
+            "animationObject": {
+                "left": "0dp",
+                "anchorPoint": {},
+                "stepConfig": {
+                    "timingFunction": "kony.anim.EASE"
+                }
+            },
+            "config": {
+                "delay": "0",
+                "iterationCount": 1,
+                "fillMode": "voltmx.anim.FILL_MODE_FORWARDS",
+                "duration": "1000"
+            },
+            "start": "Immediately",
+            "animationId": "_fb151c6f0a894facb573e7ba3a7ef4f0",
+            "displayAnimationId": "MOVE_ACTION_f15e1aab6f2046a19c88fb9222132bfe",
+            "forkedPlatform": "all",
+            "parentId": null,
+            "widgetPath": "this.view.hamburgermenu"
+        }]
+    }
+}

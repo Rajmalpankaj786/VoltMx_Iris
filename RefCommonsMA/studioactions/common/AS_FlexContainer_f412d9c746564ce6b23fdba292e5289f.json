@@ -1,0 +1,30 @@
+{
+    "AS_FlexContainer_f412d9c746564ce6b23fdba292e5289f": {
+        "id": "AS_FlexContainer_f412d9c746564ce6b23fdba292e5289f",
+        "type": "ACTION_SEQUENCE",
+        "params": [{
+            "datatype": "collection",
+            "name": "eventobject"
+        }],
+        "contextObj": {
+            "name": "userwidgetmodel",
+            "type": "userwidgets",
+            "KUID": "u2746a61ff4b452c81900b1df9e335dd"
+        },
+        "language": "js",
+        "actions": [{
+            "id": "ADD_SNIPPET_d5e73863b6894edc98f12900722f6a96",
+            "type": "ADD_SNIPPET",
+            "codeSnippet": "self.view.imgUserPhoto.base64 = gblProfilePhoto;",
+            "parentId": "_bfdf4226c6194be18db912786f540cf3"
+        }, {
+            "id": "_bfdf4226c6194be18db912786f540cf3",
+            "type": "IF_CONDITION",
+            "conditions": [{
+                "leftValueType": "expression",
+                "leftValue": "gblProfilePhoto !== null"
+            }],
+            "criteria": "all"
+        }]
+    }
+}

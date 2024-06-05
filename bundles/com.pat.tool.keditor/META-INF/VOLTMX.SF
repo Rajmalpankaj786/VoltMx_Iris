@@ -1,0 +1,55 @@
+Signature-Version: 1.0
+Created-By: 11 (Oracle Corporation)
+SHA-256-Digest-Manifest: Tp70E2qgEePfhZvm3fv0V/PPAAkMRL5tUPPgpV2eLjQ=
+SHA-256-Digest-Manifest-Main-Attributes: cpE+yQ2TMjjlrG7qscsFZcv3BjLl+0O
+ hLgAj2nK+zUw=
+
+Name: jettydeploy/richclient/kbf/_test
+SHA-256-Digest: c6CEIvRDOGkxz4DeHbjYuYyMhAdH1LH/sknuP5W07o0=
+
+Name: ant_scripts/buildEar.xml
+SHA-256-Digest: hUR6tOewcVxXmPPzDkJRoVRP4x+9sCBIuQpGXXHNfEk=
+
+Name: jettydeploy/build.xml
+SHA-256-Digest: uJ8wamDSjQFecqdkuLfLL6rPSo6dBeMenwb4fu5ZD7g=
+
+Name: jettydeploy/richclient/WEB-INF/classes/com/konylabs/middleware/app
+ lication/download/DevKBFDownloadServlet.class
+SHA-256-Digest: bxAXShciZN3c/G4nuncCK3ZOKd//y1iP6umgH2+dRvU=
+
+Name: web_xml/cache-web.xml
+SHA-256-Digest: aItq2L/Sw17HpEmiMEJDlf7s9ZgLYW192YJjQSPXvrQ=
+
+Name: jettydeploy/richclient/WEB-INF/classes/middleware-log4j.properties
+SHA-256-Digest: U3cMhIS8MHTqjjlodFYGQZa2liGsMga3EE9sk+kXvPM=
+
+Name: iosfiles/export.plist
+SHA-256-Digest: cazNMemWalABIFdwcTSbo49+kgroxjKz5YkUQ/FiEq4=
+
+Name: lib/ant-contrib-0.6.jar
+SHA-256-Digest: SNDTAceMcvtYvE8PTR/H+aFmUjHYWY4nvztYxTmAEx4=
+
+Name: jettydeploy/richclient/WEB-INF/web.xml
+SHA-256-Digest: S0Aga2OOqE4UR9lod7RfNLI3u2h3roYsFzQ1/ZmypTY=
+
+Name: lib/build.zip
+SHA-256-Digest: hHoc2ybWxEQFhv14RWzDeLJLOKIvy/L5Tcr1YW97YqY=
+
+Name: iosfiles/waxsim
+SHA-256-Digest: qgaKybYSvP1O002YkwgjMW97DHaZ3iKgrJZOV2f8SKQ=
+
+Name: lib/KonyAntScript.jar
+SHA-256-Digest: 5J/ELL2tfuiWS86FwQcv+Mhar/hDpYJqw8mDAHRlEf4=
+
+Name: web_xml/nocache-web.xml
+SHA-256-Digest: xjxzv9OCzFl1Xekkhe7ht9AAm4lFWmUR7ZX45AVPDkM=
+
+Name: web_xml/cloud-web.xml
+SHA-256-Digest: tJd7olwkGvnL1UYj/GkH+UhukZwTDHYNt3Giy4W8A0Y=
+
+Name: lib/antlr-3.3-complete.jar
+SHA-256-Digest: XO+kYXqhGWf9ayIK2su6jmnL3XGkGef1XjTBDi4bYLg=
+
+Name: lib/AntelopeTasks_3.4.0.jar
+SHA-256-Digest: GcELfjbNMVz7QfLXin9WM5dwKIIdtfWlPXqUIHkJ5r0=
+

@@ -1,0 +1,17 @@
+#set($s = "." + $skin)
+$s{
+    #parse("tppalmmojocssborder.vm")
+    #parse("tppalmmojocssfonts.vm")
+    #if($color)
+        color: #$color;
+    #end
+    #if($background-color)
+        background-color : #$background-color;
+    #elseif($background-image)
+        #if($repeat)
+            background-image: url(./images/$background-image) repeat;
+        #else
+            background-image: url(./images/$background-image);
+        #end
+    #end
+}

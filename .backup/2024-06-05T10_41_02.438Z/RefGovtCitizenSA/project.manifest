@@ -1,0 +1,20 @@
+{
+    "dependencies": [
+        {
+            "name": "RefERequestsMA",
+            "isHidden": false,
+            "excludeFromBuild": false
+        },
+        {
+            "name": "RefEComplaintsMA",
+            "isHidden": false,
+            "excludeFromBuild": false
+        },
+        {
+            "name": "RefCommonsMA",
+            "useResources": true,
+            "isHidden": false,
+            "excludeFromBuild": false
+        }
+    ]
+}

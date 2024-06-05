@@ -1,0 +1,30 @@
+setTimeout(function(){appendSplashImage(category)},100);
+function appendSplashImage(category) {
+    var splashImage = "$splashImage"; // Splash Screen Name
+    if(category == '375'){
+           splashImage = splashImage.replace(".","@2x.");
+    }else if(category == '414'){
+           splashImage = splashImage.replace(".","@3x.");
+    }
+    #if($locales)
+        var locales = $locales; // Locales
+        var browserLocale = getLang().replace("-","_");
+        var defaultLocale = "$default_locale"; // default locale
+        var splImgNode=document.getElementById("splashScreenImage");
+        if(splImgNode)  {
+                if(browserLocale && browserLocale !="" && locales.indexOf(browserLocale) >= 0 ){
+                       splImgNode.src = "${category}images/"+browserLocale+"/"+splashImage;
+                } else if(defaultLocale != "") {
+                       splImgNode.src = "${category}images/"+defaultLocale+"/"+splashImage;
+                }else{
+                       splImgNode.src = "${category}images/"+splashImage;
+                }
+        }
+    #else
+        var splImgNode=document.getElementById("splashScreenImage");
+        if(splImgNode) {
+            splImgNode.src = "${category}images/"+splashImage;
+        }
+    #end
+}
+

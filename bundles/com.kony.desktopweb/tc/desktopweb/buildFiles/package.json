@@ -1,0 +1,20 @@
+{
+  "type": "module",
+  "dependencies": {
+    "@babel/core": "^7.23.9",
+    "@babel/preset-env": "^7.22.9",
+    "adm-zip": "^0.5.9",
+    "clean-css": "^5.2.2",
+    "fs-extra": "^10.0.0",
+    "globby": "^12.0.2",
+    "nyc": "^15.1.0",
+    "properties-reader": "^2.2.0",
+    "requirejs": "^2.3.6",
+    "terser": "^5.15.1"
+  },
+  "devDependencies": {
+    "extract-zip": "^2.0.1",
+    "files-compare": "^1.0.2",
+    "prettier": "^2.5.1"
+  }
+}

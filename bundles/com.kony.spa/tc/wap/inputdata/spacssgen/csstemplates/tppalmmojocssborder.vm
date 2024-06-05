@@ -1,0 +1,27 @@
+#if ($border-width)
+    #set($bw = $border-width + "px")
+    border-width: $bw;
+    ## In the case of Palm border style of individual widgets are not required to be specified. But are needed for layouts.
+
+    #if($wtype == "layout")
+        border-style: solid;
+    #end
+
+    #if ($border-color)
+        #if($rgba == "true")
+             border-color :  $border-color;
+        #else
+             border-color :  #$border-color;
+        #end
+    #else
+        border-color : #000000;
+    #end
+#else
+	 #if($wtype != "button" || $wtype != "camera" || $wtype != "phone")
+		border: #000000;
+	 #else
+		#if($background-image)
+			border: #000000;
+		#end
+	 #end
+#end

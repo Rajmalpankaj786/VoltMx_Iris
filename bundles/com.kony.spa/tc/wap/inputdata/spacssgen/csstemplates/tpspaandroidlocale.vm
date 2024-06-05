@@ -1,0 +1,25 @@
+function appendSplashImage(category) {
+        #if($locales)
+            var locales = $locales;// through map
+            var browserLocale = getLang().replace("-","_");
+            var defaultLocale = "$default_locale";
+        #end
+            var ss=document.getElementById("splashScreen");
+            if(ss) {
+                    var splashImageTag=document.createElement('img');
+                    splashImageTag.setAttribute("class","splashscreen-image");
+
+                    #if($locales)
+                        if(browserLocale && browserLocale !="" && locales.indexOf(browserLocale) >= 0 ){
+                               splashImageTag.setAttribute("src","${category}images/"+category+"/"+browserLocale+"/$splashImage");
+                        } else if(defaultLocale != "") {
+                               splashImageTag.setAttribute("src","${category}images/"+category+"/"+defaultLocale+"/$splashImage");
+                        }else{
+                               splashImageTag.setAttribute("src","${category}images/"+category+"/$splashImage");
+                        }
+                    #else
+                        splashImageTag.setAttribute("src","${category}/images/"+category+"/$splashImage");
+                    #end
+                        ss.appendChild(splashImageTag);
+            }
+}

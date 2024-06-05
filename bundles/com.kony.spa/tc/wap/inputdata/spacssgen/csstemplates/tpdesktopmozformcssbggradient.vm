@@ -1,0 +1,11 @@
+#if($background-gradient)
+   background : -moz-linear-gradient(46% 0% 270deg, $topcolor, $bottomcolor)fixed;
+#elseif($background-split)
+   background : -moz-linear-gradient(0% 50% 270deg,$topcolor, $bottomcolor,$bottomcolor 0%)fixed;
+#elseif($background-horizontal-gradient)
+   background : -moz-linear-gradient(0% 0% 0deg, $topcolor, $bottomcolor)fixed;
+#elseif($background-horizontal-split)
+   background : -moz-linear-gradient(50% 0% 0deg,$topcolor, $bottomcolor,$bottomcolor 0%)fixed;
+#elseif($background-ms-gradient)
+    background : -moz-linear-gradient($background-ms-color)fixed;
+#end

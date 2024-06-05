@@ -1,0 +1,69 @@
+<DIV id="splashDiv">
+    <div id="splashScreen" class="splash" style="">
+        #parse("tpdesktopcommonsplashhtml.vm")
+    </div>
+    <script type="text/javascript">
+        function loadcss() {
+            var link = document.createElement('link');
+            link.setAttribute('rel', 'stylesheet');
+            link.setAttribute('type', 'text/css');
+            link.setAttribute('href', 'desktopweb/voltmxdesktop.css');
+            var head = document.getElementsByTagName('head')[0];
+            head.appendChild(link);
+        }
+
+    #if($minified=="true")
+            #if($enableProgressiveWeb == "true")
+                setTimeout(function() {
+                    loadcss();
+                    loadVoltmxframework();
+                }, 0);
+            #else
+                setTimeout(function() {
+                    loadcss();
+                    initappcache();
+                }, 0);
+            #end
+            #parse("tpdesktopindexscript.vm")
+    #else
+            loadcss();
+            function initappcache() {
+                $KG["platformver"] = "desktopweb/";
+                $KG["rcid"] = "spadesktopweb";
+                $KG["version"] = "$version";
+                $KG["staticContentPath"] =  "";
+
+                voltmx.appinit.initappcache();
+            }
+            var head = document.getElementsByTagName('head')[0];
+            var script = document.createElement('script');
+            appStartTime = new Date().getTime();
+            script.src = "desktopweb/jslib/voltmxinit.js";
+            //onreadystatechange for IE, IE9 supports both onload and onreadystatechange.
+            if(!script.addEventListener){
+                    script.onreadystatechange = function(){
+                            (this.readyState == 'complete' || this.readyState == 'loaded') && initappcache();
+                    };
+            }
+            else {
+                script.onload = initappcache;
+            }
+            head.appendChild(script);
+    #end
+
+
+    </script>
+ <style>
+    #JavaScriptDisabledErrorMsg { display:none; }
+ </style>
+ <noscript>
+    <style type='text/css'>
+        form {display: none !important}
+        * html ul li {height:1em; vertical-align:bottom;}
+        html {display : block}
+        #JavaScriptDisabledErrorMsg {display:block;}
+        #splashScreen_main{display:none;}
+    </style>
+    <div id="JavaScriptDisabledErrorMsg"> $javascripterrormsg </div>
+ </noscript>
+ </DIV>

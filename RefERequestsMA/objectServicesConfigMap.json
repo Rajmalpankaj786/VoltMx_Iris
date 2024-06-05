@@ -1,0 +1,16 @@
+{
+    "RefERequests_Request": {
+        "servicename": "RefERequests",
+        "serviceid": "776b9b22-7bf5-4dcc-8ea2-20d11c434ecf",
+        "type": "objectsvcs",
+        "objectname": "Request",
+        "objectid": "453753"
+    },
+    "RefERequests_RequestCategory": {
+        "servicename": "RefERequests",
+        "serviceid": "776b9b22-7bf5-4dcc-8ea2-20d11c434ecf",
+        "type": "objectsvcs",
+        "objectname": "RequestCategory",
+        "objectid": "453754"
+    }
+}

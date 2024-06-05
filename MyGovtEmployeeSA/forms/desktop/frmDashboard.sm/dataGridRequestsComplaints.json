@@ -1,0 +1,215 @@
+{
+    "@class": "com.kony.gen.viz.model.component.KVizTable",
+    "DNDConfig": null,
+    "_data_": [
+        {
+            "Description": "RC 13",
+            "ID": "RC 11",
+            "Location": "",
+            "Status": "",
+            "TechnicianAssigned": "",
+            "Type": "RC 12"
+        },
+        {
+            "Description": "RC 23",
+            "ID": "RC 21",
+            "Location": "",
+            "Status": "",
+            "TechnicianAssigned": "",
+            "Type": "RC 22"
+        },
+        {
+            "Description": "RC 33",
+            "ID": "RC 31",
+            "Location": "",
+            "Status": "",
+            "TechnicianAssigned": "",
+            "Type": "RC 32"
+        },
+        {
+            "Description": "RC 43",
+            "ID": "RC 41",
+            "Location": "",
+            "Status": "",
+            "TechnicianAssigned": "",
+            "Type": "RC 42"
+        }
+    ],
+    "_height_": {
+        "type": "string",
+        "value": "100%"
+    },
+    "_margin_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_padding_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_width_": {
+        "type": "string",
+        "value": "100%"
+    },
+    "canUpdateUI": true,
+    "cellBorder": "1px solid #F4F4F4",
+    "centerx": {
+        "type": "string",
+        "value": "50%"
+    },
+    "centery": {
+        "type": "string",
+        "value": "50%"
+    },
+    "columnheadersconfig": [
+        {
+            "columnContentAlignment": 5,
+            "columnHeaderTemplate": null,
+            "columnHeaderText": "ID",
+            "columnHeaderType": "text",
+            "columnID": "ID",
+            "columnOnClick": null,
+            "columnText": "Not Defined",
+            "columnType": "text",
+            "columnWidthInPercentage": 16,
+            "ide_onClick": null,
+            "isColumnSortable": false,
+            "kuid": "c276c77ec1b3442a864760b4b511a610"
+        },
+        {
+            "columnContentAlignment": 5,
+            "columnHeaderTemplate": null,
+            "columnHeaderText": "Type",
+            "columnHeaderType": "text",
+            "columnID": "Type",
+            "columnOnClick": null,
+            "columnText": "Not Defined",
+            "columnType": "text",
+            "columnWidthInPercentage": 16,
+            "ide_onClick": null,
+            "isColumnSortable": false,
+            "kuid": "be6e9153bae24f9f8a1ff60ca94f8f31"
+        },
+        {
+            "columnContentAlignment": 5,
+            "columnHeaderTemplate": null,
+            "columnHeaderText": "Description",
+            "columnHeaderType": "text",
+            "columnID": "Description",
+            "columnOnClick": null,
+            "columnText": "Not Defined",
+            "columnType": "text",
+            "columnWidthInPercentage": 16,
+            "ide_onClick": null,
+            "isColumnSortable": false,
+            "kuid": "f89bf825398545dd951070bbda06529c"
+        },
+        {
+            "columnContentAlignment": 5,
+            "columnHeaderTemplate": null,
+            "columnHeaderText": "Location",
+            "columnHeaderType": "text",
+            "columnID": "Location",
+            "columnOnClick": null,
+            "columnText": "Not Defined",
+            "columnType": "text",
+            "columnWidthInPercentage": 16,
+            "ide_onClick": null,
+            "isColumnSortable": false,
+            "kuid": "i57e12f57cae47d086a88eb2cb6fc65e"
+        },
+        {
+            "columnContentAlignment": 5,
+            "columnHeaderTemplate": null,
+            "columnHeaderText": "Status",
+            "columnHeaderType": "text",
+            "columnID": "Status",
+            "columnOnClick": null,
+            "columnText": "Not Defined",
+            "columnType": "text",
+            "columnWidthInPercentage": 16,
+            "ide_onClick": null,
+            "isColumnSortable": false,
+            "kuid": "j600c0b38b224e88b0b2291270ce0d35"
+        },
+        {
+            "columnContentAlignment": 5,
+            "columnHeaderTemplate": null,
+            "columnHeaderText": "TechnicianAssigned",
+            "columnHeaderType": "text",
+            "columnID": "TechnicianAssigned",
+            "columnOnClick": null,
+            "columnText": "Not Defined",
+            "columnType": "text",
+            "columnWidthInPercentage": 16,
+            "ide_onClick": null,
+            "isColumnSortable": false,
+            "kuid": "h568ae5b2b0b4e98875334e069832256"
+        }
+    ],
+    "columnids": [
+        "ID",
+        "Type",
+        "Description",
+        "Location",
+        "Status",
+        "TechnicianAssigned"
+    ],
+    "columntype": [
+        "text",
+        "text",
+        "text",
+        "text",
+        "text",
+        "text"
+    ],
+    "containerweight": 100,
+    "contentalignment": 5,
+    "counter": "35",
+    "crInstance": null,
+    "desktopweb": {
+        "psp": {
+            "dockingHeader": true,
+            "enableScrollBar": 1
+        }
+    },
+    "dockingheader": true,
+    "enablescrollbar": 1,
+    "focusedindex": null,
+    "focuseditem": null,
+    "gridlinestyle": "solid",
+    "headerskin": "se939a9bb4a944018d0cb439178b15c0",
+    "id": "dataGridRequestsComplaints",
+    "info": null,
+    "iscustomlayout": false,
+    "ismultiselect": false,
+    "isvisible": true,
+    "kuid": "hc1262559b3645e0af3e533445fe2667",
+    "name": "kony.ui.DataGrid",
+    "parent": "flxRequestsComplaintsDetails",
+    "pf": "frmDashboard",
+    "responsiveData": {
+        "b3": {
+            "isVisible": false
+        }
+    },
+    "retaincontentalignment": false,
+    "retainflexpositionproperties": false,
+    "rowalternateskin": "scd25f023c15492193877d5cd4d66025",
+    "rowcount": 4,
+    "rowfocusskin": "s641327b1c0143cdacf36c9377c8ba23",
+    "rownormalskin": "scd25f023c15492193877d5cd4d66025",
+    "selectedcellindex": null,
+    "selectedcellitem": null,
+    "selectedindex": null,
+    "selectedindices": null,
+    "selecteditem": null,
+    "selecteditems": null,
+    "showcolumnheaders": true,
+    "wType": "DataGrid",
+    "zindex": 1
+}
