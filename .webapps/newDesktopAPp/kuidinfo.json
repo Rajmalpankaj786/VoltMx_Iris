@@ -1,0 +1,127 @@
+{
+    "idToKuidMapping": {
+        "androidwear": {},
+        "desktop": {
+            "Form1": "b24c3beb933c44bc988abdd157bb2802",
+            "Form2": "cb871b1e1100439095ec130779bbf01e",
+            "SampleRowTemplate": "j86d41f8ff0c422298b0fd516d80e7da",
+            "SampleSectionHeaderTemplate": "bb0baa8a58c54d67b447845f15ce657b"
+        },
+        "masters": {},
+        "mobile": {},
+        "skins": {
+            "s4423f24357a487aa37952fc19b513f1": "s5e44e6e29ef4981b960cad6b622a92e",
+            "s8cc395fe328452e8d4b98b478badaab": "se342649b0eb4c9bba387b26981e6164",
+            "sd63765c86af4a57aea8e99202871e4f": "sec6a54ddfba406ab450ff9407ad2c41",
+            "sknLblDescription": "sf61a32cd158401da4039f2dc69d4de4",
+            "sknLblRowHeading": "s672ec8b409f4bd7a6ee35eecb328916",
+            "sknLblStrip": "s4c01fd57ccd462991084c2cf8713bbd",
+            "sknLblTimeStamp": "s36514347d80487999f5b6ea462f548a",
+            "sknLoginButton0def7a443090141": "s3319ee72e2a4f328bcb4b84c7647dbd",
+            "sknLoginButtonFocus0ff2bfdaba02944": "s95a700230d14604b3a88baaaa47daf0",
+            "sknLoginFlex0fa872d06104f44": "s25f3c69c83d41758a7ca51603066ed5",
+            "sknLoginTextBox0a1c50fef13a24a": "s8b5ae94e45a4e0b80a69af754da1b66",
+            "sknLoginTextBoxPlaceholder0ge75010bf1814c": "se2baa1f613b48ef9c1fd8e0398004b0",
+            "sknSampleRowTemplate": "s17b000515fa4db6bb2d5a71191bec63",
+            "sknSampleSectionHeaderTemplate": "sf04bb4531b446ac935361584d1efecf",
+            "sknSectionHeaderLabelSkin": "s96f2a15d66c413ba8227fcb8355961f",
+            "slDynamicNotificationForm": "s2434222e2c44d35aafd6f587689d0ca",
+            "slFbox": "s854c01044fe40cab10196ae24fc7c6d",
+            "slForm": "s4d2a8d2ed654607be3cbc0dc05d8a82",
+            "slImage0e7b87770954443": "sed77fdb6af04d74a0feebc053a6a481",
+            "slSplashiOS": "saee662bedb940419c5bc07d61b5154c",
+            "slStaticNotificationForm": "sde8e58a2f3948cd999fff43c5820959",
+            "slTitleBar": "sbfd4dd2fa414c2e87df2aaeaad563b1",
+            "slWatchForm": "s39a1897ba5841fdab2299af0d150d60"
+        },
+        "tablet": {},
+        "userwidgets": {}
+    },
+    "kuidDependencyMap": {
+        "s17b000515fa4db6bb2d5a71191bec63": [
+            "j86d41f8ff0c422298b0fd516d80e7da"
+        ],
+        "s25f3c69c83d41758a7ca51603066ed5": [
+            "cb871b1e1100439095ec130779bbf01e"
+        ],
+        "s3319ee72e2a4f328bcb4b84c7647dbd": [
+            "cb871b1e1100439095ec130779bbf01e"
+        ],
+        "s36514347d80487999f5b6ea462f548a": [
+            "j86d41f8ff0c422298b0fd516d80e7da"
+        ],
+        "s4c01fd57ccd462991084c2cf8713bbd": [
+            "j86d41f8ff0c422298b0fd516d80e7da"
+        ],
+        "s4d2a8d2ed654607be3cbc0dc05d8a82": [
+            "b24c3beb933c44bc988abdd157bb2802",
+            "cb871b1e1100439095ec130779bbf01e"
+        ],
+        "s672ec8b409f4bd7a6ee35eecb328916": [
+            "j86d41f8ff0c422298b0fd516d80e7da"
+        ],
+        "s8b5ae94e45a4e0b80a69af754da1b66": [
+            "cb871b1e1100439095ec130779bbf01e"
+        ],
+        "s95a700230d14604b3a88baaaa47daf0": [
+            "cb871b1e1100439095ec130779bbf01e"
+        ],
+        "s96f2a15d66c413ba8227fcb8355961f": [
+            "bb0baa8a58c54d67b447845f15ce657b"
+        ],
+        "se2baa1f613b48ef9c1fd8e0398004b0": [
+            "cb871b1e1100439095ec130779bbf01e"
+        ],
+        "sed77fdb6af04d74a0feebc053a6a481": [
+            "cb871b1e1100439095ec130779bbf01e"
+        ],
+        "sf04bb4531b446ac935361584d1efecf": [
+            "bb0baa8a58c54d67b447845f15ce657b"
+        ],
+        "sf61a32cd158401da4039f2dc69d4de4": [
+            "j86d41f8ff0c422298b0fd516d80e7da"
+        ]
+    },
+    "kuidInfo": {
+        "androidwear": {},
+        "desktop": {
+            "b24c3beb933c44bc988abdd157bb2802": {
+                "appName": "newDesktopAPp",
+                "id": "Form1",
+                "relFormId": "Form1",
+                "templateType": "forms",
+                "widgetInfo": {
+                    "mapWgtPltfrms": [],
+                    "videoWgtPltfrms": []
+                }
+            },
+            "bb0baa8a58c54d67b447845f15ce657b": {
+                "appName": "newDesktopAPp",
+                "id": "SampleSectionHeaderTemplate",
+                "templateType": "segments",
+                "topFlexId": "flxSectionHeaderTemplate"
+            },
+            "cb871b1e1100439095ec130779bbf01e": {
+                "appName": "newDesktopAPp",
+                "id": "Form2",
+                "relFormId": "Form2",
+                "templateType": "forms",
+                "widgetInfo": {
+                    "mapWgtPltfrms": [],
+                    "videoWgtPltfrms": []
+                }
+            },
+            "j86d41f8ff0c422298b0fd516d80e7da": {
+                "appName": "newDesktopAPp",
+                "id": "SampleRowTemplate",
+                "templateType": "segments",
+                "topFlexId": "flxSampleRowTemplate"
+            }
+        },
+        "masters": {},
+        "mobile": {},
+        "tablet": {},
+        "userwidgets": {}
+    },
+    "userWidgetsKuidToIdMap": {}
+}

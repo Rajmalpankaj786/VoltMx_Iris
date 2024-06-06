@@ -1,0 +1,48 @@
+{
+    "desktopweb": {
+        "platform": "desktopweb",
+        "indexjl": "js",
+        "appName": "newDesktopAPp",
+        "buildWar": "false",
+        "librarymode": "css",
+        "devicemessage": "Unknown Error Occurred <br/> Contact System Admin",
+        "deviceexception": "This device is currently not supported",
+        "importjsfiles": [],
+        "javascripterrormsg": "To use this site, first enable your browser's JavaScript support and then refresh this page.",
+        "version": "1.0.0",
+        "category": "desktopweb/",
+        "bgcolor": "#ffffff",
+        "cssLazyLoad": true,
+        "customFontsList": ["FontAwesome"],
+        "customFontsUrlList": ["url('desktopweb/FontAwesome.ttf'), url('desktopweb/FontAwesome.eot')"],
+        "fontsObj": {
+            "FontAwesome": "url('desktopweb/FontAwesome.ttf'), url('desktopweb/FontAwesome.eot')"
+        },
+        "style": "width: 100%; margin: 0px; padding: 0px;",
+        "bodyalign": "left",
+        "bodyAttrs": "style = \"width: 100%; margin: 0px; padding: 0px;\"  aria-busy=\"true\" aria-live=\"polite\" aria-relevant=\"additions\" aria-atomic=\"false\"",
+        "enablexfsdw": false,
+        "enablexfs": "false",
+        "isDebug": "false",
+        "csslist": [],
+        "jslist": [],
+        "enableViewportZooming": false,
+        "webcsslist": [],
+        "webjslist": [],
+        "webheadertags": [],
+        "htmlAttrs": "",
+        "ieMetaTag": "<meta http-equiv=\"X-UA-Compatble\" content=\"IE=edge\">",
+        "headPageFileName": "@cacheid@/desktopweb/head.html",
+        "bodyPageFileName": "@cacheid@/desktopweb/body.html",
+        "baseTag": "<base href= \"/apps/newDesktopAPp/@cacheid@/\" target = \"_blank\"/>",
+        "baseLocalTag": "<base href= \"./\" target = \"_blank\"/>"
+    },
+    "indexPage": {
+        "headPageFileName": "@cacheid@/desktopweb/head.html",
+        "bodyPageFileName": "@cacheid@/desktopweb/body.html",
+        "baseTag": "<base href= \"/apps/newDesktopAPp/@cacheid@/\" target = \"_blank\"/>",
+        "ieMetaTag": "<meta http-equiv=\"X-UA-Compatble\" content=\"IE=edge\">",
+        "htmlAttrs": "",
+        "bodyAttrs": "style = \"width: 100%; margin: 0px; padding: 0px;\"  aria-busy=\"true\" aria-live=\"polite\" aria-relevant=\"additions\" aria-atomic=\"false\""
+    }
+}

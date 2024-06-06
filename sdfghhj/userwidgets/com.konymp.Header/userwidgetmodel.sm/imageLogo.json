@@ -1,0 +1,88 @@
+{
+    "@class": "com.kony.gen.viz.model.component.KVizImage2",
+    "DNDConfig": null,
+    "__parentReadjusting__": false,
+    "_base64_": null,
+    "_height_": {
+        "type": "string",
+        "value": "40dp"
+    },
+    "_left_": {
+        "type": "string",
+        "value": "10%"
+    },
+    "_margin_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_padding_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_skin_": "s65e2ce52f4c4206a7cf226b20f41621",
+    "_src_": "logo_1.png",
+    "_top_": {
+        "type": "number",
+        "value": "0"
+    },
+    "_width_": {
+        "type": "string",
+        "value": "75dp"
+    },
+    "android": {
+        "left": {
+            "type": "string",
+            "value": "0%"
+        }
+    },
+    "canUpdateUI": true,
+    "centery": {
+        "type": "string",
+        "value": "50%"
+    },
+    "containerweight": 100,
+    "context": {
+        "channel": "desktop",
+        "formID": "uwu7dee8638dd949b58956c1367cbee8bd",
+        "platform": "desktopweb",
+        "templateType": "userwidgets",
+        "topLevelBox": null
+    },
+    "id": "imageLogo",
+    "imagescalemode": 1,
+    "info": null,
+    "iphone": {
+        "left": {
+            "type": "string",
+            "value": "0%"
+        }
+    },
+    "iscustomlayout": false,
+    "isvisible": true,
+    "kuid": "u3d6abce1d9f482f9476430f722440d7",
+    "name": "kony.ui.Image2",
+    "parent": "Header",
+    "pf": "userwidgetmodel",
+    "retaincontentalignment": false,
+    "retainflexpositionproperties": false,
+    "spaan": {
+        "left": {
+            "type": "string",
+            "value": "0%"
+        }
+    },
+    "spaip": {
+        "left": {
+            "type": "string",
+            "value": "0%"
+        }
+    },
+    "srcType": 1,
+    "wType": "Image",
+    "widgetalignment": 5,
+    "zindex": 1
+}
