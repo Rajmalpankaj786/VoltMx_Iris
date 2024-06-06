@@ -1,0 +1,71 @@
+        <div id="app_splash" class = "splash">
+            
+            <script type="text/javascript">
+            
+                setTimeout(function() {
+                    initappcache();
+                }, 0);
+
+
+                function initappcache () {
+                    if(document.documentElement.getAttribute("manifest") && !! window.applicationCache) {
+                        var a = ["checking", "downloading", "progress", "cached", "noupdate", "updateready", "obsolete", "error"];
+                        for (var d = 0; d < a.length; d++) {
+                                window.applicationCache.addEventListener(a[d],appcacheeventhndlr, false)
+                        }
+                    } else {
+                            //voltmx.appinit.loadlibrarysync();
+                    }
+                }
+
+                function appcacheeventhndlr(event) {
+                    if(!event)
+                        event = window.event;
+                    switch (event.type) {
+                        case "checking":
+                            console.log("Checking for Manifest Version");
+                            break;
+
+                        case "downloading":
+                            console.log("Downloading of Manifest Resources");
+                            break;
+
+                        case "progress":
+                            break;
+
+                        case "cached":
+                            console.log("Manifest Resources loading done");
+                            break;
+
+                        case "noupdate":
+                            console.log("No Change in Manifest File");
+                            break;
+
+                        case "updateready":
+                            console.log("New manifest resources downloaded,swap the cache");
+                            try{
+                                window.applicationCache.swapCache();
+                                window.location.reload();
+                            }catch (e) {
+                                console.log("invalid state: swapping the cache");
+                            }
+                            break;
+
+                        case "obsolete":
+                            console.log("Cache Manifest file not found. So deleting app cache");
+                            break;
+
+                        case "error":
+                            console.log("Error while loading app cache");
+                            break;
+                        default:
+                            console.log("Appcache Event not supported");
+                    }
+                }
+            
+            </script>
+            <noscript>
+                <div id="JavaScriptDisabledErrorMsg"> To use this site, first enable your browser's JavaScript support and then refresh this page. </div>
+            </noscript>
+
+        </div>

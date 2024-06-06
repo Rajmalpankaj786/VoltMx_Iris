@@ -1,0 +1,104 @@
+{
+    "DNDConfig": null,
+    "__parentReadjusting__": false,
+    "_height_": {
+        "type": "string",
+        "value": "100%"
+    },
+    "_left_": {
+        "type": "string",
+        "value": ""
+    },
+    "_margin_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_orientation_": 6,
+    "_padding_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_percent_": true,
+    "_right_": {
+        "type": "string",
+        "value": "10%"
+    },
+    "_skin_": "s156b1a5f9e94833a4beac3bda95f1c9",
+    "_top_": {
+        "type": "number",
+        "value": "0"
+    },
+    "_width_": {
+        "type": "string",
+        "value": "300dp"
+    },
+    "allboxes": [],
+    "android": {
+        "left": {
+            "type": "string",
+            "value": "90dp"
+        },
+        "width": {
+            "type": "string",
+            "value": "300dp"
+        }
+    },
+    "autogrowmode": 0,
+    "canUpdateUI": true,
+    "children": [
+        "Link1",
+        "label1",
+        "Link2",
+        "Label2",
+        "Link3",
+        "Label3",
+        "Link4"
+    ],
+    "clipbounds": true,
+    "containerweight": 100,
+    "enablescrolling": true,
+    "id": "HyperLinkContainer",
+    "info": null,
+    "iphone": {
+        "left": {
+            "type": "string",
+            "value": "90dp"
+        },
+        "width": {
+            "type": "string",
+            "value": "277dp"
+        }
+    },
+    "isvisible": true,
+    "kuid": "u6773e04cd7f4ae090ed5d6ff29103cf",
+    "layouttype": 3,
+    "masterType": 1,
+    "name": "kony.ui.FlexContainer",
+    "parent": "Header",
+    "pf": "userwidgetmodel",
+    "snapgridsize": 10,
+    "snaptogrid": true,
+    "spaan": {
+        "left": {
+            "type": "string",
+            "value": "90dp"
+        }
+    },
+    "spaip": {
+        "left": {
+            "type": "string",
+            "value": "90dp"
+        },
+        "width": {
+            "type": "string",
+            "value": "270dp"
+        }
+    },
+    "wType": "FlexContainer",
+    "widgetalignment": 1,
+    "zindex": 1
+}

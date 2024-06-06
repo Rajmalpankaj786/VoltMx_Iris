@@ -1,0 +1,79 @@
+{
+    "@class": "com.kony.gen.viz.model.component.KVizTextBox2",
+    "DNDConfig": null,
+    "_bottom_": {
+        "type": "string",
+        "value": "0dp"
+    },
+    "_height_": {
+        "type": "string",
+        "value": "100%"
+    },
+    "_left_": {
+        "type": "string",
+        "value": "5%"
+    },
+    "_margin_": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "_padding_": [
+        3,
+        0,
+        0,
+        0
+    ],
+    "_placeholder_": "Username",
+    "_right_": {
+        "type": "string",
+        "value": "5%"
+    },
+    "_skin_": "s8b5ae94e45a4e0b80a69af754da1b66",
+    "_text_": "",
+    "_width_": {
+        "type": "string",
+        "value": "100%"
+    },
+    "autocapitalize": "none",
+    "autocomplete": false,
+    "autocorrect": false,
+    "autofilter": false,
+    "canUpdateUI": true,
+    "centerx": {
+        "type": "string",
+        "value": "50%"
+    },
+    "containerheight": "",
+    "containerheightmode": 1,
+    "containerweight": 100,
+    "contentalignment": 4,
+    "desktopweb": {
+        "placeholderSkin": "se2baa1f613b48ef9c1fd8e0398004b0"
+    },
+    "disabledSkins": {},
+    "focusskin": "s8b5ae94e45a4e0b80a69af754da1b66",
+    "id": "txtUserName",
+    "info": null,
+    "iscustomlayout": false,
+    "isvisible": true,
+    "keyboardtype": "A",
+    "kuid": "ed4466eba0e64cc4939514d5acd4bca9",
+    "mode": "A",
+    "name": "kony.ui.TextBox2",
+    "parent": "flexUserName",
+    "pf": "Form1",
+    "placeholderskin": "sd63765c86af4a57aea8e99202871e4f",
+    "responsiveData": {
+        "b4": {}
+    },
+    "retaincontentalignment": false,
+    "retainflexpositionproperties": false,
+    "securetextentry": false,
+    "textinputmode": "A",
+    "tooltip": "",
+    "viewtype": "default",
+    "wType": "TextField",
+    "zindex": 1
+}

@@ -78325,7 +78325,7 @@ voltmx.appinit.setApplicationMetaConfiguration("defaultLocale", "en");
 voltmx.appinit.setApplicationMetaConfiguration("locales", ["en", "es", "fr"]);
 voltmx.appinit.setApplicationMetaConfiguration("i18nArray", []);
 voltmx.appinit.setApplicationMetaConfiguration("localization", "true");
-voltmx.appinit.setApplicationMetaConfiguration("i18nVersion", "1527876841");
+voltmx.appinit.setApplicationMetaConfiguration("i18nVersion", "930486122");
 //startup.js
 var appConfig = {
     appId: "RefGovtCitizenSA",

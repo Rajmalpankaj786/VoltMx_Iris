@@ -1,0 +1,28 @@
+{
+    "models": {
+        "desktop": {
+            "1366": {
+                "class": "GraphLinksModel",
+                "linkDataArray": [],
+                "nodeDataArray": [
+                    {
+                        "formKUID": "b24c3beb933c44bc988abdd157bb2802",
+                        "formName": "Form1",
+                        "isStartupForm": true,
+                        "key": "b24c3beb933c44bc988abdd157bb2802",
+                        "loc": "8 24.845263671875003",
+                        "thumbnailURL": null
+                    },
+                    {
+                        "formKUID": "cb871b1e1100439095ec130779bbf01e",
+                        "formName": "Form2",
+                        "isStartupForm": false,
+                        "key": "cb871b1e1100439095ec130779bbf01e",
+                        "loc": "228 264.845263671875",
+                        "thumbnailURL": null
+                    }
+                ]
+            }
+        }
+    }
+}
